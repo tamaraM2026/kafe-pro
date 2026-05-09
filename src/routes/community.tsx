@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import featuredImg from "@/assets/featured-pastry.jpg";
+import adelaImg from "@/assets/member-adela.jpg";
 
 export const Route = createFileRoute("/community")({
   head: () => ({
@@ -20,6 +21,7 @@ type Member = {
   bio: string;
   url: string;
   urlLabel: string;
+  image?: string;
 };
 
 const members: Member[] = [
@@ -30,6 +32,7 @@ const members: Member[] = [
     bio: "Photography is not just a job for me, it's a way of life. Each image is a challenge to combine technical precision with artistic sensibility — a way of sharing stories, emotions, and journeys with the world.",
     url: "https://www.adelafialova.com/",
     urlLabel: "adelafialova.com",
+    image: adelaImg,
   },
   {
     name: "Zuzana Koláčková",
