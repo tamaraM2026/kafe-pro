@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import featuredImg from "@/assets/featured-pastry.jpg";
 
 export const Route = createFileRoute("/community")({
   head: () => ({
@@ -136,9 +137,14 @@ function CommunityPage() {
                 Learn more →
               </a>
             </div>
-            <div className="relative aspect-[5/4] rounded-2xl bg-gradient-to-br from-terracotta/30 via-cream to-sage/30 flex items-center justify-center">
-              <span className="font-display text-7xl text-burgundy/60">📸</span>
-            </div>
+            <img
+              src={featuredImg}
+              alt="Foťte mobilem jako profesionál"
+              width={756}
+              height={566}
+              className="rounded-2xl object-cover w-full aspect-[5/4] shadow-md"
+            />
+
           </div>
         </div>
       </section>
