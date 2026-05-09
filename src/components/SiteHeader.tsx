@@ -6,6 +6,7 @@ const nav = [
   { to: "/about", label: "What Kafe is" },
   { to: "/founder", label: "Founder" },
   { to: "/memberships", label: "Memberships" },
+  { to: "/community", label: "Community" },
   { to: "/contact", label: "Contact" },
 ];
 
