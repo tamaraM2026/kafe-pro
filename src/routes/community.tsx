@@ -167,12 +167,12 @@ function CommunityPage() {
                     <img
                       src={m.image}
                       alt={m.name}
-                      width={80}
-                      height={80}
-                      className="h-20 w-20 rounded-full object-cover"
+                      width={144}
+                      height={144}
+                      className="h-28 w-28 md:h-36 md:w-36 rounded-2xl object-cover"
                     />
                   ) : (
-                    <div className="h-20 w-20 rounded-full bg-burgundy text-primary-foreground flex items-center justify-center font-display text-2xl">
+                    <div className="h-28 w-28 md:h-36 md:w-36 rounded-2xl bg-burgundy text-primary-foreground flex items-center justify-center font-display text-3xl">
                       {initials(m.name)}
                     </div>
                   )}
