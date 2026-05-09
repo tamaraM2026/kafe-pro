@@ -16,7 +16,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 backdrop-blur-md bg-background/80 border-b border-border/50">
       <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between gap-6">
         <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt="Kafe con Propósito" width={80} height={80} className="h-20 w-20" />
+          <img src={logo} alt="Kafe con Propósito" width={112} height={112} className="h-24 w-24 md:h-28 md:w-28 object-contain" />
           <span className="font-display text-xl md:text-2xl text-burgundy tracking-tight">
             Kafe con Propósito
           </span>
