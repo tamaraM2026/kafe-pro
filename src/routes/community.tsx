@@ -163,9 +163,19 @@ function CommunityPage() {
             {members.map((m) => (
               <article key={m.name} className="bg-background rounded-3xl p-8 border border-border/50 shadow-sm flex gap-6">
                 <div className="shrink-0">
-                  <div className="h-20 w-20 rounded-full bg-burgundy text-primary-foreground flex items-center justify-center font-display text-2xl">
-                    {initials(m.name)}
-                  </div>
+                  {m.image ? (
+                    <img
+                      src={m.image}
+                      alt={m.name}
+                      width={80}
+                      height={80}
+                      className="h-20 w-20 rounded-full object-cover"
+                    />
+                  ) : (
+                    <div className="h-20 w-20 rounded-full bg-burgundy text-primary-foreground flex items-center justify-center font-display text-2xl">
+                      {initials(m.name)}
+                    </div>
+                  )}
                 </div>
                 <div className="min-w-0">
                   <h3 className="font-display text-2xl text-burgundy">{m.name}</h3>
