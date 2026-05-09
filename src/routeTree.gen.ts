@@ -13,6 +13,7 @@ import { Route as MembershipsRouteImport } from './routes/memberships'
 import { Route as FounderRouteImport } from './routes/founder'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CommunityRouteImport } from './routes/community'
+import { Route as CeskyRouteImport } from './routes/cesky'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -36,6 +37,11 @@ const CommunityRoute = CommunityRouteImport.update({
   path: '/community',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CeskyRoute = CeskyRouteImport.update({
+  id: '/cesky',
+  path: '/cesky',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -50,6 +56,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/cesky': typeof CeskyRoute
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
   '/founder': typeof FounderRoute
@@ -58,6 +65,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/cesky': typeof CeskyRoute
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
   '/founder': typeof FounderRoute
@@ -67,6 +75,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/cesky': typeof CeskyRoute
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
   '/founder': typeof FounderRoute
@@ -77,16 +86,25 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/cesky'
     | '/community'
     | '/contact'
     | '/founder'
     | '/memberships'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/community' | '/contact' | '/founder' | '/memberships'
+  to:
+    | '/'
+    | '/about'
+    | '/cesky'
+    | '/community'
+    | '/contact'
+    | '/founder'
+    | '/memberships'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/cesky'
     | '/community'
     | '/contact'
     | '/founder'
@@ -96,6 +114,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  CeskyRoute: typeof CeskyRoute
   CommunityRoute: typeof CommunityRoute
   ContactRoute: typeof ContactRoute
   FounderRoute: typeof FounderRoute
@@ -132,6 +151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CommunityRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cesky': {
+      id: '/cesky'
+      path: '/cesky'
+      fullPath: '/cesky'
+      preLoaderRoute: typeof CeskyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -152,6 +178,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  CeskyRoute: CeskyRoute,
   CommunityRoute: CommunityRoute,
   ContactRoute: ContactRoute,
   FounderRoute: FounderRoute,
@@ -160,3 +187,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
