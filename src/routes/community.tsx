@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import featuredImg from "@/assets/featured-pastry.jpg";
+import adelaImg from "@/assets/member-adela.jpg";
 
 export const Route = createFileRoute("/community")({
   head: () => ({
@@ -20,6 +21,7 @@ type Member = {
   bio: string;
   url: string;
   urlLabel: string;
+  image?: string;
 };
 
 const members: Member[] = [
@@ -30,6 +32,7 @@ const members: Member[] = [
     bio: "Photography is not just a job for me, it's a way of life. Each image is a challenge to combine technical precision with artistic sensibility — a way of sharing stories, emotions, and journeys with the world.",
     url: "https://www.adelafialova.com/",
     urlLabel: "adelafialova.com",
+    image: adelaImg,
   },
   {
     name: "Zuzana Koláčková",
@@ -160,9 +163,19 @@ function CommunityPage() {
             {members.map((m) => (
               <article key={m.name} className="bg-background rounded-3xl p-8 border border-border/50 shadow-sm flex gap-6">
                 <div className="shrink-0">
-                  <div className="h-20 w-20 rounded-full bg-burgundy text-primary-foreground flex items-center justify-center font-display text-2xl">
-                    {initials(m.name)}
-                  </div>
+                  {m.image ? (
+                    <img
+                      src={m.image}
+                      alt={m.name}
+                      width={80}
+                      height={80}
+                      className="h-20 w-20 rounded-full object-cover"
+                    />
+                  ) : (
+                    <div className="h-20 w-20 rounded-full bg-burgundy text-primary-foreground flex items-center justify-center font-display text-2xl">
+                      {initials(m.name)}
+                    </div>
+                  )}
                 </div>
                 <div className="min-w-0">
                   <h3 className="font-display text-2xl text-burgundy">{m.name}</h3>
