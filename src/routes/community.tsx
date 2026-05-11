@@ -4,6 +4,7 @@ import adelaImg from "@/assets/member-adela.jpg";
 import zuzanaImg from "@/assets/member-zuzana.jpg";
 import tamaraImg from "@/assets/member-tamara.jpg";
 import ivetaImg from "@/assets/member-iveta.jpg";
+import viktoriaImg from "@/assets/member-viktoria.jpg";
 
 export const Route = createFileRoute("/community")({
   head: () => ({
@@ -71,6 +72,7 @@ const members: Member[] = [
     bio: "I work with women at the intersection of movement, breath, and mind — believing that connection, to others and to ourselves, is the first step back to who we truly are.",
     url: "https://www.mameetus.cz/",
     urlLabel: "mameetus.cz",
+    image: viktoriaImg,
   },
 ];
 
