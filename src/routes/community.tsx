@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import featuredImg from "@/assets/featured-pastry.jpg";
 import adelaImg from "@/assets/member-adela.jpg";
 import zuzanaImg from "@/assets/member-zuzana.jpg";
+import tamaraImg from "@/assets/member-tamara.jpg";
 
 export const Route = createFileRoute("/community")({
   head: () => ({
@@ -51,6 +52,7 @@ const members: Member[] = [
     bio: "I've always been the person who connects people, who spots the opportunity before anyone else names it. What drives me is the belief that the most powerful thing one woman can do for another is show her she's not alone in it.",
     url: "https://www.kafeconproposito.com/",
     urlLabel: "kafeconproposito.com",
+    image: tamaraImg,
   },
   {
     name: "Iveta Skřivanová",
