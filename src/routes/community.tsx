@@ -3,6 +3,7 @@ import featuredImg from "@/assets/featured-pastry.jpg";
 import adelaImg from "@/assets/member-adela.jpg";
 import zuzanaImg from "@/assets/member-zuzana.jpg";
 import tamaraImg from "@/assets/member-tamara.jpg";
+import ivetaImg from "@/assets/member-iveta.jpg";
 
 export const Route = createFileRoute("/community")({
   head: () => ({
@@ -61,6 +62,7 @@ const members: Member[] = [
     bio: "Vytvářím prostor pro zastavení a vnímání toho, co se ve vás skutečně děje. Skrze naslouchání a prožitek pomáhám lidem vracet se k pravdivosti, klidu a vlastnímu středu.",
     url: "https://ivetaskrivanova.cz/",
     urlLabel: "ivetaskrivanova.cz",
+    image: ivetaImg,
   },
   {
     name: "Viktoria Platonova",
