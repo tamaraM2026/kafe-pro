@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import featuredImg from "@/assets/featured-pastry.jpg";
 import adelaImg from "@/assets/member-adela.jpg";
+import zuzanaImg from "@/assets/member-zuzana.jpg";
 
 export const Route = createFileRoute("/community")({
   head: () => ({
@@ -41,6 +42,7 @@ const members: Member[] = [
     bio: "Vedu ženy k tomu, aby přestaly business jen 'zkoušet' a naučily se ho řídit s jistotou a vědomím. Propojuji vnitřní nastavení s pevnou business strategií — pro stabilní projekty v souladu se životním stylem.",
     url: "https://www.podnikatelkysobe.cz/",
     urlLabel: "podnikatelkysobe.cz",
+    image: zuzanaImg,
   },
   {
     name: "Tamara Medina",
