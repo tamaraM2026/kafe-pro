@@ -11,6 +11,11 @@ const nav = [
   { to: "/contact", label: "Contact" },
 ];
 
+const programmes = [
+  { to: "/business-building-blocks", label: "Business Building Blocks" },
+];
+
+
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md bg-background/80 border-b border-border/50">
@@ -32,10 +37,33 @@ export function SiteHeader() {
               {n.label}
             </Link>
           ))}
+          <div className="relative group">
+            <button
+              type="button"
+              className="px-4 py-2 rounded-full text-sm text-foreground/80 hover:text-burgundy hover:bg-cream transition-colors"
+            >
+              Programmes ▾
+            </button>
+            <div className="absolute right-0 top-full pt-2 hidden group-hover:block group-focus-within:block z-50">
+              <div className="min-w-[240px] bg-background border border-border rounded-2xl shadow-lg p-2">
+                {programmes.map((p) => (
+                  <Link
+                    key={p.to}
+                    to={p.to}
+                    className="block px-4 py-2 rounded-xl text-sm text-foreground/80 hover:text-burgundy hover:bg-cream transition-colors"
+                    activeProps={{ className: "block px-4 py-2 rounded-xl text-sm bg-cream text-burgundy" }}
+                  >
+                    {p.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
         </nav>
         <div className="hidden md:flex items-center gap-2 text-xs text-muted-foreground">
           <span>EN</span><span>·</span><span>ES</span><span>·</span><span>CZ</span>
         </div>
+
       </div>
     </header>
   );

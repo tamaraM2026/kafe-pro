@@ -14,6 +14,7 @@ import { Route as FounderRouteImport } from './routes/founder'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CommunityRouteImport } from './routes/community'
 import { Route as CeskyRouteImport } from './routes/cesky'
+import { Route as BusinessBuildingBlocksRouteImport } from './routes/business-building-blocks'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -42,6 +43,11 @@ const CeskyRoute = CeskyRouteImport.update({
   path: '/cesky',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BusinessBuildingBlocksRoute = BusinessBuildingBlocksRouteImport.update({
+  id: '/business-building-blocks',
+  path: '/business-building-blocks',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -56,6 +62,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/business-building-blocks': typeof BusinessBuildingBlocksRoute
   '/cesky': typeof CeskyRoute
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
@@ -65,6 +72,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/business-building-blocks': typeof BusinessBuildingBlocksRoute
   '/cesky': typeof CeskyRoute
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
@@ -75,6 +83,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/business-building-blocks': typeof BusinessBuildingBlocksRoute
   '/cesky': typeof CeskyRoute
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
@@ -86,6 +95,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/business-building-blocks'
     | '/cesky'
     | '/community'
     | '/contact'
@@ -95,6 +105,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/business-building-blocks'
     | '/cesky'
     | '/community'
     | '/contact'
@@ -104,6 +115,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/business-building-blocks'
     | '/cesky'
     | '/community'
     | '/contact'
@@ -114,6 +126,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  BusinessBuildingBlocksRoute: typeof BusinessBuildingBlocksRoute
   CeskyRoute: typeof CeskyRoute
   CommunityRoute: typeof CommunityRoute
   ContactRoute: typeof ContactRoute
@@ -158,6 +171,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CeskyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/business-building-blocks': {
+      id: '/business-building-blocks'
+      path: '/business-building-blocks'
+      fullPath: '/business-building-blocks'
+      preLoaderRoute: typeof BusinessBuildingBlocksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -178,6 +198,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  BusinessBuildingBlocksRoute: BusinessBuildingBlocksRoute,
   CeskyRoute: CeskyRoute,
   CommunityRoute: CommunityRoute,
   ContactRoute: ContactRoute,
