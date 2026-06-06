@@ -13,6 +13,7 @@ export type Translations = {
     programmesLabel: string;
     programmesItems: {
       bbb: string;
+      tenx: string;
     };
     reserve: string;
     exploreMemberships: string;
@@ -47,6 +48,8 @@ export type Translations = {
     contactDescription: string;
     bbbTitle: string;
     bbbDescription: string;
+    tenxTitle: string;
+    tenxDescription: string;
   };
 
   home: {
@@ -177,5 +180,30 @@ export type Translations = {
     finalCtaHeading: string;
     finalCtaSubheading: string;
     finalCtaButton: string;
+  };
+
+  tenx: {
+    label: string;
+    heading: string;
+    headingEmphasis: string;
+    heroSub: string;
+    pullQuote: string;
+    daysLabel: string;
+    days: string[];
+    forYouLabel: string;
+    forYouItems: string[];
+    tamaraBio: string;
+    tamaraName: string;
+    tamaraRole: string;
+    optInTitle: string;
+    optInTitleEmphasis: string;
+    optInSub: string;
+    namePlaceholder: string;
+    emailPlaceholder: string;
+    errorMsg: string;
+    ctaButton: string;
+    privacyNote: string;
+    successHeading: string;
+    successMessage: string;
   };
 };

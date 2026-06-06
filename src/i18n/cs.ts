@@ -15,6 +15,7 @@ export const cs: Translations = {
     programmesLabel: "Programy",
     programmesItems: {
       bbb: "Business Building Blocks",
+      tenx: "10x Produktivnější",
     },
     reserve: "Zajistit si místo →",
     exploreMemberships: "Nabídka členství",
@@ -56,7 +57,10 @@ export const cs: Translations = {
       "Obraťte se na Kafe con Propósito a rezervujte si místo nebo se na cokoliv zeptejte.",
     bbbTitle: "Business Building Blocks — Kafe con Propósito",
     bbbDescription:
-      'Dvouměsíční program, který vás provede od „Mám nápad“ k „Mám skutečný, fungující byznys.“ Živé workshopy, praktické nástroje, reálný posun vpřed.',
+      'Dvouměsíční program, který vás provede od „Mám nápad" k „Mám skutečný, fungující byznys." Živé workshopy, praktické nástroje, reálný posun vpřed.',
+    tenxTitle: "10x Produktivnější — Kafe con Propósito",
+    tenxDescription:
+      "Bezplatný 10denní průvodce sebekoučinkem s denními cvičeními, reflexemi a akcemi pro 10x vyšší produktivitu.",
   },
 
   home: {
@@ -412,5 +416,47 @@ export const cs: Translations = {
     finalCtaHeading: "Zaregistrujte svůj zájem ještě dnes",
     finalCtaSubheading: "Omezený počet míst.",
     finalCtaButton: "Začít teď →",
+  },
+
+  tenx: {
+    label: "ZDARMA PRŮVODCE",
+    heading: "10 dní. 10 akcí.",
+    headingEmphasis: "10x produktivnější.",
+    heroSub: "Bezplatný průvodce sebekoučinkem s denními cvičeními, reflexemi a akcemi.",
+    pullQuote: "Změna potřebuje čas — ale když každý den uděláte trochu, tyto malé kroky vytvoří nové návyky. Aniž byste si to uvědomily, váš život se promění.",
+    daysLabel: "VAŠE 10DENNÍ CESTA",
+    days: [
+      "Tajemství úspěchu — váš postoj",
+      "Co vás skutečně pohání? Vaše hodnoty",
+      "Proměna snů ve skutečnost",
+      "Co říká váš vnitřní hlas",
+      "Čas — kdo ho řídí?",
+      "Jste tou osobou, kterou chcete být?",
+      "Kam vedou vaše každodenní rozhodnutí",
+      "Moudré volby vlivů kolem vás",
+      "Zodpovědnost a rozhodování",
+      "Péče o sebe — základ všeho",
+    ],
+    forYouLabel: "JE TO PRO VÁS?",
+    forYouItems: [
+      "Víte, že se něco musí změnit, ale nevíte, kde začít",
+      "Máte pořád pocit, že jste zaneprázdněná, ale nejste skutečně produktivní",
+      "Procházíte změnou — kariéra, místo, identita — a chcete jasnost",
+      "Už jste věci začaly a nedokončily, a jste připravena to zkusit jinak",
+      "Chcete praktické denní kroky, ne jen teorii",
+    ],
+    tamaraBio: 'Tento průvodce jsem napsala po letech koučování žen procházejících proměnou — kariérní zvraty, stěhování do jiné země, tiché okamžiky „co teď?", které přicházejí mezi jednou kapitolou a druhou. Těchto 10 dní je esencí toho, co skutečně funguje, když přestanete čekat na správný okamžik a začnete stavět odtamtud, kde jste.',
+    tamaraName: "Tamara Medina Sapovalova",
+    tamaraRole: "Zakladatelka, Kafe con Propósito",
+    optInTitle: "Začněte svou",
+    optInTitleEmphasis: "10denní proměnu",
+    optInSub: "Zadejte své údaje a průvodce vám přijde přímo do schránky — zdarma.",
+    namePlaceholder: "Vaše jméno",
+    emailPlaceholder: "Váš e-mail",
+    errorMsg: "Prosím vyplňte obě pole.",
+    ctaButton: "Pošlete mi průvodce →",
+    privacyNote: "Žádný spam. Odhlásit se můžete kdykoliv.",
+    successHeading: "Jste přihlášena!",
+    successMessage: "Zkontrolujte svou schránku — průvodce je na cestě.",
   },
 };

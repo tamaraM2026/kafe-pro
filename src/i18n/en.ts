@@ -15,6 +15,7 @@ export const en: Translations = {
     programmesLabel: "Programmes",
     programmesItems: {
       bbb: "Business Building Blocks",
+      tenx: "10x Productive",
     },
     reserve: "Reserve my spot →",
     exploreMemberships: "Explore memberships",
@@ -57,6 +58,9 @@ export const en: Translations = {
     bbbTitle: "Business Building Blocks — Kafe con Propósito",
     bbbDescription:
       "A 2-month program that takes you from 'I have an idea' to 'I have a real, working business.' Live workshops, practical tools, real momentum.",
+    tenxTitle: "10x Productive — Kafe con Propósito",
+    tenxDescription:
+      "A free 10-day self-coaching guide with daily exercises, reflections, and actions to become 10 times more productive.",
   },
 
   home: {
@@ -412,5 +416,47 @@ export const en: Translations = {
     finalCtaHeading: "Register your interest today",
     finalCtaSubheading: "Limited spaces.",
     finalCtaButton: "Start now →",
+  },
+
+  tenx: {
+    label: "FREE GUIDE",
+    heading: "10 days. 10 actions.",
+    headingEmphasis: "10 times more productive.",
+    heroSub: "A free self-coaching guide with daily exercises, reflections, and actions.",
+    pullQuote: "Change takes time — but if you do a little every day, these small actions form new habits. Without even realising it, your life shifts.",
+    daysLabel: "YOUR 10-DAY JOURNEY",
+    days: [
+      "The secret of success — your attitude",
+      "What really drives you? Your values",
+      "Turning your dreams into reality",
+      "What your inner voice is saying",
+      "Time — who's in control?",
+      "Are you the person you want to be?",
+      "Where your daily decisions are leading",
+      "Choosing your influences wisely",
+      "Responsibility and decision-making",
+      "Taking care of yourself — the foundation",
+    ],
+    forYouLabel: "IS THIS FOR YOU?",
+    forYouItems: [
+      "You know something needs to change but you're not sure where to start",
+      "You feel busy all the time but not truly productive",
+      "You're in transition — career, location, identity — and want clarity",
+      "You've started things before and not finished them, and you're ready to try differently",
+      "You want practical daily actions, not just theory",
+    ],
+    tamaraBio: "I wrote this guide after years of coaching women through reinvention — career pivots, cross-country moves, the quiet \"what now?\" moments that come between one chapter and the next. These 10 days are the distillation of what actually works when you stop waiting for the right moment and start building from where you are.",
+    tamaraName: "Tamara Medina Sapovalova",
+    tamaraRole: "Founder, Kafe con Propósito",
+    optInTitle: "Start your",
+    optInTitleEmphasis: "10-day transformation",
+    optInSub: "Enter your details and receive the guide straight to your inbox — free.",
+    namePlaceholder: "Your name",
+    emailPlaceholder: "Your email",
+    errorMsg: "Please fill in both fields.",
+    ctaButton: "Send me the guide →",
+    privacyNote: "No spam. Unsubscribe anytime.",
+    successHeading: "You're in!",
+    successMessage: "Check your inbox — the guide is on its way.",
   },
 };
