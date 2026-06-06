@@ -9,51 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as MembershipsRouteImport } from './routes/memberships'
-import { Route as FounderRouteImport } from './routes/founder'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as CommunityRouteImport } from './routes/community'
-import { Route as CeskyRouteImport } from './routes/cesky'
-import { Route as BusinessBuildingBlocksRouteImport } from './routes/business-building-blocks'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as LangRouteRouteImport } from './routes/$lang/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as LangIndexRouteImport } from './routes/$lang/index'
+import { Route as LangMembershipsRouteImport } from './routes/$lang/memberships'
+import { Route as LangFounderRouteImport } from './routes/$lang/founder'
+import { Route as LangContactRouteImport } from './routes/$lang/contact'
+import { Route as LangCommunityRouteImport } from './routes/$lang/community'
+import { Route as LangBusinessBuildingBlocksRouteImport } from './routes/$lang/business-building-blocks'
+import { Route as LangAboutRouteImport } from './routes/$lang/about'
 
-const MembershipsRoute = MembershipsRouteImport.update({
-  id: '/memberships',
-  path: '/memberships',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FounderRoute = FounderRouteImport.update({
-  id: '/founder',
-  path: '/founder',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CommunityRoute = CommunityRouteImport.update({
-  id: '/community',
-  path: '/community',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CeskyRoute = CeskyRouteImport.update({
-  id: '/cesky',
-  path: '/cesky',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BusinessBuildingBlocksRoute = BusinessBuildingBlocksRouteImport.update({
-  id: '/business-building-blocks',
-  path: '/business-building-blocks',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const LangRouteRoute = LangRouteRouteImport.update({
   id: '/$lang',
   path: '/$lang',
@@ -64,140 +29,118 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LangIndexRoute = LangIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => LangRouteRoute,
+} as any)
+const LangMembershipsRoute = LangMembershipsRouteImport.update({
+  id: '/memberships',
+  path: '/memberships',
+  getParentRoute: () => LangRouteRoute,
+} as any)
+const LangFounderRoute = LangFounderRouteImport.update({
+  id: '/founder',
+  path: '/founder',
+  getParentRoute: () => LangRouteRoute,
+} as any)
+const LangContactRoute = LangContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => LangRouteRoute,
+} as any)
+const LangCommunityRoute = LangCommunityRouteImport.update({
+  id: '/community',
+  path: '/community',
+  getParentRoute: () => LangRouteRoute,
+} as any)
+const LangBusinessBuildingBlocksRoute =
+  LangBusinessBuildingBlocksRouteImport.update({
+    id: '/business-building-blocks',
+    path: '/business-building-blocks',
+    getParentRoute: () => LangRouteRoute,
+  } as any)
+const LangAboutRoute = LangAboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => LangRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/$lang': typeof LangRouteRoute
-  '/about': typeof AboutRoute
-  '/business-building-blocks': typeof BusinessBuildingBlocksRoute
-  '/cesky': typeof CeskyRoute
-  '/community': typeof CommunityRoute
-  '/contact': typeof ContactRoute
-  '/founder': typeof FounderRoute
-  '/memberships': typeof MembershipsRoute
+  '/$lang': typeof LangRouteRouteWithChildren
+  '/$lang/about': typeof LangAboutRoute
+  '/$lang/business-building-blocks': typeof LangBusinessBuildingBlocksRoute
+  '/$lang/community': typeof LangCommunityRoute
+  '/$lang/contact': typeof LangContactRoute
+  '/$lang/founder': typeof LangFounderRoute
+  '/$lang/memberships': typeof LangMembershipsRoute
+  '/$lang/': typeof LangIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/$lang': typeof LangRouteRoute
-  '/about': typeof AboutRoute
-  '/business-building-blocks': typeof BusinessBuildingBlocksRoute
-  '/cesky': typeof CeskyRoute
-  '/community': typeof CommunityRoute
-  '/contact': typeof ContactRoute
-  '/founder': typeof FounderRoute
-  '/memberships': typeof MembershipsRoute
+  '/$lang/about': typeof LangAboutRoute
+  '/$lang/business-building-blocks': typeof LangBusinessBuildingBlocksRoute
+  '/$lang/community': typeof LangCommunityRoute
+  '/$lang/contact': typeof LangContactRoute
+  '/$lang/founder': typeof LangFounderRoute
+  '/$lang/memberships': typeof LangMembershipsRoute
+  '/$lang': typeof LangIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/$lang': typeof LangRouteRoute
-  '/about': typeof AboutRoute
-  '/business-building-blocks': typeof BusinessBuildingBlocksRoute
-  '/cesky': typeof CeskyRoute
-  '/community': typeof CommunityRoute
-  '/contact': typeof ContactRoute
-  '/founder': typeof FounderRoute
-  '/memberships': typeof MembershipsRoute
+  '/$lang': typeof LangRouteRouteWithChildren
+  '/$lang/about': typeof LangAboutRoute
+  '/$lang/business-building-blocks': typeof LangBusinessBuildingBlocksRoute
+  '/$lang/community': typeof LangCommunityRoute
+  '/$lang/contact': typeof LangContactRoute
+  '/$lang/founder': typeof LangFounderRoute
+  '/$lang/memberships': typeof LangMembershipsRoute
+  '/$lang/': typeof LangIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/$lang'
-    | '/about'
-    | '/business-building-blocks'
-    | '/cesky'
-    | '/community'
-    | '/contact'
-    | '/founder'
-    | '/memberships'
+    | '/$lang/about'
+    | '/$lang/business-building-blocks'
+    | '/$lang/community'
+    | '/$lang/contact'
+    | '/$lang/founder'
+    | '/$lang/memberships'
+    | '/$lang/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/$lang/about'
+    | '/$lang/business-building-blocks'
+    | '/$lang/community'
+    | '/$lang/contact'
+    | '/$lang/founder'
+    | '/$lang/memberships'
     | '/$lang'
-    | '/about'
-    | '/business-building-blocks'
-    | '/cesky'
-    | '/community'
-    | '/contact'
-    | '/founder'
-    | '/memberships'
   id:
     | '__root__'
     | '/'
     | '/$lang'
-    | '/about'
-    | '/business-building-blocks'
-    | '/cesky'
-    | '/community'
-    | '/contact'
-    | '/founder'
-    | '/memberships'
+    | '/$lang/about'
+    | '/$lang/business-building-blocks'
+    | '/$lang/community'
+    | '/$lang/contact'
+    | '/$lang/founder'
+    | '/$lang/memberships'
+    | '/$lang/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  LangRouteRoute: typeof LangRouteRoute
-  AboutRoute: typeof AboutRoute
-  BusinessBuildingBlocksRoute: typeof BusinessBuildingBlocksRoute
-  CeskyRoute: typeof CeskyRoute
-  CommunityRoute: typeof CommunityRoute
-  ContactRoute: typeof ContactRoute
-  FounderRoute: typeof FounderRoute
-  MembershipsRoute: typeof MembershipsRoute
+  LangRouteRoute: typeof LangRouteRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/memberships': {
-      id: '/memberships'
-      path: '/memberships'
-      fullPath: '/memberships'
-      preLoaderRoute: typeof MembershipsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/founder': {
-      id: '/founder'
-      path: '/founder'
-      fullPath: '/founder'
-      preLoaderRoute: typeof FounderRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/community': {
-      id: '/community'
-      path: '/community'
-      fullPath: '/community'
-      preLoaderRoute: typeof CommunityRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cesky': {
-      id: '/cesky'
-      path: '/cesky'
-      fullPath: '/cesky'
-      preLoaderRoute: typeof CeskyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/business-building-blocks': {
-      id: '/business-building-blocks'
-      path: '/business-building-blocks'
-      fullPath: '/business-building-blocks'
-      preLoaderRoute: typeof BusinessBuildingBlocksRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/$lang': {
       id: '/$lang'
       path: '/$lang'
@@ -212,19 +155,85 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/$lang/': {
+      id: '/$lang/'
+      path: '/'
+      fullPath: '/$lang/'
+      preLoaderRoute: typeof LangIndexRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
+    '/$lang/memberships': {
+      id: '/$lang/memberships'
+      path: '/memberships'
+      fullPath: '/$lang/memberships'
+      preLoaderRoute: typeof LangMembershipsRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
+    '/$lang/founder': {
+      id: '/$lang/founder'
+      path: '/founder'
+      fullPath: '/$lang/founder'
+      preLoaderRoute: typeof LangFounderRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
+    '/$lang/contact': {
+      id: '/$lang/contact'
+      path: '/contact'
+      fullPath: '/$lang/contact'
+      preLoaderRoute: typeof LangContactRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
+    '/$lang/community': {
+      id: '/$lang/community'
+      path: '/community'
+      fullPath: '/$lang/community'
+      preLoaderRoute: typeof LangCommunityRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
+    '/$lang/business-building-blocks': {
+      id: '/$lang/business-building-blocks'
+      path: '/business-building-blocks'
+      fullPath: '/$lang/business-building-blocks'
+      preLoaderRoute: typeof LangBusinessBuildingBlocksRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
+    '/$lang/about': {
+      id: '/$lang/about'
+      path: '/about'
+      fullPath: '/$lang/about'
+      preLoaderRoute: typeof LangAboutRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
   }
 }
 
+interface LangRouteRouteChildren {
+  LangAboutRoute: typeof LangAboutRoute
+  LangBusinessBuildingBlocksRoute: typeof LangBusinessBuildingBlocksRoute
+  LangCommunityRoute: typeof LangCommunityRoute
+  LangContactRoute: typeof LangContactRoute
+  LangFounderRoute: typeof LangFounderRoute
+  LangMembershipsRoute: typeof LangMembershipsRoute
+  LangIndexRoute: typeof LangIndexRoute
+}
+
+const LangRouteRouteChildren: LangRouteRouteChildren = {
+  LangAboutRoute: LangAboutRoute,
+  LangBusinessBuildingBlocksRoute: LangBusinessBuildingBlocksRoute,
+  LangCommunityRoute: LangCommunityRoute,
+  LangContactRoute: LangContactRoute,
+  LangFounderRoute: LangFounderRoute,
+  LangMembershipsRoute: LangMembershipsRoute,
+  LangIndexRoute: LangIndexRoute,
+}
+
+const LangRouteRouteWithChildren = LangRouteRoute._addFileChildren(
+  LangRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  LangRouteRoute: LangRouteRoute,
-  AboutRoute: AboutRoute,
-  BusinessBuildingBlocksRoute: BusinessBuildingBlocksRoute,
-  CeskyRoute: CeskyRoute,
-  CommunityRoute: CommunityRoute,
-  ContactRoute: ContactRoute,
-  FounderRoute: FounderRoute,
-  MembershipsRoute: MembershipsRoute,
+  LangRouteRoute: LangRouteRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

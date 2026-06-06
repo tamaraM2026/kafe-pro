@@ -1,18 +1,25 @@
 import { createFileRoute } from "@tanstack/react-router";
 import founder from "@/assets/founder.jpg";
 import { Animate } from "@/components/Animate";
+import { useTranslations } from "@/hooks/use-translations";
+import { getTranslations } from "@/i18n";
 
-export const Route = createFileRoute("/founder")({
-  head: () => ({
-    meta: [
-      { title: "Founder — Kafe con Propósito" },
-      { name: "description", content: "Meet Tamara Medina Sapovalova, founder of Kafe con Propósito." },
-    ],
-  }),
+export const Route = createFileRoute("/$lang/founder")({
+  head: ({ params }) => {
+    const t = getTranslations(params.lang);
+    return {
+      meta: [
+        { title: t.meta.founderTitle },
+        { name: "description", content: t.meta.founderDescription },
+      ],
+    };
+  },
   component: Founder,
 });
 
 function Founder() {
+  const t = useTranslations();
+
   return (
     <section className="py-28">
       <div className="mx-auto max-w-6xl px-6 grid lg:grid-cols-2 gap-16 items-center">
@@ -26,19 +33,20 @@ function Founder() {
         </Animate>
         <div>
           <Animate>
-            <p className="text-xs tracking-[0.25em] text-terracotta">FROM TAMARA</p>
+            <p className="text-xs tracking-[0.25em] text-terracotta">{t.founder.label}</p>
           </Animate>
           <Animate delay={100}>
-            <h1 className="mt-4 font-display text-5xl md:text-6xl bg-gradient-to-r from-burgundy to-terracotta bg-clip-text text-transparent">Why I built this</h1>
+            <h1 className="mt-4 font-display text-5xl md:text-6xl bg-gradient-to-r from-burgundy to-terracotta bg-clip-text text-transparent">{t.founder.heading}</h1>
           </Animate>
           <Animate delay={200}>
             <div className="mt-8 space-y-5 text-foreground/80 leading-relaxed text-lg">
-              <p>I built Kafe con Propósito because I needed it myself. Not just a networking event. Not an online group. A real community — one that meets you where you are and grows with you.</p>
-              <p>I've spent over 20 years in international business across Latin America and Europe. I know what it feels like to be the only woman in the room, to relocate and start over, to build something without a map. Kafe is the room I wish had existed.</p>
+              {t.founder.paragraphs.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
             </div>
           </Animate>
           <Animate delay={300}>
-            <p className="mt-8 font-display text-xl text-burgundy">— Tamara Medina Sapovalova, Founder</p>
+            <p className="mt-8 font-display text-xl text-burgundy">{t.founder.signature}</p>
           </Animate>
         </div>
       </div>
