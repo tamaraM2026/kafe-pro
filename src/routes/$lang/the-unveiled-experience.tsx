@@ -10,6 +10,8 @@ import pillarMindsetImg from "@/assets/unveiled/pillar-mindset.jpg";
 import pillarBodyImg from "@/assets/unveiled/pillar-body.jpg";
 import pillarPortraitImg from "@/assets/unveiled/pillar-portrait.jpg";
 import slideMindsetImg from "@/assets/unveiled/slide-mindset.jpg";
+import slideBodyImg from "@/assets/unveiled/slide-body.png";
+import slidePortraitImg from "@/assets/unveiled/slide-portrait.png";
 import guidePetraImg from "@/assets/unveiled/guide-petra.jpg";
 import guideAdelaImg from "@/assets/unveiled/guide-adela.jpg";
 import guideTamaraImg from "@/assets/unveiled/guide-tamara.jpg";
@@ -20,9 +22,9 @@ import venueImg from "@/assets/unveiled/venue.jpg";
 const pillarImages = [pillarMindsetImg, pillarBodyImg, pillarPortraitImg];
 const guideImages = [guidePetraImg, guideAdelaImg, guideTamaraImg];
 
-const slideImages = [slideMindsetImg, pillarBodyImg, pillarPortraitImg];
+const slideImages = [slideMindsetImg, slideBodyImg, slidePortraitImg];
 
-function Slideshow({ slides }: { slides: Array<{ image: string; title: string; subtitle: string }> }) {
+function Slideshow({ slides }: { slides: Array<{ image: string; title: string; subtitle: string; cta: string; href: string }> }) {
   const [current, setCurrent] = useState(0);
 
   const next = useCallback(() => setCurrent((c) => (c + 1) % slides.length), [slides.length]);
@@ -44,9 +46,9 @@ function Slideshow({ slides }: { slides: Array<{ image: string; title: string; s
           <div className="absolute inset-0 bg-black/30" />
           <div className="relative z-10 h-full flex flex-col items-start justify-center px-8 md:px-20 max-w-4xl">
             <h2 className="font-display text-5xl md:text-7xl text-white leading-[1.1]">{slide.title}</h2>
-            <p className="mt-2 font-display text-3xl md:text-5xl text-white/90 italic">{slide.subtitle}</p>
-            <a href="#pricing" className="mt-8 px-8 py-3 rounded-full bg-burgundy/80 text-white hover:bg-burgundy transition-colors text-lg">
-              Join us
+            <p className="mt-2 font-display text-3xl md:text-5xl text-white/90 italic whitespace-pre-line">{slide.subtitle}</p>
+            <a href={slide.href} target={slide.href.startsWith("http") ? "_blank" : undefined} rel={slide.href.startsWith("http") ? "noopener noreferrer" : undefined} className="mt-8 px-8 py-3 rounded-full bg-burgundy/80 text-white hover:bg-burgundy transition-colors text-lg">
+              {slide.cta}
             </a>
           </div>
         </div>
@@ -218,9 +220,9 @@ function UnveiledExperiencePage() {
 
       {/* Slideshow */}
       <Slideshow slides={[
-        { image: slideImages[0], title: "Mindset", subtitle: "Deep-Dive" },
-        { image: slideImages[1], title: "Body", subtitle: "Confidence" },
-        { image: slideImages[2], title: "The Portrait", subtitle: "Session" },
+        { image: slideImages[0], title: "Mindset", subtitle: "Deep-Dive", cta: "Join us", href: "#pricing" },
+        { image: slideImages[1], title: "Mastering", subtitle: "Body\nConfidence", cta: "Join us", href: "#pricing" },
+        { image: slideImages[2], title: "THE UNVEILED", subtitle: "Portrait\nSession", cta: "Claim your Early bird", href: TIER_URLS[0] },
       ]} />
 
       {/* No Filters */}
