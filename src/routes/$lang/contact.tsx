@@ -7,10 +7,17 @@ import { getTranslations } from "@/i18n";
 export const Route = createFileRoute("/$lang/contact")({
   head: ({ params }) => {
     const t = getTranslations(params.lang);
+    const pagePath = "/contact";
     return {
       meta: [
         { title: t.meta.contactTitle },
         { name: "description", content: t.meta.contactDescription },
+      ],
+      links: [
+        { rel: "alternate", hreflang: "en", href: `/en${pagePath}` },
+        { rel: "alternate", hreflang: "cs", href: `/cs${pagePath}` },
+        { rel: "alternate", hreflang: "es", href: `/es${pagePath}` },
+        { rel: "alternate", hreflang: "x-default", href: `/en${pagePath}` },
       ],
     };
   },
