@@ -1,0 +1,416 @@
+import type { Translations } from "./types";
+
+export const en: Translations = {
+  common: {
+    siteName: "Kafe con Propósito",
+    nav: {
+      home: "Home",
+      about: "What Kafe is",
+      founder: "Founder",
+      memberships: "Memberships",
+      community: "Community",
+      cesky: "Česky",
+      contact: "Contact",
+    },
+    programmesLabel: "Programmes",
+    programmesItems: {
+      bbb: "Business Building Blocks",
+    },
+    reserve: "Reserve my spot →",
+    exploreMemberships: "Explore memberships",
+    footer: {
+      tagline:
+        "A women’s circle in Central Bohemia. Real conversations over really good coffee.",
+      exploreHeading: "Explore",
+      followHeading: "Follow us",
+      whereHeading: "Where",
+      locationText: "Central Bohemia · Poděbrady · Prague",
+      locationFrequency: "Twice a month · EN · ES · CZ",
+      getInTouch: "Get in touch →",
+      copyright: "Kafe con Propósito · Women’s Circle",
+      navAbout: "What Kafe is",
+      navFounder: "Founder",
+      navMemberships: "Memberships",
+      navCommunity: "Community",
+    },
+  },
+
+  meta: {
+    homeTitle: "Kafe con Propósito",
+    homeDescription:
+      "A community for women who are building something that matters. Real conversations over really good coffee in Central Bohemia.",
+    aboutTitle: "What Kafe is — Kafe con Propósito",
+    aboutDescription:
+      "Not an event. A community of women in Central Bohemia meeting twice a month for real conversation.",
+    founderTitle: "Founder — Kafe con Propósito",
+    founderDescription:
+      "Meet Tamara Medina Sapovalova, founder of Kafe con Propósito.",
+    membershipsTitle: "Memberships — Kafe con Propósito",
+    membershipsDescription:
+      "Three ways to join Kafe con Propósito: pay-as-you-go, monthly community, or premium Roastery.",
+    communityTitle: "Community & Partners — Kafe con Propósito",
+    communityDescription:
+      "Meet the women, mentors, and partner brands shaping the Kafe con Propósito community.",
+    contactTitle: "Contact — Kafe con Propósito",
+    contactDescription:
+      "Reach out to Kafe con Propósito to reserve a seat or ask a question.",
+    bbbTitle: "Business Building Blocks — Kafe con Propósito",
+    bbbDescription:
+      "A 2-month program that takes you from 'I have an idea' to 'I have a real, working business.' Live workshops, practical tools, real momentum.",
+  },
+
+  home: {
+    regionLabel: "CENTRAL BOHEMIA · EN · ES · CZ",
+    heroHeading:
+      "A community for women who are building something that matters.",
+    heroBrandName: "Kafe con Propósito",
+    heroDescription:
+      " brings professional women, entrepreneurs, and expats together — twice a month, in person, over really good coffee. Real conversations. Genuine connection. No pitches, no pressure.",
+    heroSubtext:
+      "Gatherings in English, Czech & Spanish · Central Bohemia & Prague · Twice a month",
+    stats: [
+      { value: "2×", label: "gatherings per month" },
+      { value: "3", label: "languages (EN · ES · CZ)" },
+      { value: "10–20", label: "women per gathering" },
+    ],
+    painHeading: "You’re surrounded by people.\nAnd still figuring it out alone.",
+    painSubheading:
+      "Whether you’ve been here your whole life or arrived last year, growing as a professional woman can feel isolating — especially when the people around you don’t quite get what you’re building.",
+    quotes: [
+      "I have plenty of acquaintances. What I’m missing is people who actually get what I’m trying to build.",
+      "I work from home, I’m building something I believe in — but the isolation is real.",
+      "I’m not the same person I was a year ago — and I’m not sure yet who I’m becoming.",
+      "I want to talk about real things — the doubts, the dreams, the hard choices. Not just the weather.",
+    ],
+    whatKafeLabel: "WHAT KAFE IS",
+    whatKafeHeading: "Not an event. A community.",
+    pillars: [
+      {
+        icon: "☕",
+        title: "Community",
+        text: "A consistent, trusted circle of women who show up — not a one-time event you forget by Monday.",
+      },
+      {
+        icon: "💬",
+        title: "Growth",
+        text: "Every gathering has a theme chosen by members. You leave with real perspective, not just business cards.",
+      },
+      {
+        icon: "🪑",
+        title: "Support",
+        text: "Your own people. Women who remember what you talked about last time, who celebrate your wins.",
+      },
+    ],
+    belongLabel: "IS THIS FOR ME?",
+    belongHeading: "You belong here if any of this sounds familiar.",
+    belongItems: [
+      "You’re building a business or career you care about",
+      "You’re an expat building roots, or a local craving new perspectives",
+      "You’re a mother balancing ambition with everything else",
+      "You’re navigating a transition — personal or professional",
+      "You want an honest conversation, not polite small talk",
+      "You’re curious how other women are figuring things out",
+    ],
+    belongDisclaimer:
+      "We are not a Facebook group that never actually meets · not a room of strangers exchanging cards · not a place where you need a title, a business plan, or a polished story.",
+    tiersLabel: "FIND YOUR SEAT",
+    tiersHeading: "Three ways to be part of it",
+    tiersSubheading:
+      "Start with one gathering, or step into the community. You decide the pace.",
+    tiers: [
+      {
+        name: "The Espresso Shot",
+        price: "450 CZK",
+        per: "per session",
+        tagline: "Pay as you go",
+        desc: "Try a gathering before you commit. The perfect entry point for first-timers.",
+        cta: "See upcoming",
+        featured: false,
+      },
+      {
+        name: "The Brew Community",
+        price: "850 CZK",
+        per: "per month",
+        tagline: "Most popular",
+        desc: "Two guaranteed spots, member discounts, and the directory. The most popular way to make Kafe part of your life.",
+        cta: "Join membership",
+        featured: true,
+      },
+      {
+        name: "The Roastery",
+        price: "1,950 CZK",
+        per: "per month",
+        tagline: "Premium",
+        desc: "Everything in Brew, plus a monthly Mastermind, VIP guest pass, and business spotlight.",
+        cta: "Go deeper",
+        featured: false,
+      },
+    ],
+    ctaHeading: "Your seat at the table is waiting.",
+    ctaSubheading:
+      "No pitch. No pressure.\nJust real women, real conversation, and really good coffee.",
+  },
+
+  about: {
+    label: "WHAT KAFE IS",
+    heading: "A women’s circle, not a networking event.",
+    intro:
+      "Kafe con Propósito is a consistent, trusted circle of women who show up — twice a month, in person, in Central Bohemia. Each gathering is themed, intentional, and built for real conversation, not transactions.",
+    testimonialsHeading: "What women say",
+    testimonialsSubheading: "Real words from real members",
+    testimonials: [
+      {
+        name: "Valeria",
+        text: "This is the community I’ve been searching for since moving here two years ago.",
+      },
+      {
+        name: "Adela",
+        text: "Pleasant and supportive atmosphere despite the different ages of the participants and their different work backgrounds. The tasks brought interesting thoughts and reflections.",
+      },
+      {
+        name: "Irena",
+        text: "I thought I had to choose between staying local and growing professionally. Kafe con Propósito showed me I could have both. I’ve gained perspectives I never would have found in my usual circles — plus real friendships with women who challenge and support me in equal measure.",
+      },
+    ],
+    faqHeading: "A few questions, answered",
+    faqs: [
+      {
+        q: "Do I need to speak perfect English or Czech?",
+        a: "Not at all. We welcome every accent and language level. Most gatherings are in English, with Czech and Spanish sessions also on the calendar. Understanding matters — not perfection.",
+      },
+      {
+        q: "What if I’m introverted or shy?",
+        a: "Most of us are. Groups are small (10–20 women) and no one is put on the spot before they’re ready. You’ll find your moment.",
+      },
+      {
+        q: "I’m not an entrepreneur or CEO. Do I fit in?",
+        a: "We’re not looking for resumes. We’re looking for women who are curious, open, and doing the work of becoming. That’s it.",
+      },
+      {
+        q: "How much does it cost?",
+        a: "Regular sessions start at 450 CZK. Memberships (with guaranteed spots, discounts, and more) start at 850 CZK/month.",
+      },
+      {
+        q: "Where do you meet?",
+        a: "We gather in Central Bohemia, Poděbrady and Prague — so there’s always an option near you.",
+      },
+    ],
+  },
+
+  founder: {
+    label: "FROM TAMARA",
+    heading: "Why I built this",
+    paragraphs: [
+      "I built Kafe con Propósito because I needed it myself. Not just a networking event. Not an online group. A real community — one that meets you where you are and grows with you.",
+      "I’ve spent over 20 years in international business across Latin America and Europe. I know what it feels like to be the only woman in the room, to relocate and start over, to build something without a map. Kafe is the room I wish had existed.",
+    ],
+    signature: "— Tamara Medina Sapovalova, Founder",
+  },
+
+  memberships: {
+    label: "FIND YOUR SEAT",
+    heading: "Three ways to be part of it",
+    subheading:
+      "Start with one gathering, or step into the community. You decide the pace.",
+    tiers: [
+      {
+        name: "The Espresso Shot",
+        tag: "Pay as you go",
+        price: "450 CZK",
+        per: "per session",
+        desc: "Try a gathering before you commit. The perfect entry point for first-timers.",
+        perks: [
+          "Single-session ticket",
+          "Choose any open gathering",
+          "No commitment",
+        ],
+        featured: false,
+      },
+      {
+        name: "The Brew Community",
+        tag: "Most popular",
+        price: "850 CZK",
+        per: "per month",
+        desc: "Two guaranteed spots, member discounts, and the directory.",
+        perks: [
+          "2 guaranteed gatherings/month",
+          "Member directory access",
+          "Discounts on workshops",
+          "WhatsApp circle",
+        ],
+        featured: true,
+      },
+      {
+        name: "The Roastery",
+        tag: "Premium",
+        price: "1,950 CZK",
+        per: "per month",
+        desc: "Everything in Brew, plus deeper experiences and visibility.",
+        perks: [
+          "Everything in Brew",
+          "Monthly Mastermind",
+          "VIP guest pass",
+          "Business spotlight",
+        ],
+        featured: false,
+      },
+    ],
+    chooseCta: "Choose this →",
+    bannerLabel: "COMING MAY 2026",
+    bannerHeading: "One cup. One woman. One story.",
+    bannerDescription:
+      "Once a month, one woman opens the evening with her story — unfiltered, purposeful, real. Because the most powerful thing one woman can do for another is show her what’s possible.",
+    bannerCta: "Be the first to know →",
+  },
+
+  community: {
+    label: "COMMUNITY & PARTNERS",
+    heading: "The women — and the brands — behind the table.",
+    intro:
+      "Mentors, makers, and collaborators we trust. These are the people building alongside us — and the partner picks we recommend to our community.",
+    featuredLabel: "FEATURED PARTNER PICK",
+    featured: {
+      title: "Foťte mobilem jako profesionál",
+      flag: "🇨🇿",
+      bullets: [
+        "Chcete zachytit své životní okamžiky jako profesionální fotograf?",
+        "Vyžaduje váš business neustálé přispívání na sociálních sítí?",
+        "Rádi byste si z výletů odvezli reprezentativní galerii fotografií?",
+        "Chcete dostat maximum z vašeho mobilního telefonu — bez drahé techniky?",
+      ],
+      learnMore: "Learn more →",
+    },
+    voicesLabel: "COMMUNITY VOICES",
+    voicesHeading: "Meet the circle",
+    members: [
+      {
+        name: "Adela Fialová",
+        langs: "CZ · EN",
+        role: "Photographer",
+        bio: "Photography is not just a job for me, it’s a way of life. Each image is a challenge to combine technical precision with artistic sensibility — a way of sharing stories, emotions, and journeys with the world.",
+        url: "https://www.adelafialova.com/",
+        urlLabel: "adelafialova.com",
+      },
+      {
+        name: "Zuzana Koláčková",
+        langs: "CZ",
+        role: "Business mentor & strategist · Podnikatelky SOBĚ",
+        bio: "Vedu ženy k tomu, aby přestaly business jen 'zkoušet' a naučily se ho řídit s jistotou a vědomím. Propojuji vnitřní nastavení s pevnou business strategií — pro stabilní projekty v souladu se životním stylem.",
+        url: "https://www.podnikatelkysobe.cz/",
+        urlLabel: "podnikatelkysobe.cz",
+      },
+      {
+        name: "Tamara Medina",
+        langs: "ES · EN · CZ",
+        role: "Business Coach & Network Builder",
+        bio: "I’ve always been the person who connects people, who spots the opportunity before anyone else names it. What drives me is the belief that the most powerful thing one woman can do for another is show her she’s not alone in it.",
+        url: "https://www.kafeconproposito.com/",
+        urlLabel: "kafeconproposito.com",
+      },
+      {
+        name: "Iveta Skřivanová",
+        langs: "CZ",
+        role: "Průvodkyně návratem k sobě skrze vnímání",
+        bio: "Vytvářím prostor pro zastavení a vnímání toho, co se ve vás skutečně děje. Skrze naslouchání a prožitek pomáhám lidem vracet se k pravdivosti, klidu a vlastnímu středu.",
+        url: "https://ivetaskrivanova.cz/",
+        urlLabel: "ivetaskrivanova.cz",
+      },
+      {
+        name: "Viktoria Platonova",
+        langs: "CZ · EN · RU",
+        role: "Wellness Coach & Yoga Teacher · MaMeetUs Founder",
+        bio: "I work with women at the intersection of movement, breath, and mind — believing that connection, to others and to ourselves, is the first step back to who we truly are.",
+        url: "https://www.mameetus.cz/",
+        urlLabel: "mameetus.cz",
+      },
+    ],
+    collaboratorsLabel: "COLLABORATORS",
+    collaboratorsHeading: "Brands & partners we build with",
+    collaborators: [
+      {
+        name: "Podnikatelky SOBĚ",
+        url: "https://www.podnikatelkysobe.cz/",
+      },
+      { name: "Adela Fialová", url: "https://www.adelafialova.com/" },
+      { name: "Harrington Verve", url: "https://harringtonverve.com/" },
+      { name: "MaMeetUs", url: "https://www.mameetus.cz/" },
+      {
+        name: "Iveta Skřivanová",
+        url: "https://ivetaskrivanova.cz/",
+      },
+      { name: "Sapovalova Solutions", url: "#" },
+    ],
+    collaborateCta:
+      "Want to collaborate or be featured? Reach out — we love meeting women building work that matters.",
+  },
+
+  contact: {
+    label: "CONTACT US",
+    heading: "Say hello.",
+    intro:
+      "Question, collaboration, or ready to reserve your seat? Drop us a line and we’ll get back to you with the next gathering details.",
+    nameLabel: "Name",
+    emailLabel: "Email",
+    messageLabel: "Message",
+    submitButton: "Send message →",
+    successMessage: "Thanks — we’ll be in touch soon.",
+    followText: "Or follow us on",
+  },
+
+  bbb: {
+    label: "PROGRAMME",
+    heading: "Business Building Blocks",
+    intro: 'Turn your business idea into reality. A 2-month programme that takes you from "I have an idea" to "I have a real, working business." Live workshops and learn-at-your-own-pace sessions — no fluff, no theory that doesn’t work in real life.',
+    registerCta: "Register your interest →",
+    workshopDetailsCta: "Workshop details",
+    outcomesLabel: "WHAT YOU’LL WALK AWAY WITH",
+    outcomesHeading: "More than a course — a turning point",
+    outcomes: [
+      {
+        title: "Someone who actually gets it",
+        body: "Forget cookie-cutter advice. You’ll develop your own leadership style and create a plan that fits your life, your values, and your goals.",
+      },
+      {
+        title: "Confidence to avoid expensive mistakes",
+        body: "Learn from people who’ve been there. Get the insider knowledge that helps you sidestep the costly errors most new business owners make.",
+      },
+      {
+        title: "A business that can actually grow",
+        body: "Stop building something that only works if you’re doing everything yourself. Create systems and structures that let your business expand without burning you out.",
+      },
+      {
+        title: "People who get what you’re going through",
+        body: "Connect with others on the same journey — people to celebrate wins with, brainstorm solutions with, and lean on when things get tough.",
+      },
+    ],
+    differentLabel: "WHY THIS PROGRAMME IS DIFFERENT",
+    differentHeading: "Built for the way real businesses grow",
+    differentiators: [
+      {
+        title: "You’ll learn what actually matters",
+        body: "From finding the right partners to understanding your finances, from building your business model to becoming the leader your company needs. No critical gaps.",
+      },
+      {
+        title: "It fits into your real life",
+        body: "Each 1.5–2 hour workshop tackles one specific challenge. Not drinking from a fire hose — learning something practical, then using it before the next session.",
+      },
+      {
+        title: "You learn by doing",
+        body: "Spread across 2 months, giving you time to apply what you’re learning. Each week builds on the last, creating real momentum in your business.",
+      },
+    ],
+    curriculumLabel: "HERE’S WHAT WE’LL COVER",
+    curriculumHeading: "Six building blocks",
+    curriculum: [
+      "Getting Your Mind Right — the foundation every successful entrepreneur needs",
+      "Making Decisions That Move You Forward — clear goals, clear action",
+      "Building Something That Lasts — strong foundations from day one",
+      "Understanding Your Market — who needs what you offer, and how to reach them",
+      "Turning Conversations Into Sales — real negotiation skills that feel authentic",
+      "Smart Growth — using connections, technology, and AI tools to scale efficiently",
+    ],
+    finalCtaHeading: "Register your interest today",
+    finalCtaSubheading: "Limited spaces.",
+    finalCtaButton: "Start now →",
+  },
+};
