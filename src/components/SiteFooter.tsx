@@ -1,4 +1,6 @@
 import logo from "@/assets/logo.png";
+import { useLocation } from "@tanstack/react-router";
+import { getTranslations } from "@/i18n";
 
 const socialLinks = [
   {
@@ -35,25 +37,29 @@ const socialLinks = [
 ];
 
 export function SiteFooter() {
+  const location = useLocation();
+  const lang = location.pathname.split("/")[1] || "en";
+  const t = getTranslations(lang);
+
   return (
     <footer className="bg-burgundy/95 backdrop-blur-xl text-primary-foreground mt-24">
       <div className="mx-auto max-w-7xl px-6 py-16 grid gap-10 md:grid-cols-4">
         <div className="flex flex-col gap-4">
           <img src={logo} alt="" width={56} height={56} className="h-14 w-14 object-contain brightness-0 invert opacity-80" />
           <h3 className="font-display text-2xl">Kafe con Propósito</h3>
-          <p className="text-sm opacity-70">A women's circle in Central Bohemia. Real conversations over really good coffee.</p>
+          <p className="text-sm opacity-70">{t.common.footer.tagline}</p>
         </div>
         <div>
-          <h4 className="font-display text-lg mb-4">Explore</h4>
+          <h4 className="font-display text-lg mb-4">{t.common.footer.exploreHeading}</h4>
           <ul className="space-y-2 text-sm opacity-80">
-            <li><a href="/about" className="hover:text-accent transition-colors">What Kafe is</a></li>
-            <li><a href="/founder" className="hover:text-accent transition-colors">Founder</a></li>
-            <li><a href="/memberships" className="hover:text-accent transition-colors">Memberships</a></li>
-            <li><a href="/community" className="hover:text-accent transition-colors">Community</a></li>
+            <li><a href={`/${lang}/about`} className="hover:text-accent transition-colors">{t.common.footer.navAbout}</a></li>
+            <li><a href={`/${lang}/founder`} className="hover:text-accent transition-colors">{t.common.footer.navFounder}</a></li>
+            <li><a href={`/${lang}/memberships`} className="hover:text-accent transition-colors">{t.common.footer.navMemberships}</a></li>
+            <li><a href={`/${lang}/community`} className="hover:text-accent transition-colors">{t.common.footer.navCommunity}</a></li>
           </ul>
         </div>
         <div>
-          <h4 className="font-display text-lg mb-4">Follow us</h4>
+          <h4 className="font-display text-lg mb-4">{t.common.footer.followHeading}</h4>
           <ul className="space-y-3">
             {socialLinks.map((s) => (
               <li key={s.name}>
@@ -71,16 +77,16 @@ export function SiteFooter() {
           </ul>
         </div>
         <div>
-          <h4 className="font-display text-lg mb-4">Where</h4>
-          <p className="text-sm opacity-70">Central Bohemia · Poděbrady · Prague</p>
-          <p className="text-sm opacity-70 mt-2">Twice a month · EN · ES · CZ</p>
-          <a href="/contact" className="mt-4 inline-block text-sm text-accent hover:underline underline-offset-4 transition-colors">
-            Get in touch →
+          <h4 className="font-display text-lg mb-4">{t.common.footer.whereHeading}</h4>
+          <p className="text-sm opacity-70">{t.common.footer.locationText}</p>
+          <p className="text-sm opacity-70 mt-2">{t.common.footer.locationFrequency}</p>
+          <a href={`/${lang}/contact`} className="mt-4 inline-block text-sm text-accent hover:underline underline-offset-4 transition-colors">
+            {t.common.footer.getInTouch}
           </a>
         </div>
       </div>
       <div className="border-t border-white/10 py-6 text-center text-xs opacity-50">
-        © {new Date().getFullYear()} Kafe con Propósito · Women's Circle
+        {t.common.footer.copyright}
       </div>
     </footer>
   );
