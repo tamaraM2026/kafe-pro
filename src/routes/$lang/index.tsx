@@ -121,7 +121,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="py-28">
+      <section className="py-28" id="what-kafe-is">
         <div className="mx-auto max-w-5xl px-6">
           <Animate>
             <p className="text-xs tracking-[0.25em] text-terracotta text-center">{t.home.whatKafeLabel}</p>
@@ -163,7 +163,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="py-28">
+      <section className="py-28" id="memberships">
         <div className="mx-auto max-w-6xl px-6">
           <div className="text-center max-w-2xl mx-auto">
             <Animate>
@@ -212,7 +212,7 @@ function HomePage() {
       </section>
 
       {/* Founder */}
-      <section className="py-28 bg-cream">
+      <section className="py-28 bg-cream" id="founder">
         <div className="mx-auto max-w-6xl px-6 grid lg:grid-cols-2 gap-16 items-center">
           <Animate>
             <div className="relative">
