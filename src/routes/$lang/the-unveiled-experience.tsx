@@ -2,6 +2,21 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Animate } from "@/components/Animate";
 import { useTranslations, useLang } from "@/hooks/use-translations";
 import { getTranslations } from "@/i18n";
+import heroImg from "@/assets/unveiled/hero.jpg";
+import reflectionImg from "@/assets/unveiled/reflection.jpg";
+import shadowImg from "@/assets/unveiled/shadow.jpg";
+import pillarMindsetImg from "@/assets/unveiled/pillar-mindset.jpg";
+import pillarBodyImg from "@/assets/unveiled/pillar-body.jpg";
+import pillarPortraitImg from "@/assets/unveiled/pillar-portrait.jpg";
+import guidePetraImg from "@/assets/unveiled/guide-petra.jpg";
+import guideAdelaImg from "@/assets/unveiled/guide-adela.jpg";
+import guideTamaraImg from "@/assets/unveiled/guide-tamara.jpg";
+import noFilters1Img from "@/assets/unveiled/no-filters-1.jpg";
+import noFilters2Img from "@/assets/unveiled/no-filters-2.jpg";
+import venueImg from "@/assets/unveiled/venue.jpg";
+
+const pillarImages = [pillarMindsetImg, pillarBodyImg, pillarPortraitImg];
+const guideImages = [guidePetraImg, guideAdelaImg, guideTamaraImg];
 
 export const Route = createFileRoute("/$lang/the-unveiled-experience")({
   head: ({ params }) => {
@@ -34,64 +49,86 @@ function UnveiledExperiencePage() {
   return (
     <>
       {/* Hero */}
-      <section className="py-28 bg-cream">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <Animate>
-            <p className="text-xs tracking-[0.25em] text-terracotta font-medium">
-              {t.unveiled.label}
-            </p>
-          </Animate>
-          <Animate delay={100}>
-            <h1 className="mt-4 font-display text-5xl md:text-6xl bg-gradient-to-r from-burgundy to-terracotta bg-clip-text text-transparent leading-[1.05]">
-              {t.unveiled.heading}
-            </h1>
-          </Animate>
+      <section className="relative py-28 bg-cream overflow-hidden">
+        <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <Animate>
+              <p className="text-xs tracking-[0.25em] text-terracotta font-medium">
+                {t.unveiled.label}
+              </p>
+            </Animate>
+            <Animate delay={100}>
+              <h1 className="mt-4 font-display text-5xl md:text-6xl bg-gradient-to-r from-burgundy to-terracotta bg-clip-text text-transparent leading-[1.05]">
+                {t.unveiled.heading}
+              </h1>
+            </Animate>
+            <Animate delay={200}>
+              <p className="mt-6 text-xl text-foreground/75 leading-relaxed">
+                {t.unveiled.heroSub}
+              </p>
+            </Animate>
+            <Animate delay={300}>
+              <a
+                href={RESERVE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-block px-8 py-3 rounded-full bg-gradient-to-r from-burgundy to-burgundy/80 text-primary-foreground hover:scale-[1.02] active:scale-[0.98] transition-all"
+              >
+                {t.unveiled.reserveCta}
+              </a>
+            </Animate>
+          </div>
           <Animate delay={200}>
-            <p className="mt-6 text-xl text-foreground/75 leading-relaxed max-w-2xl mx-auto">
-              {t.unveiled.heroSub}
-            </p>
-          </Animate>
-          <Animate delay={300}>
-            <a
-              href={RESERVE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-block px-8 py-3 rounded-full bg-gradient-to-r from-burgundy to-burgundy/80 text-primary-foreground hover:scale-[1.02] active:scale-[0.98] transition-all"
-            >
-              {t.unveiled.reserveCta}
-            </a>
+            <div className="relative">
+              <div className="absolute -inset-6 bg-terracotta/10 rounded-[3rem] -rotate-2" aria-hidden />
+              <img src={heroImg} alt="" width={800} height={534} className="relative rounded-[2.5rem] shadow-2xl object-cover w-full aspect-[5/4]" />
+            </div>
           </Animate>
         </div>
       </section>
 
       {/* Reflection */}
       <section className="py-28">
-        <div className="mx-auto max-w-5xl px-6 grid md:grid-cols-2 gap-12 items-center">
+        <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-2 gap-16 items-center">
           <Animate>
-            <h2 className="font-display text-4xl md:text-5xl text-burgundy leading-tight">
-              {t.unveiled.reflectionHeading}
-            </h2>
+            <div className="relative overflow-hidden rounded-[2.5rem]">
+              <img src={reflectionImg} alt="" width={600} height={900} className="shadow-2xl object-cover w-full aspect-[3/4] hover:scale-105 transition-transform duration-700" />
+            </div>
           </Animate>
-          <Animate delay={100}>
-            <p className="text-lg text-foreground/75 leading-relaxed">
-              {t.unveiled.reflectionText}
-            </p>
-          </Animate>
+          <div>
+            <Animate>
+              <h2 className="font-display text-4xl md:text-5xl text-burgundy leading-tight">
+                {t.unveiled.reflectionHeading}
+              </h2>
+            </Animate>
+            <Animate delay={100}>
+              <p className="mt-6 text-lg text-foreground/75 leading-relaxed">
+                {t.unveiled.reflectionText}
+              </p>
+            </Animate>
+          </div>
         </div>
       </section>
 
       {/* From Shadow to Soul */}
       <section className="py-28 bg-cream">
-        <div className="mx-auto max-w-3xl px-6 text-center">
-          <Animate>
-            <h2 className="font-display text-4xl md:text-5xl text-burgundy">
-              {t.unveiled.shadowHeading}
-            </h2>
-          </Animate>
-          <Animate delay={100}>
-            <p className="mt-6 text-lg text-foreground/75 leading-relaxed">
-              {t.unveiled.shadowText}
-            </p>
+        <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-2 gap-16 items-center">
+          <div>
+            <Animate>
+              <h2 className="font-display text-4xl md:text-5xl text-burgundy">
+                {t.unveiled.shadowHeading}
+              </h2>
+            </Animate>
+            <Animate delay={100}>
+              <p className="mt-6 text-lg text-foreground/75 leading-relaxed">
+                {t.unveiled.shadowText}
+              </p>
+            </Animate>
+          </div>
+          <Animate delay={200}>
+            <div className="relative overflow-hidden rounded-[2.5rem]">
+              <img src={shadowImg} alt="" width={800} height={630} className="shadow-2xl object-cover w-full aspect-[5/4] hover:scale-105 transition-transform duration-700" />
+            </div>
           </Animate>
         </div>
       </section>
@@ -107,19 +144,21 @@ function UnveiledExperiencePage() {
           <div className="mt-12 grid md:grid-cols-3 gap-6">
             {t.unveiled.pillars.map((p, i) => (
               <Animate key={p.title} delay={(i * 100) as 0 | 100 | 200}>
-                <article className="bg-white/50 backdrop-blur-sm rounded-3xl p-8 border border-white/30 shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300 text-center">
-                  <span className="inline-flex h-14 w-14 rounded-full bg-gradient-to-br from-burgundy to-terracotta text-primary-foreground items-center justify-center font-display text-2xl">
-                    {i + 1}
-                  </span>
-                  <h3 className="mt-5 font-display text-2xl text-burgundy">
-                    {p.title}
-                  </h3>
-                  <p className="mt-1 text-xs tracking-[0.2em] text-terracotta">
-                    {p.subtitle.toUpperCase()}
-                  </p>
-                  <p className="mt-4 text-foreground/80 leading-relaxed">
-                    {p.description}
-                  </p>
+                <article className="bg-white/50 backdrop-blur-sm rounded-3xl border border-white/30 shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300 overflow-hidden">
+                  <div className="overflow-hidden">
+                    <img src={pillarImages[i]} alt={p.title} className="w-full aspect-[4/5] object-cover hover:scale-105 transition-transform duration-700" />
+                  </div>
+                  <div className="p-8 text-center">
+                    <h3 className="font-display text-2xl text-burgundy">
+                      {p.title}
+                    </h3>
+                    <p className="mt-1 text-xs tracking-[0.2em] text-terracotta">
+                      {p.subtitle.toUpperCase()}
+                    </p>
+                    <p className="mt-4 text-foreground/80 leading-relaxed">
+                      {p.description}
+                    </p>
+                  </div>
                 </article>
               </Animate>
             ))}
@@ -129,16 +168,26 @@ function UnveiledExperiencePage() {
 
       {/* No Filters */}
       <section className="py-28 bg-cream">
-        <div className="mx-auto max-w-3xl px-6 text-center">
+        <div className="mx-auto max-w-5xl px-6">
           <Animate>
-            <h2 className="font-display text-4xl md:text-5xl text-burgundy">
+            <h2 className="font-display text-4xl md:text-5xl text-burgundy text-center">
               {t.unveiled.noFiltersHeading}
             </h2>
           </Animate>
           <Animate delay={100}>
-            <p className="mt-6 text-lg text-foreground/75 leading-relaxed">
+            <p className="mt-6 text-lg text-foreground/75 leading-relaxed text-center max-w-2xl mx-auto">
               {t.unveiled.noFiltersText}
             </p>
+          </Animate>
+          <Animate delay={200}>
+            <div className="mt-12 grid grid-cols-2 gap-4">
+              <div className="overflow-hidden rounded-2xl">
+                <img src={noFilters1Img} alt="" className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-700" />
+              </div>
+              <div className="overflow-hidden rounded-2xl">
+                <img src={noFilters2Img} alt="" className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-700" />
+              </div>
+            </div>
           </Animate>
         </div>
       </section>
@@ -185,14 +234,19 @@ function UnveiledExperiencePage() {
           <div className="mt-14 grid md:grid-cols-3 gap-6">
             {t.unveiled.guides.map((g, i) => (
               <Animate key={g.name} delay={(i * 100) as 0 | 100 | 200}>
-                <article className="bg-white/50 backdrop-blur-sm rounded-3xl p-8 border border-white/30 shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-                  <h3 className="font-display text-2xl text-burgundy">
-                    {g.name}
-                  </h3>
-                  <p className="mt-1 text-sm text-terracotta">{g.role}</p>
-                  <p className="mt-4 text-foreground/80 leading-relaxed">
-                    {g.bio}
-                  </p>
+                <article className="bg-white/50 backdrop-blur-sm rounded-3xl border border-white/30 shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300 overflow-hidden">
+                  <div className="overflow-hidden">
+                    <img src={guideImages[i]} alt={g.name} className="w-full aspect-square object-cover hover:scale-105 transition-transform duration-500" />
+                  </div>
+                  <div className="p-8">
+                    <h3 className="font-display text-2xl text-burgundy">
+                      {g.name}
+                    </h3>
+                    <p className="mt-1 text-sm text-terracotta">{g.role}</p>
+                    <p className="mt-4 text-foreground/80 leading-relaxed">
+                      {g.bio}
+                    </p>
+                  </div>
                 </article>
               </Animate>
             ))}
@@ -251,17 +305,22 @@ function UnveiledExperiencePage() {
 
       {/* Event Details */}
       <section className="py-28 bg-burgundy/95 backdrop-blur-xl text-primary-foreground">
-        <div className="mx-auto max-w-3xl px-6 text-center">
+        <div className="mx-auto max-w-5xl px-6 grid md:grid-cols-2 gap-12 items-center">
           <Animate>
-            <h2 className="font-display text-4xl md:text-5xl">
-              {t.unveiled.eventHeading}
-            </h2>
+            <div className="text-center md:text-left">
+              <h2 className="font-display text-4xl md:text-5xl">
+                {t.unveiled.eventHeading}
+              </h2>
+              <div className="mt-10 space-y-4 text-lg">
+                <p className="text-primary-foreground/90">{t.unveiled.eventDate}</p>
+                <p className="text-primary-foreground/90">{t.unveiled.eventTime}</p>
+                <p className="text-primary-foreground/90">{t.unveiled.eventLocation}</p>
+              </div>
+            </div>
           </Animate>
           <Animate delay={100}>
-            <div className="mt-10 space-y-4 text-lg">
-              <p className="text-primary-foreground/90">{t.unveiled.eventDate}</p>
-              <p className="text-primary-foreground/90">{t.unveiled.eventTime}</p>
-              <p className="text-primary-foreground/90">{t.unveiled.eventLocation}</p>
+            <div className="overflow-hidden rounded-2xl">
+              <img src={venueImg} alt="" className="w-full aspect-[4/5] object-cover rounded-2xl shadow-lg opacity-90" />
             </div>
           </Animate>
         </div>
