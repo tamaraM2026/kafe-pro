@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState, useEffect, useCallback } from "react";
 import { Animate } from "@/components/Animate";
 import { useTranslations, useLang } from "@/hooks/use-translations";
 import { getTranslations } from "@/i18n";
@@ -8,6 +9,7 @@ import shadowImg from "@/assets/unveiled/shadow.jpg";
 import pillarMindsetImg from "@/assets/unveiled/pillar-mindset.jpg";
 import pillarBodyImg from "@/assets/unveiled/pillar-body.jpg";
 import pillarPortraitImg from "@/assets/unveiled/pillar-portrait.jpg";
+import slideMindsetImg from "@/assets/unveiled/slide-mindset.jpg";
 import guidePetraImg from "@/assets/unveiled/guide-petra.jpg";
 import guideAdelaImg from "@/assets/unveiled/guide-adela.jpg";
 import guideTamaraImg from "@/assets/unveiled/guide-tamara.jpg";
@@ -17,6 +19,52 @@ import venueImg from "@/assets/unveiled/venue.jpg";
 
 const pillarImages = [pillarMindsetImg, pillarBodyImg, pillarPortraitImg];
 const guideImages = [guidePetraImg, guideAdelaImg, guideTamaraImg];
+
+const slideImages = [slideMindsetImg, pillarBodyImg, pillarPortraitImg];
+
+function Slideshow({ slides }: { slides: Array<{ image: string; title: string; subtitle: string }> }) {
+  const [current, setCurrent] = useState(0);
+
+  const next = useCallback(() => setCurrent((c) => (c + 1) % slides.length), [slides.length]);
+  const prev = useCallback(() => setCurrent((c) => (c - 1 + slides.length) % slides.length), [slides.length]);
+
+  useEffect(() => {
+    const timer = setInterval(next, 5000);
+    return () => clearInterval(timer);
+  }, [next]);
+
+  return (
+    <section className="relative w-full h-[70vh] min-h-[500px] overflow-hidden">
+      {slides.map((slide, i) => (
+        <div
+          key={i}
+          className={`absolute inset-0 transition-opacity duration-1000 ${i === current ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+        >
+          <img src={slide.image} alt="" className="absolute inset-0 w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-black/30" />
+          <div className="relative z-10 h-full flex flex-col items-start justify-center px-8 md:px-20 max-w-4xl">
+            <h2 className="font-display text-5xl md:text-7xl text-white leading-[1.1]">{slide.title}</h2>
+            <p className="mt-2 font-display text-3xl md:text-5xl text-white/90 italic">{slide.subtitle}</p>
+            <a href="#pricing" className="mt-8 px-8 py-3 rounded-full bg-burgundy/80 text-white hover:bg-burgundy transition-colors text-lg">
+              Join us
+            </a>
+          </div>
+        </div>
+      ))}
+      <button onClick={prev} className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center text-white/80 hover:text-white transition-colors" aria-label="Previous slide">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><polyline points="15 18 9 12 15 6" /></svg>
+      </button>
+      <button onClick={next} className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center text-white/80 hover:text-white transition-colors" aria-label="Next slide">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><polyline points="9 6 15 12 9 18" /></svg>
+      </button>
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        {slides.map((_, i) => (
+          <button key={i} onClick={() => setCurrent(i)} className={`w-2.5 h-2.5 rounded-full transition-all ${i === current ? "bg-white scale-110" : "bg-white/40 hover:bg-white/60"}`} aria-label={`Go to slide ${i + 1}`} />
+        ))}
+      </div>
+    </section>
+  );
+}
 
 export const Route = createFileRoute("/$lang/the-unveiled-experience")({
   head: ({ params }) => {
@@ -167,6 +215,13 @@ function UnveiledExperiencePage() {
           </div>
         </div>
       </section>
+
+      {/* Slideshow */}
+      <Slideshow slides={[
+        { image: slideImages[0], title: "Mindset", subtitle: "Deep-Dive" },
+        { image: slideImages[1], title: "Body", subtitle: "Confidence" },
+        { image: slideImages[2], title: "The Portrait", subtitle: "Session" },
+      ]} />
 
       {/* No Filters */}
       <section className="py-28 bg-cream">
