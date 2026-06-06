@@ -1,7 +1,9 @@
 import type { Translations } from "./types";
 import { en } from "./en";
+import { cs } from "./cs";
+import { es } from "./es";
 
-const translations: Record<string, Translations> = { en };
+const translations: Record<string, Translations> = { en, cs, es };
 
 export const SUPPORTED_LANGS = ["en", "cs", "es"] as const;
 export type Lang = (typeof SUPPORTED_LANGS)[number];
