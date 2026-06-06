@@ -1,30 +1,68 @@
 import { useState, useEffect } from "react";
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import logo from "@/assets/logo.png";
+import { getTranslations } from "@/i18n";
 
-const nav = [
-  { to: "/", label: "Home" },
-  { to: "/about", label: "What Kafe is" },
-  { to: "/founder", label: "Founder" },
-  { to: "/memberships", label: "Memberships" },
-  { to: "/community", label: "Community" },
-  { to: "/cesky", label: "Česky" },
-  { to: "/contact", label: "Contact" },
-];
+function LanguageSwitcher({ currentLang }: { currentLang: string }) {
+  const location = useLocation();
+  const pathAfterLang = location.pathname.replace(/^\/(en|cs|es)/, "") || "/";
 
-const programmes = [
-  { to: "/business-building-blocks", label: "Business Building Blocks" },
-];
+  const langs = [
+    { code: "en", label: "EN" },
+    { code: "es", label: "ES" },
+    { code: "cs", label: "CZ" },
+  ];
+
+  return (
+    <div className="flex items-center gap-1 text-xs">
+      {langs.map((l, i) => (
+        <span key={l.code} className="flex items-center">
+          {i > 0 && <span className="text-muted-foreground mx-1">&middot;</span>}
+          <Link
+            to={`/${l.code}${pathAfterLang}`}
+            className={`transition-colors ${
+              currentLang === l.code
+                ? "text-burgundy font-semibold"
+                : "text-muted-foreground hover:text-burgundy"
+            }`}
+          >
+            {l.label}
+          </Link>
+        </span>
+      ))}
+    </div>
+  );
+}
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
+  const lang = location.pathname.split("/")[1] || "en";
+  const t = getTranslations(lang);
+
+  const nav = [
+    { to: "/", label: t.common.nav.home },
+    { to: "/about", label: t.common.nav.about },
+    { to: "/founder", label: t.common.nav.founder },
+    { to: "/memberships", label: t.common.nav.memberships },
+    { to: "/community", label: t.common.nav.community },
+    { to: "/contact", label: t.common.nav.contact },
+  ];
+
+  const programmes = [
+    { to: "/business-building-blocks", label: t.common.programmesItems.bbb },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  function langPath(to: string) {
+    return `/${lang}${to === "/" ? "/" : to}`;
+  }
 
   return (
     <>
@@ -36,7 +74,7 @@ export function SiteHeader() {
         }`}
       >
         <div className="mx-auto max-w-7xl px-6 flex items-center justify-between gap-6">
-          <Link to="/" className="flex items-center gap-3">
+          <Link to={langPath("/")} className="flex items-center gap-3">
             <img
               src={logo}
               alt="Kafe con Propósito"
@@ -55,7 +93,7 @@ export function SiteHeader() {
             {nav.map((n) => (
               <Link
                 key={n.to}
-                to={n.to}
+                to={langPath(n.to)}
                 className="relative px-4 py-2 rounded-full text-sm text-foreground/80 hover:text-burgundy transition-colors after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-0.5 after:w-0 after:bg-burgundy after:transition-all after:duration-300 hover:after:w-1/2"
                 activeProps={{
                   className:
@@ -70,14 +108,14 @@ export function SiteHeader() {
                 type="button"
                 className="px-4 py-2 rounded-full text-sm text-foreground/80 hover:text-burgundy transition-colors"
               >
-                Programmes ▾
+                {t.common.programmesLabel} ▾
               </button>
               <div className="absolute right-0 top-full pt-2 hidden group-hover:block group-focus-within:block z-50">
                 <div className="min-w-[240px] bg-white/80 backdrop-blur-xl border border-white/30 rounded-2xl shadow-lg p-2">
                   {programmes.map((p) => (
                     <Link
                       key={p.to}
-                      to={p.to}
+                      to={langPath(p.to)}
                       className="block px-4 py-2 rounded-xl text-sm text-foreground/80 hover:text-burgundy hover:bg-white/50 transition-colors"
                       activeProps={{
                         className:
@@ -92,8 +130,8 @@ export function SiteHeader() {
             </div>
           </nav>
 
-          <div className="hidden md:flex items-center gap-2 text-xs text-muted-foreground">
-            <span>EN</span><span>·</span><span>ES</span><span>·</span><span>CZ</span>
+          <div className="hidden md:flex items-center">
+            <LanguageSwitcher currentLang={lang} />
           </div>
 
           <button
@@ -136,7 +174,7 @@ export function SiteHeader() {
             {nav.map((n) => (
               <Link
                 key={n.to}
-                to={n.to}
+                to={langPath(n.to)}
                 className="px-4 py-3 rounded-xl text-foreground/80 hover:text-burgundy hover:bg-cream/50 transition-colors"
                 activeProps={{ className: "px-4 py-3 rounded-xl text-burgundy bg-cream/50" }}
                 onClick={() => setMobileOpen(false)}
@@ -145,11 +183,11 @@ export function SiteHeader() {
               </Link>
             ))}
             <div className="border-t border-border/30 my-2" />
-            <p className="px-4 text-xs text-muted-foreground tracking-widest">PROGRAMMES</p>
+            <p className="px-4 text-xs text-muted-foreground tracking-widest">{t.common.programmesLabel.toUpperCase()}</p>
             {programmes.map((p) => (
               <Link
                 key={p.to}
-                to={p.to}
+                to={langPath(p.to)}
                 className="px-4 py-3 rounded-xl text-foreground/80 hover:text-burgundy hover:bg-cream/50 transition-colors"
                 activeProps={{ className: "px-4 py-3 rounded-xl text-burgundy bg-cream/50" }}
                 onClick={() => setMobileOpen(false)}
@@ -157,6 +195,10 @@ export function SiteHeader() {
                 {p.label}
               </Link>
             ))}
+            <div className="border-t border-border/30 my-2" />
+            <div className="px-4">
+              <LanguageSwitcher currentLang={lang} />
+            </div>
           </nav>
         </div>
       )}
