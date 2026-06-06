@@ -53,6 +53,7 @@ export function SiteHeader() {
   const programmes = [
     { to: "/business-building-blocks", label: t.common.programmesItems.bbb },
     { to: "/10x-productive", label: t.common.programmesItems.tenx },
+    { to: "/the-unveiled-experience", label: t.common.programmesItems.unveiled },
   ];
 
   useEffect(() => {

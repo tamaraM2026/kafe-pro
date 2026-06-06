@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as LangRouteRouteImport } from './routes/$lang/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LangIndexRouteImport } from './routes/$lang/index'
+import { Route as LangTheUnveiledExperienceRouteImport } from './routes/$lang/the-unveiled-experience'
 import { Route as LangMembershipsRouteImport } from './routes/$lang/memberships'
 import { Route as LangFounderRouteImport } from './routes/$lang/founder'
 import { Route as LangContactRouteImport } from './routes/$lang/contact'
@@ -35,6 +36,12 @@ const LangIndexRoute = LangIndexRouteImport.update({
   path: '/',
   getParentRoute: () => LangRouteRoute,
 } as any)
+const LangTheUnveiledExperienceRoute =
+  LangTheUnveiledExperienceRouteImport.update({
+    id: '/the-unveiled-experience',
+    path: '/the-unveiled-experience',
+    getParentRoute: () => LangRouteRoute,
+  } as any)
 const LangMembershipsRoute = LangMembershipsRouteImport.update({
   id: '/memberships',
   path: '/memberships',
@@ -82,6 +89,7 @@ export interface FileRoutesByFullPath {
   '/$lang/contact': typeof LangContactRoute
   '/$lang/founder': typeof LangFounderRoute
   '/$lang/memberships': typeof LangMembershipsRoute
+  '/$lang/the-unveiled-experience': typeof LangTheUnveiledExperienceRoute
   '/$lang/': typeof LangIndexRoute
 }
 export interface FileRoutesByTo {
@@ -93,6 +101,7 @@ export interface FileRoutesByTo {
   '/$lang/contact': typeof LangContactRoute
   '/$lang/founder': typeof LangFounderRoute
   '/$lang/memberships': typeof LangMembershipsRoute
+  '/$lang/the-unveiled-experience': typeof LangTheUnveiledExperienceRoute
   '/$lang': typeof LangIndexRoute
 }
 export interface FileRoutesById {
@@ -106,6 +115,7 @@ export interface FileRoutesById {
   '/$lang/contact': typeof LangContactRoute
   '/$lang/founder': typeof LangFounderRoute
   '/$lang/memberships': typeof LangMembershipsRoute
+  '/$lang/the-unveiled-experience': typeof LangTheUnveiledExperienceRoute
   '/$lang/': typeof LangIndexRoute
 }
 export interface FileRouteTypes {
@@ -120,6 +130,7 @@ export interface FileRouteTypes {
     | '/$lang/contact'
     | '/$lang/founder'
     | '/$lang/memberships'
+    | '/$lang/the-unveiled-experience'
     | '/$lang/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -131,6 +142,7 @@ export interface FileRouteTypes {
     | '/$lang/contact'
     | '/$lang/founder'
     | '/$lang/memberships'
+    | '/$lang/the-unveiled-experience'
     | '/$lang'
   id:
     | '__root__'
@@ -143,6 +155,7 @@ export interface FileRouteTypes {
     | '/$lang/contact'
     | '/$lang/founder'
     | '/$lang/memberships'
+    | '/$lang/the-unveiled-experience'
     | '/$lang/'
   fileRoutesById: FileRoutesById
 }
@@ -172,6 +185,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/$lang/'
       preLoaderRoute: typeof LangIndexRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
+    '/$lang/the-unveiled-experience': {
+      id: '/$lang/the-unveiled-experience'
+      path: '/the-unveiled-experience'
+      fullPath: '/$lang/the-unveiled-experience'
+      preLoaderRoute: typeof LangTheUnveiledExperienceRouteImport
       parentRoute: typeof LangRouteRoute
     }
     '/$lang/memberships': {
@@ -234,6 +254,7 @@ interface LangRouteRouteChildren {
   LangContactRoute: typeof LangContactRoute
   LangFounderRoute: typeof LangFounderRoute
   LangMembershipsRoute: typeof LangMembershipsRoute
+  LangTheUnveiledExperienceRoute: typeof LangTheUnveiledExperienceRoute
   LangIndexRoute: typeof LangIndexRoute
 }
 
@@ -245,6 +266,7 @@ const LangRouteRouteChildren: LangRouteRouteChildren = {
   LangContactRoute: LangContactRoute,
   LangFounderRoute: LangFounderRoute,
   LangMembershipsRoute: LangMembershipsRoute,
+  LangTheUnveiledExperienceRoute: LangTheUnveiledExperienceRoute,
   LangIndexRoute: LangIndexRoute,
 }
 
