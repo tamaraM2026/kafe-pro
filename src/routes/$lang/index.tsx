@@ -8,8 +8,25 @@ import gathering5 from "@/assets/gathering-5.jpg";
 import gathering6 from "@/assets/gathering-6.jpg";
 import gathering7 from "@/assets/gathering-7.jpg";
 import gathering8 from "@/assets/gathering-8.jpg";
+import logoVerve from "@/assets/logos/verve.jpg";
+import logoIveta from "@/assets/logos/iveta.jpg";
+import logoPodnikatelky from "@/assets/logos/podnikatelky.png";
+import logoMameetus from "@/assets/logos/mameetus.png";
+import logoAdela from "@/assets/logos/adela.jpg";
+import logoPrazirna from "@/assets/logos/prazirna.jpg";
+import logoSapovalova from "@/assets/logos/sapovalova.png";
 
 const gatheringImages = [gathering1, gathering2, gathering3, gathering4, gathering5, gathering6, gathering7, gathering8];
+
+const collaboratorLogos = [
+  { name: "Harrington Verve", url: "https://harringtonverve.com/", logo: logoVerve },
+  { name: "Iveta Skřivanová", url: "https://ivetaskrivanova.cz/", logo: logoIveta },
+  { name: "Podnikatelky SOBĚ", url: "https://www.podnikatelkysobe.cz/", logo: logoPodnikatelky },
+  { name: "MaMeetUs", url: "https://www.mameetus.cz/", logo: logoMameetus },
+  { name: "Adela Fialová", url: "https://www.adelafialova.com/", logo: logoAdela },
+  { name: "Pražírna Kavárna Poděbrady", url: "https://harringtonverve.com/", logo: logoPrazirna },
+  { name: "Sapovalova Solutions", url: "#", logo: logoSapovalova },
+];
 import founderImg from "@/assets/founder.jpg";
 import valeriaImg from "@/assets/testimonial-valeria.jpg";
 import adelaImg from "@/assets/testimonial-adela.jpg";
@@ -347,16 +364,17 @@ function HomePage() {
             </h2>
           </Animate>
           <Animate delay={100}>
-            <div className="mt-12 flex flex-wrap justify-center gap-3">
-              {t.community.collaborators.map((c) => (
+            <div className="mt-12 flex flex-wrap justify-center items-center gap-8 md:gap-12">
+              {collaboratorLogos.map((c) => (
                 <a
                   key={c.name}
                   href={c.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-3 rounded-full border border-white/30 bg-white/50 backdrop-blur-sm text-foreground/80 hover:text-burgundy hover:border-burgundy hover:-translate-y-0.5 transition-all duration-300 text-sm"
+                  className="opacity-70 hover:opacity-100 hover:-translate-y-1 transition-all duration-300"
+                  title={c.name}
                 >
-                  {c.name}
+                  <img src={c.logo} alt={c.name} className="h-16 md:h-20 w-auto object-contain" />
                 </a>
               ))}
             </div>
