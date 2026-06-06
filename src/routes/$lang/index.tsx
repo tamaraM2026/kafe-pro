@@ -2,6 +2,12 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import hero from "@/assets/hero-gathering.jpg";
 import gathering1 from "@/assets/gathering-1.jpg";
 import gathering2 from "@/assets/gathering-2.jpg";
+import founderImg from "@/assets/founder.jpg";
+import valeriaImg from "@/assets/testimonial-valeria.jpg";
+import adelaImg from "@/assets/testimonial-adela.jpg";
+import irenaImg from "@/assets/testimonial-irena.jpg";
+
+const testimonialImages = [valeriaImg, adelaImg, irenaImg];
 import { Animate } from "@/components/Animate";
 import { useCountUp } from "@/hooks/use-count-up";
 import { useTranslations, useLang } from "@/hooks/use-translations";
@@ -181,23 +187,104 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Gatherings gallery */}
-      <section className="py-28 bg-cream">
-        <div className="mx-auto max-w-6xl px-6">
+      {/* Storytelling banner */}
+      <section className="py-28 bg-burgundy/95 backdrop-blur-xl text-primary-foreground">
+        <div className="mx-auto max-w-3xl px-6 text-center">
           <Animate>
-            <p className="text-xs tracking-[0.25em] text-terracotta text-center">OUR GATHERINGS</p>
-            <h2 className="mt-3 font-display text-4xl md:text-5xl text-burgundy text-center">Real moments, real connection.</h2>
+            <p className="text-xs tracking-[0.25em] text-accent">{t.memberships.bannerLabel}</p>
+            <h2 className="mt-3 font-display text-4xl md:text-5xl">{t.memberships.bannerHeading}</h2>
           </Animate>
           <Animate delay={100}>
-            <div className="mt-12 grid md:grid-cols-2 gap-6">
-              <div className="overflow-hidden rounded-2xl">
-                <img src={gathering1} alt="Kafe gathering" className="w-full aspect-[5/4] object-cover hover:scale-105 transition-transform duration-700" />
-              </div>
-              <div className="overflow-hidden rounded-2xl">
-                <img src={gathering2} alt="Kafe gathering" className="w-full aspect-[5/4] object-cover hover:scale-105 transition-transform duration-700" />
+            <p className="mt-6 text-lg opacity-90 leading-relaxed">{t.memberships.bannerDescription}</p>
+            <Link to={"/$lang/contact"} params={{ lang }} className="mt-8 inline-block px-7 py-4 rounded-full bg-accent text-accent-foreground hover:scale-[1.02] active:scale-[0.98] transition-all">
+              {t.memberships.bannerCta}
+            </Link>
+          </Animate>
+        </div>
+      </section>
+
+      {/* Founder */}
+      <section className="py-28 bg-cream">
+        <div className="mx-auto max-w-6xl px-6 grid lg:grid-cols-2 gap-16 items-center">
+          <Animate>
+            <div className="relative">
+              <div className="absolute -inset-6 bg-sage/15 rounded-[3rem] rotate-2" aria-hidden />
+              <div className="relative overflow-hidden rounded-[2.5rem]">
+                <img src={founderImg} alt="Tamara Medina Sapovalova" width={800} height={1000} className="shadow-2xl object-cover w-full hover:scale-105 transition-transform duration-700" />
               </div>
             </div>
           </Animate>
+          <div>
+            <Animate>
+              <p className="text-xs tracking-[0.25em] text-terracotta">{t.founder.label}</p>
+            </Animate>
+            <Animate delay={100}>
+              <h2 className="mt-4 font-display text-4xl md:text-5xl bg-gradient-to-r from-burgundy to-terracotta bg-clip-text text-transparent">{t.founder.heading}</h2>
+            </Animate>
+            <Animate delay={200}>
+              <div className="mt-8 space-y-5 text-foreground/80 leading-relaxed text-lg">
+                {t.founder.paragraphs.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+            </Animate>
+            <Animate delay={300}>
+              <p className="mt-8 font-display text-xl text-burgundy">{t.founder.signature}</p>
+              <div className="mt-6 flex flex-wrap gap-4">
+                <Link to={"/$lang/founder"} params={{ lang }} className="text-sm text-burgundy hover:text-terracotta transition-colors underline underline-offset-4">
+                  {t.founder.label} →
+                </Link>
+                <Link to={"/$lang/business-building-blocks"} params={{ lang }} className="text-sm text-burgundy hover:text-terracotta transition-colors underline underline-offset-4">
+                  Business Building Blocks →
+                </Link>
+              </div>
+            </Animate>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-28">
+        <div className="mx-auto max-w-5xl px-6">
+          <Animate>
+            <h2 className="font-display text-4xl text-burgundy text-center">{t.about.testimonialsHeading}</h2>
+            <p className="text-center text-muted-foreground mt-2">{t.about.testimonialsSubheading}</p>
+          </Animate>
+          <div className="mt-12 grid md:grid-cols-3 gap-6">
+            {t.about.testimonials.map((item, i) => (
+              <Animate key={item.name} delay={(i * 100) as 0 | 100 | 200}>
+                <figure className="bg-white/50 backdrop-blur-sm rounded-3xl p-8 shadow-sm border border-white/30 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                  <div className="flex items-center gap-4 mb-4">
+                    <img src={testimonialImages[i]} alt={item.name} className="w-14 h-14 rounded-full object-cover" />
+                    <span className="text-sm tracking-[0.2em] text-terracotta">{item.name.toUpperCase()}</span>
+                  </div>
+                  <blockquote className="font-display text-lg italic text-foreground/85 leading-relaxed">"{item.text}"</blockquote>
+                </figure>
+              </Animate>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-28 bg-cream">
+        <div className="mx-auto max-w-3xl px-6">
+          <Animate>
+            <h2 className="font-display text-4xl text-burgundy text-center">{t.about.faqHeading}</h2>
+          </Animate>
+          <div className="mt-12 space-y-4">
+            {t.about.faqs.map((f, i) => (
+              <Animate key={f.q} delay={(i * 100) as 0 | 100 | 200 | 300 | 400}>
+                <details className="group bg-white/50 backdrop-blur-sm rounded-2xl p-6 border border-white/30 open:shadow-md transition-all duration-300 hover:bg-white/70">
+                  <summary className="cursor-pointer font-display text-xl text-burgundy flex items-center justify-between">
+                    {f.q}
+                    <span className="text-terracotta group-open:rotate-45 transition-transform duration-300 text-2xl">+</span>
+                  </summary>
+                  <p className="mt-4 text-foreground/75 leading-relaxed">{f.a}</p>
+                </details>
+              </Animate>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -219,6 +306,58 @@ function HomePage() {
                 {t.common.exploreMemberships}
               </Link>
             </div>
+          </Animate>
+        </div>
+      </section>
+
+      {/* Gatherings gallery */}
+      <section className="py-28 bg-cream">
+        <div className="mx-auto max-w-6xl px-6">
+          <Animate>
+            <p className="text-xs tracking-[0.25em] text-terracotta text-center">OUR GATHERINGS</p>
+            <h2 className="mt-3 font-display text-4xl md:text-5xl text-burgundy text-center">Real moments, real connection.</h2>
+          </Animate>
+          <Animate delay={100}>
+            <div className="mt-12 grid md:grid-cols-2 gap-6">
+              <div className="overflow-hidden rounded-2xl">
+                <img src={gathering1} alt="Kafe gathering" className="w-full aspect-[5/4] object-cover hover:scale-105 transition-transform duration-700" />
+              </div>
+              <div className="overflow-hidden rounded-2xl">
+                <img src={gathering2} alt="Kafe gathering" className="w-full aspect-[5/4] object-cover hover:scale-105 transition-transform duration-700" />
+              </div>
+            </div>
+          </Animate>
+        </div>
+      </section>
+
+      {/* Collaborators */}
+      <section className="py-28">
+        <div className="mx-auto max-w-5xl px-6 text-center">
+          <Animate>
+            <p className="text-xs tracking-[0.25em] text-terracotta">{t.community.collaboratorsLabel}</p>
+            <h2 className="mt-3 font-display text-4xl md:text-5xl text-burgundy">
+              {t.community.collaboratorsHeading}
+            </h2>
+          </Animate>
+          <Animate delay={100}>
+            <div className="mt-12 flex flex-wrap justify-center gap-3">
+              {t.community.collaborators.map((c) => (
+                <a
+                  key={c.name}
+                  href={c.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-3 rounded-full border border-white/30 bg-white/50 backdrop-blur-sm text-foreground/80 hover:text-burgundy hover:border-burgundy hover:-translate-y-0.5 transition-all duration-300 text-sm"
+                >
+                  {c.name}
+                </a>
+              ))}
+            </div>
+          </Animate>
+          <Animate delay={200}>
+            <p className="mt-12 text-sm text-muted-foreground italic">
+              {t.community.collaborateCta}
+            </p>
           </Animate>
         </div>
       </section>
