@@ -42,12 +42,12 @@ export function SiteHeader() {
   const t = getTranslations(lang);
 
   const nav = [
-    { to: "/", label: t.common.nav.home },
-    { to: "/about", label: t.common.nav.about },
-    { to: "/founder", label: t.common.nav.founder },
-    { to: "/memberships", label: t.common.nav.memberships },
-    { to: "/community", label: t.common.nav.community },
-    { to: "/contact", label: t.common.nav.contact },
+    { to: "/", label: t.common.nav.home, anchor: undefined as string | undefined },
+    { to: "/", label: t.common.nav.about, anchor: "#what-kafe-is" },
+    { to: "/", label: t.common.nav.founder, anchor: "#founder" },
+    { to: "/", label: t.common.nav.memberships, anchor: "#memberships" },
+    { to: "/community", label: t.common.nav.community, anchor: undefined as string | undefined },
+    { to: "/contact", label: t.common.nav.contact, anchor: undefined as string | undefined },
   ];
 
   const programmes = [
@@ -93,17 +93,27 @@ export function SiteHeader() {
 
           <nav className="hidden md:flex items-center gap-1">
             {nav.map((n) => (
-              <Link
-                key={n.to}
-                to={langPath(n.to)}
-                className="relative px-4 py-2 rounded-full text-sm text-foreground/80 hover:text-burgundy transition-colors after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-0.5 after:w-0 after:bg-burgundy after:transition-all after:duration-300 hover:after:w-1/2"
-                activeProps={{
-                  className:
-                    "relative px-4 py-2 rounded-full text-sm text-burgundy after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-0.5 after:w-1/2 after:bg-burgundy",
-                }}
-              >
-                {n.label}
-              </Link>
+              n.anchor ? (
+                <a
+                  key={n.label}
+                  href={`/${lang}/${n.anchor}`}
+                  className="relative px-4 py-2 rounded-full text-sm text-foreground/80 hover:text-burgundy transition-colors after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-0.5 after:w-0 after:bg-burgundy after:transition-all after:duration-300 hover:after:w-1/2"
+                >
+                  {n.label}
+                </a>
+              ) : (
+                <Link
+                  key={n.label}
+                  to={langPath(n.to)}
+                  className="relative px-4 py-2 rounded-full text-sm text-foreground/80 hover:text-burgundy transition-colors after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-0.5 after:w-0 after:bg-burgundy after:transition-all after:duration-300 hover:after:w-1/2"
+                  activeProps={{
+                    className:
+                      "relative px-4 py-2 rounded-full text-sm text-burgundy after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-0.5 after:w-1/2 after:bg-burgundy",
+                  }}
+                >
+                  {n.label}
+                </Link>
+              )
             ))}
             <div className="relative group">
               <button
@@ -174,15 +184,26 @@ export function SiteHeader() {
               </svg>
             </button>
             {nav.map((n) => (
-              <Link
-                key={n.to}
-                to={langPath(n.to)}
-                className="px-4 py-3 rounded-xl text-foreground/80 hover:text-burgundy hover:bg-cream/50 transition-colors"
-                activeProps={{ className: "px-4 py-3 rounded-xl text-burgundy bg-cream/50" }}
-                onClick={() => setMobileOpen(false)}
-              >
-                {n.label}
-              </Link>
+              n.anchor ? (
+                <a
+                  key={n.label}
+                  href={`/${lang}/${n.anchor}`}
+                  className="px-4 py-3 rounded-xl text-foreground/80 hover:text-burgundy hover:bg-cream/50 transition-colors"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {n.label}
+                </a>
+              ) : (
+                <Link
+                  key={n.label}
+                  to={langPath(n.to)}
+                  className="px-4 py-3 rounded-xl text-foreground/80 hover:text-burgundy hover:bg-cream/50 transition-colors"
+                  activeProps={{ className: "px-4 py-3 rounded-xl text-burgundy bg-cream/50" }}
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {n.label}
+                </Link>
+              )
             ))}
             <div className="border-t border-border/30 my-2" />
             <p className="px-4 text-xs text-muted-foreground tracking-widest">{t.common.programmesLabel.toUpperCase()}</p>
