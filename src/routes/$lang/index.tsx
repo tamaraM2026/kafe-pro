@@ -2,6 +2,14 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import hero from "@/assets/hero-gathering.jpg";
 import gathering1 from "@/assets/gathering-1.jpg";
 import gathering2 from "@/assets/gathering-2.jpg";
+import gathering3 from "@/assets/gathering-3.jpg";
+import gathering4 from "@/assets/gathering-4.jpg";
+import gathering5 from "@/assets/gathering-5.jpg";
+import gathering6 from "@/assets/gathering-6.jpg";
+import gathering7 from "@/assets/gathering-7.jpg";
+import gathering8 from "@/assets/gathering-8.jpg";
+
+const gatheringImages = [gathering1, gathering2, gathering3, gathering4, gathering5, gathering6, gathering7, gathering8];
 import founderImg from "@/assets/founder.jpg";
 import valeriaImg from "@/assets/testimonial-valeria.jpg";
 import adelaImg from "@/assets/testimonial-adela.jpg";
@@ -317,16 +325,15 @@ function HomePage() {
             <p className="text-xs tracking-[0.25em] text-terracotta text-center">OUR GATHERINGS</p>
             <h2 className="mt-3 font-display text-4xl md:text-5xl text-burgundy text-center">Real moments, real connection.</h2>
           </Animate>
-          <Animate delay={100}>
-            <div className="mt-12 grid md:grid-cols-2 gap-6">
-              <div className="overflow-hidden rounded-2xl">
-                <img src={gathering1} alt="Kafe gathering" className="w-full aspect-[5/4] object-cover hover:scale-105 transition-transform duration-700" />
-              </div>
-              <div className="overflow-hidden rounded-2xl">
-                <img src={gathering2} alt="Kafe gathering" className="w-full aspect-[5/4] object-cover hover:scale-105 transition-transform duration-700" />
-              </div>
-            </div>
-          </Animate>
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
+            {gatheringImages.map((img, i) => (
+              <Animate key={i} delay={(i % 4 * 100) as 0 | 100 | 200 | 300}>
+                <div className="overflow-hidden rounded-2xl">
+                  <img src={img} alt="Kafe gathering" className="w-full aspect-square object-cover hover:scale-110 transition-transform duration-700" />
+                </div>
+              </Animate>
+            ))}
+          </div>
         </div>
       </section>
 
