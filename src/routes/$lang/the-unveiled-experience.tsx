@@ -40,7 +40,11 @@ export const Route = createFileRoute("/$lang/the-unveiled-experience")({
   component: UnveiledExperiencePage,
 });
 
-const RESERVE_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfyznpioX_NhJkbB6flkurwdeHe6q3fMJ90EMg7s_dcZp725Q/viewform?usp=header";
+const TIER_URLS = [
+  "https://forms.gle/vkRbreRKs5XzrtxS9",
+  "https://docs.google.com/forms/d/e/1FAIpQLScqyYdEznXOCFoUjCRdsGq8_9NzvJ9OyiPjMjiIq5fp6mOw4Q/viewform?usp=sharing",
+  "https://forms.gle/biZVdgfEf7Bwgs6w7",
+];
 
 function UnveiledExperiencePage() {
   const t = useTranslations();
@@ -69,9 +73,7 @@ function UnveiledExperiencePage() {
             </Animate>
             <Animate delay={300}>
               <a
-                href={RESERVE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#pricing"
                 className="mt-8 inline-block px-8 py-3 rounded-full bg-gradient-to-r from-burgundy to-burgundy/80 text-primary-foreground hover:scale-[1.02] active:scale-[0.98] transition-all"
               >
                 {t.unveiled.reserveCta}
@@ -327,7 +329,7 @@ function UnveiledExperiencePage() {
       </section>
 
       {/* Pricing */}
-      <section className="py-28">
+      <section className="py-28" id="pricing">
         <div className="mx-auto max-w-6xl px-6">
           <Animate>
             <p className="text-xs tracking-[0.25em] text-terracotta text-center">
@@ -384,7 +386,7 @@ function UnveiledExperiencePage() {
                       ))}
                     </ul>
                     <a
-                      href={RESERVE_URL}
+                      href={TIER_URLS[i]}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`mt-8 inline-block w-full text-center px-6 py-3 rounded-full transition-all hover:scale-[1.02] active:scale-[0.98] ${
@@ -413,9 +415,7 @@ function UnveiledExperiencePage() {
         <div className="mx-auto max-w-3xl px-6 text-center">
           <Animate>
             <a
-              href={RESERVE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#pricing"
               className="inline-block px-8 py-4 rounded-full bg-gradient-to-r from-burgundy to-burgundy/80 text-primary-foreground text-lg hover:scale-[1.02] active:scale-[0.98] transition-all"
             >
               {t.unveiled.reserveCta}
