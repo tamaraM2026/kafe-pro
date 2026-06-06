@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import hero from "@/assets/hero-gathering.jpg";
+import gathering1 from "@/assets/gathering-1.jpg";
+import gathering2 from "@/assets/gathering-2.jpg";
 import { Animate } from "@/components/Animate";
 import { useCountUp } from "@/hooks/use-count-up";
 import { useTranslations, useLang } from "@/hooks/use-translations";
@@ -179,7 +181,28 @@ function HomePage() {
         </div>
       </section>
 
+      {/* Gatherings gallery */}
       <section className="py-28 bg-cream">
+        <div className="mx-auto max-w-6xl px-6">
+          <Animate>
+            <p className="text-xs tracking-[0.25em] text-terracotta text-center">OUR GATHERINGS</p>
+            <h2 className="mt-3 font-display text-4xl md:text-5xl text-burgundy text-center">Real moments, real connection.</h2>
+          </Animate>
+          <Animate delay={100}>
+            <div className="mt-12 grid md:grid-cols-2 gap-6">
+              <div className="overflow-hidden rounded-2xl">
+                <img src={gathering1} alt="Kafe gathering" className="w-full aspect-[5/4] object-cover hover:scale-105 transition-transform duration-700" />
+              </div>
+              <div className="overflow-hidden rounded-2xl">
+                <img src={gathering2} alt="Kafe gathering" className="w-full aspect-[5/4] object-cover hover:scale-105 transition-transform duration-700" />
+              </div>
+            </div>
+          </Animate>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-28">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <Animate>
             <h2 className="font-display text-5xl md:text-6xl bg-gradient-to-r from-burgundy to-terracotta bg-clip-text text-transparent">

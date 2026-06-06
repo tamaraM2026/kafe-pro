@@ -2,6 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Animate } from "@/components/Animate";
 import { useTranslations } from "@/hooks/use-translations";
 import { getTranslations } from "@/i18n";
+import valeriaImg from "@/assets/testimonial-valeria.jpg";
+import adelaImg from "@/assets/testimonial-adela.jpg";
+import irenaImg from "@/assets/testimonial-irena.jpg";
+
+const testimonialImages = [valeriaImg, adelaImg, irenaImg];
 
 export const Route = createFileRoute("/$lang/about")({
   head: ({ params }) => {
@@ -54,8 +59,11 @@ function About() {
             {t.about.testimonials.map((item, i) => (
               <Animate key={item.name} delay={(i * 100) as 0 | 100 | 200}>
                 <figure className="bg-white/50 backdrop-blur-sm rounded-3xl p-8 shadow-sm border border-white/30 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                  <div className="flex items-center gap-4 mb-4">
+                    <img src={testimonialImages[i]} alt={item.name} className="w-14 h-14 rounded-full object-cover" />
+                    <span className="text-sm tracking-[0.2em] text-terracotta">{item.name.toUpperCase()}</span>
+                  </div>
                   <blockquote className="font-display text-lg italic text-foreground/85 leading-relaxed">"{item.text}"</blockquote>
-                  <figcaption className="mt-6 text-sm tracking-[0.2em] text-terracotta">— {item.name.toUpperCase()}</figcaption>
                 </figure>
               </Animate>
             ))}
