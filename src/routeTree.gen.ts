@@ -18,6 +18,7 @@ import { Route as LangContactRouteImport } from './routes/$lang/contact'
 import { Route as LangCommunityRouteImport } from './routes/$lang/community'
 import { Route as LangBusinessBuildingBlocksRouteImport } from './routes/$lang/business-building-blocks'
 import { Route as LangAboutRouteImport } from './routes/$lang/about'
+import { Route as Lang10xProductiveRouteImport } from './routes/$lang/10x-productive'
 
 const LangRouteRoute = LangRouteRouteImport.update({
   id: '/$lang',
@@ -65,10 +66,16 @@ const LangAboutRoute = LangAboutRouteImport.update({
   path: '/about',
   getParentRoute: () => LangRouteRoute,
 } as any)
+const Lang10xProductiveRoute = Lang10xProductiveRouteImport.update({
+  id: '/10x-productive',
+  path: '/10x-productive',
+  getParentRoute: () => LangRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$lang': typeof LangRouteRouteWithChildren
+  '/$lang/10x-productive': typeof Lang10xProductiveRoute
   '/$lang/about': typeof LangAboutRoute
   '/$lang/business-building-blocks': typeof LangBusinessBuildingBlocksRoute
   '/$lang/community': typeof LangCommunityRoute
@@ -79,6 +86,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/$lang/10x-productive': typeof Lang10xProductiveRoute
   '/$lang/about': typeof LangAboutRoute
   '/$lang/business-building-blocks': typeof LangBusinessBuildingBlocksRoute
   '/$lang/community': typeof LangCommunityRoute
@@ -91,6 +99,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/$lang': typeof LangRouteRouteWithChildren
+  '/$lang/10x-productive': typeof Lang10xProductiveRoute
   '/$lang/about': typeof LangAboutRoute
   '/$lang/business-building-blocks': typeof LangBusinessBuildingBlocksRoute
   '/$lang/community': typeof LangCommunityRoute
@@ -104,6 +113,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/$lang'
+    | '/$lang/10x-productive'
     | '/$lang/about'
     | '/$lang/business-building-blocks'
     | '/$lang/community'
@@ -114,6 +124,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/$lang/10x-productive'
     | '/$lang/about'
     | '/$lang/business-building-blocks'
     | '/$lang/community'
@@ -125,6 +136,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/$lang'
+    | '/$lang/10x-productive'
     | '/$lang/about'
     | '/$lang/business-building-blocks'
     | '/$lang/community'
@@ -204,10 +216,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LangAboutRouteImport
       parentRoute: typeof LangRouteRoute
     }
+    '/$lang/10x-productive': {
+      id: '/$lang/10x-productive'
+      path: '/10x-productive'
+      fullPath: '/$lang/10x-productive'
+      preLoaderRoute: typeof Lang10xProductiveRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
   }
 }
 
 interface LangRouteRouteChildren {
+  Lang10xProductiveRoute: typeof Lang10xProductiveRoute
   LangAboutRoute: typeof LangAboutRoute
   LangBusinessBuildingBlocksRoute: typeof LangBusinessBuildingBlocksRoute
   LangCommunityRoute: typeof LangCommunityRoute
@@ -218,6 +238,7 @@ interface LangRouteRouteChildren {
 }
 
 const LangRouteRouteChildren: LangRouteRouteChildren = {
+  Lang10xProductiveRoute: Lang10xProductiveRoute,
   LangAboutRoute: LangAboutRoute,
   LangBusinessBuildingBlocksRoute: LangBusinessBuildingBlocksRoute,
   LangCommunityRoute: LangCommunityRoute,

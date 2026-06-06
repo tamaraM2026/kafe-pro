@@ -15,6 +15,7 @@ export const es: Translations = {
     programmesLabel: "Programas",
     programmesItems: {
       bbb: "Business Building Blocks",
+      tenx: "10x Productiva",
     },
     reserve: "Reserva tu lugar →",
     exploreMemberships: "Explorar membresías",
@@ -57,6 +58,9 @@ export const es: Translations = {
     bbbTitle: "Business Building Blocks — Kafe con Propósito",
     bbbDescription:
       "Un programa de 2 meses que te lleva de 'tengo una idea' a 'tengo un negocio real y funcionando.' Talleres en vivo, herramientas prácticas, impulso real.",
+    tenxTitle: "10x Productiva — Kafe con Propósito",
+    tenxDescription:
+      "Una guia gratuita de autocoaching de 10 dias con ejercicios diarios, reflexiones y acciones para ser 10 veces mas productiva.",
   },
 
   home: {
@@ -412,5 +416,47 @@ export const es: Translations = {
     finalCtaHeading: "Registra tu interés hoy",
     finalCtaSubheading: "Plazas limitadas.",
     finalCtaButton: "Empezar ahora →",
+  },
+
+  tenx: {
+    label: "GUIA GRATUITA",
+    heading: "10 dias. 10 acciones.",
+    headingEmphasis: "10 veces mas productiva.",
+    heroSub: "Una guia gratuita de autocoaching con ejercicios diarios, reflexiones y acciones.",
+    pullQuote: "El cambio lleva tiempo — pero si haces un poco cada dia, estas pequenas acciones forman nuevos habitos. Sin darte cuenta, tu vida se transforma.",
+    daysLabel: "TU VIAJE DE 10 DIAS",
+    days: [
+      "El secreto del exito — tu actitud",
+      "Que te mueve realmente? Tus valores",
+      "Convirtiendo tus suenos en realidad",
+      "Lo que dice tu voz interior",
+      "El tiempo — quien tiene el control?",
+      "Eres la persona que quieres ser?",
+      "Adonde te llevan tus decisiones diarias",
+      "Eligiendo tus influencias con sabiduria",
+      "Responsabilidad y toma de decisiones",
+      "Cuidar de ti misma — la base de todo",
+    ],
+    forYouLabel: "ES PARA TI?",
+    forYouItems: [
+      "Sabes que algo tiene que cambiar pero no sabes por donde empezar",
+      "Te sientes ocupada todo el tiempo pero no verdaderamente productiva",
+      "Estas en transicion — carrera, lugar, identidad — y quieres claridad",
+      "Has empezado cosas antes y no las has terminado, y estas lista para intentarlo diferente",
+      "Quieres acciones practicas diarias, no solo teoria",
+    ],
+    tamaraBio: "Escribi esta guia tras anos de acompanar a mujeres en su reinvencion — cambios de carrera, mudanzas internacionales, esos momentos silenciosos de \"y ahora que?\" que llegan entre un capitulo y el siguiente. Estos 10 dias son la destilacion de lo que realmente funciona cuando dejas de esperar el momento perfecto y empiezas a construir desde donde estas.",
+    tamaraName: "Tamara Medina Sapovalova",
+    tamaraRole: "Fundadora, Kafe con Proposito",
+    optInTitle: "Comienza tu",
+    optInTitleEmphasis: "transformacion de 10 dias",
+    optInSub: "Ingresa tus datos y recibe la guia directo en tu correo — gratis.",
+    namePlaceholder: "Tu nombre",
+    emailPlaceholder: "Tu correo electronico",
+    errorMsg: "Por favor completa ambos campos.",
+    ctaButton: "Enviame la guia →",
+    privacyNote: "Sin spam. Cancela cuando quieras.",
+    successHeading: "Estas dentro!",
+    successMessage: "Revisa tu correo — la guia va en camino.",
   },
 };
