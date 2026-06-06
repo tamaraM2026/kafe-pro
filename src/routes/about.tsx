@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Animate } from "@/components/Animate";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -27,43 +28,57 @@ const testimonials = [
 function About() {
   return (
     <div>
-      <section className="py-20">
+      <section className="py-28">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <p className="text-xs tracking-[0.25em] text-terracotta">WHAT KAFE IS</p>
-          <h1 className="mt-4 font-display text-5xl md:text-6xl text-burgundy">A women's circle, not a networking event.</h1>
-          <p className="mt-8 text-lg text-foreground/75 leading-relaxed">
-            Kafe con Propósito is a consistent, trusted circle of women who show up — twice a month, in person, in Central Bohemia. Each gathering is themed, intentional, and built for real conversation, not transactions.
-          </p>
+          <Animate>
+            <p className="text-xs tracking-[0.25em] text-terracotta">WHAT KAFE IS</p>
+          </Animate>
+          <Animate delay={100}>
+            <h1 className="mt-4 font-display text-5xl md:text-6xl bg-gradient-to-r from-burgundy to-terracotta bg-clip-text text-transparent">A women's circle, not a networking event.</h1>
+          </Animate>
+          <Animate delay={200}>
+            <p className="mt-8 text-xl text-foreground/75 leading-relaxed">
+              Kafe con Propósito is a consistent, trusted circle of women who show up — twice a month, in person, in Central Bohemia. Each gathering is themed, intentional, and built for real conversation, not transactions.
+            </p>
+          </Animate>
         </div>
       </section>
 
-      <section className="py-20 bg-cream">
+      <section className="py-28 bg-cream">
         <div className="mx-auto max-w-5xl px-6">
-          <h2 className="font-display text-4xl text-burgundy text-center">What women say</h2>
-          <p className="text-center text-muted-foreground mt-2">Real words from real members</p>
+          <Animate>
+            <h2 className="font-display text-4xl text-burgundy text-center">What women say</h2>
+            <p className="text-center text-muted-foreground mt-2">Real words from real members</p>
+          </Animate>
           <div className="mt-12 grid md:grid-cols-3 gap-6">
-            {testimonials.map((t) => (
-              <figure key={t.name} className="bg-card rounded-3xl p-8 shadow-sm border border-border/50">
-                <blockquote className="font-display text-lg italic text-foreground/85 leading-relaxed">"{t.text}"</blockquote>
-                <figcaption className="mt-6 text-sm tracking-[0.2em] text-terracotta">— {t.name.toUpperCase()}</figcaption>
-              </figure>
+            {testimonials.map((t, i) => (
+              <Animate key={t.name} delay={(i * 100) as 0 | 100 | 200}>
+                <figure className="bg-white/50 backdrop-blur-sm rounded-3xl p-8 shadow-sm border border-white/30 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                  <blockquote className="font-display text-lg italic text-foreground/85 leading-relaxed">"{t.text}"</blockquote>
+                  <figcaption className="mt-6 text-sm tracking-[0.2em] text-terracotta">— {t.name.toUpperCase()}</figcaption>
+                </figure>
+              </Animate>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="py-28">
         <div className="mx-auto max-w-3xl px-6">
-          <h2 className="font-display text-4xl text-burgundy text-center">A few questions, answered</h2>
+          <Animate>
+            <h2 className="font-display text-4xl text-burgundy text-center">A few questions, answered</h2>
+          </Animate>
           <div className="mt-12 space-y-4">
-            {faqs.map((f) => (
-              <details key={f.q} className="group bg-card rounded-2xl p-6 border border-border/50 open:shadow-md transition">
-                <summary className="cursor-pointer font-display text-xl text-burgundy flex items-center justify-between">
-                  {f.q}
-                  <span className="text-terracotta group-open:rotate-45 transition-transform text-2xl">+</span>
-                </summary>
-                <p className="mt-4 text-foreground/75 leading-relaxed">{f.a}</p>
-              </details>
+            {faqs.map((f, i) => (
+              <Animate key={f.q} delay={(i * 100) as 0 | 100 | 200 | 300 | 400}>
+                <details className="group bg-white/50 backdrop-blur-sm rounded-2xl p-6 border border-white/30 open:shadow-md transition-all duration-300 hover:bg-white/70">
+                  <summary className="cursor-pointer font-display text-xl text-burgundy flex items-center justify-between">
+                    {f.q}
+                    <span className="text-terracotta group-open:rotate-45 transition-transform duration-300 text-2xl">+</span>
+                  </summary>
+                  <p className="mt-4 text-foreground/75 leading-relaxed">{f.a}</p>
+                </details>
+              </Animate>
             ))}
           </div>
         </div>
