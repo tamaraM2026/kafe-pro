@@ -8,12 +8,12 @@ import gathering5 from "@/assets/gathering-5.jpg";
 import gathering6 from "@/assets/gathering-6.jpg";
 import gathering7 from "@/assets/gathering-7.jpg";
 import gathering8 from "@/assets/gathering-8.jpg";
-import logoVerve from "@/assets/logos/verve.jpg";
-import logoIveta from "@/assets/logos/iveta.jpg";
+import logoVerve from "@/assets/logos/verve.png";
+import logoIveta from "@/assets/logos/iveta.png";
 import logoPodnikatelky from "@/assets/logos/podnikatelky.png";
 import logoMameetus from "@/assets/logos/mameetus.png";
-import logoAdela from "@/assets/logos/adela.jpg";
-import logoPrazirna from "@/assets/logos/prazirna.jpg";
+import logoAdela from "@/assets/logos/adela.png";
+import logoPrazirna from "@/assets/logos/prazirna.png";
 import logoSapovalova from "@/assets/logos/sapovalova.png";
 
 const gatheringImages = [gathering1, gathering2, gathering3, gathering4, gathering5, gathering6, gathering7, gathering8];
