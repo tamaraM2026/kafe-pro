@@ -7,10 +7,17 @@ import { getTranslations } from "@/i18n";
 export const Route = createFileRoute("/$lang/founder")({
   head: ({ params }) => {
     const t = getTranslations(params.lang);
+    const pagePath = "/founder";
     return {
       meta: [
         { title: t.meta.founderTitle },
         { name: "description", content: t.meta.founderDescription },
+      ],
+      links: [
+        { rel: "alternate", hreflang: "en", href: `/en${pagePath}` },
+        { rel: "alternate", hreflang: "cs", href: `/cs${pagePath}` },
+        { rel: "alternate", hreflang: "es", href: `/es${pagePath}` },
+        { rel: "alternate", hreflang: "x-default", href: `/en${pagePath}` },
       ],
     };
   },

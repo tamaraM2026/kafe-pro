@@ -13,6 +13,12 @@ export const Route = createFileRoute("/$lang/business-building-blocks")({
         { property: "og:title", content: t.meta.bbbTitle },
         { property: "og:description", content: t.meta.bbbDescription },
       ],
+      links: [
+        { rel: "alternate", hreflang: "en", href: "/en/business-building-blocks" },
+        { rel: "alternate", hreflang: "cs", href: "/cs/business-building-blocks" },
+        { rel: "alternate", hreflang: "es", href: "/es/business-building-blocks" },
+        { rel: "alternate", hreflang: "x-default", href: "/en/business-building-blocks" },
+      ],
     };
   },
   component: BBBPage,

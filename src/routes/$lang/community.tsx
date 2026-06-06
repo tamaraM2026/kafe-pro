@@ -19,6 +19,12 @@ export const Route = createFileRoute("/$lang/community")({
         { property: "og:title", content: t.meta.communityTitle },
         { property: "og:description", content: t.meta.communityDescription },
       ],
+      links: [
+        { rel: "alternate", hreflang: "en", href: "/en/community" },
+        { rel: "alternate", hreflang: "cs", href: "/cs/community" },
+        { rel: "alternate", hreflang: "es", href: "/es/community" },
+        { rel: "alternate", hreflang: "x-default", href: "/en/community" },
+      ],
     };
   },
   component: CommunityPage,
