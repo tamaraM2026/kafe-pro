@@ -14,6 +14,7 @@ export type Translations = {
     programmesItems: {
       bbb: string;
       tenx: string;
+      unveiled: string;
     };
     reserve: string;
     exploreMemberships: string;
@@ -50,6 +51,8 @@ export type Translations = {
     bbbDescription: string;
     tenxTitle: string;
     tenxDescription: string;
+    unveiledTitle: string;
+    unveiledDescription: string;
   };
 
   home: {
@@ -205,5 +208,46 @@ export type Translations = {
     privacyNote: string;
     successHeading: string;
     successMessage: string;
+  };
+
+  unveiled: {
+    label: string;
+    heading: string;
+    heroSub: string;
+    reflectionHeading: string;
+    reflectionText: string;
+    shadowHeading: string;
+    shadowText: string;
+    pillarsLabel: string;
+    pillars: Array<{ title: string; subtitle: string; description: string }>;
+    noFiltersHeading: string;
+    noFiltersText: string;
+    faqHeading: string;
+    faqs: Array<{ q: string; a: string }>;
+    guidesLabel: string;
+    guidesHeading: string;
+    guides: Array<{ name: string; role: string; bio: string }>;
+    joinedForcesHeading: string;
+    joinedForcesText: string;
+    transformationHeading: string;
+    transformationIntro: string;
+    transformations: Array<{ title: string; text: string }>;
+    transformationNote: string;
+    eventHeading: string;
+    eventDate: string;
+    eventTime: string;
+    eventLocation: string;
+    pricingLabel: string;
+    pricingNote: string;
+    tiers: Array<{
+      name: string;
+      badge: string;
+      price: string;
+      priceNote: string;
+      regularPrice: string;
+      perks: string[];
+      cta: string;
+    }>;
+    reserveCta: string;
   };
 };

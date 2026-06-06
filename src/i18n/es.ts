@@ -16,6 +16,7 @@ export const es: Translations = {
     programmesItems: {
       bbb: "Business Building Blocks",
       tenx: "10x Productiva",
+      unveiled: "The Unveiled Experience",
     },
     reserve: "Reserva tu lugar →",
     exploreMemberships: "Explorar membresías",
@@ -61,6 +62,9 @@ export const es: Translations = {
     tenxTitle: "10x Productiva — Kafe con Propósito",
     tenxDescription:
       "Una guia gratuita de autocoaching de 10 dias con ejercicios diarios, reflexiones y acciones para ser 10 veces mas productiva.",
+    unveiledTitle: "The Unveiled Experience — Kafe con Propósito",
+    unveiledDescription:
+      "Un reset intimo de un dia para mujeres listas para silenciar a su critica interna, abrazar la confianza corporal y verse a traves de una nueva lente.",
   },
 
   home: {
@@ -458,5 +462,142 @@ export const es: Translations = {
     privacyNote: "Sin spam. Cancela cuando quieras.",
     successHeading: "Estas dentro!",
     successMessage: "Revisa tu correo — la guia va en camino.",
+  },
+
+  unveiled: {
+    label: "THE UNVEILED EXPERIENCE",
+    heading: "Deja de esconderte. Empieza a ser.",
+    heroSub:
+      "Un reset intimo de un dia para mujeres que estan listas para silenciar a su critica interna, abrazar la confianza corporal y verse a traves de una nueva lente — literalmente.",
+    reflectionHeading: "Tu reflejo coincide con tu espiritu?",
+    reflectionText:
+      "Suavizas tu voz. Ajustas tu postura. Evitas la camara. Lo que llamas \"panico a la camara\" no tiene que ver con como te ves — es una desconexion interna entre quien eres y quien ves.",
+    shadowHeading: "De la sombra al alma",
+    shadowText:
+      "La mayoria de los talleres se quedan en tu cabeza. Este te mueve — de los pensamientos a la presencia al lente. Un espacio libre de juicios para mujeres listas para reclamar su imagen.",
+    pillarsLabel: "TRES PILARES",
+    pillars: [
+      {
+        title: "Dominio de la mentalidad",
+        subtitle: "El cambio interno",
+        description:
+          "Silencia a la critica interna y desmonta la narrativa de 'no soy suficiente'.",
+      },
+      {
+        title: "Confianza corporal",
+        subtitle: "La presencia fisica",
+        description:
+          "Aprende a ocupar espacio con facilidad y encuentra comodidad en tu propia piel.",
+      },
+      {
+        title: "La sesion de retrato",
+        subtitle: "El ancla visual",
+        description:
+          "Una sesion profesional para capturar a la mujer que emergio hoy.",
+      },
+    ],
+    noFiltersHeading: "Sin filtros. Solo tu.",
+    noFiltersText:
+      "En una era de perfeccion artificial y rostros filtrados, celebramos la belleza cruda y real. Preparamos tu espiritu para que tu \"chispa del alma\" aparezca en el encuadre.",
+    faqHeading: "Preguntas y respuestas",
+    faqs: [
+      {
+        q: "No soy fotogenica. Realmente puedo hacer esto?",
+        a: "Fotogenica no es algo que seas; es algo que sientes. Nosotras nos encargamos de lo tecnico; tu solo presentate.",
+      },
+      {
+        q: "Que deberia ponerme?",
+        a: "Algo en lo que te sientas poderosa. Te enviaremos una guia de estilo detallada una vez que te unas!",
+      },
+    ],
+    guidesLabel: "TUS GUIAS",
+    guidesHeading: "Conoce a las mujeres detras de The Unveiled Experience",
+    guides: [
+      {
+        name: "Petra Roubickova",
+        role: "Bailarina · Alma Community",
+        bio: "Vive en la interseccion de la tecnologia en salud y la danza — especializada en salsa, bachata y samba carnavalesca. Guia a mujeres a reconectarse con sus cuerpos, abrazar la energia femenina y encontrar alegria a traves del ritmo.",
+      },
+      {
+        name: "Adela Fialova",
+        role: "Fotografa",
+        bio: "Creo todas las fotografias. Las mujeres retratadas no son modelos profesionales sino mujeres reales que participaron a pesar de sus dudas e inseguridades.",
+      },
+      {
+        name: "Tamara Medina",
+        role: "Coach de transformacion personal y empresarial",
+        bio: "Las mayores barreras son historias internas. La confianza es la decision de enfrentar el miedo, no su ausencia.",
+      },
+    ],
+    joinedForcesHeading: "Por que unimos fuerzas",
+    joinedForcesText:
+      "Tres angulos hacia la misma verdad — el lente de Adela capturando vulnerabilidad, el coaching de Tamara desmantelando barreras mentales, y Petra cultivando confianza corporal a traves de la danza.",
+    transformationHeading: "La transformacion",
+    transformationIntro:
+      "Esto no es solo un taller. Es el momento en que das el paso hacia la siguiente version de ti misma.",
+    transformations: [
+      {
+        title: "Un cambio de mentalidad",
+        text: "Supera bloqueos mentales, sindrome del impostor e historias viejas. Construye una verdadera confianza en ti.",
+      },
+      {
+        title: "De la neutralidad corporal a la confianza",
+        text: "Deja de pelear con tu reflejo. Sientete en casa en tu piel.",
+      },
+      {
+        title: "La evidencia",
+        text: "Una sesion de retrato profesional documenta tu nueva confianza.",
+      },
+    ],
+    transformationNote: "Las sesiones son intimas para un enfoque 1 a 1.",
+    eventHeading: "Detalles del evento",
+    eventDate: "Domingo 26 de julio",
+    eventTime: "15:00 — 20:00",
+    eventLocation: "Sanderova 1616, 170 00 Praga 7-Holesovice",
+    pricingLabel: "ELIGE TU EXPERIENCIA",
+    pricingNote:
+      "Early Bird termina el domingo 14 de junio a medianoche o cuando se agoten las primeras 7 entradas.",
+    tiers: [
+      {
+        name: "Early Bird",
+        badge: "",
+        price: "3,200 CZK",
+        priceNote: "~129 €",
+        regularPrice: "Regular 3,900 CZK · Ahorra 700 CZK",
+        perks: [
+          "Entrada al evento",
+          "Sesion de fotos con 1 foto",
+          "Todas las sesiones y materiales",
+        ],
+        cta: "Obtener Early Bird →",
+      },
+      {
+        name: "\"Trae a una amiga\"",
+        badge: "Mas vendido",
+        price: "7,000 CZK",
+        priceNote: "~280 € · 3,500 CZK por persona",
+        regularPrice: "Regular 7,800 CZK",
+        perks: [
+          "Entrada para DOS",
+          "Sesion de fotos con 1 foto cada una",
+          "Todas las sesiones y materiales",
+        ],
+        cta: "Lleva a tu amiga →",
+      },
+      {
+        name: "Experiencia VIP",
+        badge: "Mas popular",
+        price: "6,200 CZK",
+        priceNote: "~249 €",
+        regularPrice: "",
+        perks: [
+          "Entrada para 1",
+          "Sesion de fotos con 10 fotos",
+          "Sesion de coaching privada 1:1 de seguimiento",
+        ],
+        cta: "Ir VIP →",
+      },
+    ],
+    reserveCta: "Reserva tu lugar →",
   },
 };

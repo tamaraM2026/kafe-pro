@@ -16,6 +16,7 @@ export const cs: Translations = {
     programmesItems: {
       bbb: "Business Building Blocks",
       tenx: "10x Produktivnější",
+      unveiled: "The Unveiled Experience",
     },
     reserve: "Zajistit si místo →",
     exploreMemberships: "Nabídka členství",
@@ -61,6 +62,9 @@ export const cs: Translations = {
     tenxTitle: "10x Produktivnější — Kafe con Propósito",
     tenxDescription:
       "Bezplatný 10denní průvodce sebekoučinkem s denními cvičeními, reflexemi a akcemi pro 10x vyšší produktivitu.",
+    unveiledTitle: "The Unveiled Experience — Kafe con Propósito",
+    unveiledDescription:
+      "Jednodenní intimní reset pro ženy, které jsou připraveny umlčet vnitřního kritika, vstoupit do sebejistoty svého těla a uvidět se novýma očima.",
   },
 
   home: {
@@ -458,5 +462,142 @@ export const cs: Translations = {
     privacyNote: "Žádný spam. Odhlásit se můžete kdykoliv.",
     successHeading: "Jste přihlášena!",
     successMessage: "Zkontrolujte svou schránku — průvodce je na cestě.",
+  },
+
+  unveiled: {
+    label: "THE UNVEILED EXPERIENCE",
+    heading: "Přestaňte se skrývat. Začněte se stávat.",
+    heroSub:
+      "Jednodenní intimní reset pro ženy, které jsou připraveny umlčet vnitřního kritika, vstoupit do sebejistoty svého těla a uvidět se novýma očima — doslova.",
+    reflectionHeading: "Odpovídá váš odraz vašemu duchu?",
+    reflectionText:
+      "Ztišíte hlas. Upravíte držení těla. Vyhýbáte se fotoaparátu. To, čemu říkáte \"odpor k fotoaparátu\", není o tom, jak vypadáte — je to vnitřní rozpor mezi tím, kým jste, a tím, koho vidíte.",
+    shadowHeading: "Ze stínu k duši",
+    shadowText:
+      "Většina workshopů zůstane ve vaší hlavě. Tento vás posune — od myšlenek k přítomnosti až k objektivu. Prostor bez souzení pro ženy připravené získat zpět svůj obraz.",
+    pillarsLabel: "TŘI PILÍŘE",
+    pillars: [
+      {
+        title: "Ovládnutí myšlení",
+        subtitle: "Vnitřní proměna",
+        description:
+          "Umlčte vnitřního kritika a rozbijte příběh o tom, že \"nejste dost\".",
+      },
+      {
+        title: "Sebejistota těla",
+        subtitle: "Fyzická přítomnost",
+        description:
+          "Naučte se zabírat prostor s lehkostí a najděte pohodlí ve vlastní kůži.",
+      },
+      {
+        title: "Portrétní focení",
+        subtitle: "Vizuální kotva",
+        description:
+          "Profesionální focení, které zachytí ženu, která se dnes zrodila.",
+      },
+    ],
+    noFiltersHeading: "Žádné filtry. Jen vy.",
+    noFiltersText:
+      "V éře AI dokonalosti a filtrovaných tváří oslavujeme syrovou, skutečnou krásu. Připravíme vašeho ducha, aby se váš \"jiskřivý otisk duše\" objevil v záběru.",
+    faqHeading: "Otázky a odpovědi",
+    faqs: [
+      {
+        q: "Nejsem fotogenická. Zvládnu to?",
+        a: "Fotogeničnost není něco, čím jste; je to něco, co cítíte. My se postaráme o techniku; vy se prostě ukažte.",
+      },
+      {
+        q: "Co si mám obléci?",
+        a: "Něco, v čem se cítíte silná. Podrobný průvodce stylem vám pošleme, jakmile se přihlásíte!",
+      },
+    ],
+    guidesLabel: "VAŠE PRŮVODKYNĚ",
+    guidesHeading: "Seznamte se s ženami za The Unveiled Experience",
+    guides: [
+      {
+        name: "Petra Roubíčková",
+        role: "Tanečnice · Alma Community",
+        bio: "Žije na průsečíku zdravotnických technologií a tance — specializuje se na salsu, bachatu a karnevalovou sambu. Provází ženy k opětovnému spojení s tělem, přijetí ženské energie a nalezení radosti skrze rytmus.",
+      },
+      {
+        name: "Adéla Fialová",
+        role: "Fotografka",
+        bio: "Autorka všech fotografií. Ženy na snímcích nejsou profesionální modelky, ale skutečné ženy, které se zúčastnily navzdory svým pochybnostem a nejistotám.",
+      },
+      {
+        name: "Tamara Medina",
+        role: "Koučka osobní a byznysové transformace",
+        bio: "Největší překážky jsou vnitřní příběhy. Sebejistota je rozhodnutí čelit strachu, nikoli jeho absence.",
+      },
+    ],
+    joinedForcesHeading: "Proč jsme spojily síly",
+    joinedForcesText:
+      "Tři úhly pohledu na jednu pravdu — Adélin objektiv zachycující zranitelnost, Tamařin koučink bourající mentální bariéry a Petra pěstující sebejistotu těla skrze tanec.",
+    transformationHeading: "Proměna",
+    transformationIntro:
+      "Tohle není jen workshop. Je to okamžik, kdy vstoupíte do další verze sebe sama.",
+    transformations: [
+      {
+        title: "Změna myšlení",
+        text: "Překonejte mentální bloky, syndrom podvodníka a staré příběhy. Vybudujte skutečnou víru v sebe.",
+      },
+      {
+        title: "Od neutrality těla k sebejistotě",
+        text: "Přestaňte bojovat se svým odrazem. Cítit se doma ve své kůži.",
+      },
+      {
+        title: "Důkaz",
+        text: "Profesionální portrétní focení zdokumentuje vaši novou sebejistotu.",
+      },
+    ],
+    transformationNote: "Setkání jsou intimní pro individuální přístup.",
+    eventHeading: "Detaily akce",
+    eventDate: "Neděle 26. července",
+    eventTime: "15:00 — 20:00",
+    eventLocation: "Sanderova 1616, 170 00 Praha 7-Holešovice",
+    pricingLabel: "VYBERTE SI SVŮJ ZÁŽITEK",
+    pricingNote:
+      "Early Bird končí v neděli 14. června o půlnoci nebo po vyprodání prvních 7 vstupenek.",
+    tiers: [
+      {
+        name: "Early Bird",
+        badge: "",
+        price: "3 200 CZK",
+        priceNote: "~129 €",
+        regularPrice: "Běžně 3 900 CZK · Ušetříte 700 CZK",
+        perks: [
+          "Vstup na akci",
+          "Focení s 1 fotografií",
+          "Všechny lekce a materiály",
+        ],
+        cta: "Získat Early Bird →",
+      },
+      {
+        name: "\"Vezmi kamarádku\"",
+        badge: "Nejprodávanější",
+        price: "7 000 CZK",
+        priceNote: "~280 € · 3 500 CZK za osobu",
+        regularPrice: "Běžně 7 800 CZK",
+        perks: [
+          "Vstup pro DVĚ",
+          "Focení s 1 fotografií pro každou",
+          "Všechny lekce a materiály",
+        ],
+        cta: "Vzít kamarádku →",
+      },
+      {
+        name: "VIP Zážitek",
+        badge: "Nejoblíbenější",
+        price: "6 200 CZK",
+        priceNote: "~249 €",
+        regularPrice: "",
+        perks: [
+          "Vstup pro 1",
+          "Focení s 10 fotografiemi",
+          "Soukromý 1:1 koučinkový follow-up",
+        ],
+        cta: "Chci VIP →",
+      },
+    ],
+    reserveCta: "Zajistit si místo →",
   },
 };

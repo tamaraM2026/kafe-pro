@@ -16,6 +16,7 @@ export const en: Translations = {
     programmesItems: {
       bbb: "Business Building Blocks",
       tenx: "10x Productive",
+      unveiled: "The Unveiled Experience",
     },
     reserve: "Reserve my spot →",
     exploreMemberships: "Explore memberships",
@@ -61,6 +62,9 @@ export const en: Translations = {
     tenxTitle: "10x Productive — Kafe con Propósito",
     tenxDescription:
       "A free 10-day self-coaching guide with daily exercises, reflections, and actions to become 10 times more productive.",
+    unveiledTitle: "The Unveiled Experience — Kafe con Propósito",
+    unveiledDescription:
+      "A one-day intimate reset for women ready to silence their inner critic, step into body confidence, and see themselves through a new lens.",
   },
 
   home: {
@@ -458,5 +462,142 @@ export const en: Translations = {
     privacyNote: "No spam. Unsubscribe anytime.",
     successHeading: "You're in!",
     successMessage: "Check your inbox — the guide is on its way.",
+  },
+
+  unveiled: {
+    label: "THE UNVEILED EXPERIENCE",
+    heading: "Stop Hiding. Start Becoming.",
+    heroSub:
+      "A one-day intimate reset for women who are ready to silence their inner critic, step into body confidence, and see themselves through a new lens — literally.",
+    reflectionHeading: "Does your reflection match your spirit?",
+    reflectionText:
+      "You soften your voice. You adjust your posture. You avoid the camera. What you call \"Camera Cringe\" is not about how you look — it's about an internal disconnect between who you are and who you see.",
+    shadowHeading: "From Shadow to Soul",
+    shadowText:
+      "Most workshops stay in your head. This one moves you — from thoughts to presence to the lens. A judgment-free space for women ready to reclaim their image.",
+    pillarsLabel: "THREE PILLARS",
+    pillars: [
+      {
+        title: "Mindset Mastery",
+        subtitle: "The Internal Shift",
+        description:
+          "Silence the inner critic and dismantle the 'not enough' narrative.",
+      },
+      {
+        title: "Body Confidence",
+        subtitle: "The Physical Presence",
+        description:
+          "Learn to occupy space with ease and find comfort in your own skin.",
+      },
+      {
+        title: "The Portrait Session",
+        subtitle: "The Visual Anchor",
+        description:
+          "A professional shoot to capture the woman who emerged today.",
+      },
+    ],
+    noFiltersHeading: "No Filters. Just You.",
+    noFiltersText:
+      "In an era of AI perfection and filtered faces, we celebrate raw, real beauty. We prepare your spirit so your \"Soul Spark\" shows up in the frame.",
+    faqHeading: "Questions & Answers",
+    faqs: [
+      {
+        q: "I'm not photogenic. Can I really do this?",
+        a: "Photogenic isn't something you are; it's something you feel. We handle the technical; you just show up.",
+      },
+      {
+        q: "What should I wear?",
+        a: "Something you feel powerful in. We'll send a detailed style guide once you've joined!",
+      },
+    ],
+    guidesLabel: "YOUR GUIDES",
+    guidesHeading: "Meet the women behind The Unveiled Experience",
+    guides: [
+      {
+        name: "Petra Roubickova",
+        role: "Dancer · Alma Community",
+        bio: "Lives at the intersection of healthcare technology and dance — specializing in salsa, bachata, and carnival samba. Guides women to reconnect with their bodies, embrace feminine energy, and find joy through rhythm.",
+      },
+      {
+        name: "Adela Fialova",
+        role: "Photographer",
+        bio: "Created all photographs. The women pictured are not professional models but real women who participated despite their doubts and insecurities.",
+      },
+      {
+        name: "Tamara Medina",
+        role: "Business & Personal Transformation Coach",
+        bio: "Greatest barriers are internal stories. Confidence is the decision to face fear rather than its absence.",
+      },
+    ],
+    joinedForcesHeading: "Why We Joined Forces",
+    joinedForcesText:
+      "Three angles toward the same truth — Adela's lens capturing vulnerability, Tamara's coaching dismantling mental barriers, and Petra cultivating body confidence through dance.",
+    transformationHeading: "The Transformation",
+    transformationIntro:
+      "This is not just a workshop. It is the moment you step into the next version of yourself.",
+    transformations: [
+      {
+        title: "A Mindset Shift",
+        text: "Move past mental blocks, imposter syndrome, and old stories. Build genuine self-belief.",
+      },
+      {
+        title: "Body Neutrality to Confidence",
+        text: "Stop fighting your reflection. Feel at home in your skin.",
+      },
+      {
+        title: "The Evidence",
+        text: "A professional portrait session documents your new confidence.",
+      },
+    ],
+    transformationNote: "Sessions are kept intimate for 1-on-1 focus.",
+    eventHeading: "Event Details",
+    eventDate: "Sunday 26 July",
+    eventTime: "15:00 — 20:00",
+    eventLocation: "Sanderova 1616, 170 00 Praha 7-Holesovice",
+    pricingLabel: "CHOOSE YOUR EXPERIENCE",
+    pricingNote:
+      "Early Bird ends Sunday June 14th at midnight or when the first 7 tickets sell out.",
+    tiers: [
+      {
+        name: "Early Bird",
+        badge: "",
+        price: "3,200 CZK",
+        priceNote: "~€129",
+        regularPrice: "Regular 3,900 CZK · Save 700 CZK",
+        perks: [
+          "Event entry",
+          "Photoshoot with 1 photo",
+          "All sessions & materials",
+        ],
+        cta: "Get Early Bird →",
+      },
+      {
+        name: "\"Bring a Friend\" Pack",
+        badge: "Best Seller",
+        price: "7,000 CZK",
+        priceNote: "~€280 · 3,500 CZK per person",
+        regularPrice: "Regular 7,800 CZK",
+        perks: [
+          "Entry for TWO",
+          "Photoshoot with 1 photo each",
+          "All sessions & materials",
+        ],
+        cta: "Grab the Pack →",
+      },
+      {
+        name: "VIP Experience",
+        badge: "Most Popular",
+        price: "6,200 CZK",
+        priceNote: "~€249",
+        regularPrice: "",
+        perks: [
+          "Entry for 1",
+          "Photoshoot with 10 photos",
+          "1:1 private follow-up coaching session",
+        ],
+        cta: "Go VIP →",
+      },
+    ],
+    reserveCta: "Reserve your spot →",
   },
 };
