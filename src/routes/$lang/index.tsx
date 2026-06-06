@@ -364,17 +364,17 @@ function HomePage() {
             </h2>
           </Animate>
           <Animate delay={100}>
-            <div className="mt-12 flex flex-wrap justify-center items-center gap-8 md:gap-12">
+            <div className="mt-12 grid grid-cols-7 items-center gap-6 md:gap-10">
               {collaboratorLogos.map((c) => (
                 <a
                   key={c.name}
                   href={c.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="opacity-70 hover:opacity-100 hover:-translate-y-1 transition-all duration-300"
+                  className="opacity-60 hover:opacity-100 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center"
                   title={c.name}
                 >
-                  <img src={c.logo} alt={c.name} className="h-16 md:h-20 w-auto object-contain" />
+                  <img src={c.logo} alt={c.name} className="h-12 md:h-16 w-auto object-contain mix-blend-multiply" />
                 </a>
               ))}
             </div>
