@@ -44,84 +44,93 @@ jobs:
 
           mkdir -p _site/src/assets/logos _site/src/assets/unveiled
 
-          # 1) Download CSS from dev server (Vite compiles Tailwind on the fly)
-          curl -sL ${DEV_URL}/src/styles.css -o /tmp/styles.css
-          curl -sL "${DEV_URL}/@tanstack-start/styles.css?routes=__root__,%2F\$lang,%2F\$lang%2F" -o /tmp/tanstack.css 2>/dev/null || true
-          INLINE_CSS="<style>$(cat /tmp/styles.css /tmp/tanstack.css 2>/dev/null)</style>"
-          echo "CSS size: $(echo "$INLINE_CSS" | wc -c) bytes"
+          # 1) Download CSS from dev server
+          curl -sL ${DEV_URL}/src/styles.css -o /tmp/app.css
+          curl -sL 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap' \
+            -H 'User-Agent: Mozilla/5.0' -o /tmp/fonts.css 2>/dev/null || true
+          echo "CSS: $(wc -c < /tmp/app.css) bytes"
 
-          # 2) Download Google Fonts CSS for offline use
-          FONT_CSS=$(curl -sL 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap' \
-            -H 'User-Agent: Mozilla/5.0' 2>/dev/null || true)
-
-          # 3) Copy all static assets
+          # 2) Copy all static assets
           cp -r src/assets/*.jpg src/assets/*.png _site/src/assets/ 2>/dev/null || true
           cp -r src/assets/logos/*.png _site/src/assets/logos/ 2>/dev/null || true
           cp -r src/assets/unveiled/*.jpg _site/src/assets/unveiled/ 2>/dev/null || true
 
-          # 4) Pre-render each page, inline CSS, strip module scripts
-          PAGES="/ about founder memberships community contact business-building-blocks 10x-productive the-unveiled-experience"
-          LANGS="en cs es"
+          # 3) Write the Python build script (avoids shell escaping issues)
+          cat > /tmp/build.py << 'PYEOF'
+          import subprocess, os, re
 
-          for lang in $LANGS; do
-            for page in $PAGES; do
-              if [ "$page" = "/" ]; then
-                url="${DEV_URL}/${lang}"
-                dir="_site/${lang}"
-              else
-                url="${DEV_URL}/${lang}/${page}"
-                dir="_site/${lang}/${page}"
-              fi
-              mkdir -p "$dir"
+          base = os.environ["BASE_PATH"]
+          dev = os.environ["DEV_URL"]
 
-              # Get SSR'd HTML
-              HTML=$(curl -sL "$url" 2>/dev/null)
+          # Load CSS
+          with open("/tmp/app.css") as f: app_css = f.read()
+          fonts_css = ""
+          try:
+              with open("/tmp/fonts.css") as f: fonts_css = f.read()
+          except: pass
 
-              # Remove <link rel="stylesheet"> tags (we'll inline CSS)
-              HTML=$(echo "$HTML" | sed \
-                -e 's|<link[^>]*rel="stylesheet"[^>]*/>||g' \
-                -e 's|<link[^>]*rel="stylesheet"[^>]*>||g')
+          style_tag = f"<style>{fonts_css}\n{app_css}</style>"
 
-              # Remove <script type="module"> tags (breaks on static hosting)
-              HTML=$(echo "$HTML" | sed \
-                -e 's|<script[^>]*type="module"[^>]*>[^<]*</script>||g' \
-                -e 's|<script[^>]*type="module"[^>]*/>||g')
+          pages = ["about","founder","memberships","community","contact",
+                   "business-building-blocks","10x-productive","the-unveiled-experience"]
+          langs = ["en","cs","es"]
 
-              # Remove @vite and @react-refresh scripts
-              HTML=$(echo "$HTML" | sed \
-                -e 's|<script[^>]*@vite[^>]*>[^<]*</script>||g' \
-                -e 's|<script[^>]*@react-refresh[^>]*>[^<]*</script>||g')
+          for lang in langs:
+              for page in ["/"] + pages:
+                  if page == "/":
+                      url = f"{dev}/{lang}"
+                      d = f"_site/{lang}"
+                  else:
+                      url = f"{dev}/{lang}/{page}"
+                      d = f"_site/{lang}/{page}"
+                  os.makedirs(d, exist_ok=True)
 
-              # Inject inline CSS + fonts into <head>
-              HTML=$(echo "$HTML" | sed "s|</head>|<style>${FONT_CSS}</style>${INLINE_CSS}</head>|")
+                  result = subprocess.run(["curl","-sL",url], capture_output=True, text=True)
+                  html = result.stdout
 
-              # Rewrite asset paths: /src/assets/ -> ${BASE_PATH}/src/assets/
-              HTML=$(echo "$HTML" | sed \
-                -e "s|href=\"/src/|href=\"${BASE_PATH}/src/|g" \
-                -e "s|src=\"/src/|src=\"${BASE_PATH}/src/|g" \
-                -e "s|href=\"/en|href=\"${BASE_PATH}/en|g" \
-                -e "s|href=\"/cs|href=\"${BASE_PATH}/cs|g" \
-                -e "s|href=\"/es|href=\"${BASE_PATH}/es|g" \
-                -e "s|href=\"/#|href=\"${BASE_PATH}/en/#|g")
+                  if not html or "<!DOCTYPE" not in html:
+                      print(f"SKIP: {lang}/{page} (empty)")
+                      continue
 
-              # Fix external URLs that got prefixed
-              HTML=$(echo "$HTML" | sed \
-                -e "s|href=\"${BASE_PATH}/http|href=\"http|g" \
-                -e "s|src=\"${BASE_PATH}/http|src=\"http|g" \
-                -e "s|href=\"${BASE_PATH}//|href=\"//|g")
+                  # Remove stylesheet links
+                  html = re.sub(r'<link[^>]*rel="stylesheet"[^>]*/?>','', html)
+                  # Remove module scripts
+                  html = re.sub(r'<script[^>]*type="module"[^>]*>.*?</script>','', html, flags=re.DOTALL)
+                  html = re.sub(r'<script[^>]*type="module"[^>]*/>','', html)
+                  # Remove @vite scripts
+                  html = re.sub(r'<script[^>]*@vite[^>]*>.*?</script>','', html, flags=re.DOTALL)
+                  html = re.sub(r'<script[^>]*@react-refresh[^>]*>.*?</script>','', html, flags=re.DOTALL)
+                  # Remove any remaining script tags (dev-only)
+                  html = re.sub(r'<script\b[^>]*>.*?</script>','', html, flags=re.DOTALL)
 
-              echo "$HTML" > "${dir}/index.html"
-              SIZE=$(wc -c < "${dir}/index.html")
-              echo "Rendered: ${lang}/${page} (${SIZE} bytes)"
-            done
-          done
+                  # Inject inline CSS before </head>
+                  html = html.replace("</head>", style_tag + "</head>")
+
+                  # Rewrite asset paths for base path
+                  html = html.replace('href="/src/', f'href="{base}/src/')
+                  html = html.replace('src="/src/', f'src="{base}/src/')
+                  html = html.replace('href="/en', f'href="{base}/en')
+                  html = html.replace('href="/cs', f'href="{base}/cs')
+                  html = html.replace('href="/es', f'href="{base}/es')
+                  html = html.replace('href="/#', f'href="{base}/en/#')
+
+                  # Fix external URLs that got wrongly prefixed
+                  html = html.replace(f'href="{base}/http', 'href="http')
+                  html = html.replace(f'src="{base}/http', 'src="http')
+                  html = html.replace(f'href="{base}//', 'href="//')
+
+                  with open(f"{d}/index.html","w") as f: f.write(html)
+                  print(f"OK: {lang}/{page} ({len(html)} bytes)")
+          PYEOF
+
+          python3 /tmp/build.py
 
           kill $DEV_PID 2>/dev/null || true
 
-          # 5) Root redirect
+          # Root redirect
           echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0;url='"${BASE_PATH}"'/en/"></head><body></body></html>' > _site/index.html
 
-          # 6) 404 fallback
+          # 404 fallback
           cp _site/en/index.html _site/404.html
 
           echo "=== Build complete ==="
