@@ -29,98 +29,105 @@ jobs:
 
       - run: npm ci
 
-      - name: Build and pre-render
+      - name: Pre-render all pages
         run: |
-          # Start dev server in background with base path
-          VITE_BASE=$BASE_PATH npm run dev &
+          npm run dev &
           DEV_PID=$!
 
-          # Wait for server to be ready
+          # Wait for dev server
           for i in $(seq 1 30); do
-            if curl -s http://localhost:8080/en/ > /dev/null 2>&1; then
+            if curl -sL http://localhost:8080/en 2>/dev/null | grep -q '<!DOCTYPE' ; then
               echo "Dev server ready"
               break
             fi
             sleep 1
           done
 
-          # Create output directory
           mkdir -p _site
 
-          # Pre-render all pages for all languages
-          PAGES="/ /about /founder /memberships /community /contact /business-building-blocks /10x-productive /the-unveiled-experience"
+          # Pre-render pages (use -L to follow redirects, no trailing slash)
+          PAGES="/ about founder memberships community contact business-building-blocks 10x-productive the-unveiled-experience"
           LANGS="en cs es"
 
           for lang in $LANGS; do
             for page in $PAGES; do
-              path="/${lang}${page}"
-              dir="_site${path}"
+              if [ "$page" = "/" ]; then
+                url="http://localhost:8080/${lang}"
+                dir="_site/${lang}"
+              else
+                url="http://localhost:8080/${lang}/${page}"
+                dir="_site/${lang}/${page}"
+              fi
               mkdir -p "$dir"
-              curl -s "http://localhost:8080${path}" -o "${dir}/index.html" || true
-              echo "Pre-rendered: ${path}"
+              curl -sL "$url" -o "${dir}/index.html"
+              SIZE=$(wc -c < "${dir}/index.html")
+              echo "Pre-rendered: ${dir} (${SIZE} bytes)"
             done
           done
 
-          # Root redirect page
-          cat > _site/index.html << HTMLEOF
-          <!DOCTYPE html>
-          <html>
-          <head><meta http-equiv="refresh" content="0;url=${BASE_PATH}/en/"></head>
-          <body></body>
-          </html>
-          HTMLEOF
-
-          # Download all referenced assets from rendered HTML
+          # Download all assets referenced in HTML files
           for html in $(find _site -name "*.html"); do
-            grep -oP '(?:src|href)="(/[^"]+)"' "$html" 2>/dev/null | grep -oP '"/[^"]+' | tr -d '"' | sort -u | while read asset; do
-              if [[ ! -f "_site${asset}" ]] && [[ "$asset" != *//* ]] && [[ "$asset" != "#"* ]]; then
-                asset_dir="_site$(dirname "$asset")"
-                mkdir -p "$asset_dir"
-                curl -s "http://localhost:8080${asset}" -o "_site${asset}" 2>/dev/null || true
+            # Extract src and href paths
+            grep -oE '(src|href)="(/[^"]*)"' "$html" | grep -oE '"/[^"]*"' | tr -d '"' | sort -u | while read asset; do
+              # Skip external URLs and anchors
+              case "$asset" in
+                //*)  continue ;;
+                \#*)  continue ;;
+              esac
+              if [ ! -f "_site${asset}" ]; then
+                mkdir -p "_site$(dirname "$asset")"
+                curl -sL "http://localhost:8080${asset}" -o "_site${asset}" 2>/dev/null || true
               fi
             done
           done
 
-          # Second pass — some assets reference other assets (CSS importing fonts, etc.)
-          for html in $(find _site -name "*.html"); do
-            grep -oP '(?:src|href)="(/[^"]+)"' "$html" 2>/dev/null | grep -oP '"/[^"]+' | tr -d '"' | sort -u | while read asset; do
-              if [[ ! -f "_site${asset}" ]] && [[ "$asset" != *//* ]] && [[ "$asset" != "#"* ]]; then
-                asset_dir="_site$(dirname "$asset")"
-                mkdir -p "$asset_dir"
-                curl -s "http://localhost:8080${asset}" -o "_site${asset}" 2>/dev/null || true
-              fi
-            done
+          # Also grab Vite client and module preloads
+          grep -rhoE '"(/(@vite|@react-refresh|src|node_modules|@tanstack)[^"]*)"' _site/*.html _site/**/*.html 2>/dev/null | tr -d '"' | sort -u | while read asset; do
+            if [ ! -f "_site${asset}" ]; then
+              mkdir -p "_site$(dirname "$asset")"
+              curl -sL "http://localhost:8080${asset}" -o "_site${asset}" 2>/dev/null || true
+            fi
           done
 
-          # Rewrite absolute paths to include base path in all HTML files
-          find _site -name "*.html" -exec sed -i \
-            -e "s|href=\"/|href=\"${BASE_PATH}/|g" \
-            -e "s|src=\"/|src=\"${BASE_PATH}/|g" \
-            -e "s|url(/|url(${BASE_PATH}/|g" \
-            {} +
-
-          # Fix double base paths that might occur
-          find _site -name "*.html" -exec sed -i \
-            -e "s|${BASE_PATH}${BASE_PATH}|${BASE_PATH}|g" \
-            -e "s|href=\"${BASE_PATH}//${BASE_PATH}|href=\"${BASE_PATH}|g" \
-            -e "s|href=\"${BASE_PATH}/http|href=\"http|g" \
-            -e "s|src=\"${BASE_PATH}/http|src=\"http|g" \
-            {} +
-
-          # Also rewrite JS files that contain absolute paths
-          find _site -name "*.js" -exec sed -i \
-            -e "s|\"/_build/|\"${BASE_PATH}/_build/|g" \
-            -e "s|'/_build/|'${BASE_PATH}/_build/|g" \
-            {} + 2>/dev/null || true
-
-          # Create 404.html as copy of /en/ for SPA fallback
-          cp _site/en/index.html _site/404.html 2>/dev/null || true
-
-          # Stop dev server
           kill $DEV_PID 2>/dev/null || true
 
+          # Rewrite all absolute paths to include base path
+          find _site -name "*.html" -exec sed -i \
+            -e 's|href="/|href="'"${BASE_PATH}"'/|g' \
+            -e 's|src="/|src="'"${BASE_PATH}"'/|g' \
+            {} +
+
+          # Fix external URLs and double prefixes
+          find _site -name "*.html" -exec sed -i \
+            -e 's|href="'"${BASE_PATH}"'/http|href="http|g' \
+            -e 's|src="'"${BASE_PATH}"'/http|src="http|g' \
+            -e 's|href="'"${BASE_PATH}"'//|href="//|g' \
+            -e 's|src="'"${BASE_PATH}"'//|src="//|g' \
+            -e 's|'"${BASE_PATH}${BASE_PATH}"'|'"${BASE_PATH}"'|g' \
+            {} +
+
+          # Rewrite paths in JS files too
+          find _site \( -name "*.js" -o -name "*.mjs" \) -exec sed -i \
+            -e 's|"/_build/|"'"${BASE_PATH}"'/_build/|g' \
+            -e 's|"/src/|"'"${BASE_PATH}"'/src/|g' \
+            -e 's|"/node_modules/|"'"${BASE_PATH}"'/node_modules/|g' \
+            -e 's|"/@|"'"${BASE_PATH}"'/@|g' \
+            {} + 2>/dev/null || true
+
+          # Root redirect
+          cat > _site/index.html << REOF
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="refresh" content="0;url=${BASE_PATH}/en/"></head>
+<body></body>
+</html>
+REOF
+
+          # 404 fallback
+          cp _site/en/index.html _site/404.html
+
           FILE_COUNT=$(find _site -type f | wc -l)
-          echo "Build complete. ${FILE_COUNT} files in _site"
+          echo "=== Build complete: ${FILE_COUNT} files ==="
 
       - uses: actions/upload-pages-artifact@v3
         with:
