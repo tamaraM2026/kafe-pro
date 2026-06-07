@@ -79,8 +79,10 @@ jobs:
           base = os.environ["BASE_PATH"]
           dev = os.environ["DEV_URL"]
 
-          # Load CSS
+          # Load CSS and fix animations (no JS means animate-in stays opacity:0)
           with open("/tmp/app.css") as f: app_css = f.read()
+          # Override animate-in to be visible by default (JS won't run to add .visible)
+          app_css += "\n.animate-in { opacity: 1 !important; transform: none !important; }\n"
           fonts_css = ""
           try:
               with open("/tmp/fonts.css") as f: fonts_css = f.read()
@@ -109,11 +111,10 @@ jobs:
                       print(f"SKIP: {lang}/{page} (empty)")
                       continue
 
-                  # Remove stylesheet links and modulepreload links
+                  # Remove stylesheet, modulepreload, and preload links (all assets are inlined or local)
                   html = re.sub(r'<link[^>]*rel="stylesheet"[^>]*/?>','', html)
                   html = re.sub(r'<link[^>]*rel="modulepreload"[^>]*/?>','', html)
-                  # Remove preload links for non-image assets
-                  html = re.sub(r'<link[^>]*rel="preload"[^>]*as="script"[^>]*/?>','', html)
+                  html = re.sub(r'<link[^>]*rel="preload"[^>]*/?>','', html)
                   # Remove module scripts
                   html = re.sub(r'<script[^>]*type="module"[^>]*>.*?</script>','', html, flags=re.DOTALL)
                   html = re.sub(r'<script[^>]*type="module"[^>]*/>','', html)
