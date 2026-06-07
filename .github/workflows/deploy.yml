@@ -1,0 +1,129 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build and pre-render
+        run: |
+          # Start dev server in background
+          npm run dev &
+          DEV_PID=$!
+
+          # Wait for server to be ready
+          for i in $(seq 1 30); do
+            if curl -s http://localhost:8080/en/ > /dev/null 2>&1; then
+              echo "Dev server ready"
+              break
+            fi
+            sleep 1
+          done
+
+          # Create output directory
+          mkdir -p _site
+
+          # Pre-render all pages for all languages
+          PAGES="/ /about /founder /memberships /community /contact /business-building-blocks /10x-productive /the-unveiled-experience"
+          LANGS="en cs es"
+
+          for lang in $LANGS; do
+            for page in $PAGES; do
+              path="/${lang}${page}"
+              dir="_site${path}"
+              mkdir -p "$dir"
+              curl -s "http://localhost:8080${path}" -o "${dir}/index.html" || true
+              echo "Pre-rendered: ${path}"
+            done
+          done
+
+          # Root redirect page
+          cat > _site/index.html << 'HTMLEOF'
+          <!DOCTYPE html>
+          <html>
+          <head><meta http-equiv="refresh" content="0;url=/en/"></head>
+          <body></body>
+          </html>
+          HTMLEOF
+
+          # Copy static assets from the dev server
+          # Get the manifest to find asset paths
+          curl -s http://localhost:8080/@vite/client > /dev/null 2>&1
+
+          # Copy built assets
+          if [ -d "dist/client" ]; then
+            cp -r dist/client/* _site/ 2>/dev/null || true
+          fi
+
+          # Extract and download all JS/CSS assets referenced in the HTML
+          grep -roh 'src="[^"]*"' _site/*.html _site/**/*.html 2>/dev/null | sed 's/src="//;s/"//' | sort -u | while read asset; do
+            if [[ "$asset" == /* ]] && [[ "$asset" != *//* ]]; then
+              asset_dir="_site$(dirname "$asset")"
+              mkdir -p "$asset_dir"
+              curl -s "http://localhost:8080${asset}" -o "_site${asset}" 2>/dev/null || true
+            fi
+          done
+
+          grep -roh 'href="[^"]*\.css[^"]*"' _site/*.html _site/**/*.html 2>/dev/null | sed 's/href="//;s/"//' | sort -u | while read asset; do
+            if [[ "$asset" == /* ]] && [[ "$asset" != *//* ]]; then
+              asset_dir="_site$(dirname "$asset")"
+              mkdir -p "$asset_dir"
+              curl -s "http://localhost:8080${asset}" -o "_site${asset}" 2>/dev/null || true
+            fi
+          done
+
+          # Download all referenced assets from rendered HTML
+          for html in $(find _site -name "*.html"); do
+            grep -oP '(?:src|href)="(/[^"]+)"' "$html" 2>/dev/null | grep -oP '"/[^"]+' | tr -d '"' | sort -u | while read asset; do
+              if [[ ! -f "_site${asset}" ]] && [[ "$asset" != *//* ]]; then
+                asset_dir="_site$(dirname "$asset")"
+                mkdir -p "$asset_dir"
+                curl -s "http://localhost:8080${asset}" -o "_site${asset}" 2>/dev/null || true
+              fi
+            done
+          done
+
+          # Create 404.html as copy of /en/ for SPA fallback
+          cp _site/en/index.html _site/404.html 2>/dev/null || true
+
+          # Stop dev server
+          kill $DEV_PID 2>/dev/null || true
+
+          echo "Build complete. Files in _site:"
+          find _site -type f | wc -l
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
