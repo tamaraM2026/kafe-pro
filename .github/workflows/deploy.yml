@@ -17,6 +17,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      BASE_PATH: /kafe-pro
     steps:
       - uses: actions/checkout@v4
 
@@ -29,8 +31,8 @@ jobs:
 
       - name: Build and pre-render
         run: |
-          # Start dev server in background
-          npm run dev &
+          # Start dev server in background with base path
+          VITE_BASE=$BASE_PATH npm run dev &
           DEV_PID=$!
 
           # Wait for server to be ready
@@ -60,44 +62,18 @@ jobs:
           done
 
           # Root redirect page
-          cat > _site/index.html << 'HTMLEOF'
+          cat > _site/index.html << HTMLEOF
           <!DOCTYPE html>
           <html>
-          <head><meta http-equiv="refresh" content="0;url=/en/"></head>
+          <head><meta http-equiv="refresh" content="0;url=${BASE_PATH}/en/"></head>
           <body></body>
           </html>
           HTMLEOF
 
-          # Copy static assets from the dev server
-          # Get the manifest to find asset paths
-          curl -s http://localhost:8080/@vite/client > /dev/null 2>&1
-
-          # Copy built assets
-          if [ -d "dist/client" ]; then
-            cp -r dist/client/* _site/ 2>/dev/null || true
-          fi
-
-          # Extract and download all JS/CSS assets referenced in the HTML
-          grep -roh 'src="[^"]*"' _site/*.html _site/**/*.html 2>/dev/null | sed 's/src="//;s/"//' | sort -u | while read asset; do
-            if [[ "$asset" == /* ]] && [[ "$asset" != *//* ]]; then
-              asset_dir="_site$(dirname "$asset")"
-              mkdir -p "$asset_dir"
-              curl -s "http://localhost:8080${asset}" -o "_site${asset}" 2>/dev/null || true
-            fi
-          done
-
-          grep -roh 'href="[^"]*\.css[^"]*"' _site/*.html _site/**/*.html 2>/dev/null | sed 's/href="//;s/"//' | sort -u | while read asset; do
-            if [[ "$asset" == /* ]] && [[ "$asset" != *//* ]]; then
-              asset_dir="_site$(dirname "$asset")"
-              mkdir -p "$asset_dir"
-              curl -s "http://localhost:8080${asset}" -o "_site${asset}" 2>/dev/null || true
-            fi
-          done
-
           # Download all referenced assets from rendered HTML
           for html in $(find _site -name "*.html"); do
             grep -oP '(?:src|href)="(/[^"]+)"' "$html" 2>/dev/null | grep -oP '"/[^"]+' | tr -d '"' | sort -u | while read asset; do
-              if [[ ! -f "_site${asset}" ]] && [[ "$asset" != *//* ]]; then
+              if [[ ! -f "_site${asset}" ]] && [[ "$asset" != *//* ]] && [[ "$asset" != "#"* ]]; then
                 asset_dir="_site$(dirname "$asset")"
                 mkdir -p "$asset_dir"
                 curl -s "http://localhost:8080${asset}" -o "_site${asset}" 2>/dev/null || true
@@ -105,14 +81,46 @@ jobs:
             done
           done
 
+          # Second pass — some assets reference other assets (CSS importing fonts, etc.)
+          for html in $(find _site -name "*.html"); do
+            grep -oP '(?:src|href)="(/[^"]+)"' "$html" 2>/dev/null | grep -oP '"/[^"]+' | tr -d '"' | sort -u | while read asset; do
+              if [[ ! -f "_site${asset}" ]] && [[ "$asset" != *//* ]] && [[ "$asset" != "#"* ]]; then
+                asset_dir="_site$(dirname "$asset")"
+                mkdir -p "$asset_dir"
+                curl -s "http://localhost:8080${asset}" -o "_site${asset}" 2>/dev/null || true
+              fi
+            done
+          done
+
+          # Rewrite absolute paths to include base path in all HTML files
+          find _site -name "*.html" -exec sed -i \
+            -e "s|href=\"/|href=\"${BASE_PATH}/|g" \
+            -e "s|src=\"/|src=\"${BASE_PATH}/|g" \
+            -e "s|url(/|url(${BASE_PATH}/|g" \
+            {} +
+
+          # Fix double base paths that might occur
+          find _site -name "*.html" -exec sed -i \
+            -e "s|${BASE_PATH}${BASE_PATH}|${BASE_PATH}|g" \
+            -e "s|href=\"${BASE_PATH}//${BASE_PATH}|href=\"${BASE_PATH}|g" \
+            -e "s|href=\"${BASE_PATH}/http|href=\"http|g" \
+            -e "s|src=\"${BASE_PATH}/http|src=\"http|g" \
+            {} +
+
+          # Also rewrite JS files that contain absolute paths
+          find _site -name "*.js" -exec sed -i \
+            -e "s|\"/_build/|\"${BASE_PATH}/_build/|g" \
+            -e "s|'/_build/|'${BASE_PATH}/_build/|g" \
+            {} + 2>/dev/null || true
+
           # Create 404.html as copy of /en/ for SPA fallback
           cp _site/en/index.html _site/404.html 2>/dev/null || true
 
           # Stop dev server
           kill $DEV_PID 2>/dev/null || true
 
-          echo "Build complete. Files in _site:"
-          find _site -type f | wc -l
+          FILE_COUNT=$(find _site -type f | wc -l)
+          echo "Build complete. ${FILE_COUNT} files in _site"
 
       - uses: actions/upload-pages-artifact@v3
         with:
