@@ -115,13 +115,7 @@ jobs:
             {} + 2>/dev/null || true
 
           # Root redirect
-          cat > _site/index.html << REOF
-<!DOCTYPE html>
-<html>
-<head><meta http-equiv="refresh" content="0;url=${BASE_PATH}/en/"></head>
-<body></body>
-</html>
-REOF
+          echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0;url='"${BASE_PATH}"'/en/"></head><body></body></html>' > _site/index.html
 
           # 404 fallback
           cp _site/en/index.html _site/404.html
