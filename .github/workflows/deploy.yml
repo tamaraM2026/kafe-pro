@@ -29,99 +29,76 @@ jobs:
 
       - run: npm ci
 
-      - name: Pre-render all pages
+      - name: Mirror site from dev server
         run: |
           npm run dev &
           DEV_PID=$!
 
           # Wait for dev server
           for i in $(seq 1 30); do
-            if curl -sL http://localhost:8080/en 2>/dev/null | grep -q '<!DOCTYPE' ; then
+            if curl -sL http://localhost:8080/en 2>/dev/null | grep -q '<!DOCTYPE'; then
               echo "Dev server ready"
               break
             fi
             sleep 1
           done
 
-          mkdir -p _site
-
-          # Pre-render pages (use -L to follow redirects, no trailing slash)
-          PAGES="/ about founder memberships community contact business-building-blocks 10x-productive the-unveiled-experience"
-          LANGS="en cs es"
-
-          for lang in $LANGS; do
-            for page in $PAGES; do
-              if [ "$page" = "/" ]; then
-                url="http://localhost:8080/${lang}"
-                dir="_site/${lang}"
-              else
-                url="http://localhost:8080/${lang}/${page}"
-                dir="_site/${lang}/${page}"
-              fi
-              mkdir -p "$dir"
-              curl -sL "$url" -o "${dir}/index.html"
-              SIZE=$(wc -c < "${dir}/index.html")
-              echo "Pre-rendered: ${dir} (${SIZE} bytes)"
-            done
-          done
-
-          # Download all assets referenced in HTML files
-          for html in $(find _site -name "*.html"); do
-            # Extract src and href paths
-            grep -oE '(src|href)="(/[^"]*)"' "$html" | grep -oE '"/[^"]*"' | tr -d '"' | sort -u | while read asset; do
-              # Skip external URLs and anchors
-              case "$asset" in
-                //*)  continue ;;
-                \#*)  continue ;;
-              esac
-              if [ ! -f "_site${asset}" ]; then
-                mkdir -p "_site$(dirname "$asset")"
-                curl -sL "http://localhost:8080${asset}" -o "_site${asset}" 2>/dev/null || true
-              fi
-            done
-          done
-
-          # Also grab Vite client and module preloads
-          grep -rhoE '"(/(@vite|@react-refresh|src|node_modules|@tanstack)[^"]*)"' _site/*.html _site/**/*.html 2>/dev/null | tr -d '"' | sort -u | while read asset; do
-            if [ ! -f "_site${asset}" ]; then
-              mkdir -p "_site$(dirname "$asset")"
-              curl -sL "http://localhost:8080${asset}" -o "_site${asset}" 2>/dev/null || true
-            fi
-          done
+          # Use wget to mirror the entire site from dev server
+          # This downloads HTML, CSS, JS, images — everything the browser would load
+          wget --mirror \
+               --convert-links \
+               --adjust-extension \
+               --page-requisites \
+               --no-parent \
+               --no-host-directories \
+               --directory-prefix=_site \
+               --reject-regex='@react-refresh|@vite/client|__vite_ping|\.hot-update\.' \
+               --timeout=10 \
+               --tries=2 \
+               -e robots=off \
+               http://localhost:8080/en/ \
+               http://localhost:8080/en/about \
+               http://localhost:8080/en/founder \
+               http://localhost:8080/en/memberships \
+               http://localhost:8080/en/community \
+               http://localhost:8080/en/contact \
+               http://localhost:8080/en/business-building-blocks \
+               http://localhost:8080/en/10x-productive \
+               http://localhost:8080/en/the-unveiled-experience \
+               http://localhost:8080/cs/ \
+               http://localhost:8080/cs/about \
+               http://localhost:8080/cs/founder \
+               http://localhost:8080/cs/memberships \
+               http://localhost:8080/cs/community \
+               http://localhost:8080/cs/contact \
+               http://localhost:8080/cs/business-building-blocks \
+               http://localhost:8080/cs/10x-productive \
+               http://localhost:8080/cs/the-unveiled-experience \
+               http://localhost:8080/es/ \
+               http://localhost:8080/es/about \
+               http://localhost:8080/es/founder \
+               http://localhost:8080/es/memberships \
+               http://localhost:8080/es/community \
+               http://localhost:8080/es/contact \
+               http://localhost:8080/es/business-building-blocks \
+               http://localhost:8080/es/10x-productive \
+               http://localhost:8080/es/the-unveiled-experience \
+               2>&1 || true
 
           kill $DEV_PID 2>/dev/null || true
-
-          # Rewrite all absolute paths to include base path
-          find _site -name "*.html" -exec sed -i \
-            -e 's|href="/|href="'"${BASE_PATH}"'/|g' \
-            -e 's|src="/|src="'"${BASE_PATH}"'/|g' \
-            {} +
-
-          # Fix external URLs and double prefixes
-          find _site -name "*.html" -exec sed -i \
-            -e 's|href="'"${BASE_PATH}"'/http|href="http|g' \
-            -e 's|src="'"${BASE_PATH}"'/http|src="http|g' \
-            -e 's|href="'"${BASE_PATH}"'//|href="//|g' \
-            -e 's|src="'"${BASE_PATH}"'//|src="//|g' \
-            -e 's|'"${BASE_PATH}${BASE_PATH}"'|'"${BASE_PATH}"'|g' \
-            {} +
-
-          # Rewrite paths in JS files too
-          find _site \( -name "*.js" -o -name "*.mjs" \) -exec sed -i \
-            -e 's|"/_build/|"'"${BASE_PATH}"'/_build/|g' \
-            -e 's|"/src/|"'"${BASE_PATH}"'/src/|g' \
-            -e 's|"/node_modules/|"'"${BASE_PATH}"'/node_modules/|g' \
-            -e 's|"/@|"'"${BASE_PATH}"'/@|g' \
-            {} + 2>/dev/null || true
 
           # Root redirect
           echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0;url='"${BASE_PATH}"'/en/"></head><body></body></html>' > _site/index.html
 
           # 404 fallback
-          cp _site/en/index.html _site/404.html
+          cp _site/en/index.html _site/404.html 2>/dev/null || true
 
-          FILE_COUNT=$(find _site -type f | wc -l)
-          echo "=== Build complete: ${FILE_COUNT} files ==="
+          # Show what we got
+          echo "=== Files downloaded ==="
+          find _site -type f | wc -l
+          find _site -type f -name "*.html" | head -30
+          echo "---"
+          du -sh _site/
 
       - uses: actions/upload-pages-artifact@v3
         with:
