@@ -50,7 +50,10 @@ jobs:
             -H 'User-Agent: Mozilla/5.0' -o /tmp/fonts.css 2>/dev/null || true
           echo "CSS: $(wc -c < /tmp/app.css) bytes"
 
-          # 2) Copy all static assets
+          # 2) Copy favicon to root
+          cp src/assets/favicon.ico _site/favicon.ico
+
+          # 3) Copy all static assets
           cp -r src/assets/*.jpg src/assets/*.png _site/src/assets/ 2>/dev/null || true
           cp -r src/assets/logos/*.png _site/src/assets/logos/ 2>/dev/null || true
           cp -r src/assets/unveiled/*.jpg _site/src/assets/unveiled/ 2>/dev/null || true
@@ -92,8 +95,11 @@ jobs:
                       print(f"SKIP: {lang}/{page} (empty)")
                       continue
 
-                  # Remove stylesheet links
+                  # Remove stylesheet links and modulepreload links
                   html = re.sub(r'<link[^>]*rel="stylesheet"[^>]*/?>','', html)
+                  html = re.sub(r'<link[^>]*rel="modulepreload"[^>]*/?>','', html)
+                  # Remove preload links for non-image assets
+                  html = re.sub(r'<link[^>]*rel="preload"[^>]*as="script"[^>]*/?>','', html)
                   # Remove module scripts
                   html = re.sub(r'<script[^>]*type="module"[^>]*>.*?</script>','', html, flags=re.DOTALL)
                   html = re.sub(r'<script[^>]*type="module"[^>]*/>','', html)
@@ -103,8 +109,9 @@ jobs:
                   # Remove any remaining script tags (dev-only)
                   html = re.sub(r'<script\b[^>]*>.*?</script>','', html, flags=re.DOTALL)
 
-                  # Inject inline CSS before </head>
-                  html = html.replace("</head>", style_tag + "</head>")
+                  # Inject inline CSS + favicon before </head>
+                  favicon = f'<link rel="icon" href="{base}/favicon.ico"/>'
+                  html = html.replace("</head>", favicon + style_tag + "</head>")
 
                   # Rewrite asset paths for base path
                   html = html.replace('href="/src/', f'href="{base}/src/')
