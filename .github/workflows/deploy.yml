@@ -45,10 +45,24 @@ jobs:
           mkdir -p _site/src/assets/logos _site/src/assets/unveiled
 
           # 1) Download CSS from dev server
-          curl -sL ${DEV_URL}/src/styles.css -o /tmp/app.css
+          # Vite dev server wraps CSS in a JS module — extract the raw CSS string
+          curl -sL ${DEV_URL}/src/styles.css -o /tmp/app_raw.js
+          python3 -c "
+          import re, sys
+          with open('/tmp/app_raw.js') as f: content = f.read()
+          m = re.search(r'const __vite__css = \"(.*?)\"\\n__vite__updateStyle', content, re.DOTALL)
+          if m:
+              css = m.group(1).encode().decode('unicode_escape')
+              with open('/tmp/app.css','w') as f: f.write(css)
+              print(f'Extracted CSS: {len(css)} bytes')
+          else:
+              # Fallback: maybe it's raw CSS
+              with open('/tmp/app_raw.js') as f: raw = f.read()
+              with open('/tmp/app.css','w') as f: f.write(raw)
+              print(f'Using raw CSS: {len(raw)} bytes')
+          "
           curl -sL 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap' \
             -H 'User-Agent: Mozilla/5.0' -o /tmp/fonts.css 2>/dev/null || true
-          echo "CSS: $(wc -c < /tmp/app.css) bytes"
 
           # 2) Copy favicon to root
           cp src/assets/favicon.ico _site/favicon.ico
