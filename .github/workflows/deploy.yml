@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       BASE_PATH: /kafe-pro
+      DEV_URL: http://localhost:8080
     steps:
       - uses: actions/checkout@v4
 
@@ -29,75 +30,102 @@ jobs:
 
       - run: npm ci
 
-      - name: Mirror site from dev server
+      - name: Build static site
         run: |
           npm run dev &
           DEV_PID=$!
 
-          # Wait for dev server
           for i in $(seq 1 30); do
-            if curl -sL http://localhost:8080/en 2>/dev/null | grep -q '<!DOCTYPE'; then
-              echo "Dev server ready"
-              break
+            if curl -sL ${DEV_URL}/en 2>/dev/null | grep -q '<!DOCTYPE'; then
+              echo "Dev server ready"; break
             fi
             sleep 1
           done
 
-          # Use wget to mirror the entire site from dev server
-          # This downloads HTML, CSS, JS, images — everything the browser would load
-          wget --mirror \
-               --convert-links \
-               --adjust-extension \
-               --page-requisites \
-               --no-parent \
-               --no-host-directories \
-               --directory-prefix=_site \
-               --reject-regex='@react-refresh|@vite/client|__vite_ping|\.hot-update\.' \
-               --timeout=10 \
-               --tries=2 \
-               -e robots=off \
-               http://localhost:8080/en/ \
-               http://localhost:8080/en/about \
-               http://localhost:8080/en/founder \
-               http://localhost:8080/en/memberships \
-               http://localhost:8080/en/community \
-               http://localhost:8080/en/contact \
-               http://localhost:8080/en/business-building-blocks \
-               http://localhost:8080/en/10x-productive \
-               http://localhost:8080/en/the-unveiled-experience \
-               http://localhost:8080/cs/ \
-               http://localhost:8080/cs/about \
-               http://localhost:8080/cs/founder \
-               http://localhost:8080/cs/memberships \
-               http://localhost:8080/cs/community \
-               http://localhost:8080/cs/contact \
-               http://localhost:8080/cs/business-building-blocks \
-               http://localhost:8080/cs/10x-productive \
-               http://localhost:8080/cs/the-unveiled-experience \
-               http://localhost:8080/es/ \
-               http://localhost:8080/es/about \
-               http://localhost:8080/es/founder \
-               http://localhost:8080/es/memberships \
-               http://localhost:8080/es/community \
-               http://localhost:8080/es/contact \
-               http://localhost:8080/es/business-building-blocks \
-               http://localhost:8080/es/10x-productive \
-               http://localhost:8080/es/the-unveiled-experience \
-               2>&1 || true
+          mkdir -p _site/src/assets/logos _site/src/assets/unveiled
+
+          # 1) Download CSS from dev server (Vite compiles Tailwind on the fly)
+          curl -sL ${DEV_URL}/src/styles.css -o /tmp/styles.css
+          curl -sL "${DEV_URL}/@tanstack-start/styles.css?routes=__root__,%2F\$lang,%2F\$lang%2F" -o /tmp/tanstack.css 2>/dev/null || true
+          INLINE_CSS="<style>$(cat /tmp/styles.css /tmp/tanstack.css 2>/dev/null)</style>"
+          echo "CSS size: $(echo "$INLINE_CSS" | wc -c) bytes"
+
+          # 2) Download Google Fonts CSS for offline use
+          FONT_CSS=$(curl -sL 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap' \
+            -H 'User-Agent: Mozilla/5.0' 2>/dev/null || true)
+
+          # 3) Copy all static assets
+          cp -r src/assets/*.jpg src/assets/*.png _site/src/assets/ 2>/dev/null || true
+          cp -r src/assets/logos/*.png _site/src/assets/logos/ 2>/dev/null || true
+          cp -r src/assets/unveiled/*.jpg _site/src/assets/unveiled/ 2>/dev/null || true
+
+          # 4) Pre-render each page, inline CSS, strip module scripts
+          PAGES="/ about founder memberships community contact business-building-blocks 10x-productive the-unveiled-experience"
+          LANGS="en cs es"
+
+          for lang in $LANGS; do
+            for page in $PAGES; do
+              if [ "$page" = "/" ]; then
+                url="${DEV_URL}/${lang}"
+                dir="_site/${lang}"
+              else
+                url="${DEV_URL}/${lang}/${page}"
+                dir="_site/${lang}/${page}"
+              fi
+              mkdir -p "$dir"
+
+              # Get SSR'd HTML
+              HTML=$(curl -sL "$url" 2>/dev/null)
+
+              # Remove <link rel="stylesheet"> tags (we'll inline CSS)
+              HTML=$(echo "$HTML" | sed \
+                -e 's|<link[^>]*rel="stylesheet"[^>]*/>||g' \
+                -e 's|<link[^>]*rel="stylesheet"[^>]*>||g')
+
+              # Remove <script type="module"> tags (breaks on static hosting)
+              HTML=$(echo "$HTML" | sed \
+                -e 's|<script[^>]*type="module"[^>]*>[^<]*</script>||g' \
+                -e 's|<script[^>]*type="module"[^>]*/>||g')
+
+              # Remove @vite and @react-refresh scripts
+              HTML=$(echo "$HTML" | sed \
+                -e 's|<script[^>]*@vite[^>]*>[^<]*</script>||g' \
+                -e 's|<script[^>]*@react-refresh[^>]*>[^<]*</script>||g')
+
+              # Inject inline CSS + fonts into <head>
+              HTML=$(echo "$HTML" | sed "s|</head>|<style>${FONT_CSS}</style>${INLINE_CSS}</head>|")
+
+              # Rewrite asset paths: /src/assets/ -> ${BASE_PATH}/src/assets/
+              HTML=$(echo "$HTML" | sed \
+                -e "s|href=\"/src/|href=\"${BASE_PATH}/src/|g" \
+                -e "s|src=\"/src/|src=\"${BASE_PATH}/src/|g" \
+                -e "s|href=\"/en|href=\"${BASE_PATH}/en|g" \
+                -e "s|href=\"/cs|href=\"${BASE_PATH}/cs|g" \
+                -e "s|href=\"/es|href=\"${BASE_PATH}/es|g" \
+                -e "s|href=\"/#|href=\"${BASE_PATH}/en/#|g")
+
+              # Fix external URLs that got prefixed
+              HTML=$(echo "$HTML" | sed \
+                -e "s|href=\"${BASE_PATH}/http|href=\"http|g" \
+                -e "s|src=\"${BASE_PATH}/http|src=\"http|g" \
+                -e "s|href=\"${BASE_PATH}//|href=\"//|g")
+
+              echo "$HTML" > "${dir}/index.html"
+              SIZE=$(wc -c < "${dir}/index.html")
+              echo "Rendered: ${lang}/${page} (${SIZE} bytes)"
+            done
+          done
 
           kill $DEV_PID 2>/dev/null || true
 
-          # Root redirect
+          # 5) Root redirect
           echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0;url='"${BASE_PATH}"'/en/"></head><body></body></html>' > _site/index.html
 
-          # 404 fallback
-          cp _site/en/index.html _site/404.html 2>/dev/null || true
+          # 6) 404 fallback
+          cp _site/en/index.html _site/404.html
 
-          # Show what we got
-          echo "=== Files downloaded ==="
+          echo "=== Build complete ==="
           find _site -type f | wc -l
-          find _site -type f -name "*.html" | head -30
-          echo "---"
           du -sh _site/
 
       - uses: actions/upload-pages-artifact@v3
