@@ -17,6 +17,7 @@ export const en: Translations = {
       bbb: "Business Building Blocks",
       tenx: "10x Productive",
       unveiled: "The Unveiled Experience",
+      aiPrompting: "AI Prompting Workshop",
     },
     reserve: "Reserve my spot →",
     exploreMemberships: "Explore memberships",
@@ -65,6 +66,9 @@ export const en: Translations = {
     unveiledTitle: "The Unveiled Experience — Kafe con Propósito",
     unveiledDescription:
       "A one-day intimate reset for women ready to silence their inner critic, step into body confidence, and see themselves through a new lens.",
+    aiPromptingTitle: "AI Prompting Workshop — Kafe con Propósito",
+    aiPromptingDescription:
+      "An interactive 90-minute workshop to master AI prompting. Learn practical frameworks for better, faster, and more reliable results from AI tools.",
   },
 
   home: {
@@ -599,5 +603,38 @@ export const en: Translations = {
       },
     ],
     reserveCta: "Reserve your spot →",
+  },
+
+  aiPrompting: {
+    label: "WORKSHOP",
+    heading: "Unlock the Skill That Powers AI",
+    subheading: "Join Our 90-Minute Prompting Workshop",
+    intro:
+      "AI is transforming how we work, learn, create, and make decisions. Yet the value you get from AI depends largely on one skill: knowing how to give the right instructions. Join us for an interactive 90-minute Prompting Workshop designed to help you get better, faster, and more reliable results from AI tools.",
+    frameworksLabel: "WHAT YOU'LL LEARN",
+    frameworksHeading: "Two practical frameworks you can use immediately",
+    frameworks: [
+      "A structured approach to writing prompts that produce clearer, more accurate, and more useful AI responses across any tool or platform.",
+      "How to apply prompting to real tasks: research, strategy, content creation, problem-solving, and everyday work — so you save time and get results you can trust.",
+    ],
+    facilitatorLabel: "YOUR FACILITATOR",
+    facilitatorHeading: "Learn from an AI expert",
+    facilitatorName: "Laura Vanessa Muñoz",
+    facilitatorRole: "Engagement Lead, AI Lab, Kantar",
+    facilitatorBio:
+      "Laura has facilitated AI workshops for universities and institutions across Mexico, the USA, and the UK. She brings practical expertise and a warm, interactive style that makes complex ideas feel approachable.",
+    detailsLabel: "EVENT DETAILS",
+    detailsHeading: "Save the date",
+    dateLabel: "DATE",
+    date: "Monday 13th July",
+    timeLabel: "TIME",
+    time: "18:00",
+    locationLabel: "LOCATION",
+    location: "Central Bohemia",
+    spacesNote: "Spaces are limited — early registration is encouraged.",
+    registerCta: "Register your interest →",
+    finalCtaHeading: "Ready to unlock the skill that powers AI?",
+    finalCtaSubheading:
+      "Join us for 90 minutes that will change how you work with AI.",
   },
 };

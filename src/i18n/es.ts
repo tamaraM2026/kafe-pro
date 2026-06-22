@@ -17,6 +17,7 @@ export const es: Translations = {
       bbb: "Business Building Blocks",
       tenx: "10x Productiva",
       unveiled: "The Unveiled Experience",
+      aiPrompting: "Taller de Prompting de IA",
     },
     reserve: "Reserva tu lugar →",
     exploreMemberships: "Explorar membresías",
@@ -65,6 +66,9 @@ export const es: Translations = {
     unveiledTitle: "The Unveiled Experience — Kafe con Propósito",
     unveiledDescription:
       "Un reset intimo de un dia para mujeres listas para silenciar a su critica interna, abrazar la confianza corporal y verse a traves de una nueva lente.",
+    aiPromptingTitle: "Taller de Prompting de IA — Kafe con Propósito",
+    aiPromptingDescription:
+      "Un taller interactivo de 90 minutos para dominar el prompting de IA. Aprende frameworks prácticos para obtener mejores, más rápidos y más confiables resultados de las herramientas de IA.",
   },
 
   home: {
@@ -599,5 +603,38 @@ export const es: Translations = {
       },
     ],
     reserveCta: "Reserva tu lugar →",
+  },
+
+  aiPrompting: {
+    label: "TALLER",
+    heading: "Desbloquea la habilidad que impulsa la IA",
+    subheading: "Únete a nuestro taller de 90 minutos sobre prompting",
+    intro:
+      "La IA está transformando la forma en que trabajamos, aprendemos, creamos y tomamos decisiones. Sin embargo, el valor que obtienes de la IA depende en gran medida de una habilidad: saber dar las instrucciones correctas. Únete a nuestro taller interactivo de 90 minutos sobre prompting, diseñado para ayudarte a obtener mejores, más rápidos y más confiables resultados de las herramientas de IA.",
+    frameworksLabel: "QUÉ APRENDERÁS",
+    frameworksHeading: "Dos frameworks prácticos para usar de inmediato",
+    frameworks: [
+      "Un enfoque estructurado para escribir prompts que produzcan respuestas de IA más claras, precisas y útiles en cualquier herramienta o plataforma.",
+      "Cómo aplicar el prompting a tareas reales: investigación, estrategia, creación de contenido, resolución de problemas y trabajo diario — para que ahorres tiempo y obtengas resultados en los que puedes confiar.",
+    ],
+    facilitatorLabel: "TU FACILITADORA",
+    facilitatorHeading: "Aprende de una experta en IA",
+    facilitatorName: "Laura Vanessa Muñoz",
+    facilitatorRole: "Engagement Lead, AI Lab, Kantar",
+    facilitatorBio:
+      "Laura ha facilitado talleres de IA para universidades e instituciones en México, EE. UU. y el Reino Unido. Aporta experiencia práctica y un estilo interactivo y cercano que hace que las ideas complejas sean accesibles.",
+    detailsLabel: "DETALLES DEL EVENTO",
+    detailsHeading: "Guarda la fecha",
+    dateLabel: "FECHA",
+    date: "lunes 13 de julio",
+    timeLabel: "HORA",
+    time: "18:00",
+    locationLabel: "UBICACIÓN",
+    location: "Bohemia Central",
+    spacesNote: "Las plazas son limitadas — se recomienda registrarse con anticipación.",
+    registerCta: "Registra tu interés →",
+    finalCtaHeading: "¿Lista para desbloquear la habilidad que impulsa la IA?",
+    finalCtaSubheading:
+      "Únete a nosotras durante 90 minutos que cambiarán la forma en que trabajas con la IA.",
   },
 };
