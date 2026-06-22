@@ -15,6 +15,7 @@ export type Translations = {
       bbb: string;
       tenx: string;
       unveiled: string;
+      aiPrompting: string;
     };
     reserve: string;
     exploreMemberships: string;
