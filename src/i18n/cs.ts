@@ -604,4 +604,37 @@ export const cs: Translations = {
     ],
     reserveCta: "Zajistit si místo →",
   },
+
+  aiPrompting: {
+    label: "WORKSHOP",
+    heading: "Odemkněte dovednost, která pohání AI",
+    subheading: "Připojte se k našemu 90minutovému workshopu promptování",
+    intro:
+      "AI transformuje způsob, jakým pracujeme, učíme se, tvoříme a rozhodujeme. Hodnota, kterou z AI získáte, ale do značné míry závisí na jedné dovednosti: umění dávat správné instrukce. Připojte se k interaktivnímu 90minutovému workshopu promptování, který vám pomůže získat lepší, rychlejší a spolehlivější výsledky z AI nástrojů.",
+    frameworksLabel: "CO SE NAUČÍTE",
+    frameworksHeading: "Dva praktické frameworky pro okamžité použití",
+    frameworks: [
+      "Strukturovaný přístup k psaní promptů, které produkují jasnější, přesnější a užitečnější odpovědi od AI napříč všemi nástroji a platformami.",
+      "Jak aplikovat promptování na reálné úkoly: výzkum, strategii, tvorbu obsahu, řešení problémů a každodenní práci — abyste šetřili čas a získávali výsledky, kterým můžete věřit.",
+    ],
+    facilitatorLabel: "LEKTORKA",
+    facilitatorHeading: "Naučte se od expertky na AI",
+    facilitatorName: "Laura Vanessa Muñoz",
+    facilitatorRole: "Engagement Lead, AI Lab, Kantar",
+    facilitatorBio:
+      "Laura vedla workshopy o AI pro univerzity a instituce v Mexiku, USA a Velké Británii. Přináší praktickou odbornost a interaktivní styl, který z komplexních myšlenek dělá přístupné koncepty.",
+    detailsLabel: "PODROBNOSTI AKCE",
+    detailsHeading: "Uložte si datum",
+    dateLabel: "DATUM",
+    date: "pondělí 13. července",
+    timeLabel: "ČAS",
+    time: "18:00",
+    locationLabel: "MÍSTO",
+    location: "Střední Čechy",
+    spacesNote: "Kapacita je omezená — doporučujeme se zaregistrovat co nejdříve.",
+    registerCta: "Mám zájem →",
+    finalCtaHeading: "Připraveni odemknout dovednost, která pohání AI?",
+    finalCtaSubheading:
+      "Připojte se k nám na 90 minut, které změní způsob, jakým pracujete s AI.",
+  },
 };
