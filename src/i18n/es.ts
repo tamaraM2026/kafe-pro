@@ -66,6 +66,9 @@ export const es: Translations = {
     unveiledTitle: "The Unveiled Experience — Kafe con Propósito",
     unveiledDescription:
       "Un reset intimo de un dia para mujeres listas para silenciar a su critica interna, abrazar la confianza corporal y verse a traves de una nueva lente.",
+    aiPromptingTitle: "Taller de Prompting de IA — Kafe con Propósito",
+    aiPromptingDescription:
+      "Un taller interactivo de 90 minutos para dominar el prompting de IA. Aprende frameworks prácticos para obtener mejores, más rápidos y más confiables resultados de las herramientas de IA.",
   },
 
   home: {

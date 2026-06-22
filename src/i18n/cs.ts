@@ -66,6 +66,9 @@ export const cs: Translations = {
     unveiledTitle: "The Unveiled Experience — Kafe con Propósito",
     unveiledDescription:
       "Jednodenní intimní reset pro ženy, které jsou připraveny umlčet vnitřního kritika, vstoupit do sebejistoty svého těla a uvidět se novýma očima.",
+    aiPromptingTitle: "Workshop promptování AI — Kafe con Propósito",
+    aiPromptingDescription:
+      "Interaktivní 90minutový workshop pro zvládnutí promptování AI. Naučte se praktické frameworky pro lepší, rychlejší a spolehlivější výsledky z AI nástrojů.",
   },
 
   home: {
