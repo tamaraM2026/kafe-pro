@@ -18,6 +18,7 @@ import { Route as LangFounderRouteImport } from './routes/$lang/founder'
 import { Route as LangContactRouteImport } from './routes/$lang/contact'
 import { Route as LangCommunityRouteImport } from './routes/$lang/community'
 import { Route as LangBusinessBuildingBlocksRouteImport } from './routes/$lang/business-building-blocks'
+import { Route as LangAiPromptingWorkshopRouteImport } from './routes/$lang/ai-prompting-workshop'
 import { Route as LangAboutRouteImport } from './routes/$lang/about'
 import { Route as Lang10xProductiveRouteImport } from './routes/$lang/10x-productive'
 
@@ -68,6 +69,11 @@ const LangBusinessBuildingBlocksRoute =
     path: '/business-building-blocks',
     getParentRoute: () => LangRouteRoute,
   } as any)
+const LangAiPromptingWorkshopRoute = LangAiPromptingWorkshopRouteImport.update({
+  id: '/ai-prompting-workshop',
+  path: '/ai-prompting-workshop',
+  getParentRoute: () => LangRouteRoute,
+} as any)
 const LangAboutRoute = LangAboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -84,6 +90,7 @@ export interface FileRoutesByFullPath {
   '/$lang': typeof LangRouteRouteWithChildren
   '/$lang/10x-productive': typeof Lang10xProductiveRoute
   '/$lang/about': typeof LangAboutRoute
+  '/$lang/ai-prompting-workshop': typeof LangAiPromptingWorkshopRoute
   '/$lang/business-building-blocks': typeof LangBusinessBuildingBlocksRoute
   '/$lang/community': typeof LangCommunityRoute
   '/$lang/contact': typeof LangContactRoute
@@ -96,6 +103,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$lang/10x-productive': typeof Lang10xProductiveRoute
   '/$lang/about': typeof LangAboutRoute
+  '/$lang/ai-prompting-workshop': typeof LangAiPromptingWorkshopRoute
   '/$lang/business-building-blocks': typeof LangBusinessBuildingBlocksRoute
   '/$lang/community': typeof LangCommunityRoute
   '/$lang/contact': typeof LangContactRoute
@@ -110,6 +118,7 @@ export interface FileRoutesById {
   '/$lang': typeof LangRouteRouteWithChildren
   '/$lang/10x-productive': typeof Lang10xProductiveRoute
   '/$lang/about': typeof LangAboutRoute
+  '/$lang/ai-prompting-workshop': typeof LangAiPromptingWorkshopRoute
   '/$lang/business-building-blocks': typeof LangBusinessBuildingBlocksRoute
   '/$lang/community': typeof LangCommunityRoute
   '/$lang/contact': typeof LangContactRoute
@@ -125,6 +134,7 @@ export interface FileRouteTypes {
     | '/$lang'
     | '/$lang/10x-productive'
     | '/$lang/about'
+    | '/$lang/ai-prompting-workshop'
     | '/$lang/business-building-blocks'
     | '/$lang/community'
     | '/$lang/contact'
@@ -137,6 +147,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$lang/10x-productive'
     | '/$lang/about'
+    | '/$lang/ai-prompting-workshop'
     | '/$lang/business-building-blocks'
     | '/$lang/community'
     | '/$lang/contact'
@@ -150,6 +161,7 @@ export interface FileRouteTypes {
     | '/$lang'
     | '/$lang/10x-productive'
     | '/$lang/about'
+    | '/$lang/ai-prompting-workshop'
     | '/$lang/business-building-blocks'
     | '/$lang/community'
     | '/$lang/contact'
@@ -229,6 +241,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LangBusinessBuildingBlocksRouteImport
       parentRoute: typeof LangRouteRoute
     }
+    '/$lang/ai-prompting-workshop': {
+      id: '/$lang/ai-prompting-workshop'
+      path: '/ai-prompting-workshop'
+      fullPath: '/$lang/ai-prompting-workshop'
+      preLoaderRoute: typeof LangAiPromptingWorkshopRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
     '/$lang/about': {
       id: '/$lang/about'
       path: '/about'
@@ -249,6 +268,7 @@ declare module '@tanstack/react-router' {
 interface LangRouteRouteChildren {
   Lang10xProductiveRoute: typeof Lang10xProductiveRoute
   LangAboutRoute: typeof LangAboutRoute
+  LangAiPromptingWorkshopRoute: typeof LangAiPromptingWorkshopRoute
   LangBusinessBuildingBlocksRoute: typeof LangBusinessBuildingBlocksRoute
   LangCommunityRoute: typeof LangCommunityRoute
   LangContactRoute: typeof LangContactRoute
@@ -261,6 +281,7 @@ interface LangRouteRouteChildren {
 const LangRouteRouteChildren: LangRouteRouteChildren = {
   Lang10xProductiveRoute: Lang10xProductiveRoute,
   LangAboutRoute: LangAboutRoute,
+  LangAiPromptingWorkshopRoute: LangAiPromptingWorkshopRoute,
   LangBusinessBuildingBlocksRoute: LangBusinessBuildingBlocksRoute,
   LangCommunityRoute: LangCommunityRoute,
   LangContactRoute: LangContactRoute,
@@ -281,13 +302,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
