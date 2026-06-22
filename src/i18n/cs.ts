@@ -17,6 +17,7 @@ export const cs: Translations = {
       bbb: "Business Building Blocks",
       tenx: "10x Produktivnější",
       unveiled: "The Unveiled Experience",
+      aiPrompting: "Workshop promptování AI",
     },
     reserve: "Zajistit si místo →",
     exploreMemberships: "Nabídka členství",

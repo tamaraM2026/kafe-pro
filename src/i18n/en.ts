@@ -17,6 +17,7 @@ export const en: Translations = {
       bbb: "Business Building Blocks",
       tenx: "10x Productive",
       unveiled: "The Unveiled Experience",
+      aiPrompting: "AI Prompting Workshop",
     },
     reserve: "Reserve my spot →",
     exploreMemberships: "Explore memberships",
