@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Animate } from "@/components/Animate";
 import { useTranslations } from "@/hooks/use-translations";
 import { getTranslations } from "@/i18n";
+import lauraImg from "@/assets/laura-vanesa.jpg.asset.json";
 
 export const Route = createFileRoute("/$lang/ai-prompting-workshop")({
   head: ({ params }) => {
