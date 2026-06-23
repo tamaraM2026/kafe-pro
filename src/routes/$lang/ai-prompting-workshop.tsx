@@ -89,9 +89,18 @@ function AIPromptingPage() {
           </Animate>
           <Animate delay={100}>
             <div className="mt-10 bg-white/50 backdrop-blur-sm rounded-3xl p-8 border border-white/30 shadow-sm">
-              <h3 className="font-display text-2xl text-burgundy">{t.aiPrompting.facilitatorName}</h3>
-              <p className="mt-1 text-terracotta font-medium">{t.aiPrompting.facilitatorRole}</p>
-              <p className="mt-4 text-foreground/80 leading-relaxed">{t.aiPrompting.facilitatorBio}</p>
+              <div className="flex flex-col md:flex-row items-center gap-6">
+                <img
+                  src={lauraImg.url}
+                  alt={t.aiPrompting.facilitatorName}
+                  className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-md flex-shrink-0"
+                />
+                <div className="text-center md:text-left">
+                  <h3 className="font-display text-2xl text-burgundy">{t.aiPrompting.facilitatorName}</h3>
+                  <p className="mt-1 text-terracotta font-medium">{t.aiPrompting.facilitatorRole}</p>
+                  <p className="mt-4 text-foreground/80 leading-relaxed">{t.aiPrompting.facilitatorBio}</p>
+                </div>
+              </div>
             </div>
           </Animate>
         </div>
