@@ -18,6 +18,7 @@ export const en: Translations = {
       tenx: "10x Productive",
       unveiled: "The Unveiled Experience",
       aiPrompting: "AI Prompting Workshop",
+      spanishConversation: "Spanish Conversation",
     },
     reserve: "Reserve my spot →",
     exploreMemberships: "Explore memberships",
@@ -69,6 +70,9 @@ export const en: Translations = {
     aiPromptingTitle: "AI Prompting Workshop — Kafe con Propósito",
     aiPromptingDescription:
       "An interactive 90-minute workshop to master AI prompting. Learn practical frameworks for better, faster, and more reliable results from AI tools.",
+    spanishConversationTitle: "Spanish Conversation in Poděbrady — Kafe con Propósito",
+    spanishConversationDescription:
+      "Master real-world Spanish conversation in small groups in Poděbrady. Native Latin American instructor, real-life topics, limited spots.",
   },
 
   home: {
@@ -636,5 +640,37 @@ export const en: Translations = {
     finalCtaHeading: "Ready to unlock the skill that powers AI?",
     finalCtaSubheading:
       "Join us for 90 minutes that will change how you work with AI.",
+  },
+
+  spanishConversation: {
+    label: "SPANISH IN PODĚBRADY",
+    heading: "¡Hola Poděbrady! Let’s Talk Spanish.",
+    headingEmphasis: "🇪🇸✨",
+    subheading: "Master real-world Spanish conversation in a relaxed, small-group setting right here in Poděbrady.",
+    intro: "Whether you want to travel without a translator, boost your business vocabulary, or simply connect with the rich culture of the Spanish-speaking world, these sessions are for you.",
+    whyLabel: "WHY JOIN US",
+    whyHeading: "Learn Spanish you can actually use",
+    whyItems: [
+      { title: "Native Latin American Speaker", body: "Learn authentic pronunciation, idioms, and cultural nuances from a native instructor." },
+      { title: "Real-Life Topics", body: "No boring grammar drills. We will dive into everyday life, travel adventures, global culture, and business communication." },
+      { title: "Cozy & Conversational", body: "Small groups mean everyone gets plenty of speaking time and personalized feedback." },
+    ],
+    groupsLabel: "FIND YOUR GROUP",
+    groupsHeading: "Choose the time that fits your lifestyle",
+    groupsIntro: "To keep the conversations dynamic and impactful, spaces are strictly limited.",
+    groups: [
+      { name: "Morning Session", dayTime: "Mondays at 18:00", location: "Poděbrady (Venue to be confirmed)", status: "Filling Fast" },
+      { name: "Evening Session", dayTime: "Wednesdays at 18:00", location: "Poděbrady (Venue to be confirmed)", status: "Filling Fast" },
+    ],
+    topicsLabel: "WHAT WE WILL COVER",
+    topicsHeading: "Every session builds your confidence",
+    topics: [
+      { title: "Daily Life & Socializing", body: "Chatting naturally, ordering food, and expressing your personality." },
+      { title: "Wanderlust & Travel", body: "Navigating new cities, asking for recommendations, and local customs." },
+      { title: "Art, History & Culture", body: "Exploring the vibrant traditions, music, and stories of Latin America and beyond." },
+      { title: "Business & Professional", body: "Expanding your professional network and mastering business terminology with ease." },
+    ],
+    limitedSpots: "Limited Spots Available: To ensure a high-quality experience for everyone, registration is on a first-come, first-served basis.",
+    ctaButton: "Save My Spot in the Group!",
   },
 };
