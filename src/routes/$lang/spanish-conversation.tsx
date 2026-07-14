@@ -38,8 +38,10 @@ function SpanishConversationPage() {
             </p>
           </Animate>
           <Animate delay={100}>
-            <h1 className="mt-4 font-display text-5xl md:text-6xl bg-gradient-to-r from-burgundy to-terracotta bg-clip-text text-transparent leading-[1.05]">
-              {t.spanishConversation.heading}
+            <h1 className="mt-4 font-display text-5xl md:text-6xl leading-[1.05]">
+              <span className="bg-gradient-to-r from-burgundy to-terracotta bg-clip-text text-transparent">
+                {t.spanishConversation.heading}
+              </span>
               <span className="ml-2">{t.spanishConversation.headingEmphasis}</span>
             </h1>
           </Animate>
