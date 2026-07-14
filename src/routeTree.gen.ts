@@ -13,6 +13,7 @@ import { Route as LangRouteRouteImport } from './routes/$lang/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LangIndexRouteImport } from './routes/$lang/index'
 import { Route as LangTheUnveiledExperienceRouteImport } from './routes/$lang/the-unveiled-experience'
+import { Route as LangSpanishConversationRouteImport } from './routes/$lang/spanish-conversation'
 import { Route as LangMembershipsRouteImport } from './routes/$lang/memberships'
 import { Route as LangFounderRouteImport } from './routes/$lang/founder'
 import { Route as LangContactRouteImport } from './routes/$lang/contact'
@@ -43,6 +44,11 @@ const LangTheUnveiledExperienceRoute =
     path: '/the-unveiled-experience',
     getParentRoute: () => LangRouteRoute,
   } as any)
+const LangSpanishConversationRoute = LangSpanishConversationRouteImport.update({
+  id: '/spanish-conversation',
+  path: '/spanish-conversation',
+  getParentRoute: () => LangRouteRoute,
+} as any)
 const LangMembershipsRoute = LangMembershipsRouteImport.update({
   id: '/memberships',
   path: '/memberships',
@@ -96,6 +102,7 @@ export interface FileRoutesByFullPath {
   '/$lang/contact': typeof LangContactRoute
   '/$lang/founder': typeof LangFounderRoute
   '/$lang/memberships': typeof LangMembershipsRoute
+  '/$lang/spanish-conversation': typeof LangSpanishConversationRoute
   '/$lang/the-unveiled-experience': typeof LangTheUnveiledExperienceRoute
   '/$lang/': typeof LangIndexRoute
 }
@@ -109,6 +116,7 @@ export interface FileRoutesByTo {
   '/$lang/contact': typeof LangContactRoute
   '/$lang/founder': typeof LangFounderRoute
   '/$lang/memberships': typeof LangMembershipsRoute
+  '/$lang/spanish-conversation': typeof LangSpanishConversationRoute
   '/$lang/the-unveiled-experience': typeof LangTheUnveiledExperienceRoute
   '/$lang': typeof LangIndexRoute
 }
@@ -124,6 +132,7 @@ export interface FileRoutesById {
   '/$lang/contact': typeof LangContactRoute
   '/$lang/founder': typeof LangFounderRoute
   '/$lang/memberships': typeof LangMembershipsRoute
+  '/$lang/spanish-conversation': typeof LangSpanishConversationRoute
   '/$lang/the-unveiled-experience': typeof LangTheUnveiledExperienceRoute
   '/$lang/': typeof LangIndexRoute
 }
@@ -140,6 +149,7 @@ export interface FileRouteTypes {
     | '/$lang/contact'
     | '/$lang/founder'
     | '/$lang/memberships'
+    | '/$lang/spanish-conversation'
     | '/$lang/the-unveiled-experience'
     | '/$lang/'
   fileRoutesByTo: FileRoutesByTo
@@ -153,6 +163,7 @@ export interface FileRouteTypes {
     | '/$lang/contact'
     | '/$lang/founder'
     | '/$lang/memberships'
+    | '/$lang/spanish-conversation'
     | '/$lang/the-unveiled-experience'
     | '/$lang'
   id:
@@ -167,6 +178,7 @@ export interface FileRouteTypes {
     | '/$lang/contact'
     | '/$lang/founder'
     | '/$lang/memberships'
+    | '/$lang/spanish-conversation'
     | '/$lang/the-unveiled-experience'
     | '/$lang/'
   fileRoutesById: FileRoutesById
@@ -204,6 +216,13 @@ declare module '@tanstack/react-router' {
       path: '/the-unveiled-experience'
       fullPath: '/$lang/the-unveiled-experience'
       preLoaderRoute: typeof LangTheUnveiledExperienceRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
+    '/$lang/spanish-conversation': {
+      id: '/$lang/spanish-conversation'
+      path: '/spanish-conversation'
+      fullPath: '/$lang/spanish-conversation'
+      preLoaderRoute: typeof LangSpanishConversationRouteImport
       parentRoute: typeof LangRouteRoute
     }
     '/$lang/memberships': {
@@ -274,6 +293,7 @@ interface LangRouteRouteChildren {
   LangContactRoute: typeof LangContactRoute
   LangFounderRoute: typeof LangFounderRoute
   LangMembershipsRoute: typeof LangMembershipsRoute
+  LangSpanishConversationRoute: typeof LangSpanishConversationRoute
   LangTheUnveiledExperienceRoute: typeof LangTheUnveiledExperienceRoute
   LangIndexRoute: typeof LangIndexRoute
 }
@@ -287,6 +307,7 @@ const LangRouteRouteChildren: LangRouteRouteChildren = {
   LangContactRoute: LangContactRoute,
   LangFounderRoute: LangFounderRoute,
   LangMembershipsRoute: LangMembershipsRoute,
+  LangSpanishConversationRoute: LangSpanishConversationRoute,
   LangTheUnveiledExperienceRoute: LangTheUnveiledExperienceRoute,
   LangIndexRoute: LangIndexRoute,
 }
@@ -302,3 +323,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

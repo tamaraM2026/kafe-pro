@@ -18,6 +18,7 @@ export const cs: Translations = {
       tenx: "10x Produktivnější",
       unveiled: "The Unveiled Experience",
       aiPrompting: "Workshop promptování AI",
+      spanishConversation: "Španělská konverzace",
     },
     reserve: "Zajistit si místo →",
     exploreMemberships: "Nabídka členství",
@@ -69,6 +70,9 @@ export const cs: Translations = {
     aiPromptingTitle: "Workshop promptování AI — Kafe con Propósito",
     aiPromptingDescription:
       "Interaktivní 90minutový workshop pro zvládnutí promptování AI. Naučte se praktické frameworky pro lepší, rychlejší a spolehlivější výsledky z AI nástrojů.",
+    spanishConversationTitle: "Španělská konverzace v Poděbradech — Kafe con Propósito",
+    spanishConversationDescription:
+      "Ovládněte reálnou španělskou konverzaci v malých skupinách v Poděbradech. Rodilá lektorka z Latinské Ameriky, témata z reálného života, omezená místa.",
   },
 
   home: {
@@ -636,5 +640,37 @@ export const cs: Translations = {
     finalCtaHeading: "Připraveni odemknout dovednost, která pohání AI?",
     finalCtaSubheading:
       "Připojte se k nám na 90 minut, které změní způsob, jakým pracujete s AI.",
+  },
+
+  spanishConversation: {
+    label: "ŠPANĚLŠTINA V PODĚBRADECH",
+    heading: "¡Hola Poděbrady! Pojďme mluvit španělsky.",
+    headingEmphasis: "🇪🇸✨",
+    subheading: "Ovládněte reálnou španělskou konverzaci v uvolněném prostředí malé skupiny přímo v Poděbradech.",
+    intro: "Ať už chcete cestovat bez překladatele, rozšířit si obchodní slovní zásobu, nebo se prostě propojit s bohatou kulturou španělsky mluvícího světa, tyto lekce jsou pro vás.",
+    whyLabel: "PROČ SE PŘIDAT",
+    whyHeading: "Naučte se španělsky, které skutečně použijete",
+    whyItems: [
+      { title: "Rodilá mluvčí z Latinské Ameriky", body: "Naučte se autentickou výslovnost, idiomy a kulturní nuance od rodilé lektorky." },
+      { title: "Témata z reálného života", body: "Žádná nudná gramatická cvičení. Ponoříme se do každodenního života, cestovatelských dobrodružství, globální kultury a obchodní komunikace." },
+      { title: "Útulné a konverzační", body: "Malé skupiny znamenají, že každý dostane dostatek času na mluvení a individuální zpětnou vazbu." },
+    ],
+    groupsLabel: "NAJDĚTE SI SVOU SKUPINU",
+    groupsHeading: "Vyberte si čas, který vám vyhovuje",
+    groupsIntro: "Abychom udrželi konverzace dynamické a efektivní, jsou místa přísně omezená.",
+    groups: [
+      { name: "Ranní skupina", dayTime: "Pondělí 18:00", location: "Poděbrady (místo bude upřesněno)", status: "Rychle se plní" },
+      { name: "Večerní skupina", dayTime: "Středa 18:00", location: "Poděbrady (místo bude upřesněno)", status: "Rychle se plní" },
+    ],
+    topicsLabel: "CO BUDEME PROBÍRAT",
+    topicsHeading: "Každá lekce buduje vaši sebedůvěru",
+    topics: [
+      { title: "Denní život a společenské situace", body: "Přirozené povídání, objednávání jídla a vyjadřování osobnosti." },
+      { title: "Cestovatelská touha a cestování", body: "Orientace v nových městech, žádání o doporučení a místní zvyky." },
+      { title: "Umění, historie a kultura", body: "Objevování živých tradic, hudby a příběhů Latinské Ameriky a dalších regionů." },
+      { title: "Obchod a profesní život", body: "Rozšiřování profesní sítě a zvládnutí obchodní terminologie s lehkostí." },
+    ],
+    limitedSpots: "Omezený počet míst: Abychom zajistili kvalitní zážitek pro všechny, registrace probíhá v pořadí, v jakém jsou přihlášky přijaty.",
+    ctaButton: "Rezervovat si místo ve skupině!",
   },
 };
