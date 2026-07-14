@@ -18,6 +18,7 @@ export const es: Translations = {
       tenx: "10x Productiva",
       unveiled: "The Unveiled Experience",
       aiPrompting: "Taller de Prompting de IA",
+      spanishConversation: "Conversación en Español",
     },
     reserve: "Reserva tu lugar →",
     exploreMemberships: "Explorar membresías",
@@ -69,6 +70,9 @@ export const es: Translations = {
     aiPromptingTitle: "Taller de Prompting de IA — Kafe con Propósito",
     aiPromptingDescription:
       "Un taller interactivo de 90 minutos para dominar el prompting de IA. Aprende frameworks prácticos para obtener mejores, más rápidos y más confiables resultados de las herramientas de IA.",
+    spanishConversationTitle: "Conversación en español en Poděbrady — Kafe con Propósito",
+    spanishConversationDescription:
+      "Domina la conversación en español en grupos reducidos en Poděbrady. Instructora nativa latinoamericana, temas de la vida real, plazas limitadas.",
   },
 
   home: {
@@ -636,5 +640,37 @@ export const es: Translations = {
     finalCtaHeading: "¿Lista para desbloquear la habilidad que impulsa la IA?",
     finalCtaSubheading:
       "Únete a nosotras durante 90 minutos que cambiarán la forma en que trabajas con la IA.",
+  },
+
+  spanishConversation: {
+    label: "ESPAÑOL EN PODĚBRADY",
+    heading: "¡Hola Poděbrady! Hablemos español.",
+    headingEmphasis: "🇪🇸✨",
+    subheading: "Domina la conversación en español en un ambiente relajado y en grupos reducidos, aquí mismo en Poděbrady.",
+    intro: "Ya sea que quieras viajar sin traductor, ampliar tu vocabulario de negocios o simplemente conectar con la rica cultura del mundo hispanohablante, estas sesiones son para ti.",
+    whyLabel: "POR QUÉ UNIRTE",
+    whyHeading: "Aprende español que realmente puedes usar",
+    whyItems: [
+      { title: "Hablante nativa latinoamericana", body: "Aprende pronunciación auténtica, modismos y matices culturales de una instructora nativa." },
+      { title: "Temas de la vida real", body: "Nada de ejercicios de gramática aburridos. Nos sumergiremos en la vida cotidiana, las aventuras de viaje, la cultura global y la comunicación de negocios." },
+      { title: "Acogedor y conversacional", body: "Los grupos pequeños significan que todos tienen mucho tiempo para hablar y recibir retroalimentación personalizada." },
+    ],
+    groupsLabel: "ENCUENTRA TU GRUPO",
+    groupsHeading: "Elige el horario que se ajuste a tu estilo de vida",
+    groupsIntro: "Para mantener las conversaciones dinámicas e impactantes, las plazas son estrictamente limitadas.",
+    groups: [
+      { name: "Sesión de la mañana", dayTime: "Lunes a las 18:00", location: "Poděbrady (Lugar por confirmar)", status: "Se llena rápido" },
+      { name: "Sesión de la tarde", dayTime: "Miércoles a las 18:00", location: "Poděbrady (Lugar por confirmar)", status: "Se llena rápido" },
+    ],
+    topicsLabel: "QUÉ VAMOS A VER",
+    topicsHeading: "Cada sesión está diseñada para aumentar tu confianza",
+    topics: [
+      { title: "Vida diaria y socialización", body: "Charlar con naturalidad, pedir comida y expresar tu personalidad." },
+      { title: "Wanderlust y viajes", body: "Navegar por ciudades nuevas, pedir recomendaciones y costumbres locales." },
+      { title: "Arte, historia y cultura", body: "Explorar las vibrantes tradiciones, música e historias de América Latina y más allá." },
+      { title: "Negocios y profesional", body: "Ampliar tu red profesional y dominar la terminología empresarial con facilidad." },
+    ],
+    limitedSpots: "Plazas limitadas: Para garantizar una experiencia de alta calidad para todos, la inscripción es por orden de llegada.",
+    ctaButton: "¡Reservar mi plaza en el grupo!",
   },
 };

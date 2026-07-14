@@ -16,6 +16,7 @@ export type Translations = {
       tenx: string;
       unveiled: string;
       aiPrompting: string;
+      spanishConversation: string;
     };
     reserve: string;
     exploreMemberships: string;
@@ -56,6 +57,8 @@ export type Translations = {
     unveiledDescription: string;
     aiPromptingTitle: string;
     aiPromptingDescription: string;
+    spanishConversationTitle: string;
+    spanishConversationDescription: string;
   };
 
   home: {
@@ -279,5 +282,25 @@ export type Translations = {
     registerCta: string;
     finalCtaHeading: string;
     finalCtaSubheading: string;
+  };
+
+  spanishConversation: {
+    label: string;
+    heading: string;
+    headingEmphasis: string;
+    subheading: string;
+    intro: string;
+    whyLabel: string;
+    whyHeading: string;
+    whyItems: Array<{ title: string; body: string }>;
+    groupsLabel: string;
+    groupsHeading: string;
+    groupsIntro: string;
+    groups: Array<{ name: string; dayTime: string; location: string; status: string }>;
+    topicsLabel: string;
+    topicsHeading: string;
+    topics: Array<{ title: string; body: string }>;
+    limitedSpots: string;
+    ctaButton: string;
   };
 };
