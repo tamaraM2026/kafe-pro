@@ -115,9 +115,6 @@ export function SiteHeader() {
             </div>
           </nav>
 
-          <div className="hidden md:flex items-center">
-            <LanguageSwitcher currentLang={lang} />
-          </div>
 
           <button
             type="button"
