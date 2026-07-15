@@ -15,7 +15,7 @@ export function SiteHeader() {
 
   const nav = [
     { to: "/", label: t.common.nav.home, anchor: undefined as string | undefined },
-    { to: "/", label: t.common.nav.founder, anchor: "#founder" },
+    { to: "/founder", label: t.common.nav.founder, anchor: undefined as string | undefined },
     { to: "/", label: t.common.nav.memberships, anchor: "#memberships" },
     { to: "/community", label: t.common.nav.community, anchor: undefined as string | undefined },
     { to: "/contact", label: t.common.nav.contact, anchor: undefined as string | undefined },
