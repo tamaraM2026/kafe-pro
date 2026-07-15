@@ -15,8 +15,6 @@ export const Route = createFileRoute("/$lang/spanish-conversation")({
       ],
       links: [
         { rel: "alternate", hreflang: "en", href: "/en/spanish-conversation" },
-        { rel: "alternate", hreflang: "cs", href: "/cs/spanish-conversation" },
-        { rel: "alternate", hreflang: "es", href: "/es/spanish-conversation" },
         { rel: "alternate", hreflang: "x-default", href: "/en/spanish-conversation" },
       ],
     };

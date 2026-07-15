@@ -28,7 +28,7 @@ export const en: Translations = {
       followHeading: "Follow us",
       whereHeading: "Where",
       locationText: "Central Bohemia · Poděbrady · Prague",
-      locationFrequency: "Twice a month · EN · ES · CZ",
+      locationFrequency: "Once a month",
       getInTouch: "Get in touch →",
       copyright: "Kafe con Propósito · Women’s Circle",
       navAbout: "What Kafe is",
@@ -72,17 +72,17 @@ export const en: Translations = {
   },
 
   home: {
-    regionLabel: "CENTRAL BOHEMIA · EN · ES · CZ",
+    regionLabel: "CENTRAL BOHEMIA",
     heroHeading:
       "A community for women who are building something that matters.",
     heroBrandName: "Kafe con Propósito",
     heroDescription:
       " brings professional women, entrepreneurs, and expats together — once a month, in person, over really good coffee. Real conversations. Genuine connection. No pitches, no pressure.",
     heroSubtext:
-      "Gatherings in English, Czech & Spanish · Central Bohemia & Prague · Twice a month",
+      "Gatherings in English, Czech & Spanish · Central Bohemia & Prague · Once a month",
     stats: [
       { value: "1×", label: "gathering per month" },
-      { value: "3", label: "languages (EN · ES · CZ)" },
+      { value: "3", label: "languages" },
       { value: "10–20", label: "women per gathering" },
     ],
     painHeading: "You’re surrounded by people.\nAnd still figuring it out alone.",
@@ -187,8 +187,8 @@ export const en: Translations = {
     faqHeading: "A few questions, answered",
     faqs: [
       {
-        q: "Do I need to speak perfect English or Czech?",
-        a: "Not at all. We welcome every accent and language level. Most gatherings are in English, with Czech and Spanish sessions also on the calendar. Understanding matters — not perfection.",
+        q: "Do I need to speak perfect English?",
+        a: "Not at all. We welcome every accent and language level. Understanding matters — not perfection.",
       },
       {
         q: "What if I’m introverted or shy?",
@@ -268,11 +268,6 @@ export const en: Translations = {
       },
     ],
     chooseCta: "Choose this →",
-    bannerLabel: "COMING MAY 2026",
-    bannerHeading: "One cup. One woman. One story.",
-    bannerDescription:
-      "Once a month, one woman opens the evening with her story — unfiltered, purposeful, real. Because the most powerful thing one woman can do for another is show her what’s possible.",
-    bannerCta: "Be the first to know →",
   },
 
   community: {

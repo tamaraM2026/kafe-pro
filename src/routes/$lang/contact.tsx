@@ -15,8 +15,6 @@ export const Route = createFileRoute("/$lang/contact")({
       ],
       links: [
         { rel: "alternate", hreflang: "en", href: `/en${pagePath}` },
-        { rel: "alternate", hreflang: "cs", href: `/cs${pagePath}` },
-        { rel: "alternate", hreflang: "es", href: `/es${pagePath}` },
         { rel: "alternate", hreflang: "x-default", href: `/en${pagePath}` },
       ],
     };

@@ -21,8 +21,6 @@ export const Route = createFileRoute("/$lang/community")({
       ],
       links: [
         { rel: "alternate", hreflang: "en", href: "/en/community" },
-        { rel: "alternate", hreflang: "cs", href: "/cs/community" },
-        { rel: "alternate", hreflang: "es", href: "/es/community" },
         { rel: "alternate", hreflang: "x-default", href: "/en/community" },
       ],
     };

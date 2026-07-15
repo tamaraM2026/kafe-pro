@@ -15,8 +15,6 @@ export const Route = createFileRoute("/$lang/business-building-blocks")({
       ],
       links: [
         { rel: "alternate", hreflang: "en", href: "/en/business-building-blocks" },
-        { rel: "alternate", hreflang: "cs", href: "/cs/business-building-blocks" },
-        { rel: "alternate", hreflang: "es", href: "/es/business-building-blocks" },
         { rel: "alternate", hreflang: "x-default", href: "/en/business-building-blocks" },
       ],
     };

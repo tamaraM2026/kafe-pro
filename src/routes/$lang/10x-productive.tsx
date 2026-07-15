@@ -17,8 +17,6 @@ export const Route = createFileRoute("/$lang/10x-productive")({
       ],
       links: [
         { rel: "alternate", hreflang: "en", href: "/en/10x-productive" },
-        { rel: "alternate", hreflang: "cs", href: "/cs/10x-productive" },
-        { rel: "alternate", hreflang: "es", href: "/es/10x-productive" },
         { rel: "alternate", hreflang: "x-default", href: "/en/10x-productive" },
       ],
     };
