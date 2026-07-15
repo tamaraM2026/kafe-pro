@@ -25,7 +25,6 @@ export function SiteHeader() {
     { to: "/business-building-blocks", label: t.common.programmesItems.bbb },
     { to: "/10x-productive", label: t.common.programmesItems.tenx },
     { to: "/the-unveiled-experience", label: t.common.programmesItems.unveiled },
-    { to: "/ai-prompting-workshop", label: t.common.programmesItems.aiPrompting },
     { to: "/spanish-conversation", label: t.common.programmesItems.spanishConversation },
   ];
 
