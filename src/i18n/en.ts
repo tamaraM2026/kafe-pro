@@ -17,7 +17,6 @@ export const en: Translations = {
       bbb: "Business Building Blocks",
       tenx: "10x Productive",
       unveiled: "The Unveiled Experience",
-      aiPrompting: "AI Prompting Workshop",
       spanishConversation: "Spanish Conversation",
     },
     reserve: "Reserve my spot →",
@@ -67,9 +66,6 @@ export const en: Translations = {
     unveiledTitle: "The Unveiled Experience — Kafe con Propósito",
     unveiledDescription:
       "A one-day intimate reset for women ready to silence their inner critic, step into body confidence, and see themselves through a new lens.",
-    aiPromptingTitle: "AI Prompting Workshop — Kafe con Propósito",
-    aiPromptingDescription:
-      "An interactive 90-minute workshop to master AI prompting. Learn practical frameworks for better, faster, and more reliable results from AI tools.",
     spanishConversationTitle: "Spanish Conversation in Poděbrady — Kafe con Propósito",
     spanishConversationDescription:
       "Master real-world Spanish conversation in small groups in Poděbrady. Native Latin American instructor, real-life topics, limited spots.",
