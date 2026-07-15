@@ -14,8 +14,6 @@ export const Route = createFileRoute("/$lang/memberships")({
       ],
       links: [
         { rel: "alternate", hreflang: "en", href: `/en${pagePath}` },
-        { rel: "alternate", hreflang: "cs", href: `/cs${pagePath}` },
-        { rel: "alternate", hreflang: "es", href: `/es${pagePath}` },
         { rel: "alternate", hreflang: "x-default", href: `/en${pagePath}` },
       ],
     };
@@ -66,19 +64,6 @@ function Memberships() {
             </Animate>
           ))}
         </div>
-
-        <Animate>
-          <div className="mt-20 bg-white/50 backdrop-blur-sm rounded-3xl p-10 md:p-14 text-center border border-white/30 shadow-sm">
-            <p className="text-xs tracking-[0.25em] text-terracotta">{t.memberships.bannerLabel}</p>
-            <h2 className="mt-3 font-display text-4xl md:text-5xl text-burgundy">{t.memberships.bannerHeading}</h2>
-            <p className="mt-6 max-w-2xl mx-auto text-foreground/75">
-              {t.memberships.bannerDescription}
-            </p>
-            <Link to={"/$lang/contact"} params={{ lang }} className="mt-8 inline-block px-7 py-4 rounded-full bg-gradient-to-r from-burgundy to-burgundy/80 text-primary-foreground hover:scale-[1.02] active:scale-[0.98] transition-all">
-              {t.memberships.bannerCta}
-            </Link>
-          </div>
-        </Animate>
       </div>
     </section>
   );

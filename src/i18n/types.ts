@@ -123,10 +123,6 @@ export type Translations = {
       featured: boolean;
     }>;
     chooseCta: string;
-    bannerLabel: string;
-    bannerHeading: string;
-    bannerDescription: string;
-    bannerCta: string;
   };
 
   community: {

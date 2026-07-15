@@ -81,8 +81,6 @@ export const Route = createFileRoute("/$lang/the-unveiled-experience")({
       ],
       links: [
         { rel: "alternate", hreflang: "en", href: `/en${pagePath}` },
-        { rel: "alternate", hreflang: "cs", href: `/cs${pagePath}` },
-        { rel: "alternate", hreflang: "es", href: `/es${pagePath}` },
         { rel: "alternate", hreflang: "x-default", href: `/en${pagePath}` },
       ],
     };
