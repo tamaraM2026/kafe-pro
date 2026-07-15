@@ -188,10 +188,6 @@ export function SiteHeader() {
                 {p.label}
               </Link>
             ))}
-            <div className="border-t border-border/30 my-2" />
-            <div className="px-4">
-              <LanguageSwitcher currentLang={lang} />
-            </div>
           </nav>
         </div>
       )}
