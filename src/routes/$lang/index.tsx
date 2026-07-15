@@ -212,21 +212,6 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Storytelling banner */}
-      <section className="py-28 bg-burgundy/95 backdrop-blur-xl text-primary-foreground">
-        <div className="mx-auto max-w-3xl px-6 text-center">
-          <Animate>
-            <p className="text-xs tracking-[0.25em] text-accent">{t.memberships.bannerLabel}</p>
-            <h2 className="mt-3 font-display text-4xl md:text-5xl">{t.memberships.bannerHeading}</h2>
-          </Animate>
-          <Animate delay={100}>
-            <p className="mt-6 text-lg opacity-90 leading-relaxed">{t.memberships.bannerDescription}</p>
-            <Link to={"/$lang/contact"} params={{ lang }} className="mt-8 inline-block px-7 py-4 rounded-full bg-accent text-accent-foreground hover:scale-[1.02] active:scale-[0.98] transition-all">
-              {t.memberships.bannerCta}
-            </Link>
-          </Animate>
-        </div>
-      </section>
 
       {/* Founder */}
       <section className="py-28 bg-cream" id="founder">
