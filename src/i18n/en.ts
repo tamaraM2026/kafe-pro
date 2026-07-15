@@ -45,7 +45,7 @@ export const en: Translations = {
       "A community for women who are building something that matters. Real conversations over really good coffee in Central Bohemia.",
     aboutTitle: "What Kafe is — Kafe con Propósito",
     aboutDescription:
-      "Not an event. A community of women in Central Bohemia meeting twice a month for real conversation.",
+      "Not an event. A community of women in Central Bohemia meeting once a month for real conversation.",
     founderTitle: "Founder — Kafe con Propósito",
     founderDescription:
       "Meet Tamara Medina Sapovalova, founder of Kafe con Propósito.",
@@ -81,11 +81,11 @@ export const en: Translations = {
       "A community for women who are building something that matters.",
     heroBrandName: "Kafe con Propósito",
     heroDescription:
-      " brings professional women, entrepreneurs, and expats together — twice a month, in person, over really good coffee. Real conversations. Genuine connection. No pitches, no pressure.",
+      " brings professional women, entrepreneurs, and expats together — once a month, in person, over really good coffee. Real conversations. Genuine connection. No pitches, no pressure.",
     heroSubtext:
       "Gatherings in English, Czech & Spanish · Central Bohemia & Prague · Twice a month",
     stats: [
-      { value: "2×", label: "gatherings per month" },
+      { value: "1×", label: "gathering per month" },
       { value: "3", label: "languages (EN · ES · CZ)" },
       { value: "10–20", label: "women per gathering" },
     ],
@@ -148,7 +148,7 @@ export const en: Translations = {
         price: "850 CZK",
         per: "per month",
         tagline: "Most popular",
-        desc: "Two guaranteed spots, member discounts, and the directory. The most popular way to make Kafe part of your life.",
+        desc: "Member discounts and the directory. The most popular way to make Kafe part of your life.",
         cta: "Join membership",
         featured: true,
       },
@@ -171,7 +171,7 @@ export const en: Translations = {
     label: "WHAT KAFE IS",
     heading: "A women’s circle, not a networking event.",
     intro:
-      "Kafe con Propósito is a consistent, trusted circle of women who show up — twice a month, in person, in Central Bohemia. Each gathering is themed, intentional, and built for real conversation, not transactions.",
+      "Kafe con Propósito is a consistent, trusted circle of women who show up — once a month, in person, in Central Bohemia. Each gathering is themed, intentional, and built for real conversation, not transactions.",
     testimonialsHeading: "What women say",
     testimonialsSubheading: "Real words from real members",
     testimonials: [
@@ -204,7 +204,7 @@ export const en: Translations = {
       },
       {
         q: "How much does it cost?",
-        a: "Regular sessions start at 450 CZK. Memberships (with guaranteed spots, discounts, and more) start at 850 CZK/month.",
+        a: "Regular sessions start at 450 CZK. Memberships (with member discounts, directory access, and more) start at 850 CZK/month.",
       },
       {
         q: "Where do you meet?",
@@ -247,9 +247,9 @@ export const en: Translations = {
         tag: "Most popular",
         price: "850 CZK",
         per: "per month",
-        desc: "Two guaranteed spots, member discounts, and the directory.",
+        desc: "Member discounts and the directory.",
         perks: [
-          "2 guaranteed gatherings/month",
+          "1 gathering/month",
           "Member directory access",
           "Discounts on workshops",
           "WhatsApp circle",
