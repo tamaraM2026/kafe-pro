@@ -107,6 +107,29 @@ export type Translations = {
     heading: string;
     paragraphs: string[];
     signature: string;
+    profileTitle: string;
+    experience: {
+      heading: string;
+      body: string;
+      details: Array<{ label: string; value: string }>;
+      closing: string;
+    };
+    turningPoint: {
+      heading: string;
+      body: string;
+      quote: string;
+    };
+    services: {
+      heading: string;
+      intro: string;
+      items: Array<{ tag: string; title: string; desc: string; cta: string }>;
+    };
+    closing: {
+      heading: string;
+      body: string;
+      ctaPrimary: string;
+      ctaSecondary: string;
+    };
   };
 
   memberships: {

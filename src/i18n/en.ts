@@ -217,6 +217,47 @@ export const en: Translations = {
       "I’ve spent over 20 years in international business across Latin America and Europe. I know what it feels like to be the only woman in the room, to relocate and start over, to build something without a map. Kafe is the room I wish had existed.",
     ],
     signature: "— Tamara Medina Sapovalova, Founder",
+    profileTitle: "Founder, Kafe con Propósito · Business Coach · Central Bohemia",
+    experience: {
+      heading: "Where I came from",
+      body: "For over 20 years I worked at the intersection of international business development, partnerships, and professional coaching (Sapovalova Solutions) — bridging Europe and Latin America, helping tech companies scale across borders, and advising founders on strategy, leadership, and growth. I worked with accelerators, spoke at industry events, was shortlisted for the Latam Edge Awards, and sat across from some of the most ambitious leaders I’ve ever met. I learned what rigorous strategy looks like. I also learned what it costs when soul is missing from it.",
+      details: [
+        { label: "Experience", value: "20+ years international business & partnerships" },
+        { label: "Recognition", value: "Speaker & facilitator" },
+        { label: "Focus regions", value: "Europe · Latin America · Global tech" },
+        { label: "Languages", value: "English · Spanish · Czech" },
+      ],
+      closing: "That experience doesn’t sit on a shelf. It lives inside everything I bring to Kafe — in how I design gatherings, how I facilitate conversations, how I think about building something that actually lasts.",
+    },
+    turningPoint: {
+      heading: "Why Kafe, and why now",
+      body: "When I relocated to Central Bohemia, I found myself doing exactly what so many of the women in our community describe — professionally accomplished, genuinely isolated, and looking for a space that felt real. The interesting events were in Prague. The online groups were full of noise. The networking events left me with cards but no real connection.",
+      quote: "So I built what I needed. Once a month, in person, in Central Bohemia. A gathering for women who want honest conversation, genuine support, and a community that shows up consistently — not just once.",
+    },
+    services: {
+      heading: "Beyond the gatherings",
+      intro: "For women who want more than Kafe, I also offer 1:1 business coaching and a structured programme for women turning an idea into a real business. Both are rooted in the same belief: that the best strategies start with honest conversation.",
+      items: [
+        {
+          tag: "1:1 COACHING",
+          title: "Business Coaching",
+          desc: "Strategy, leadership, and growth support for entrepreneurs and professionals navigating complex decisions.",
+          cta: "Learn more →",
+        },
+        {
+          tag: "8-WEEK PROGRAMME",
+          title: "Business Building Blocks",
+          desc: "From idea to real, working business. Live workshops and self-paced sessions built around your life.",
+          cta: "Learn more →",
+        },
+      ],
+    },
+    closing: {
+      heading: "Come find me at Kafe con Propósito",
+      body: "The best way to understand what I do is to experience it. Bring your real questions, your half-formed ideas, and your coffee order. I’ll be there.",
+      ctaPrimary: "Reserve my spot →",
+      ctaSecondary: "Join our next event →",
+    },
   },
 
   memberships: {
