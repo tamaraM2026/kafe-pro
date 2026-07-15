@@ -3,36 +3,8 @@ import { Link, useLocation } from "@tanstack/react-router";
 import logo from "@/assets/logo.png";
 import { getTranslations } from "@/i18n";
 
-function LanguageSwitcher({ currentLang }: { currentLang: string }) {
-  const location = useLocation();
-  const pathAfterLang = location.pathname.replace(/^\/(en|cs|es)/, "") || "/";
 
-  const langs = [
-    { code: "en", label: "EN" },
-    { code: "es", label: "ES" },
-    { code: "cs", label: "CZ" },
-  ];
 
-  return (
-    <div className="flex items-center gap-1 text-xs">
-      {langs.map((l, i) => (
-        <span key={l.code} className="flex items-center">
-          {i > 0 && <span className="text-muted-foreground mx-1">&middot;</span>}
-          <Link
-            to={`/${l.code}${pathAfterLang}`}
-            className={`transition-colors ${
-              currentLang === l.code
-                ? "text-burgundy font-semibold"
-                : "text-muted-foreground hover:text-burgundy"
-            }`}
-          >
-            {l.label}
-          </Link>
-        </span>
-      ))}
-    </div>
-  );
-}
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -43,7 +15,6 @@ export function SiteHeader() {
 
   const nav = [
     { to: "/", label: t.common.nav.home, anchor: undefined as string | undefined },
-    { to: "/", label: t.common.nav.about, anchor: "#what-kafe-is" },
     { to: "/", label: t.common.nav.founder, anchor: "#founder" },
     { to: "/", label: t.common.nav.memberships, anchor: "#memberships" },
     { to: "/community", label: t.common.nav.community, anchor: undefined as string | undefined },
@@ -144,9 +115,6 @@ export function SiteHeader() {
             </div>
           </nav>
 
-          <div className="hidden md:flex items-center">
-            <LanguageSwitcher currentLang={lang} />
-          </div>
 
           <button
             type="button"
@@ -220,10 +188,6 @@ export function SiteHeader() {
                 {p.label}
               </Link>
             ))}
-            <div className="border-t border-border/30 my-2" />
-            <div className="px-4">
-              <LanguageSwitcher currentLang={lang} />
-            </div>
           </nav>
         </div>
       )}
