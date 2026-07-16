@@ -62,7 +62,6 @@ src/components/ui/              # shadcn/ui components — DO NOT modify
 ### Hooks
 ```
 src/hooks/use-in-view.tsx       # IntersectionObserver hook (used by Animate)
-src/hooks/use-count-up.tsx      # Number counting animation (used on homepage stats)
 src/hooks/use-translations.ts   # Returns translations for current language
 src/hooks/use-mobile.tsx        # Mobile breakpoint detection
 ```

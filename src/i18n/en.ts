@@ -83,13 +83,7 @@ export const en: Translations = {
     heroBrandName: "Kafe con Propósito",
     heroDescription:
       " brings professional women, entrepreneurs, and expats together — once a month, in person, over really good coffee. Real conversations. Genuine connection. No pitches, no pressure.",
-    heroSubtext:
-      "Gatherings in English, Czech & Spanish · Central Bohemia & Prague · Once a month",
-    stats: [
-      { value: "1×", label: "gathering per month" },
-      { value: "3", label: "languages" },
-      { value: "10–20", label: "women per gathering" },
-    ],
+    heroSubtext: "Gathering · Central Bohemia · Once a month",
     painHeading: "You’re surrounded by people.\nAnd still figuring it out alone.",
     painSubheading:
       "Whether you’ve been here your whole life or arrived last year, growing as a professional woman can feel isolating — especially when the people around you don’t quite get what you’re building.",
@@ -197,7 +191,7 @@ export const en: Translations = {
       },
       {
         q: "What if I’m introverted or shy?",
-        a: "Most of us are. Groups are small (10–20 women) and no one is put on the spot before they’re ready. You’ll find your moment.",
+        a: "Most of us are. Groups are small (~10 women) and no one is put on the spot before they’re ready. You’ll find your moment.",
       },
       {
         q: "I’m not an entrepreneur or CEO. Do I fit in?",
