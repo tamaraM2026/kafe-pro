@@ -261,8 +261,6 @@ export const Route = createFileRoute("/$lang/my-page")({
       ],
       links: [
         { rel: "alternate", hreflang: "en", href: "/en/my-page" },
-        { rel: "alternate", hreflang: "cs", href: "/cs/my-page" },
-        { rel: "alternate", hreflang: "es", href: "/es/my-page" },
         { rel: "alternate", hreflang: "x-default", href: "/en/my-page" },
       ],
     };
@@ -465,7 +463,9 @@ git commit -m "type: description"
 ## Deployment
 
 **GitHub Pages** — auto-deploys on push to `main` via `.github/workflows/deploy.yml`.
-The workflow pre-renders all 27 pages (9 pages × 3 languages) with inlined CSS.
+The workflow pre-renders all pages (English only — see `pages` list in
+`.github/workflows/deploy.yml`) with inlined CSS. Any new route must be added
+to that `pages` list or it won't be part of the static GitHub Pages deploy.
 Pages are static HTML — no client-side JS on GitHub Pages.
 
 **Cloudflare Workers** (SSR) — deploy manually with `npx wrangler deploy`.

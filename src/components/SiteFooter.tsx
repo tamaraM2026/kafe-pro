@@ -53,6 +53,7 @@ export function SiteFooter() {
           <h4 className="font-display text-lg mb-4">{t.common.footer.exploreHeading}</h4>
           <ul className="space-y-2 text-sm opacity-80">
             <li><a href={`/${lang}/founder`} className="hover:text-accent transition-colors">{t.common.footer.navFounder}</a></li>
+            <li><a href={`/${lang}/events`} className="hover:text-accent transition-colors">{t.common.footer.navEvents}</a></li>
             <li><a href={`/${lang}/memberships`} className="hover:text-accent transition-colors">{t.common.footer.navMemberships}</a></li>
             <li><a href={`/${lang}/community`} className="hover:text-accent transition-colors">{t.common.footer.navCommunity}</a></li>
           </ul>
