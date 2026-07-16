@@ -34,7 +34,6 @@ import irenaImg from "@/assets/testimonial-irena.jpg";
 
 const testimonialImages = [valeriaImg, adelaImg, irenaImg];
 import { Animate } from "@/components/Animate";
-import { useCountUp } from "@/hooks/use-count-up";
 import { useTranslations, useLang } from "@/hooks/use-translations";
 import { getTranslations } from "@/i18n";
 
@@ -55,16 +54,6 @@ export const Route = createFileRoute("/$lang/")({
   },
   component: HomePage,
 });
-
-function StatCard({ value, label }: { value: string; label: string }) {
-  const { ref, display } = useCountUp(value);
-  return (
-    <div ref={ref} className="bg-white/50 backdrop-blur-sm rounded-3xl py-8 px-4 shadow-sm border border-white/30 hover:-translate-y-1 hover:shadow-md transition-all duration-300">
-      <div className="font-display text-5xl text-terracotta">{display}</div>
-      <div className="mt-2 text-sm text-muted-foreground">{label}</div>
-    </div>
-  );
-}
 
 function HomePage() {
   const t = useTranslations();
@@ -109,10 +98,6 @@ function HomePage() {
               <img src={hero} alt={t.home.heroBrandName} width={1600} height={1280} className="relative rounded-[2.5rem] shadow-2xl object-cover w-full aspect-[5/4]" />
             </div>
           </Animate>
-        </div>
-
-        <div className="mx-auto max-w-5xl px-6 -mt-6 mb-20 grid grid-cols-3 gap-4 text-center">
-          {t.home.stats.map((s) => <StatCard key={s.label} value={s.value} label={s.label} />)}
         </div>
       </section>
 

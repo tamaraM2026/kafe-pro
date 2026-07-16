@@ -68,7 +68,6 @@ export type Translations = {
     heroBrandName: string;
     heroDescription: string;
     heroSubtext: string;
-    stats: Array<{ value: string; label: string }>;
     painHeading: string;
     painSubheading: string;
     quotes: string[];
