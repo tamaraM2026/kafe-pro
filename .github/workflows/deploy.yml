@@ -91,8 +91,13 @@ jobs:
           style_tag = f"<style>{fonts_css}\n{app_css}</style>"
 
           pages = ["about","founder","memberships","community","contact",
-                   "business-building-blocks","10x-productive","the-unveiled-experience"]
-          langs = ["en","cs","es"]
+                   "business-building-blocks","10x-productive","the-unveiled-experience",
+                   "spanish-conversation","events",
+                   "events/building-without-a-map","events/confidence-and-boundaries",
+                   "events/business-of-reinvention","events/ambition-and-rest",
+                   "events/owning-your-next-chapter","events/love","events/women-who-lead",
+                   "events/owning-your-expertise","events/purpose-driven-leadership"]
+          langs = ["en"]
 
           for lang in langs:
               for page in ["/"] + pages:

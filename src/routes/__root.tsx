@@ -46,7 +46,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Kafe con Propósito — A women's circle in Central Bohemia" },
-      { name: "description", content: "A community for women building something that matters. Twice-monthly gatherings in EN, ES & CZ over really good coffee." },
+      { name: "description", content: "A community for women building something that matters. Monthly gatherings over really good coffee." },
       { property: "og:title", content: "Kafe con Propósito" },
       { property: "og:description", content: "Real conversations. Genuine connection. No pitches, no pressure." },
       { property: "og:type", content: "website" },

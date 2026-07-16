@@ -5,6 +5,7 @@ export type Translations = {
       home: string;
       about: string;
       founder: string;
+      events: string;
       memberships: string;
       community: string;
       cesky: string;
@@ -30,6 +31,7 @@ export type Translations = {
       copyright: string;
       navAbout: string;
       navFounder: string;
+      navEvents: string;
       navMemberships: string;
       navCommunity: string;
     };
@@ -42,6 +44,8 @@ export type Translations = {
     aboutDescription: string;
     founderTitle: string;
     founderDescription: string;
+    eventsTitle: string;
+    eventsDescription: string;
     membershipsTitle: string;
     membershipsDescription: string;
     communityTitle: string;
@@ -130,6 +134,62 @@ export type Translations = {
       ctaPrimary: string;
       ctaSecondary: string;
     };
+  };
+
+  events: {
+    hero: {
+      eyebrow: string;
+      heading: string;
+      lead: string;
+      secondaryCta: string;
+      metaLine: string;
+    };
+    whatsNew: {
+      eyebrow: string;
+      heading: string;
+      intro: string;
+    };
+    rhythm: {
+      oneCup: { title: string; text: string };
+      networking: { title: string; text: string };
+      discussion: { title: string; text: string };
+      dinner: { title: string; text: string };
+    };
+    detailsEyebrow: string;
+    detailsHeading: string;
+    seasonDetails: Array<{ label: string; value: string }>;
+    calendarEyebrow: string;
+    calendarHeading: string;
+    calendarIntro: string;
+    viewDetailsCta: string;
+    launchTag: string;
+    closeTag: string;
+    ctaBand: {
+      eyebrow: string;
+      heading: string;
+      seasonBody: string;
+      editionBody: string;
+      seeOtherDates: string;
+      emailNote: string;
+    };
+    backToCalendar: string;
+    inThisSessionEyebrow: string;
+    inThisSessionHeading: string;
+    rsvpByEmail: string;
+    seasonLaunchEyebrow: string;
+    seasonCloseEyebrow: string;
+    thisEditionEyebrow: string;
+    speakerPlaceholder: string;
+    venuePlaceholder: string;
+    nextEditionLabel: string;
+    list: Array<{
+      slug: string;
+      dateLabel: string;
+      dateTag: string;
+      title: string;
+      description: string;
+      ticket: string;
+    }>;
   };
 
   memberships: {

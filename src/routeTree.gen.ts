@@ -21,6 +21,8 @@ import { Route as LangCommunityRouteImport } from './routes/$lang/community'
 import { Route as LangBusinessBuildingBlocksRouteImport } from './routes/$lang/business-building-blocks'
 import { Route as LangAboutRouteImport } from './routes/$lang/about'
 import { Route as Lang10xProductiveRouteImport } from './routes/$lang/10x-productive'
+import { Route as LangEventsIndexRouteImport } from './routes/$lang/events/index'
+import { Route as LangEventsSlugRouteImport } from './routes/$lang/events/$slug'
 
 const LangRouteRoute = LangRouteRouteImport.update({
   id: '/$lang',
@@ -84,6 +86,16 @@ const Lang10xProductiveRoute = Lang10xProductiveRouteImport.update({
   path: '/10x-productive',
   getParentRoute: () => LangRouteRoute,
 } as any)
+const LangEventsIndexRoute = LangEventsIndexRouteImport.update({
+  id: '/events/',
+  path: '/events/',
+  getParentRoute: () => LangRouteRoute,
+} as any)
+const LangEventsSlugRoute = LangEventsSlugRouteImport.update({
+  id: '/events/$slug',
+  path: '/events/$slug',
+  getParentRoute: () => LangRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -98,6 +110,8 @@ export interface FileRoutesByFullPath {
   '/$lang/spanish-conversation': typeof LangSpanishConversationRoute
   '/$lang/the-unveiled-experience': typeof LangTheUnveiledExperienceRoute
   '/$lang/': typeof LangIndexRoute
+  '/$lang/events/$slug': typeof LangEventsSlugRoute
+  '/$lang/events/': typeof LangEventsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -111,6 +125,8 @@ export interface FileRoutesByTo {
   '/$lang/spanish-conversation': typeof LangSpanishConversationRoute
   '/$lang/the-unveiled-experience': typeof LangTheUnveiledExperienceRoute
   '/$lang': typeof LangIndexRoute
+  '/$lang/events/$slug': typeof LangEventsSlugRoute
+  '/$lang/events': typeof LangEventsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -126,6 +142,8 @@ export interface FileRoutesById {
   '/$lang/spanish-conversation': typeof LangSpanishConversationRoute
   '/$lang/the-unveiled-experience': typeof LangTheUnveiledExperienceRoute
   '/$lang/': typeof LangIndexRoute
+  '/$lang/events/$slug': typeof LangEventsSlugRoute
+  '/$lang/events/': typeof LangEventsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -142,6 +160,8 @@ export interface FileRouteTypes {
     | '/$lang/spanish-conversation'
     | '/$lang/the-unveiled-experience'
     | '/$lang/'
+    | '/$lang/events/$slug'
+    | '/$lang/events/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -155,6 +175,8 @@ export interface FileRouteTypes {
     | '/$lang/spanish-conversation'
     | '/$lang/the-unveiled-experience'
     | '/$lang'
+    | '/$lang/events/$slug'
+    | '/$lang/events'
   id:
     | '__root__'
     | '/'
@@ -169,6 +191,8 @@ export interface FileRouteTypes {
     | '/$lang/spanish-conversation'
     | '/$lang/the-unveiled-experience'
     | '/$lang/'
+    | '/$lang/events/$slug'
+    | '/$lang/events/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -262,6 +286,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Lang10xProductiveRouteImport
       parentRoute: typeof LangRouteRoute
     }
+    '/$lang/events/': {
+      id: '/$lang/events/'
+      path: '/events'
+      fullPath: '/$lang/events/'
+      preLoaderRoute: typeof LangEventsIndexRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
+    '/$lang/events/$slug': {
+      id: '/$lang/events/$slug'
+      path: '/events/$slug'
+      fullPath: '/$lang/events/$slug'
+      preLoaderRoute: typeof LangEventsSlugRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
   }
 }
 
@@ -276,6 +314,8 @@ interface LangRouteRouteChildren {
   LangSpanishConversationRoute: typeof LangSpanishConversationRoute
   LangTheUnveiledExperienceRoute: typeof LangTheUnveiledExperienceRoute
   LangIndexRoute: typeof LangIndexRoute
+  LangEventsSlugRoute: typeof LangEventsSlugRoute
+  LangEventsIndexRoute: typeof LangEventsIndexRoute
 }
 
 const LangRouteRouteChildren: LangRouteRouteChildren = {
@@ -289,6 +329,8 @@ const LangRouteRouteChildren: LangRouteRouteChildren = {
   LangSpanishConversationRoute: LangSpanishConversationRoute,
   LangTheUnveiledExperienceRoute: LangTheUnveiledExperienceRoute,
   LangIndexRoute: LangIndexRoute,
+  LangEventsSlugRoute: LangEventsSlugRoute,
+  LangEventsIndexRoute: LangEventsIndexRoute,
 }
 
 const LangRouteRouteWithChildren = LangRouteRoute._addFileChildren(
