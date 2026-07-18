@@ -5,6 +5,8 @@ import rejectionCover from "@/assets/blog/get-used-to-rejection/cover.jpg";
 import heartCover from "@/assets/blog/leading-with-heart-the-secret-sauce-to-transforming-workplace-culture/cover.jpg";
 import meetingNotesCover from "@/assets/blog/8-reasons-to-type-up-your-notes-after-a-meeting/cover.jpg";
 import puzzlePiecesCover from "@/assets/blog/mastering-the-art-of-problem-solving/cover.jpg";
+import designFutureCover from "@/assets/blog/design-your-future-why-creating-change-beats-adapting-to-it/cover.jpg";
+import goalCycleCover from "@/assets/blog/master-goals-with-the-goal-cycle-aligning-vision-with-impactful-outcomes/cover.jpg";
 import cover1 from "@/assets/blog/beyond-the-coffee-chat-the-art-of-building-partnerships-that-actually-matter/cover.jpg";
 import cover2 from "@/assets/blog/choosing-yourself-careerchangeinspiration/cover.jpeg";
 import cover3 from "@/assets/blog/conquering-self-doubt-to-succeed-in-business-confidence-building-for-professionals/cover.jpg";
@@ -1547,6 +1549,75 @@ export const blogPosts: BlogPost[] = [
       { type: "paragraph", text: "When someone close to us makes a mistake, our first instinct is to help them, protect them, support them or forgive them. But what happens if we make a mistake? How much time do we spend criticising or analysing what we did wrong, and telling ourselves things that do not make us feel good?" },
       { type: "paragraph", text: "How many times do you celebrate your triumphs, your strengths and the things you do well? We need to learn to love ourselves unconditionally." },
       { type: "paragraph", text: "If you want to shift your thinking and make some changes to your career join the JumUp Career shift programme ." },
+    ],
+  },
+  {
+    slug: "design-your-future-why-creating-change-beats-adapting-to-it",
+    title: "Design Your Future: Why Creating Change Beats Adapting to It",
+    date: "2024-12-04",
+    dateLabel: "December 4, 2024",
+    author: "Tamara Medina Sapovalova",
+    readTime: "2 min read",
+    excerpt: "Have you ever felt unhappy or unsatisfied, but were too scared to take action? Here’s the truth: life will do it for us if we don’t create change.",
+    cover: designFutureCover,
+    coverAlt: "A woman leaping between two rock formations at dusk",
+    body: [
+      { type: "quote", text: "“One should not adapt to change, but create it.” — Jorge Gonzalez Moore" },
+      { type: "heading", level: 3, text: "Success & fulfillment comes from embracing change" },
+      { type: "paragraph", text: "Have you ever felt unhappy or unsatisfied, but were too scared to take action? Here’s the truth: life will do it for us if we don’t create change. When life forces change upon us, it often comes as an unwelcome surprise, leaving us feeling powerless and unable to see the opportunities ahead. But when we choose to initiate change, we can prepare for the journey and shape our path forward." },
+      { type: "paragraph", text: "Looking to the future and making decisions will help you achieve what you want. Sometimes, the biggest challenge is knowing what you want; other times, it’s knowing how to achieve it. Taking control of your feelings and taking responsibility for your situation, is the first step towards building success." },
+      { type: "paragraph", text: "We all have difficult moments in our lives, but if you become stuck in the same patterns and you’re constantly feeling dissatisfied, then the problem may be more complex than you think. Sometimes, people avoid making changes simply because they are scared of the uncertainty and outcome, recognising this tendency in yourself is key." },
+      { type: "heading", level: 3, text: "Key takeaway: Generate your “own change”" },
+      { type: "paragraph", text: "Many people want things to be guaranteed, they want reassurance. There are only three sure things in life: death, taxes, and constant change. For many people, coping with change is a huge challenge. However, if you learn to embrace it as something natural and positive, it will be much easier to face and prepare for. If, in addition to this, is not only about learning to enjoy the changes but to generate them yourself, remember that you’re not at the “mercy” of your circumstances — you can view, anticipate, and generate new and exciting challenges." },
+      { type: "paragraph", text: "You’re the only person who can change your circumstances; we all create our reality. If you don’t allow yourself to identify what is limiting you, then you become your greatest obstacle." },
+      { type: "paragraph", text: "Join us at the Wild Grace Women Retreat, where you’ll connect with like-minded women entrepreneurs ready to embrace transformation. Through powerful workshops, mindful practices, and authentic conversations, you’ll discover how to harness change as your greatest ally." },
+      { type: "paragraph", text: "Early bird registration is now open — secure your spot in our transformative community of women leaders ready to create positive change." },
+    ],
+  },
+  {
+    slug: "master-goals-with-the-goal-cycle-aligning-vision-with-impactful-outcomes",
+    title: "Master Goals with the Goal Cycle: Aligning Vision with Impactful Outcomes",
+    date: "2025-05-13",
+    dateLabel: "May 13, 2025",
+    author: "Tamara Medina Sapovalova",
+    readTime: "3 min read",
+    excerpt: "Setting goals is more than just writing down what you want to achieve—it’s about creating a roadmap that aligns with your vision and directs your energy toward meaningful outcomes.",
+    cover: goalCycleCover,
+    coverAlt: "The Goal Cycle framework diagram: begin with the end in mind, what do you want?",
+    body: [
+      { type: "paragraph", text: "Setting goals is more than just writing down what you want to achieve—it’s about creating a roadmap that aligns with your vision and directs your energy toward meaningful outcomes. Mastering the art of goal setting can be transformative, helping you stay focused on what truly matters while driving both personal and professional growth." },
+      { type: "paragraph", text: "Being a visual person myself, in an attempt to make the process of goal setting easier, I created a visual road map that helps you to stay focused and understand the key stages of goal setting. This guide explores how to use the Goal Cycle to set inspiring objectives, maintain focus, and achieve impactful results." },
+      { type: "heading", level: 3, text: "The Connection Between Mindset and Goal Setting" },
+      { type: "paragraph", text: "Your goals are a reflection of your vision, values, and beliefs. If your mindset is rooted in self-doubt or fear, your goals may lack ambition or clarity. On the other hand, a mindset of growth and possibility empowers you to set bold, inspiring objectives that align with your true potential." },
+      { type: "paragraph", text: "Take a moment to reflect on your mindset. Are you approaching your goals with confidence and optimism? Are you open to the challenges and opportunities that come with pursuing them? By cultivating a positive and growth-oriented mindset, you set the stage for success." },
+      { type: "heading", level: 3, text: "The Goal Cycle: A Framework for Success" },
+      { type: "paragraph", text: "The Goal Cycle is a dynamic process that helps you set, pursue, and achieve your objectives while staying aligned with your vision. Unlike traditional goal-setting methods that focus solely on the result, the Goal Cycle emphasizes the journey, encouraging you to adapt and grow along the way." },
+      { type: "paragraph", text: "Here’s how it works:" },
+      { type: "list", ordered: true, items: [
+        "Set Inspiring Goals: Start by defining what you want to achieve. Your goals should be specific, measurable, and aligned with your vision. For example, instead of setting a vague goal like “grow my business,” aim for something more concrete, such as “increase revenue by 10% over the next six months by expanding into new markets”.",
+        "Break Goals into Actionable Steps: Large goals can feel overwhelming, so break them down into smaller, manageable tasks. For instance, if your goal is to launch a new product, your steps might include conducting market research, developing a prototype, and creating a marketing plan.",
+        "Maintain Focus on What Matters: It’s easy to get distracted by day-to-day tasks or competing priorities. Use tools like time blocking or project management software to ensure your efforts are directed toward activities that align with your goals.",
+        "Track Progress and Adjust as Needed: Regularly review your progress to ensure you’re on track. If you encounter obstacles or your circumstances change, don’t be afraid to adjust your goals or strategies. The Goal Cycle is flexible, allowing you to adapt while staying true to your vision.",
+        "Celebrate Milestones: Acknowledge and celebrate your achievements along the way. This not only boosts motivation but also reinforces a positive mindset, helping you stay inspired and committed to your goals.",
+      ] },
+      { type: "heading", level: 3, text: "Aligning Goals with Your Vision" },
+      { type: "paragraph", text: "One of the key principles of the Goal Cycle is alignment. Your goals should reflect your values, passions, and long-term vision. To ensure alignment, ask yourself:" },
+      { type: "list", ordered: false, items: [
+        "What impact do I want to create? Whether it’s in your business, community, or personal life, your goals should contribute to the change you want to see in the world.",
+        "Does this goal excite and inspire me? Goals that resonate with your passions are more likely to keep you motivated and focused.",
+        "How does this goal fit into my bigger picture? Consider how each goal supports your overall vision and contributes to your long-term success.",
+      ] },
+      { type: "paragraph", text: "By aligning your goals with your vision, you create a sense of purpose and direction that drives you forward, even when challenges arise." },
+      { type: "heading", level: 3, text: "Practical Tips for Staying Focused and Motivated" },
+      { type: "list", ordered: false, items: [
+        "Visualize Success: Imagine yourself achieving your goals and the impact it will have on your life and business. Visualization can help you stay motivated and reinforce your commitment to your objectives.",
+        "Create Accountability: Share your goals with a trusted mentor, colleague, or accountability partner. Regular check-ins can help you stay focused and provide valuable feedback.",
+        "Embrace Flexibility: Life is unpredictable, and your goals may need to evolve. Embrace the flexibility of the Goal Cycle and be willing to adapt as needed.",
+        "Reflect and Reset: Periodically review your goals and progress. Are you still aligned with your vision? Are there new opportunities or challenges to consider? Use these reflections to reset and refine your goals as needed.",
+      ] },
+      { type: "heading", level: 3, text: "Empowering Yourself Through Goal Setting" },
+      { type: "paragraph", text: "Mastering goals with the Goal Cycle is about more than just achieving outcomes—it’s about empowering yourself to take control of your life and business. By setting inspiring objectives, maintaining focus, and embracing the journey, you can create meaningful change and achieve impactful results." },
+      { type: "paragraph", text: "Transformation begins with intention. By combining a growth-oriented mindset with the practical strategies of the Goal Cycle, you can turn your aspirations into reality and create a life and business that align with your vision. So, take the first step, trust the process, and watch as your goals come to life." },
     ],
   },
 ];
