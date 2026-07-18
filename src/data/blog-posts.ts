@@ -3,6 +3,8 @@ import top10Cover from "@/assets/blog/top-10-mistakes-to-avoid-when-starting-a-b
 import decisionsCover from "@/assets/blog/how-to-make-decisions-in-times-of-uncertainty/cover.jpg";
 import rejectionCover from "@/assets/blog/get-used-to-rejection/cover.jpg";
 import heartCover from "@/assets/blog/leading-with-heart-the-secret-sauce-to-transforming-workplace-culture/cover.jpg";
+import meetingNotesCover from "@/assets/blog/8-reasons-to-type-up-your-notes-after-a-meeting/cover.jpg";
+import puzzlePiecesCover from "@/assets/blog/mastering-the-art-of-problem-solving/cover.jpg";
 import cover1 from "@/assets/blog/beyond-the-coffee-chat-the-art-of-building-partnerships-that-actually-matter/cover.jpg";
 import cover2 from "@/assets/blog/choosing-yourself-careerchangeinspiration/cover.jpeg";
 import cover3 from "@/assets/blog/conquering-self-doubt-to-succeed-in-business-confidence-building-for-professionals/cover.jpg";
@@ -248,6 +250,8 @@ export const blogPosts: BlogPost[] = [
     author: "Tamara Medina Sapovalova",
     readTime: "2 min read",
     excerpt: "To survive as an entrepreneur is not only about the skills and innovation you have in your business.",
+    cover: meetingNotesCover,
+    coverAlt: "Colleagues collaborating and taking notes on a glass board",
     body: [
       { type: "paragraph", text: "To survive as an entrepreneur is not only about the skills and innovation you have in your business. Your biggest asset is your mindset, how you adapt to changing circumstances, how to cope with setbacks, how to stay inspired and inspire others." },
       { type: "paragraph", text: "Just moving countries can be challenging at times, let alone scaling your business in a different country." },
@@ -663,6 +667,8 @@ export const blogPosts: BlogPost[] = [
     author: "Tamara Medina Sapovalova",
     readTime: "3 min read",
     excerpt: "Have you ever found yourself stuck in a cycle of worry when faced with a problem? It’s a common experience. The natural impulse is often to focus entirely on finding a solution.",
+    cover: puzzlePiecesCover,
+    coverAlt: "Four jigsaw puzzle pieces, backlit and not yet connected",
     body: [
       { type: "paragraph", text: "Have you ever found yourself stuck in a cycle of worry when faced with a problem? It’s a common experience. The natural impulse is often to focus entirely on finding a solution. We don’t sleep, we constantly discuss the situation, and we exhaust ourselves physically and mentally until we can no longer continue. However, this approach is often the most ineffective way to handle our concerns. Many studies have been conducted on how our brain functions in these scenarios, and I’ve witnessed it daily with my clients and in my own experiences." },
       { type: "heading", level: 2, text: "The Power of Perspective" },
