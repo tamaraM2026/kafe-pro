@@ -540,6 +540,7 @@ export const en: Translations = {
         url: "https://ivetaskrivanova.cz/",
       },
       { name: "Sapovalova Solutions", url: "#" },
+      { name: "Cesta Ženy – Tamara Melissa", url: "https://www.tamaramelissa.cz/" },
     ],
     collaborateCta:
       "Want to collaborate or be featured? Reach out — we love meeting women building work that matters.",

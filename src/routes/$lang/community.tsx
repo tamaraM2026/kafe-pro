@@ -5,6 +5,13 @@ import zuzanaImg from "@/assets/member-zuzana.jpg";
 import tamaraImg from "@/assets/member-tamara.jpg";
 import ivetaImg from "@/assets/member-iveta.jpg";
 import viktoriaImg from "@/assets/member-viktoria.jpg";
+import podnikatelkyLogo from "@/assets/logos/podnikatelky.png";
+import adelaLogo from "@/assets/logos/adela.png";
+import verveLogo from "@/assets/logos/verve.png";
+import mameetusLogo from "@/assets/logos/mameetus.png";
+import ivetaLogo from "@/assets/logos/iveta.png";
+import sapovalovaLogo from "@/assets/logos/sapovalova.png";
+import tamaraMelissaLogo from "@/assets/logos/tamara-melissa.png";
 import { Animate } from "@/components/Animate";
 import { useTranslations } from "@/hooks/use-translations";
 import { getTranslations } from "@/i18n";
@@ -29,6 +36,7 @@ export const Route = createFileRoute("/$lang/community")({
 });
 
 const memberImages = [adelaImg, zuzanaImg, tamaraImg, ivetaImg, viktoriaImg];
+const collaboratorLogos = [podnikatelkyLogo, adelaLogo, verveLogo, mameetusLogo, ivetaLogo, sapovalovaLogo, tamaraMelissaLogo];
 
 function initials(name: string) {
   return name.split(" ").map((n) => n[0]).slice(0, 2).join("").toUpperCase();
@@ -155,16 +163,21 @@ function CommunityPage() {
             </h2>
           </Animate>
           <Animate delay={100}>
-            <div className="mt-12 flex flex-wrap justify-center gap-3">
-              {t.community.collaborators.map((c) => (
+            <div className="mt-12 flex flex-wrap justify-center items-center gap-6">
+              {t.community.collaborators.map((c, i) => (
                 <a
                   key={c.name}
                   href={c.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-3 rounded-full border border-white/30 bg-white/50 backdrop-blur-sm text-foreground/80 hover:text-burgundy hover:border-burgundy hover:-translate-y-0.5 transition-all duration-300 text-sm"
+                  title={c.name}
+                  className="group flex h-24 w-40 items-center justify-center rounded-2xl border border-white/30 bg-white/50 backdrop-blur-sm p-4 hover:-translate-y-1 hover:bg-white/70 hover:shadow-lg transition-all duration-300"
                 >
-                  {c.name}
+                  <img
+                    src={collaboratorLogos[i]}
+                    alt={c.name}
+                    className="max-h-14 max-w-full object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  />
                 </a>
               ))}
             </div>
