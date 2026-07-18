@@ -6,6 +6,7 @@ export type Translations = {
       about: string;
       founder: string;
       events: string;
+      blog: string;
       memberships: string;
       community: string;
       cesky: string;
@@ -32,6 +33,7 @@ export type Translations = {
       navAbout: string;
       navFounder: string;
       navEvents: string;
+      navBlog: string;
       navMemberships: string;
       navCommunity: string;
     };
@@ -46,6 +48,8 @@ export type Translations = {
     founderDescription: string;
     eventsTitle: string;
     eventsDescription: string;
+    blogTitle: string;
+    blogDescription: string;
     membershipsTitle: string;
     membershipsDescription: string;
     communityTitle: string;
@@ -189,6 +193,14 @@ export type Translations = {
       description: string;
       ticket: string;
     }>;
+  };
+
+  blog: {
+    label: string;
+    heading: string;
+    intro: string;
+    readMoreCta: string;
+    backToBlog: string;
   };
 
   memberships: {

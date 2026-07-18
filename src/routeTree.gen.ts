@@ -22,7 +22,9 @@ import { Route as LangBusinessBuildingBlocksRouteImport } from './routes/$lang/b
 import { Route as LangAboutRouteImport } from './routes/$lang/about'
 import { Route as Lang10xProductiveRouteImport } from './routes/$lang/10x-productive'
 import { Route as LangEventsIndexRouteImport } from './routes/$lang/events/index'
+import { Route as LangBlogIndexRouteImport } from './routes/$lang/blog/index'
 import { Route as LangEventsSlugRouteImport } from './routes/$lang/events/$slug'
+import { Route as LangBlogSlugRouteImport } from './routes/$lang/blog/$slug'
 
 const LangRouteRoute = LangRouteRouteImport.update({
   id: '/$lang',
@@ -91,9 +93,19 @@ const LangEventsIndexRoute = LangEventsIndexRouteImport.update({
   path: '/events/',
   getParentRoute: () => LangRouteRoute,
 } as any)
+const LangBlogIndexRoute = LangBlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => LangRouteRoute,
+} as any)
 const LangEventsSlugRoute = LangEventsSlugRouteImport.update({
   id: '/events/$slug',
   path: '/events/$slug',
+  getParentRoute: () => LangRouteRoute,
+} as any)
+const LangBlogSlugRoute = LangBlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
   getParentRoute: () => LangRouteRoute,
 } as any)
 
@@ -110,7 +122,9 @@ export interface FileRoutesByFullPath {
   '/$lang/spanish-conversation': typeof LangSpanishConversationRoute
   '/$lang/the-unveiled-experience': typeof LangTheUnveiledExperienceRoute
   '/$lang/': typeof LangIndexRoute
+  '/$lang/blog/$slug': typeof LangBlogSlugRoute
   '/$lang/events/$slug': typeof LangEventsSlugRoute
+  '/$lang/blog/': typeof LangBlogIndexRoute
   '/$lang/events/': typeof LangEventsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -125,7 +139,9 @@ export interface FileRoutesByTo {
   '/$lang/spanish-conversation': typeof LangSpanishConversationRoute
   '/$lang/the-unveiled-experience': typeof LangTheUnveiledExperienceRoute
   '/$lang': typeof LangIndexRoute
+  '/$lang/blog/$slug': typeof LangBlogSlugRoute
   '/$lang/events/$slug': typeof LangEventsSlugRoute
+  '/$lang/blog': typeof LangBlogIndexRoute
   '/$lang/events': typeof LangEventsIndexRoute
 }
 export interface FileRoutesById {
@@ -142,7 +158,9 @@ export interface FileRoutesById {
   '/$lang/spanish-conversation': typeof LangSpanishConversationRoute
   '/$lang/the-unveiled-experience': typeof LangTheUnveiledExperienceRoute
   '/$lang/': typeof LangIndexRoute
+  '/$lang/blog/$slug': typeof LangBlogSlugRoute
   '/$lang/events/$slug': typeof LangEventsSlugRoute
+  '/$lang/blog/': typeof LangBlogIndexRoute
   '/$lang/events/': typeof LangEventsIndexRoute
 }
 export interface FileRouteTypes {
@@ -160,7 +178,9 @@ export interface FileRouteTypes {
     | '/$lang/spanish-conversation'
     | '/$lang/the-unveiled-experience'
     | '/$lang/'
+    | '/$lang/blog/$slug'
     | '/$lang/events/$slug'
+    | '/$lang/blog/'
     | '/$lang/events/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -175,7 +195,9 @@ export interface FileRouteTypes {
     | '/$lang/spanish-conversation'
     | '/$lang/the-unveiled-experience'
     | '/$lang'
+    | '/$lang/blog/$slug'
     | '/$lang/events/$slug'
+    | '/$lang/blog'
     | '/$lang/events'
   id:
     | '__root__'
@@ -191,7 +213,9 @@ export interface FileRouteTypes {
     | '/$lang/spanish-conversation'
     | '/$lang/the-unveiled-experience'
     | '/$lang/'
+    | '/$lang/blog/$slug'
     | '/$lang/events/$slug'
+    | '/$lang/blog/'
     | '/$lang/events/'
   fileRoutesById: FileRoutesById
 }
@@ -293,11 +317,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LangEventsIndexRouteImport
       parentRoute: typeof LangRouteRoute
     }
+    '/$lang/blog/': {
+      id: '/$lang/blog/'
+      path: '/blog'
+      fullPath: '/$lang/blog/'
+      preLoaderRoute: typeof LangBlogIndexRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
     '/$lang/events/$slug': {
       id: '/$lang/events/$slug'
       path: '/events/$slug'
       fullPath: '/$lang/events/$slug'
       preLoaderRoute: typeof LangEventsSlugRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
+    '/$lang/blog/$slug': {
+      id: '/$lang/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/$lang/blog/$slug'
+      preLoaderRoute: typeof LangBlogSlugRouteImport
       parentRoute: typeof LangRouteRoute
     }
   }
@@ -314,7 +352,9 @@ interface LangRouteRouteChildren {
   LangSpanishConversationRoute: typeof LangSpanishConversationRoute
   LangTheUnveiledExperienceRoute: typeof LangTheUnveiledExperienceRoute
   LangIndexRoute: typeof LangIndexRoute
+  LangBlogSlugRoute: typeof LangBlogSlugRoute
   LangEventsSlugRoute: typeof LangEventsSlugRoute
+  LangBlogIndexRoute: typeof LangBlogIndexRoute
   LangEventsIndexRoute: typeof LangEventsIndexRoute
 }
 
@@ -329,7 +369,9 @@ const LangRouteRouteChildren: LangRouteRouteChildren = {
   LangSpanishConversationRoute: LangSpanishConversationRoute,
   LangTheUnveiledExperienceRoute: LangTheUnveiledExperienceRoute,
   LangIndexRoute: LangIndexRoute,
+  LangBlogSlugRoute: LangBlogSlugRoute,
   LangEventsSlugRoute: LangEventsSlugRoute,
+  LangBlogIndexRoute: LangBlogIndexRoute,
   LangEventsIndexRoute: LangEventsIndexRoute,
 }
 

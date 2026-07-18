@@ -19,6 +19,7 @@ export function SiteHeader() {
     { to: "/events", label: t.common.nav.events, anchor: undefined as string | undefined },
     { to: "/", label: t.common.nav.memberships, anchor: "#memberships" },
     { to: "/community", label: t.common.nav.community, anchor: undefined as string | undefined },
+    { to: "/blog", label: t.common.nav.blog, anchor: undefined as string | undefined },
     { to: "/contact", label: t.common.nav.contact, anchor: undefined as string | undefined },
   ];
 

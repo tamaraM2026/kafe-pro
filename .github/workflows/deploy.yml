@@ -42,7 +42,7 @@ jobs:
             sleep 1
           done
 
-          mkdir -p _site/src/assets/logos _site/src/assets/unveiled
+          mkdir -p _site/src/assets
 
           # 1) Download CSS from dev server
           # Vite dev server wraps CSS in a JS module — extract the raw CSS string
@@ -67,12 +67,16 @@ jobs:
           # 2) Copy favicon to root
           cp src/assets/favicon.ico _site/favicon.ico
 
-          # 3) Copy all static assets
-          cp -r src/assets/*.jpg src/assets/*.png _site/src/assets/ 2>/dev/null || true
-          cp -r src/assets/logos/*.png _site/src/assets/logos/ 2>/dev/null || true
-          cp -r src/assets/unveiled/*.jpg _site/src/assets/unveiled/ 2>/dev/null || true
+          # 3) Copy all static assets (recursively, so nested folders like
+          # logos/, unveiled/, and blog/<slug>/ all come along)
+          find src/assets -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" -o -iname "*.gif" \) -print0 \
+            | while IFS= read -r -d '' f; do
+                rel="${f#src/assets/}"
+                mkdir -p "_site/src/assets/$(dirname "$rel")"
+                cp "$f" "_site/src/assets/$rel"
+              done
 
-          # 3) Write the Python build script (avoids shell escaping issues)
+          # 4) Write the Python build script (avoids shell escaping issues)
           cat > /tmp/build.py << 'PYEOF'
           import subprocess, os, re
 
@@ -96,7 +100,13 @@ jobs:
                    "events/building-without-a-map","events/confidence-and-boundaries",
                    "events/business-of-reinvention","events/ambition-and-rest",
                    "events/owning-your-next-chapter","events/love","events/women-who-lead",
-                   "events/owning-your-expertise","events/purpose-driven-leadership"]
+                   "events/owning-your-expertise","events/purpose-driven-leadership",
+                   "blog",
+                   "blog/one-cup-one-story-launching-a-new-space-for-connection",
+                   "blog/top-10-mistakes-to-avoid-when-starting-a-business",
+                   "blog/how-to-make-decisions-in-times-of-uncertainty",
+                   "blog/get-used-to-rejection",
+                   "blog/leading-with-heart-the-secret-sauce-to-transforming-workplace-culture"]
           langs = ["en"]
 
           for lang in langs:
