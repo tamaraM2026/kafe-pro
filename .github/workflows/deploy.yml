@@ -18,7 +18,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      BASE_PATH: /kafe-pro
+      BASE_PATH: ""
       DEV_URL: http://localhost:8080
     steps:
       - uses: actions/checkout@v4
