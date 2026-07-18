@@ -109,11 +109,13 @@ function BlogPostPage() {
 
       <section className="py-16">
         <div className="mx-auto max-w-3xl px-6">
-          <Animate>
-            <div className="overflow-hidden rounded-[2.5rem]">
-              <img src={post.cover} alt={post.coverAlt} className="w-full aspect-[16/9] object-cover shadow-2xl" />
-            </div>
-          </Animate>
+          {post.cover && (
+            <Animate>
+              <div className="overflow-hidden rounded-[2.5rem]">
+                <img src={post.cover} alt={post.coverAlt} className="w-full aspect-[16/9] object-cover shadow-2xl" />
+              </div>
+            </Animate>
+          )}
           <div className="mt-12 space-y-6">
             {post.body.map((block, i) => (
               <Animate key={i} delay={(Math.min(i, 3) * 100) as 0 | 100 | 200 | 300}>
