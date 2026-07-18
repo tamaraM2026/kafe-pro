@@ -49,7 +49,13 @@ function BlogIndex() {
                 className="block bg-white/50 backdrop-blur-sm rounded-3xl border border-white/30 h-full overflow-hidden hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
               >
                 <div className="overflow-hidden">
-                  <img src={post.cover} alt={post.coverAlt} className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-700" />
+                  {post.cover ? (
+                    <img src={post.cover} alt={post.coverAlt} className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-700" />
+                  ) : (
+                    <div className="w-full aspect-[4/3] bg-gradient-to-br from-burgundy/15 to-terracotta/15 flex items-center justify-center">
+                      <span className="font-display text-3xl text-burgundy/40 italic">Kafe con Propósito</span>
+                    </div>
+                  )}
                 </div>
                 <div className="p-6">
                   <p className="text-xs tracking-[0.15em] text-terracotta">{post.dateLabel.toUpperCase()} · {post.readTime.toUpperCase()}</p>

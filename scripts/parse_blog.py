@@ -4,7 +4,10 @@ from bs4 import BeautifulSoup
 
 SRC = Path("/Users/tamaramedina/wix-blog-export/downloads/post")
 
-HASHTAG_RE = re.compile(r"^#\s*\w+(\s+#\s*\w+){2,}$")
+# Matches a paragraph that is mostly/entirely a Wix auto-generated hashtag
+# footer, even with minor scrape glitches (broken hashtags, stray words
+# like a truncated "AUDIO" embed label, missing spaces before a "#").
+HASHTAG_RE = re.compile(r"^(#\s*\w*\s*){4,}[\w ]{0,20}$")
 
 def clean_text(el):
     return el.get_text(" ", strip=True).replace("\xa0", " ")

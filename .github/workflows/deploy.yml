@@ -102,11 +102,21 @@ jobs:
                    "events/owning-your-next-chapter","events/love","events/women-who-lead",
                    "events/owning-your-expertise","events/purpose-driven-leadership",
                    "blog",
-                   "blog/one-cup-one-story-launching-a-new-space-for-connection",
-                   "blog/top-10-mistakes-to-avoid-when-starting-a-business",
-                   "blog/how-to-make-decisions-in-times-of-uncertainty",
-                   "blog/get-used-to-rejection",
-                   "blog/leading-with-heart-the-secret-sauce-to-transforming-workplace-culture"]
+                   "blog/one-cup-one-story-launching-a-new-space-for-connection","blog/top-10-mistakes-to-avoid-when-starting-a-business","blog/how-to-make-decisions-in-times-of-uncertainty",
+                   "blog/get-used-to-rejection","blog/leading-with-heart-the-secret-sauce-to-transforming-workplace-culture","blog/8-reasons-to-type-up-your-notes-after-a-meeting",
+                   "blog/beyond-the-coffee-chat-the-art-of-building-partnerships-that-actually-matter","blog/choosing-yourself-careerchangeinspiration","blog/conquering-self-doubt-to-succeed-in-business-confidence-building-for-professionals",
+                   "blog/conquering-the-globe-5-keys-to-selling-internationally","blog/five-tips-that-will-help-you-increase-your-confidence","blog/four-secrets-of-the-process-of-change",
+                   "blog/go-with-the-flow-don-t-live-in-time-live-in-moments","blog/how-to-make-the-right-decisions-a-guide-to-confident-and-strategic-thinking","blog/introducing-the-business-building-blocks-programme-empowering-women-entrepreneurs",
+                   "blog/latin-america-comes-to-london","blog/masks-we-wear-unveiling-truths","blog/mastering-the-art-of-problem-solving",
+                   "blog/navigating-storms-become-the-captain-of-your-journey","blog/navigating-the-unknown-how-to-build-a-confident-international-business-mindset-in-latin-america","blog/new-year-new-mind-new-life",
+                   "blog/online-dating-and-entrepreneurs-a-match-made-in-heaven","blog/people-will-never-forget-how-you-made-them-feel","blog/rekindling-the-flame-how-to-motivate-your-team-by-reconnecting-with-your-vision",
+                   "blog/silencing-doubt-to-drive-your-business-forward","blog/startup_overcoming_obstacles","blog/stop-networking-start-building",
+                   "blog/stuck-in-a-negative-situation","blog/techandhumanity","blog/the-benefits-of-coaching-for-entrepreneurs",
+                   "blog/the-dark-side-of-opportunities","blog/the-four-forbidden-phrases","blog/the-networking-blueprint-strengthening-relationships-for-business-growth",
+                   "blog/the-power-of-adaptability-mastering-situational-leadership","blog/the-transformative-power-of-connecting","blog/the-view-from-the-stands-or-why-it-s-so-loud-out-there",
+                   "blog/the-wild-grace-experience-where-luxury-meets-life-changing-growth","blog/unlocking-business-potential-through-the-importance-of-discovery-calls","blog/unlocking-opportunities-with-the-networking-blueprint-your-guide-to-effective-connections",
+                   "blog/what-can-we-learn-from-bad-experiences","blog/why-consulting-jobs-are-on-the-rise","blog/with-a-little-imagination-it-s-amazing-what-you-can-build-victor-salinas",
+                   "blog/your-value-as-a-person-is-not-determined-by-your-success"]
           langs = ["en"]
 
           for lang in langs:
