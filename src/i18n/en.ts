@@ -8,6 +8,7 @@ export const en: Translations = {
       about: "What Kafe is",
       founder: "Founder",
       events: "Events",
+      blog: "Blog",
       memberships: "Memberships",
       community: "Community",
       cesky: "Česky",
@@ -35,6 +36,7 @@ export const en: Translations = {
       navAbout: "What Kafe is",
       navFounder: "Founder",
       navEvents: "Events",
+      navBlog: "Blog",
       navMemberships: "Memberships",
       navCommunity: "Community",
     },
@@ -53,6 +55,9 @@ export const en: Translations = {
     eventsTitle: "Season Calendar — Kafe con Propósito",
     eventsDescription:
       "Kafe con Propósito's 2026–2027 season: one flagship evening a month for professional women, entrepreneurs, and expats in Central Bohemia. See all nine editions and reserve your seat.",
+    blogTitle: "Blog — Kafe con Propósito",
+    blogDescription:
+      "Stories, mindset shifts, and practical guidance for women building businesses and careers without a map.",
     membershipsTitle: "Memberships — Kafe con Propósito",
     membershipsDescription:
       "Three ways to join Kafe con Propósito: pay-as-you-go, monthly community, or premium Roastery.",
@@ -398,6 +403,14 @@ export const en: Translations = {
         ticket: "490 CZK",
       },
     ],
+  },
+
+  blog: {
+    label: "THE BLOG",
+    heading: "Stories, mindset, and real-world business advice",
+    intro: "Reflections on connection, decision-making, and building something that matters — from Tamara and the Kafe con Propósito community.",
+    readMoreCta: "Read more →",
+    backToBlog: "← Back to the blog",
   },
 
   memberships: {

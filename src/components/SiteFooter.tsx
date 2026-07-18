@@ -56,6 +56,7 @@ export function SiteFooter() {
             <li><a href={`/${lang}/events`} className="hover:text-accent transition-colors">{t.common.footer.navEvents}</a></li>
             <li><a href={`/${lang}/memberships`} className="hover:text-accent transition-colors">{t.common.footer.navMemberships}</a></li>
             <li><a href={`/${lang}/community`} className="hover:text-accent transition-colors">{t.common.footer.navCommunity}</a></li>
+            <li><a href={`/${lang}/blog`} className="hover:text-accent transition-colors">{t.common.footer.navBlog}</a></li>
           </ul>
         </div>
         <div>
