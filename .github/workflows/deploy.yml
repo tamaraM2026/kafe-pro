@@ -116,7 +116,9 @@ jobs:
                    "blog/the-power-of-adaptability-mastering-situational-leadership","blog/the-transformative-power-of-connecting","blog/the-view-from-the-stands-or-why-it-s-so-loud-out-there",
                    "blog/the-wild-grace-experience-where-luxury-meets-life-changing-growth","blog/unlocking-business-potential-through-the-importance-of-discovery-calls","blog/unlocking-opportunities-with-the-networking-blueprint-your-guide-to-effective-connections",
                    "blog/what-can-we-learn-from-bad-experiences","blog/why-consulting-jobs-are-on-the-rise","blog/with-a-little-imagination-it-s-amazing-what-you-can-build-victor-salinas",
-                   "blog/your-value-as-a-person-is-not-determined-by-your-success"]
+                   "blog/your-value-as-a-person-is-not-determined-by-your-success",
+                   "blog/design-your-future-why-creating-change-beats-adapting-to-it",
+                   "blog/master-goals-with-the-goal-cycle-aligning-vision-with-impactful-outcomes"]
           langs = ["en"]
 
           for lang in langs:
