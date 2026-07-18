@@ -5,6 +5,7 @@ import zuzanaImg from "@/assets/member-zuzana.jpg";
 import tamaraImg from "@/assets/member-tamara.jpg";
 import ivetaImg from "@/assets/member-iveta.jpg";
 import viktoriaImg from "@/assets/member-viktoria.jpg";
+import tamaraMelissaImg from "@/assets/member-tamara-melissa.jpg";
 import podnikatelkyLogo from "@/assets/logos/podnikatelky.png";
 import adelaLogo from "@/assets/logos/adela.png";
 import verveLogo from "@/assets/logos/verve.png";
@@ -35,7 +36,7 @@ export const Route = createFileRoute("/$lang/community")({
   component: CommunityPage,
 });
 
-const memberImages = [adelaImg, zuzanaImg, tamaraImg, ivetaImg, viktoriaImg];
+const memberImages = [adelaImg, zuzanaImg, tamaraImg, ivetaImg, viktoriaImg, tamaraMelissaImg];
 const collaboratorLogos = [podnikatelkyLogo, adelaLogo, verveLogo, mameetusLogo, ivetaLogo, sapovalovaLogo, tamaraMelissaLogo];
 
 function initials(name: string) {
