@@ -121,7 +121,7 @@ jobs:
                    "blog/your-value-as-a-person-is-not-determined-by-your-success",
                    "blog/design-your-future-why-creating-change-beats-adapting-to-it",
                    "blog/master-goals-with-the-goal-cycle-aligning-vision-with-impactful-outcomes",
-                   "blog/why-were-doing-kafe-differently-in-season-2"]
+                   "blog/why-were-doing-kafe-differently-in-season-2","blog/building-without-a-map"]
           langs = ["en"]
 
           for lang in langs:

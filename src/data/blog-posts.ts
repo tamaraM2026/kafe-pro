@@ -44,6 +44,7 @@ import cover35 from "@/assets/blog/why-consulting-jobs-are-on-the-rise/cover.jpg
 import cover36 from "@/assets/blog/with-a-little-imagination-it-s-amazing-what-you-can-build-victor-salinas/cover.jpg";
 import cover37 from "@/assets/blog/your-value-as-a-person-is-not-determined-by-your-success/cover.jpg";
 import cover38 from "@/assets/blog/why-were-doing-kafe-differently-in-season-2/cover.jpg";
+import cover39 from "@/assets/blog/building-without-a-map/cover.png";
 
 export type BlogBlock =
   | { type: "paragraph"; text: string }
@@ -1644,6 +1645,34 @@ export const blogPosts: BlogPost[] = [
       { type: "paragraph", text: "If you were with us for those first six months, in whichever language your evening happened to land in, this is what we learned from watching you. If you're only hearing about Kafe now, you're not late. You're arriving at the version we tested our way into." },
       { type: "paragraph", text: "Season 2 opens September 10 with [Building Without a Map](events:building-without-a-map). Early bird tickets are open for the first fifteen who RSVP. I'd love to see you there." },
       { type: "paragraph", text: "*Tamara Medina*" },
+    ],
+  },
+  {
+    slug: "building-without-a-map",
+    title: "Building Without a Map",
+    date: "2026-08-06",
+    dateLabel: "August 6, 2026",
+    author: "Tamara Medina Sapovalova",
+    readTime: "4 min read",
+    excerpt: "How many times have you started again? A good friend of mine asked me this once, and it left me thinking for days, because the honest answer is: I've lost count.",
+    cover: cover39,
+    coverAlt: "An open vintage suitcase with a map inside, sitting on a road at sunrise",
+    body: [
+      { type: "quote", text: "“How many times have you started again?”" },
+      { type: "paragraph", text: "A good friend of mine asked me this once, and it left me thinking for days. Because the honest answer is: I've lost count." },
+      { type: "heading", level: 2, text: "Every Move Starts With Nothing but a Suitcase" },
+      { type: "paragraph", text: "I moved several times within Mexico before I ever left the country. Then came the United States (Los Angeles, then Phoenix, then San Diego). Then London. Each move meant putting down whatever I'd just built and facing the next one with nothing but a suitcase and whatever I believed about where I was headed. The first time, it's terrifying, uncertainty and excitement tangled together so tightly you can't separate them, and all you have is your belongings and your dreams for company. You face the world with a kind of innocence you don't get back. But once you've survived that first leap, something loosens. You find out you can do it again, as many times as life asks of you." },
+      { type: "paragraph", text: "Even my education didn't go to plan. I wanted to study psychology, but there was no program for it where I lived, so I chose history instead; mostly because I loved reading and wanted nothing to do with physics, chemistry, or math. When I finished, my real options were research or teaching. Public speaking terrified me, so teaching was out. Research felt like a lonely road. So I let life take the lead instead. I ended up doing a bit of everything: marketing, public relations, radio, with no straight line connecting any of it." },
+      { type: "paragraph", text: "At 25, I started my first business, importing crystals from the Czech Republic. Then a recession changed the entire landscape overnight, and that dream went with it. I always knew I wanted to live outside Mexico for a while. I never imagined \"a while\" would turn into years across the United States, and then a home in England." },
+      { type: "heading", level: 2, text: "Finding the Work I'd Always Loved Without Naming It" },
+      { type: "paragraph", text: "In London, I spent six and a half years in Business Development at the BBC. When I was ready to leave, I carried one question out the door with me: what do I do now? I took time off and asked myself what I actually enjoyed, what mattered underneath the job titles. I came back to something I'd always loved without naming it properly: listening to people while they talked about their stories, their dreams, their plans. That's how I found coaching. It changed my life in ways I couldn't have predicted." },
+      { type: "paragraph", text: "But loving the work isn't the same as knowing how to run a business. I learned that the hard way, and rebuilt from there, same drive, but this time with everything the first round had taught me folded into it." },
+      { type: "heading", level: 2, text: "Why Kafe con Propósito Exists" },
+      { type: "paragraph", text: "Kafe con Propósito came out of that same instinct: build the thing you needed and couldn't find. There was no template for what a women's circle in Central Bohemia should look like. I just knew there needed to be a room (an actual room, with actual coffee) where women in the middle of reinventing something could say the true version of what they were going through, not the polished one. Some weeks that's someone rebuilding a career after a layoff. Some weeks it's someone launching a business with no guarantee it works. Some weeks it's me, years into all of this." },
+      { type: "heading", level: 2, text: "A New Chapter, Still No Map" },
+      { type: "paragraph", text: "I'm stepping into a new chapter now, building something I never thought would be mine to build. No map for this one either, just the same thing that's carried me through every version before it: take the next visible step, even without seeing the one after it. More on that soon." },
+      { type: "paragraph", text: "If you're in the middle of starting over right now (a career, a business, a country, a relationship) I won't pretend it gets less uncertain with practice. It doesn't, really. What changes is your relationship to the uncertainty. You stop needing to see the whole road before you're willing to take the first step. I wrote more about the decision-making underneath a move like mine in [How to Make the Right Decisions](blog:how-to-make-the-right-decisions-a-guide-to-confident-and-strategic-thinking). Or, if you'd rather build the change yourself than wait for life to force it on you, check [Design Your Future](blog:design-your-future-why-creating-change-beats-adapting-to-it)." },
+      { type: "paragraph", text: "We're picking this exact conversation back up when [Kafe con Propósito relaunches on September 10th](events:building-without-a-map). Once a month, real conversations over really good coffee. If you're building without a map right now, in whatever form that takes for you, there's a seat for you at the table." },
     ],
   },
 ];
