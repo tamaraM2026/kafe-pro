@@ -43,6 +43,7 @@ import cover34 from "@/assets/blog/what-can-we-learn-from-bad-experiences/cover.
 import cover35 from "@/assets/blog/why-consulting-jobs-are-on-the-rise/cover.jpg";
 import cover36 from "@/assets/blog/with-a-little-imagination-it-s-amazing-what-you-can-build-victor-salinas/cover.jpg";
 import cover37 from "@/assets/blog/your-value-as-a-person-is-not-determined-by-your-success/cover.jpg";
+import cover38 from "@/assets/blog/why-were-doing-kafe-differently-in-season-2/cover.jpg";
 
 export type BlogBlock =
   | { type: "paragraph"; text: string }
@@ -1618,6 +1619,31 @@ export const blogPosts: BlogPost[] = [
       { type: "heading", level: 3, text: "Empowering Yourself Through Goal Setting" },
       { type: "paragraph", text: "Mastering goals with the Goal Cycle is about more than just achieving outcomes—it’s about empowering yourself to take control of your life and business. By setting inspiring objectives, maintaining focus, and embracing the journey, you can create meaningful change and achieve impactful results." },
       { type: "paragraph", text: "Transformation begins with intention. By combining a growth-oriented mindset with the practical strategies of the Goal Cycle, you can turn your aspirations into reality and create a life and business that align with your vision. So, take the first step, trust the process, and watch as your goals come to life." },
+    ],
+  },
+  {
+    slug: "why-were-doing-kafe-differently-in-season-2",
+    title: "Why We're Doing Kafe Differently in Season 2",
+    date: "2026-07-30",
+    dateLabel: "July 30, 2026",
+    author: "Tamara Medina Sapovalova",
+    readTime: "4 min read",
+    excerpt: "\"So are we going back to two Kafes a month?\" Someone asked me that over WhatsApp in June, half hoping I'd say yes. Here's what six months of testing actually taught me.",
+    cover: cover38,
+    coverAlt: "A group of women smiling together at a Kafe con Propósito gathering, standing in front of a wall decorated with a crown and ribbons",
+    body: [
+      { type: "quote", text: "\"So are we going back to two Kafes a month?\"" },
+      { type: "paragraph", text: "Someone asked me that over WhatsApp in June, half hoping I'd say yes. I understood why. Those first six months felt like an experiment in the best sense: we tried things, we watched what happened, and I paid close attention." },
+      { type: "paragraph", text: "Some evenings ran entirely in Czech. A few in Spanish, because that's the language I still dream in. Most in English. I watched, evening by evening, who leaned forward and who went quiet the moment the room shifted into a language that wasn't theirs first. I tried \"One Cup, One Story\" as a full evening on its own. I tried a mini workshop built around a single topic, no story at all. I tried an evening that was mostly unscripted networking, coffee and conversation with no agenda. Each version taught me something. None of them, on its own, was the whole answer." },
+      { type: "paragraph", text: "By early summer the pattern was hard to ignore. English was the language every woman in that room had in common, whatever her first language actually was, so it stopped being a choice between fairness and convenience and just became the obvious answer. And the format that actually worked wasn't any one of the three I'd tested on its own. It was all of them together in one evening: a guest telling her real story, a focused discussion on one topic worth thirty minutes of everyone's attention, and real conversation with no pitch attached." },
+      { type: "paragraph", text: "So that's what Season 2 is. One evening a month, in English, and instead of choosing between \"One Cup, One Story,\" a workshop, or networking, we do all three in the same two hours, in that order, with room to breathe between them: the story first, while everyone's still settling in with their coffee, then the discussion while the room is warm, then conversation that isn't rushed because there's nowhere else on the calendar we're trying to fit in that week. Whoever wants to keep talking can stay on for dinner afterward, at whatever venue we've found for that month, priced at cost, no pressure to stay a minute longer than you want to. [You can see the full season, one evening at a time, on the calendar](https://kafeconproposito.com/en/events)." },
+      { type: "paragraph", text: "Fewer dates also means I can actually be present for the ones we have, instead of arriving at the second evening of the month already running on what was left over from the first. That wasn't the reason I started testing. It turned out to be one of the best things the testing gave me." },
+      { type: "paragraph", text: "I make most of my real decisions this way, by actually running the thing in more than one version and watching what happens, rather than deciding on paper what should work. [I wrote once about how I actually make decisions](blog:how-to-make-the-right-decisions-a-guide-to-confident-and-strategic-thinking), and testing the language and the format in public, in front of the very women I was building this for, was uncomfortable in exactly the way that kind of decision always is. [If it doesn't challenge you, it doesn't change you](blog:four-secrets-of-the-process-of-change), but only if you're honest about what the testing actually showed you, not just what you hoped it would." },
+      { type: "paragraph", text: "None of those six months of testing happened alone. [Zuzana Koláčková at Podnikatelky SOBĚ](https://www.podnikatelkysobe.cz/) and I talked through the challenges of business networks and the support women entrepreneurs actually need. [Adela Fialová](https://www.adelafialova.com/), one of the first supporters of this project and a fantastic photographer, was the one behind the camera catching a room I was too busy running to notice properly. [Viktoria Platonova at MaMeetUs](https://www.mameetus.cz/), [Iveta Skřivanová](https://ivetaskrivanova.cz/), and all the others brought women from their own communities into evenings that might have stayed half full otherwise. [Tamara Melissa at Cesta Ženy](https://www.tamaramelissa.cz/) reminded me more than once of why I started this in the first place. [Harrington Verve](https://harringtonverve.com/) has partnered with us the whole way through on the Business Building Blocks side of things, and [Sapovalova Solutions](https://sapovalovasolutions.com/) has been the quiet backbone behind the scenes since day one. If Season 1 worked at all, it's because of people who showed up for it before I'd even finished deciding what it was." },
+      { type: "paragraph", text: "Here's what isn't changing, and I want to be direct about this because it's the part that actually matters. No pitches. No pressure. Nobody selling anything from the front of the room, nobody expected to network their way into a client list. The coffee's fantastic. The stories are still real, told by women who lived them, not polished into a keynote." },
+      { type: "paragraph", text: "If you were with us for those first six months, in whichever language your evening happened to land in, this is what we learned from watching you. If you're only hearing about Kafe now, you're not late. You're arriving at the version we tested our way into." },
+      { type: "paragraph", text: "Season 2 opens September 10 with [Building Without a Map](events:building-without-a-map). Early bird tickets are open for the first fifteen who RSVP. I'd love to see you there." },
+      { type: "paragraph", text: "*Tamara Medina*" },
     ],
   },
 ];
