@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Animate } from "@/components/Animate";
 import { useTranslations, useLang } from "@/hooks/use-translations";
@@ -45,7 +46,63 @@ function BlogPostNotFound() {
   );
 }
 
-function BlogBlockView({ block }: { block: BlogBlock }) {
+// Inline link syntax within body text: [label](blog:some-slug), [label](events:some-slug),
+// or [label](https://external-url) for external/absolute links.
+const INLINE_LINK = /\[([^\]]+)\]\((?:(blog|events):([a-z0-9-]+)|(https?:\/\/[^\s)]+))\)/g;
+// Inline italic syntax: *text*
+const ITALIC = /\*([^*]+)\*/g;
+
+function renderItalics(text: string, keyPrefix: string) {
+  const nodes: ReactNode[] = [];
+  let lastIndex = 0;
+  let m: RegExpExecArray | null;
+  ITALIC.lastIndex = 0;
+  while ((m = ITALIC.exec(text)) !== null) {
+    if (m.index > lastIndex) nodes.push(text.slice(lastIndex, m.index));
+    nodes.push(<em key={`${keyPrefix}-i-${m.index}`}>{m[1]}</em>);
+    lastIndex = m.index + m[0].length;
+  }
+  if (lastIndex < text.length) nodes.push(text.slice(lastIndex));
+  return nodes;
+}
+
+function renderInline(text: string, lang: string) {
+  const nodes: ReactNode[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+  INLINE_LINK.lastIndex = 0;
+  while ((match = INLINE_LINK.exec(text)) !== null) {
+    if (match.index > lastIndex) nodes.push(...renderItalics(text.slice(lastIndex, match.index), `t${match.index}`));
+    const [, label, section, slug, url] = match;
+    nodes.push(
+      url ? (
+        <a
+          key={match.index}
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-burgundy underline underline-offset-4 hover:text-terracotta transition-colors"
+        >
+          {label}
+        </a>
+      ) : (
+        <Link
+          key={match.index}
+          to={section === "blog" ? "/$lang/blog/$slug" : "/$lang/events/$slug"}
+          params={{ lang, slug: slug! }}
+          className="text-burgundy underline underline-offset-4 hover:text-terracotta transition-colors"
+        >
+          {label}
+        </Link>
+      )
+    );
+    lastIndex = match.index + match[0].length;
+  }
+  if (lastIndex < text.length) nodes.push(...renderItalics(text.slice(lastIndex), `tail${lastIndex}`));
+  return nodes;
+}
+
+function BlogBlockView({ block, lang }: { block: BlogBlock; lang: string }) {
   switch (block.type) {
     case "heading": {
       const sizes = { 2: "text-3xl md:text-4xl mt-4", 3: "text-2xl md:text-3xl mt-2", 4: "text-xl md:text-2xl" } as const;
@@ -54,14 +111,14 @@ function BlogBlockView({ block }: { block: BlogBlock }) {
     case "list":
       return block.ordered ? (
         <ol className="space-y-3 list-decimal list-inside marker:text-terracotta">
-          {block.items.map((item, i) => <li key={i} className="text-foreground/80 leading-relaxed">{item}</li>)}
+          {block.items.map((item, i) => <li key={i} className="text-foreground/80 leading-relaxed">{renderInline(item, lang)}</li>)}
         </ol>
       ) : (
         <ul className="space-y-3">
           {block.items.map((item, i) => (
             <li key={i} className="flex items-start gap-3 text-foreground/80 leading-relaxed">
               <span className="mt-2 w-1.5 h-1.5 rounded-full bg-terracotta flex-shrink-0" />
-              <span>{item}</span>
+              <span>{renderInline(item, lang)}</span>
             </li>
           ))}
         </ul>
@@ -69,12 +126,12 @@ function BlogBlockView({ block }: { block: BlogBlock }) {
     case "quote":
       return (
         <blockquote className="border-l-4 border-terracotta pl-6 py-2 font-display text-xl md:text-2xl text-burgundy italic leading-snug">
-          {block.text}
+          {renderInline(block.text, lang)}
         </blockquote>
       );
     case "paragraph":
     default:
-      return <p className="text-foreground/80 leading-relaxed">{block.text}</p>;
+      return <p className="text-foreground/80 leading-relaxed">{renderInline(block.text, lang)}</p>;
   }
 }
 
@@ -119,7 +176,7 @@ function BlogPostPage() {
           <div className="mt-12 space-y-6">
             {post.body.map((block, i) => (
               <Animate key={i} delay={(Math.min(i, 3) * 100) as 0 | 100 | 200 | 300}>
-                <BlogBlockView block={block} />
+                <BlogBlockView block={block} lang={lang} />
               </Animate>
             ))}
           </div>
