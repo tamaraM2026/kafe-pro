@@ -1,14 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
 import logo from "@/assets/logo.png";
 import { getTranslations } from "@/i18n";
 
-
-
+const MOBILE_NAV_ID = "mobile-nav-toggle";
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const mobileToggleRef = useRef<HTMLInputElement>(null);
   const location = useLocation();
   const lang = location.pathname.split("/")[1] || "en";
   const t = getTranslations(lang);
@@ -33,6 +32,13 @@ export function SiteHeader() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Progressive enhancement only: on builds with JS (e.g. Cloudflare SSR),
+  // auto-close the mobile drawer after client-side navigation. The drawer
+  // itself is pure CSS (checkbox hack) so it works even without this.
+  useEffect(() => {
+    if (mobileToggleRef.current) mobileToggleRef.current.checked = false;
+  }, [location.pathname]);
 
   function langPath(to: string) {
     return `/${lang}${to === "/" ? "/" : to}`;
@@ -115,10 +121,9 @@ export function SiteHeader() {
           </nav>
 
 
-          <button
-            type="button"
-            className="md:hidden p-2 text-foreground/80 hover:text-burgundy transition-colors"
-            onClick={() => setMobileOpen(true)}
+          <label
+            htmlFor={MOBILE_NAV_ID}
+            className="md:hidden p-2 text-foreground/80 hover:text-burgundy transition-colors cursor-pointer"
             aria-label="Open menu"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -126,70 +131,68 @@ export function SiteHeader() {
               <line x1="3" y1="12" x2="21" y2="12" />
               <line x1="3" y1="18" x2="21" y2="18" />
             </svg>
-          </button>
+          </label>
         </div>
       </header>
 
-      {/* Mobile drawer */}
-      {mobileOpen && (
-        <div className="fixed inset-0 z-50 md:hidden">
-          <div
-            className="absolute inset-0 bg-black/30 backdrop-blur-sm"
-            onClick={() => setMobileOpen(false)}
-            onKeyDown={(e) => e.key === "Escape" && setMobileOpen(false)}
-          />
-          <nav className="absolute right-0 top-0 h-full w-72 bg-white/90 backdrop-blur-xl shadow-2xl p-6 flex flex-col gap-2 animate-in visible"
-            style={{ transform: "none", opacity: 1 }}
-          >
-            <button
-              type="button"
-              className="self-end p-2 text-foreground/80 hover:text-burgundy"
-              onClick={() => setMobileOpen(false)}
-              aria-label="Close menu"
+      {/* Mobile drawer — pure CSS (checkbox hack), works with or without JS */}
+      <input
+        ref={mobileToggleRef}
+        type="checkbox"
+        id={MOBILE_NAV_ID}
+        className="peer hidden"
+      />
+      <label
+        htmlFor={MOBILE_NAV_ID}
+        aria-hidden="true"
+        className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto transition-opacity duration-300 md:hidden"
+      />
+      <nav
+        className="fixed right-0 top-0 z-50 h-full w-72 translate-x-full bg-white/90 backdrop-blur-xl shadow-2xl p-6 flex flex-col gap-2 transition-transform duration-300 peer-checked:translate-x-0 md:hidden"
+      >
+        <label
+          htmlFor={MOBILE_NAV_ID}
+          className="self-end p-2 text-foreground/80 hover:text-burgundy cursor-pointer"
+          aria-label="Close menu"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </label>
+        {nav.map((n) => (
+          n.anchor ? (
+            <a
+              key={n.label}
+              href={`/${lang}/${n.anchor}`}
+              className="px-4 py-3 rounded-xl text-foreground/80 hover:text-burgundy hover:bg-cream/50 transition-colors"
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            </button>
-            {nav.map((n) => (
-              n.anchor ? (
-                <a
-                  key={n.label}
-                  href={`/${lang}/${n.anchor}`}
-                  className="px-4 py-3 rounded-xl text-foreground/80 hover:text-burgundy hover:bg-cream/50 transition-colors"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {n.label}
-                </a>
-              ) : (
-                <Link
-                  key={n.label}
-                  to={langPath(n.to)}
-                  className="px-4 py-3 rounded-xl text-foreground/80 hover:text-burgundy hover:bg-cream/50 transition-colors"
-                  activeProps={{ className: "px-4 py-3 rounded-xl text-burgundy bg-cream/50" }}
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {n.label}
-                </Link>
-              )
-            ))}
-            <div className="border-t border-border/30 my-2" />
-            <p className="px-4 text-xs text-muted-foreground tracking-widest">{t.common.programmesLabel.toUpperCase()}</p>
-            {programmes.map((p) => (
-              <Link
-                key={p.to}
-                to={langPath(p.to)}
-                className="px-4 py-3 rounded-xl text-foreground/80 hover:text-burgundy hover:bg-cream/50 transition-colors"
-                activeProps={{ className: "px-4 py-3 rounded-xl text-burgundy bg-cream/50" }}
-                onClick={() => setMobileOpen(false)}
-              >
-                {p.label}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      )}
+              {n.label}
+            </a>
+          ) : (
+            <Link
+              key={n.label}
+              to={langPath(n.to)}
+              className="px-4 py-3 rounded-xl text-foreground/80 hover:text-burgundy hover:bg-cream/50 transition-colors"
+              activeProps={{ className: "px-4 py-3 rounded-xl text-burgundy bg-cream/50" }}
+            >
+              {n.label}
+            </Link>
+          )
+        ))}
+        <div className="border-t border-border/30 my-2" />
+        <p className="px-4 text-xs text-muted-foreground tracking-widest">{t.common.programmesLabel.toUpperCase()}</p>
+        {programmes.map((p) => (
+          <Link
+            key={p.to}
+            to={langPath(p.to)}
+            className="px-4 py-3 rounded-xl text-foreground/80 hover:text-burgundy hover:bg-cream/50 transition-colors"
+            activeProps={{ className: "px-4 py-3 rounded-xl text-burgundy bg-cream/50" }}
+          >
+            {p.label}
+          </Link>
+        ))}
+      </nav>
     </>
   );
 }
