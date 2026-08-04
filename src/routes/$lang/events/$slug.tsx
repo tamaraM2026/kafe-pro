@@ -1,15 +1,138 @@
+import { useState } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Animate } from "@/components/Animate";
 import { useTranslations, useLang } from "@/hooks/use-translations";
 import { getTranslations } from "@/i18n";
+import type { Translations } from "@/i18n/types";
+import { submitToWeb3Forms } from "@/lib/web3forms";
 
-const RSVP_EMAIL = "tamara@sapovalovasolutions.com";
+type EventItem = Translations["events"]["list"][number];
 
-function buildRsvpMailto(title: string, dateLabel: string) {
-  const dateOnly = dateLabel.split(" · ")[0];
-  const subject = `RSVP: ${title} – ${dateOnly}`;
-  const body = `Hi Tamara,\n\nI'd like to RSVP for "${title}" on ${dateOnly}.\n\nName:\nEmail:\n\nWill I be staying for the optional dinner? Yes / No\n\nThanks!`;
-  return `mailto:${RSVP_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+function buildRsvpSubject(title: string, dateOnly: string) {
+  return `RSVP: ${title} – ${dateOnly}`;
+}
+
+function buildRsvpMessage(title: string, dateOnly: string, name: string, email: string, dinner: string) {
+  return `Hi Tamara,\n\nI'd like to RSVP for "${title}" on ${dateOnly}.\n\nName: ${name}\nEmail: ${email}\n\nWill I be staying for the optional dinner? ${dinner}\n\nThanks!`;
+}
+
+function RsvpForm({ event, tone }: { event: EventItem; tone: "sage" | "accent" }) {
+  const t = useTranslations();
+  const [open, setOpen] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [dinner, setDinner] = useState("");
+  const [error, setError] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const dateOnly = event.dateLabel.split(" · ")[0];
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!name.trim() || !email.trim()) {
+      setError(true);
+      return;
+    }
+    setError(false);
+    setSubmitting(true);
+    const dinnerAnswer = dinner || "Not specified";
+    const ok = await submitToWeb3Forms({
+      subject: buildRsvpSubject(event.title, dateOnly),
+      replyto: email,
+      name,
+      email,
+      message: buildRsvpMessage(event.title, dateOnly, name, email, dinnerAnswer),
+    });
+    if (ok) {
+      setSubmitted(true);
+    } else {
+      setError(true);
+    }
+    setSubmitting(false);
+  }
+
+  const btnClass =
+    tone === "sage"
+      ? "px-7 py-4 rounded-full bg-gradient-to-r from-sage to-sage/80 text-sage-foreground hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-sage/20"
+      : "px-7 py-4 rounded-full bg-accent text-accent-foreground hover:scale-[1.02] active:scale-[0.98] transition-all";
+
+  if (submitted) {
+    return (
+      <div className="text-center">
+        <p className={tone === "sage" ? "text-burgundy font-medium" : "text-primary-foreground font-medium"}>
+          {t.events.rsvpSuccessHeading}
+        </p>
+        <p className={tone === "sage" ? "mt-1 text-sm text-foreground/70" : "mt-1 text-sm text-primary-foreground/70"}>
+          {t.events.rsvpSuccessMessage}
+        </p>
+      </div>
+    );
+  }
+
+  if (!open) {
+    return (
+      <button type="button" onClick={() => setOpen(true)} className={btnClass}>
+        {t.events.rsvpByEmail}
+      </button>
+    );
+  }
+
+  const inputClass =
+    tone === "sage"
+      ? "w-full rounded-xl border border-white/40 bg-white/60 backdrop-blur-sm px-4 py-3 text-foreground outline-none focus:ring-2 focus:ring-terracotta transition-shadow"
+      : "w-full rounded-xl border border-primary-foreground/30 bg-primary-foreground/10 px-4 py-3 text-primary-foreground placeholder:text-primary-foreground/50 outline-none focus:ring-2 focus:ring-accent transition-shadow";
+
+  return (
+    <form onSubmit={handleSubmit} className="w-full max-w-sm mx-auto text-left space-y-3">
+      <input
+        required
+        placeholder={t.events.rsvpNamePlaceholder}
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        className={inputClass}
+      />
+      <input
+        required
+        type="email"
+        placeholder={t.events.rsvpEmailPlaceholder}
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        className={inputClass}
+      />
+      <div className={tone === "sage" ? "text-sm text-foreground/75" : "text-sm text-primary-foreground/75"}>
+        <span>{t.events.rsvpDinnerLabel}</span>
+        <div className="mt-2 flex gap-4">
+          <label className="flex items-center gap-2">
+            <input
+              type="radio"
+              name={`dinner-${event.slug}-${tone}`}
+              checked={dinner === t.events.rsvpDinnerYes}
+              onChange={() => setDinner(t.events.rsvpDinnerYes)}
+            />
+            {t.events.rsvpDinnerYes}
+          </label>
+          <label className="flex items-center gap-2">
+            <input
+              type="radio"
+              name={`dinner-${event.slug}-${tone}`}
+              checked={dinner === t.events.rsvpDinnerNo}
+              onChange={() => setDinner(t.events.rsvpDinnerNo)}
+            />
+            {t.events.rsvpDinnerNo}
+          </label>
+        </div>
+      </div>
+      {error && <p className="text-terracotta text-sm">{t.events.rsvpErrorMsg}</p>}
+      <button
+        type="submit"
+        disabled={submitting}
+        className={`${btnClass} w-full disabled:opacity-60 disabled:cursor-not-allowed`}
+      >
+        {submitting ? t.events.rsvpSendingLabel : t.events.rsvpSubmitCta}
+      </button>
+    </form>
+  );
 }
 
 export const Route = createFileRoute("/$lang/events/$slug")({
@@ -66,7 +189,6 @@ function EventDetail() {
   const isClose = index === t.events.list.length - 1;
   const nextEvent = t.events.list[index + 1];
   const eyebrow = isLaunch ? t.events.seasonLaunchEyebrow : isClose ? t.events.seasonCloseEyebrow : t.events.thisEditionEyebrow;
-  const mailto = buildRsvpMailto(event.title, event.dateLabel);
 
   const rhythmItems = [
     t.events.rhythm.oneCup,
@@ -110,9 +232,7 @@ function EventDetail() {
           </Animate>
           <Animate delay={350}>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <a href={mailto} className="px-7 py-4 rounded-full bg-gradient-to-r from-sage to-sage/80 text-sage-foreground hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-sage/20">
-                {t.events.rsvpByEmail}
-              </a>
+              <RsvpForm event={event} tone="sage" />
             </div>
           </Animate>
         </div>
@@ -171,9 +291,7 @@ function EventDetail() {
           </Animate>
           <Animate delay={200}>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <a href={mailto} className="px-7 py-4 rounded-full bg-accent text-accent-foreground hover:scale-[1.02] active:scale-[0.98] transition-all">
-                {t.events.rsvpByEmail}
-              </a>
+              <RsvpForm event={event} tone="accent" />
               <Link to={"/$lang/events"} params={{ lang }} className="px-7 py-4 rounded-full border border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10 transition-all">
                 {t.events.ctaBand.seeOtherDates}
               </Link>
