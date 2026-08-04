@@ -4,6 +4,7 @@ import { Animate } from "@/components/Animate";
 import { useTranslations } from "@/hooks/use-translations";
 import { getTranslations } from "@/i18n";
 import founder from "@/assets/founder.jpg";
+import { submitToWeb3Forms } from "@/lib/web3forms";
 
 export const Route = createFileRoute("/$lang/10x-productive")({
   head: ({ params }) => {
@@ -29,16 +30,31 @@ function TenxPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!name.trim() || !email.trim()) {
       setError(true);
       return;
     }
     setError(false);
-    setSubmitted(true);
+    setSubmitError(false);
+    setSubmitting(true);
+    const ok = await submitToWeb3Forms({
+      subject: "Kafe: 10x Productive guide signup",
+      replyto: email,
+      name,
+      email,
+    });
+    if (ok) {
+      setSubmitted(true);
+    } else {
+      setSubmitError(true);
+    }
+    setSubmitting(false);
   }
 
   return (
@@ -222,11 +238,15 @@ function TenxPage() {
                   {error && (
                     <p className="text-terracotta text-sm">{t.tenx.errorMsg}</p>
                   )}
+                  {submitError && (
+                    <p className="text-terracotta text-sm">{t.tenx.submitErrorMsg}</p>
+                  )}
                   <button
                     type="submit"
-                    className="mt-2 w-full px-8 py-3 rounded-full bg-gradient-to-r from-terracotta to-terracotta/80 text-primary-foreground font-medium hover:scale-[1.02] active:scale-[0.98] transition-all"
+                    disabled={submitting}
+                    className="mt-2 w-full px-8 py-3 rounded-full bg-gradient-to-r from-terracotta to-terracotta/80 text-primary-foreground font-medium hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    {t.tenx.ctaButton}
+                    {submitting ? t.tenx.sendingLabel : t.tenx.ctaButton}
                   </button>
                   <p className="mt-2 text-xs text-primary-foreground/60">
                     {t.tenx.privacyNote}
