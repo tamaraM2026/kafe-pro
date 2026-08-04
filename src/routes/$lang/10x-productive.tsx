@@ -24,21 +24,50 @@ export const Route = createFileRoute("/$lang/10x-productive")({
   component: TenxPage,
 });
 
+const WEB3FORMS_ACCESS_KEY = "065376e4-cd60-4a56-a055-476e143d7f9f";
+
 function TenxPage() {
   const t = useTranslations();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!name.trim() || !email.trim()) {
       setError(true);
       return;
     }
     setError(false);
-    setSubmitted(true);
+    setSubmitError(false);
+    setSubmitting(true);
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: "Kafe: 10x Productive guide signup",
+          from_name: "Kafe con Propósito website",
+          replyto: email,
+          name,
+          email,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        setSubmitError(true);
+      }
+    } catch {
+      setSubmitError(true);
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -222,11 +251,15 @@ function TenxPage() {
                   {error && (
                     <p className="text-terracotta text-sm">{t.tenx.errorMsg}</p>
                   )}
+                  {submitError && (
+                    <p className="text-terracotta text-sm">{t.tenx.submitErrorMsg}</p>
+                  )}
                   <button
                     type="submit"
-                    className="mt-2 w-full px-8 py-3 rounded-full bg-gradient-to-r from-terracotta to-terracotta/80 text-primary-foreground font-medium hover:scale-[1.02] active:scale-[0.98] transition-all"
+                    disabled={submitting}
+                    className="mt-2 w-full px-8 py-3 rounded-full bg-gradient-to-r from-terracotta to-terracotta/80 text-primary-foreground font-medium hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    {t.tenx.ctaButton}
+                    {submitting ? t.tenx.sendingLabel : t.tenx.ctaButton}
                   </button>
                   <p className="mt-2 text-xs text-primary-foreground/60">
                     {t.tenx.privacyNote}

@@ -22,9 +22,47 @@ export const Route = createFileRoute("/$lang/contact")({
   component: Contact,
 });
 
+const WEB3FORMS_ACCESS_KEY = "065376e4-cd60-4a56-a055-476e143d7f9f";
+
 function Contact() {
   const t = useTranslations();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(false);
   const [sent, setSent] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setError(false);
+    setSending(true);
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: "Kafe: contact form message",
+          from_name: "Kafe con Propósito website",
+          replyto: email,
+          name,
+          email,
+          message,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSent(true);
+      } else {
+        setError(true);
+      }
+    } catch {
+      setError(true);
+    } finally {
+      setSending(false);
+    }
+  }
 
   return (
     <section className="py-28">
@@ -41,25 +79,52 @@ function Contact() {
 
         <Animate delay={200}>
           <form
-            onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+            onSubmit={handleSubmit}
             className="mt-12 bg-white/50 backdrop-blur-sm border border-white/30 rounded-3xl p-8 space-y-5 shadow-sm"
           >
             <div className="grid md:grid-cols-2 gap-5">
               <label className="block">
                 <span className="text-sm text-foreground/75">{t.contact.nameLabel}</span>
-                <input required className="mt-2 w-full rounded-xl border border-white/40 bg-white/50 backdrop-blur-sm px-4 py-3 outline-none focus:ring-2 focus:ring-terracotta transition-shadow" />
+                <input
+                  required
+                  name="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="mt-2 w-full rounded-xl border border-white/40 bg-white/50 backdrop-blur-sm px-4 py-3 outline-none focus:ring-2 focus:ring-terracotta transition-shadow"
+                />
               </label>
               <label className="block">
                 <span className="text-sm text-foreground/75">{t.contact.emailLabel}</span>
-                <input required type="email" className="mt-2 w-full rounded-xl border border-white/40 bg-white/50 backdrop-blur-sm px-4 py-3 outline-none focus:ring-2 focus:ring-terracotta transition-shadow" />
+                <input
+                  required
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="mt-2 w-full rounded-xl border border-white/40 bg-white/50 backdrop-blur-sm px-4 py-3 outline-none focus:ring-2 focus:ring-terracotta transition-shadow"
+                />
               </label>
             </div>
             <label className="block">
               <span className="text-sm text-foreground/75">{t.contact.messageLabel}</span>
-              <textarea required rows={5} className="mt-2 w-full rounded-xl border border-white/40 bg-white/50 backdrop-blur-sm px-4 py-3 outline-none focus:ring-2 focus:ring-terracotta transition-shadow" />
+              <textarea
+                required
+                rows={5}
+                name="message"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                className="mt-2 w-full rounded-xl border border-white/40 bg-white/50 backdrop-blur-sm px-4 py-3 outline-none focus:ring-2 focus:ring-terracotta transition-shadow"
+              />
             </label>
-            <button type="submit" className="w-full md:w-auto px-7 py-4 rounded-full bg-gradient-to-r from-burgundy to-burgundy/80 text-primary-foreground hover:scale-[1.02] active:scale-[0.98] transition-all">
-              {t.contact.submitButton}
+            {error && (
+              <p className="text-terracotta text-sm">{t.contact.errorMsg}</p>
+            )}
+            <button
+              type="submit"
+              disabled={sending}
+              className="w-full md:w-auto px-7 py-4 rounded-full bg-gradient-to-r from-burgundy to-burgundy/80 text-primary-foreground hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              {sending ? t.contact.sendingLabel : t.contact.submitButton}
             </button>
             {sent && <p className="text-sage text-sm animate-in visible" style={{ transform: "none" }}>{t.contact.successMessage}</p>}
           </form>
