@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Animate } from "@/components/Animate";
 import { useTranslations } from "@/hooks/use-translations";
 import { getTranslations } from "@/i18n";
+import { submitToWeb3Forms } from "@/lib/web3forms";
 
 export const Route = createFileRoute("/$lang/contact")({
   head: ({ params }) => {
@@ -22,8 +23,6 @@ export const Route = createFileRoute("/$lang/contact")({
   component: Contact,
 });
 
-const WEB3FORMS_ACCESS_KEY = "065376e4-cd60-4a56-a055-476e143d7f9f";
-
 function Contact() {
   const t = useTranslations();
   const [name, setName] = useState("");
@@ -37,31 +36,19 @@ function Contact() {
     e.preventDefault();
     setError(false);
     setSending(true);
-    try {
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_ACCESS_KEY,
-          subject: "Kafe: contact form message",
-          from_name: "Kafe con Propósito website",
-          replyto: email,
-          name,
-          email,
-          message,
-        }),
-      });
-      const data = await res.json();
-      if (data.success) {
-        setSent(true);
-      } else {
-        setError(true);
-      }
-    } catch {
+    const ok = await submitToWeb3Forms({
+      subject: "Kafe: contact form message",
+      replyto: email,
+      name,
+      email,
+      message,
+    });
+    if (ok) {
+      setSent(true);
+    } else {
       setError(true);
-    } finally {
-      setSending(false);
     }
+    setSending(false);
   }
 
   return (

@@ -4,6 +4,7 @@ import { Animate } from "@/components/Animate";
 import { useTranslations } from "@/hooks/use-translations";
 import { getTranslations } from "@/i18n";
 import founder from "@/assets/founder.jpg";
+import { submitToWeb3Forms } from "@/lib/web3forms";
 
 export const Route = createFileRoute("/$lang/10x-productive")({
   head: ({ params }) => {
@@ -24,8 +25,6 @@ export const Route = createFileRoute("/$lang/10x-productive")({
   component: TenxPage,
 });
 
-const WEB3FORMS_ACCESS_KEY = "065376e4-cd60-4a56-a055-476e143d7f9f";
-
 function TenxPage() {
   const t = useTranslations();
   const [name, setName] = useState("");
@@ -44,30 +43,18 @@ function TenxPage() {
     setError(false);
     setSubmitError(false);
     setSubmitting(true);
-    try {
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_ACCESS_KEY,
-          subject: "Kafe: 10x Productive guide signup",
-          from_name: "Kafe con Propósito website",
-          replyto: email,
-          name,
-          email,
-        }),
-      });
-      const data = await res.json();
-      if (data.success) {
-        setSubmitted(true);
-      } else {
-        setSubmitError(true);
-      }
-    } catch {
+    const ok = await submitToWeb3Forms({
+      subject: "Kafe: 10x Productive guide signup",
+      replyto: email,
+      name,
+      email,
+    });
+    if (ok) {
+      setSubmitted(true);
+    } else {
       setSubmitError(true);
-    } finally {
-      setSubmitting(false);
     }
+    setSubmitting(false);
   }
 
   return (
