@@ -14,8 +14,11 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as LangIndexRouteImport } from './routes/$lang/index'
 import { Route as LangTheUnveiledExperienceRouteImport } from './routes/$lang/the-unveiled-experience'
 import { Route as LangSpanishConversationRouteImport } from './routes/$lang/spanish-conversation'
+import { Route as LangRsvpThankYouRouteImport } from './routes/$lang/rsvp-thank-you'
 import { Route as LangMembershipsRouteImport } from './routes/$lang/memberships'
+import { Route as LangGuideThankYouRouteImport } from './routes/$lang/guide-thank-you'
 import { Route as LangFounderRouteImport } from './routes/$lang/founder'
+import { Route as LangContactThankYouRouteImport } from './routes/$lang/contact-thank-you'
 import { Route as LangContactRouteImport } from './routes/$lang/contact'
 import { Route as LangCommunityRouteImport } from './routes/$lang/community'
 import { Route as LangBusinessBuildingBlocksRouteImport } from './routes/$lang/business-building-blocks'
@@ -52,14 +55,29 @@ const LangSpanishConversationRoute = LangSpanishConversationRouteImport.update({
   path: '/spanish-conversation',
   getParentRoute: () => LangRouteRoute,
 } as any)
+const LangRsvpThankYouRoute = LangRsvpThankYouRouteImport.update({
+  id: '/rsvp-thank-you',
+  path: '/rsvp-thank-you',
+  getParentRoute: () => LangRouteRoute,
+} as any)
 const LangMembershipsRoute = LangMembershipsRouteImport.update({
   id: '/memberships',
   path: '/memberships',
   getParentRoute: () => LangRouteRoute,
 } as any)
+const LangGuideThankYouRoute = LangGuideThankYouRouteImport.update({
+  id: '/guide-thank-you',
+  path: '/guide-thank-you',
+  getParentRoute: () => LangRouteRoute,
+} as any)
 const LangFounderRoute = LangFounderRouteImport.update({
   id: '/founder',
   path: '/founder',
+  getParentRoute: () => LangRouteRoute,
+} as any)
+const LangContactThankYouRoute = LangContactThankYouRouteImport.update({
+  id: '/contact-thank-you',
+  path: '/contact-thank-you',
   getParentRoute: () => LangRouteRoute,
 } as any)
 const LangContactRoute = LangContactRouteImport.update({
@@ -117,8 +135,11 @@ export interface FileRoutesByFullPath {
   '/$lang/business-building-blocks': typeof LangBusinessBuildingBlocksRoute
   '/$lang/community': typeof LangCommunityRoute
   '/$lang/contact': typeof LangContactRoute
+  '/$lang/contact-thank-you': typeof LangContactThankYouRoute
   '/$lang/founder': typeof LangFounderRoute
+  '/$lang/guide-thank-you': typeof LangGuideThankYouRoute
   '/$lang/memberships': typeof LangMembershipsRoute
+  '/$lang/rsvp-thank-you': typeof LangRsvpThankYouRoute
   '/$lang/spanish-conversation': typeof LangSpanishConversationRoute
   '/$lang/the-unveiled-experience': typeof LangTheUnveiledExperienceRoute
   '/$lang/': typeof LangIndexRoute
@@ -134,8 +155,11 @@ export interface FileRoutesByTo {
   '/$lang/business-building-blocks': typeof LangBusinessBuildingBlocksRoute
   '/$lang/community': typeof LangCommunityRoute
   '/$lang/contact': typeof LangContactRoute
+  '/$lang/contact-thank-you': typeof LangContactThankYouRoute
   '/$lang/founder': typeof LangFounderRoute
+  '/$lang/guide-thank-you': typeof LangGuideThankYouRoute
   '/$lang/memberships': typeof LangMembershipsRoute
+  '/$lang/rsvp-thank-you': typeof LangRsvpThankYouRoute
   '/$lang/spanish-conversation': typeof LangSpanishConversationRoute
   '/$lang/the-unveiled-experience': typeof LangTheUnveiledExperienceRoute
   '/$lang': typeof LangIndexRoute
@@ -153,8 +177,11 @@ export interface FileRoutesById {
   '/$lang/business-building-blocks': typeof LangBusinessBuildingBlocksRoute
   '/$lang/community': typeof LangCommunityRoute
   '/$lang/contact': typeof LangContactRoute
+  '/$lang/contact-thank-you': typeof LangContactThankYouRoute
   '/$lang/founder': typeof LangFounderRoute
+  '/$lang/guide-thank-you': typeof LangGuideThankYouRoute
   '/$lang/memberships': typeof LangMembershipsRoute
+  '/$lang/rsvp-thank-you': typeof LangRsvpThankYouRoute
   '/$lang/spanish-conversation': typeof LangSpanishConversationRoute
   '/$lang/the-unveiled-experience': typeof LangTheUnveiledExperienceRoute
   '/$lang/': typeof LangIndexRoute
@@ -173,8 +200,11 @@ export interface FileRouteTypes {
     | '/$lang/business-building-blocks'
     | '/$lang/community'
     | '/$lang/contact'
+    | '/$lang/contact-thank-you'
     | '/$lang/founder'
+    | '/$lang/guide-thank-you'
     | '/$lang/memberships'
+    | '/$lang/rsvp-thank-you'
     | '/$lang/spanish-conversation'
     | '/$lang/the-unveiled-experience'
     | '/$lang/'
@@ -190,8 +220,11 @@ export interface FileRouteTypes {
     | '/$lang/business-building-blocks'
     | '/$lang/community'
     | '/$lang/contact'
+    | '/$lang/contact-thank-you'
     | '/$lang/founder'
+    | '/$lang/guide-thank-you'
     | '/$lang/memberships'
+    | '/$lang/rsvp-thank-you'
     | '/$lang/spanish-conversation'
     | '/$lang/the-unveiled-experience'
     | '/$lang'
@@ -208,8 +241,11 @@ export interface FileRouteTypes {
     | '/$lang/business-building-blocks'
     | '/$lang/community'
     | '/$lang/contact'
+    | '/$lang/contact-thank-you'
     | '/$lang/founder'
+    | '/$lang/guide-thank-you'
     | '/$lang/memberships'
+    | '/$lang/rsvp-thank-you'
     | '/$lang/spanish-conversation'
     | '/$lang/the-unveiled-experience'
     | '/$lang/'
@@ -261,6 +297,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LangSpanishConversationRouteImport
       parentRoute: typeof LangRouteRoute
     }
+    '/$lang/rsvp-thank-you': {
+      id: '/$lang/rsvp-thank-you'
+      path: '/rsvp-thank-you'
+      fullPath: '/$lang/rsvp-thank-you'
+      preLoaderRoute: typeof LangRsvpThankYouRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
     '/$lang/memberships': {
       id: '/$lang/memberships'
       path: '/memberships'
@@ -268,11 +311,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LangMembershipsRouteImport
       parentRoute: typeof LangRouteRoute
     }
+    '/$lang/guide-thank-you': {
+      id: '/$lang/guide-thank-you'
+      path: '/guide-thank-you'
+      fullPath: '/$lang/guide-thank-you'
+      preLoaderRoute: typeof LangGuideThankYouRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
     '/$lang/founder': {
       id: '/$lang/founder'
       path: '/founder'
       fullPath: '/$lang/founder'
       preLoaderRoute: typeof LangFounderRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
+    '/$lang/contact-thank-you': {
+      id: '/$lang/contact-thank-you'
+      path: '/contact-thank-you'
+      fullPath: '/$lang/contact-thank-you'
+      preLoaderRoute: typeof LangContactThankYouRouteImport
       parentRoute: typeof LangRouteRoute
     }
     '/$lang/contact': {
@@ -347,8 +404,11 @@ interface LangRouteRouteChildren {
   LangBusinessBuildingBlocksRoute: typeof LangBusinessBuildingBlocksRoute
   LangCommunityRoute: typeof LangCommunityRoute
   LangContactRoute: typeof LangContactRoute
+  LangContactThankYouRoute: typeof LangContactThankYouRoute
   LangFounderRoute: typeof LangFounderRoute
+  LangGuideThankYouRoute: typeof LangGuideThankYouRoute
   LangMembershipsRoute: typeof LangMembershipsRoute
+  LangRsvpThankYouRoute: typeof LangRsvpThankYouRoute
   LangSpanishConversationRoute: typeof LangSpanishConversationRoute
   LangTheUnveiledExperienceRoute: typeof LangTheUnveiledExperienceRoute
   LangIndexRoute: typeof LangIndexRoute
@@ -364,8 +424,11 @@ const LangRouteRouteChildren: LangRouteRouteChildren = {
   LangBusinessBuildingBlocksRoute: LangBusinessBuildingBlocksRoute,
   LangCommunityRoute: LangCommunityRoute,
   LangContactRoute: LangContactRoute,
+  LangContactThankYouRoute: LangContactThankYouRoute,
   LangFounderRoute: LangFounderRoute,
+  LangGuideThankYouRoute: LangGuideThankYouRoute,
   LangMembershipsRoute: LangMembershipsRoute,
+  LangRsvpThankYouRoute: LangRsvpThankYouRoute,
   LangSpanishConversationRoute: LangSpanishConversationRoute,
   LangTheUnveiledExperienceRoute: LangTheUnveiledExperienceRoute,
   LangIndexRoute: LangIndexRoute,
