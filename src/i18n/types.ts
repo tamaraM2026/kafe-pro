@@ -179,6 +179,16 @@ export type Translations = {
     inThisSessionEyebrow: string;
     inThisSessionHeading: string;
     rsvpByEmail: string;
+    rsvpNamePlaceholder: string;
+    rsvpEmailPlaceholder: string;
+    rsvpDinnerLabel: string;
+    rsvpDinnerYes: string;
+    rsvpDinnerNo: string;
+    rsvpSubmitCta: string;
+    rsvpSendingLabel: string;
+    rsvpErrorMsg: string;
+    rsvpSuccessHeading: string;
+    rsvpSuccessMessage: string;
     seasonLaunchEyebrow: string;
     seasonCloseEyebrow: string;
     thisEditionEyebrow: string;
