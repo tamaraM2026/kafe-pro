@@ -254,6 +254,8 @@ export type Translations = {
     emailLabel: string;
     messageLabel: string;
     submitButton: string;
+    sendingLabel: string;
+    errorMsg: string;
     successMessage: string;
     followText: string;
   };
@@ -297,6 +299,8 @@ export type Translations = {
     namePlaceholder: string;
     emailPlaceholder: string;
     errorMsg: string;
+    submitErrorMsg: string;
+    sendingLabel: string;
     ctaButton: string;
     privacyNote: string;
     successHeading: string;
