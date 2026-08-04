@@ -1,10 +1,9 @@
-import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Animate } from "@/components/Animate";
 import { useTranslations } from "@/hooks/use-translations";
 import { getTranslations } from "@/i18n";
 import founder from "@/assets/founder.jpg";
-import { submitToWeb3Forms } from "@/lib/web3forms";
+import { WEB3FORMS_ACCESS_KEY } from "@/lib/web3forms";
 
 export const Route = createFileRoute("/$lang/10x-productive")({
   head: ({ params }) => {
@@ -27,35 +26,6 @@ export const Route = createFileRoute("/$lang/10x-productive")({
 
 function TenxPage() {
   const t = useTranslations();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [error, setError] = useState(false);
-  const [submitError, setSubmitError] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    if (!name.trim() || !email.trim()) {
-      setError(true);
-      return;
-    }
-    setError(false);
-    setSubmitError(false);
-    setSubmitting(true);
-    const ok = await submitToWeb3Forms({
-      subject: "Kafe: 10x Productive guide signup",
-      replyto: email,
-      name,
-      email,
-    });
-    if (ok) {
-      setSubmitted(true);
-    } else {
-      setSubmitError(true);
-    }
-    setSubmitting(false);
-  }
 
   return (
     <>
@@ -191,70 +161,59 @@ function TenxPage() {
       {/* Opt-in form */}
       <section className="py-28 bg-burgundy/95 backdrop-blur-xl text-primary-foreground">
         <div className="mx-auto max-w-xl px-6 text-center">
-          {submitted ? (
-            <Animate>
-              <div className="py-8">
-                <span className="text-5xl">&#10003;</span>
-                <h2 className="mt-4 font-display text-4xl">
-                  {t.tenx.successHeading}
-                </h2>
-                <p className="mt-4 text-primary-foreground/85 text-lg">
-                  {t.tenx.successMessage}
-                </p>
-              </div>
-            </Animate>
-          ) : (
-            <>
-              <Animate>
-                <h2 className="font-display text-4xl md:text-5xl">
-                  {t.tenx.optInTitle}{" "}
-                  <span className="bg-gradient-to-r from-terracotta to-terracotta/70 bg-clip-text text-transparent">
-                    {t.tenx.optInTitleEmphasis}
-                  </span>
-                </h2>
-                <p className="mt-4 text-primary-foreground/85">
-                  {t.tenx.optInSub}
-                </p>
-              </Animate>
-              <Animate delay={100}>
-                <form
-                  onSubmit={handleSubmit}
-                  className="mt-8 flex flex-col gap-3"
-                >
-                  <input
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder={t.tenx.namePlaceholder}
-                    className="w-full px-5 py-3 rounded-full bg-white/10 border border-white/20 text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-none focus:ring-2 focus:ring-terracotta/50"
-                  />
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder={t.tenx.emailPlaceholder}
-                    className="w-full px-5 py-3 rounded-full bg-white/10 border border-white/20 text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-none focus:ring-2 focus:ring-terracotta/50"
-                  />
-                  {error && (
-                    <p className="text-terracotta text-sm">{t.tenx.errorMsg}</p>
-                  )}
-                  {submitError && (
-                    <p className="text-terracotta text-sm">{t.tenx.submitErrorMsg}</p>
-                  )}
-                  <button
-                    type="submit"
-                    disabled={submitting}
-                    className="mt-2 w-full px-8 py-3 rounded-full bg-gradient-to-r from-terracotta to-terracotta/80 text-primary-foreground font-medium hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-60 disabled:cursor-not-allowed"
-                  >
-                    {submitting ? t.tenx.sendingLabel : t.tenx.ctaButton}
-                  </button>
-                  <p className="mt-2 text-xs text-primary-foreground/60">
-                    {t.tenx.privacyNote}
-                  </p>
-                </form>
-              </Animate>
-            </>
-          )}
+          <Animate>
+            <h2 className="font-display text-4xl md:text-5xl">
+              {t.tenx.optInTitle}{" "}
+              <span className="bg-gradient-to-r from-terracotta to-terracotta/70 bg-clip-text text-transparent">
+                {t.tenx.optInTitleEmphasis}
+              </span>
+            </h2>
+            <p className="mt-4 text-primary-foreground/85">
+              {t.tenx.optInSub}
+            </p>
+          </Animate>
+          <Animate delay={100}>
+            <form
+              action="https://api.web3forms.com/submit"
+              method="POST"
+              className="mt-8 flex flex-col gap-3"
+            >
+              <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
+              <input type="hidden" name="subject" value="Kafe: 10x Productive guide signup" />
+              <input type="hidden" name="from_name" value="Kafe con Propósito website" />
+              <input type="hidden" name="redirect" value="https://kafeconproposito.com/en/guide-thank-you" />
+              <input
+                type="checkbox"
+                name="botcheck"
+                tabIndex={-1}
+                autoComplete="off"
+                style={{ display: "none" }}
+              />
+              <input
+                type="text"
+                name="name"
+                required
+                placeholder={t.tenx.namePlaceholder}
+                className="w-full px-5 py-3 rounded-full bg-white/10 border border-white/20 text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-none focus:ring-2 focus:ring-terracotta/50"
+              />
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder={t.tenx.emailPlaceholder}
+                className="w-full px-5 py-3 rounded-full bg-white/10 border border-white/20 text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-none focus:ring-2 focus:ring-terracotta/50"
+              />
+              <button
+                type="submit"
+                className="mt-2 w-full px-8 py-3 rounded-full bg-gradient-to-r from-terracotta to-terracotta/80 text-primary-foreground font-medium hover:scale-[1.02] active:scale-[0.98] transition-all"
+              >
+                {t.tenx.ctaButton}
+              </button>
+              <p className="mt-2 text-xs text-primary-foreground/60">
+                {t.tenx.privacyNote}
+              </p>
+            </form>
+          </Animate>
         </div>
       </section>
     </>

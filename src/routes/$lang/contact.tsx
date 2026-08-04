@@ -1,9 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
 import { Animate } from "@/components/Animate";
 import { useTranslations } from "@/hooks/use-translations";
 import { getTranslations } from "@/i18n";
-import { submitToWeb3Forms } from "@/lib/web3forms";
+import { WEB3FORMS_ACCESS_KEY } from "@/lib/web3forms";
 
 export const Route = createFileRoute("/$lang/contact")({
   head: ({ params }) => {
@@ -25,31 +24,6 @@ export const Route = createFileRoute("/$lang/contact")({
 
 function Contact() {
   const t = useTranslations();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [sending, setSending] = useState(false);
-  const [error, setError] = useState(false);
-  const [sent, setSent] = useState(false);
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setError(false);
-    setSending(true);
-    const ok = await submitToWeb3Forms({
-      subject: "Kafe: contact form message",
-      replyto: email,
-      name,
-      email,
-      message,
-    });
-    if (ok) {
-      setSent(true);
-    } else {
-      setError(true);
-    }
-    setSending(false);
-  }
 
   return (
     <section className="py-28">
@@ -66,17 +40,27 @@ function Contact() {
 
         <Animate delay={200}>
           <form
-            onSubmit={handleSubmit}
+            action="https://api.web3forms.com/submit"
+            method="POST"
             className="mt-12 bg-white/50 backdrop-blur-sm border border-white/30 rounded-3xl p-8 space-y-5 shadow-sm"
           >
+            <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
+            <input type="hidden" name="subject" value="Kafe: contact form message" />
+            <input type="hidden" name="from_name" value="Kafe con Propósito website" />
+            <input type="hidden" name="redirect" value="https://kafeconproposito.com/en/contact-thank-you" />
+            <input
+              type="checkbox"
+              name="botcheck"
+              tabIndex={-1}
+              autoComplete="off"
+              style={{ display: "none" }}
+            />
             <div className="grid md:grid-cols-2 gap-5">
               <label className="block">
                 <span className="text-sm text-foreground/75">{t.contact.nameLabel}</span>
                 <input
                   required
                   name="name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
                   className="mt-2 w-full rounded-xl border border-white/40 bg-white/50 backdrop-blur-sm px-4 py-3 outline-none focus:ring-2 focus:ring-terracotta transition-shadow"
                 />
               </label>
@@ -86,8 +70,6 @@ function Contact() {
                   required
                   type="email"
                   name="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
                   className="mt-2 w-full rounded-xl border border-white/40 bg-white/50 backdrop-blur-sm px-4 py-3 outline-none focus:ring-2 focus:ring-terracotta transition-shadow"
                 />
               </label>
@@ -98,22 +80,15 @@ function Contact() {
                 required
                 rows={5}
                 name="message"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
                 className="mt-2 w-full rounded-xl border border-white/40 bg-white/50 backdrop-blur-sm px-4 py-3 outline-none focus:ring-2 focus:ring-terracotta transition-shadow"
               />
             </label>
-            {error && (
-              <p className="text-terracotta text-sm">{t.contact.errorMsg}</p>
-            )}
             <button
               type="submit"
-              disabled={sending}
-              className="w-full md:w-auto px-7 py-4 rounded-full bg-gradient-to-r from-burgundy to-burgundy/80 text-primary-foreground hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+              className="w-full md:w-auto px-7 py-4 rounded-full bg-gradient-to-r from-burgundy to-burgundy/80 text-primary-foreground hover:scale-[1.02] active:scale-[0.98] transition-all"
             >
-              {sending ? t.contact.sendingLabel : t.contact.submitButton}
+              {t.contact.submitButton}
             </button>
-            {sent && <p className="text-sage text-sm animate-in visible" style={{ transform: "none" }}>{t.contact.successMessage}</p>}
           </form>
         </Animate>
 
