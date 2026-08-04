@@ -628,7 +628,7 @@ export const en: Translations = {
     label: "FREE GUIDE",
     heading: "10 days. 10 actions.",
     headingEmphasis: "10 times more productive.",
-    heroSub: "A free self-coaching guide with daily exercises, reflections, and actions.",
+    heroSub: "A 10-Day Guide to Getting Unstuck.",
     pullQuote: "Change takes time — but if you do a little every day, these small actions form new habits. Without even realising it, your life shifts.",
     daysLabel: "YOUR 10-DAY JOURNEY",
     days: [
