@@ -179,6 +179,16 @@ export type Translations = {
     inThisSessionEyebrow: string;
     inThisSessionHeading: string;
     rsvpByEmail: string;
+    rsvpNamePlaceholder: string;
+    rsvpEmailPlaceholder: string;
+    rsvpDinnerLabel: string;
+    rsvpDinnerYes: string;
+    rsvpDinnerNo: string;
+    rsvpSubmitCta: string;
+    rsvpSendingLabel: string;
+    rsvpErrorMsg: string;
+    rsvpSuccessHeading: string;
+    rsvpSuccessMessage: string;
     seasonLaunchEyebrow: string;
     seasonCloseEyebrow: string;
     thisEditionEyebrow: string;
@@ -254,6 +264,8 @@ export type Translations = {
     emailLabel: string;
     messageLabel: string;
     submitButton: string;
+    sendingLabel: string;
+    errorMsg: string;
     successMessage: string;
     followText: string;
   };
@@ -297,6 +309,8 @@ export type Translations = {
     namePlaceholder: string;
     emailPlaceholder: string;
     errorMsg: string;
+    submitErrorMsg: string;
+    sendingLabel: string;
     ctaButton: string;
     privacyNote: string;
     successHeading: string;
