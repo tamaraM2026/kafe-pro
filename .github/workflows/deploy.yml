@@ -178,6 +178,11 @@ jobs:
 
           kill $DEV_PID 2>/dev/null || true
 
+          # Copy public/ assets (e.g. downloadable legal docs) as-is
+          if [ -d public ]; then
+            cp -r public/. _site/
+          fi
+
           # Root redirect
           echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0;url='"${BASE_PATH}"'/en/"></head><body></body></html>' > _site/index.html
 
