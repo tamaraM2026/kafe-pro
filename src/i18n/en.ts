@@ -33,6 +33,7 @@ export const en: Translations = {
       locationFrequency: "Once a month",
       getInTouch: "Get in touch →",
       copyright: "Kafe con Propósito · Women’s Circle",
+      termsAndPrivacy: "Terms & Privacy",
       navAbout: "What Kafe is",
       navFounder: "Founder",
       navEvents: "Events",

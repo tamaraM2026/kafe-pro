@@ -36,6 +36,7 @@ export type Translations = {
       navBlog: string;
       navMemberships: string;
       navCommunity: string;
+      termsAndPrivacy: string;
     };
   };
 
