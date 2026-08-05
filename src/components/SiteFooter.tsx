@@ -86,8 +86,14 @@ export function SiteFooter() {
           </a>
         </div>
       </div>
-      <div className="border-t border-white/10 py-6 text-center text-xs opacity-50">
-        {t.common.footer.copyright}
+      <div className="border-t border-white/10 py-6 flex flex-col items-center gap-2 text-center text-xs opacity-50">
+        <span>{t.common.footer.copyright}</span>
+        <a
+          href="/legal/Kafe_con_Proposito_Terms_and_Privacy_2026.docx"
+          className="hover:text-accent hover:opacity-100 transition-colors underline underline-offset-4"
+        >
+          {t.common.footer.termsAndPrivacy}
+        </a>
       </div>
     </footer>
   );
