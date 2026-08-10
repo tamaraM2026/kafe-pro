@@ -5,9 +5,16 @@ import { useLang } from "@/hooks/use-translations";
 interface ThankYouMessageProps {
   heading: string;
   body: string;
+  downloadUrl?: string;
+  downloadLabel?: string;
 }
 
-export function ThankYouMessage({ heading, body }: ThankYouMessageProps) {
+export function ThankYouMessage({
+  heading,
+  body,
+  downloadUrl,
+  downloadLabel,
+}: ThankYouMessageProps) {
   const lang = useLang();
 
   return (
@@ -19,10 +26,19 @@ export function ThankYouMessage({ heading, body }: ThankYouMessageProps) {
             {heading}
           </h1>
           <p className="mt-4 text-lg text-foreground/75 leading-relaxed">{body}</p>
+          {downloadUrl && (
+            <a
+              href={downloadUrl}
+              download
+              className="mt-8 inline-block px-8 py-3 rounded-full bg-gradient-to-r from-terracotta to-terracotta/80 text-primary-foreground font-medium hover:scale-[1.02] active:scale-[0.98] transition-all"
+            >
+              {downloadLabel ?? "Download the guide now"}
+            </a>
+          )}
           <Link
             to={"/$lang"}
             params={{ lang }}
-            className="mt-8 inline-block text-burgundy hover:text-terracotta transition-colors underline underline-offset-4"
+            className="mt-8 block text-burgundy hover:text-terracotta transition-colors underline underline-offset-4"
           >
             Back to the homepage
           </Link>

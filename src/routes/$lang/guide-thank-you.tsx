@@ -15,7 +15,9 @@ function GuideThankYou() {
   return (
     <ThankYouMessage
       heading="You're in!"
-      body="Check your inbox, the guide is on its way."
+      body="Check your inbox, the guide is on its way. Or grab it right now:"
+      downloadUrl="/10x-unstuck-guide.pdf"
+      downloadLabel="Download the guide now"
     />
   );
 }
