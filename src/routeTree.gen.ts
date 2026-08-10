@@ -24,6 +24,7 @@ import { Route as LangContactRouteImport } from './routes/$lang/contact'
 import { Route as LangCommunityRouteImport } from './routes/$lang/community'
 import { Route as LangBusinessBuildingBlocksRouteImport } from './routes/$lang/business-building-blocks'
 import { Route as LangAboutRouteImport } from './routes/$lang/about'
+import { Route as Lang10xUnstuckRouteImport } from './routes/$lang/10x-unstuck'
 import { Route as Lang10xProductiveRouteImport } from './routes/$lang/10x-productive'
 import { Route as LangEventsIndexRouteImport } from './routes/$lang/events/index'
 import { Route as LangBlogIndexRouteImport } from './routes/$lang/blog/index'
@@ -107,6 +108,11 @@ const LangAboutRoute = LangAboutRouteImport.update({
   path: '/about',
   getParentRoute: () => LangRouteRoute,
 } as any)
+const Lang10xUnstuckRoute = Lang10xUnstuckRouteImport.update({
+  id: '/10x-unstuck',
+  path: '/10x-unstuck',
+  getParentRoute: () => LangRouteRoute,
+} as any)
 const Lang10xProductiveRoute = Lang10xProductiveRouteImport.update({
   id: '/10x-productive',
   path: '/10x-productive',
@@ -137,6 +143,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$lang': typeof LangRouteRouteWithChildren
   '/$lang/10x-productive': typeof Lang10xProductiveRoute
+  '/$lang/10x-unstuck': typeof Lang10xUnstuckRoute
   '/$lang/about': typeof LangAboutRoute
   '/$lang/business-building-blocks': typeof LangBusinessBuildingBlocksRoute
   '/$lang/community': typeof LangCommunityRoute
@@ -158,6 +165,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$lang/10x-productive': typeof Lang10xProductiveRoute
+  '/$lang/10x-unstuck': typeof Lang10xUnstuckRoute
   '/$lang/about': typeof LangAboutRoute
   '/$lang/business-building-blocks': typeof LangBusinessBuildingBlocksRoute
   '/$lang/community': typeof LangCommunityRoute
@@ -181,6 +189,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/$lang': typeof LangRouteRouteWithChildren
   '/$lang/10x-productive': typeof Lang10xProductiveRoute
+  '/$lang/10x-unstuck': typeof Lang10xUnstuckRoute
   '/$lang/about': typeof LangAboutRoute
   '/$lang/business-building-blocks': typeof LangBusinessBuildingBlocksRoute
   '/$lang/community': typeof LangCommunityRoute
@@ -205,6 +214,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$lang'
     | '/$lang/10x-productive'
+    | '/$lang/10x-unstuck'
     | '/$lang/about'
     | '/$lang/business-building-blocks'
     | '/$lang/community'
@@ -226,6 +236,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/$lang/10x-productive'
+    | '/$lang/10x-unstuck'
     | '/$lang/about'
     | '/$lang/business-building-blocks'
     | '/$lang/community'
@@ -248,6 +259,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$lang'
     | '/$lang/10x-productive'
+    | '/$lang/10x-unstuck'
     | '/$lang/about'
     | '/$lang/business-building-blocks'
     | '/$lang/community'
@@ -379,6 +391,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LangAboutRouteImport
       parentRoute: typeof LangRouteRoute
     }
+    '/$lang/10x-unstuck': {
+      id: '/$lang/10x-unstuck'
+      path: '/10x-unstuck'
+      fullPath: '/$lang/10x-unstuck'
+      preLoaderRoute: typeof Lang10xUnstuckRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
     '/$lang/10x-productive': {
       id: '/$lang/10x-productive'
       path: '/10x-productive'
@@ -419,6 +438,7 @@ declare module '@tanstack/react-router' {
 
 interface LangRouteRouteChildren {
   Lang10xProductiveRoute: typeof Lang10xProductiveRoute
+  Lang10xUnstuckRoute: typeof Lang10xUnstuckRoute
   LangAboutRoute: typeof LangAboutRoute
   LangBusinessBuildingBlocksRoute: typeof LangBusinessBuildingBlocksRoute
   LangCommunityRoute: typeof LangCommunityRoute
@@ -440,6 +460,7 @@ interface LangRouteRouteChildren {
 
 const LangRouteRouteChildren: LangRouteRouteChildren = {
   Lang10xProductiveRoute: Lang10xProductiveRoute,
+  Lang10xUnstuckRoute: Lang10xUnstuckRoute,
   LangAboutRoute: LangAboutRoute,
   LangBusinessBuildingBlocksRoute: LangBusinessBuildingBlocksRoute,
   LangCommunityRoute: LangCommunityRoute,

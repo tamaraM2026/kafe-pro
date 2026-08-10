@@ -24,7 +24,7 @@ export function SiteHeader() {
 
   const programmes = [
     { to: "/business-building-blocks", label: t.common.programmesItems.bbb },
-    { to: "/10x-productive", label: t.common.programmesItems.tenx },
+    { to: "/10x-unstuck", label: t.common.programmesItems.tenx },
   ];
 
   useEffect(() => {
