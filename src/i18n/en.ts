@@ -17,7 +17,7 @@ export const en: Translations = {
     programmesLabel: "Programmes",
     programmesItems: {
       bbb: "Business Building Blocks",
-      tenx: "10x Productive",
+      tenx: "10x Unstuck",
       unveiled: "The Unveiled Experience",
       spanishConversation: "Spanish Conversation",
     },
@@ -71,7 +71,7 @@ export const en: Translations = {
     bbbTitle: "Business Building Blocks — Kafe con Propósito",
     bbbDescription:
       "A 2-month program that takes you from 'I have an idea' to 'I have a real, working business.' Live workshops, practical tools, real momentum.",
-    tenxTitle: "10x Productive — Kafe con Propósito",
+    tenxTitle: "10 Days, 10 Actions, 10x Unstuck — Kafe con Propósito",
     tenxDescription:
       "A free 10-day self-coaching guide with daily exercises, reflections, and actions to help you get unstuck.",
     unveiledTitle: "The Unveiled Experience — Kafe con Propósito",
@@ -640,7 +640,7 @@ export const en: Translations = {
   tenx: {
     label: "FREE GUIDE",
     heading: "10 days. 10 actions.",
-    headingEmphasis: "10 times more productive.",
+    headingEmphasis: "10x unstuck.",
     heroSub: "A 10-Day Guide to Getting Unstuck.",
     pullQuote: "Change takes time. But if you do a little every day, these small actions form new habits. Without even realising it, your life shifts.",
     daysLabel: "YOUR 10-DAY JOURNEY",
