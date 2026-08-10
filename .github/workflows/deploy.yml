@@ -97,7 +97,7 @@ jobs:
           pages = ["about","founder","memberships","community","contact",
                    "terms-and-privacy",
                    "contact-thank-you","guide-thank-you","rsvp-thank-you",
-                   "business-building-blocks","10x-productive","the-unveiled-experience",
+                   "business-building-blocks","10x-unstuck","10x-productive","the-unveiled-experience",
                    "spanish-conversation","events",
                    "events/building-without-a-map","events/confidence-and-boundaries",
                    "events/business-of-reinvention","events/ambition-and-rest",
