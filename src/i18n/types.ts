@@ -1,5 +1,6 @@
 export type Translations = {
   common: {
+  common: {
     siteName: string;
     nav: {
       home: string;
@@ -36,6 +37,7 @@ export type Translations = {
       navBlog: string;
       navMemberships: string;
       navCommunity: string;
+      navFreeGuide: string;
       termsAndPrivacy: string;
     };
   };
@@ -76,6 +78,9 @@ export type Translations = {
     painHeading: string;
     painSubheading: string;
     quotes: string[];
+    guideTeaserHeading: string;
+    guideTeaserBody: string;
+    guideTeaserCta: string;
     whatKafeLabel: string;
     whatKafeHeading: string;
     pillars: Array<{ icon: string; title: string; text: string }>;
