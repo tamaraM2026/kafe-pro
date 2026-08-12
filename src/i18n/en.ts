@@ -40,6 +40,7 @@ export const en: Translations = {
       navBlog: "Blog",
       navMemberships: "Memberships",
       navCommunity: "Community",
+      navFreeGuide: "Free Guide",
     },
   },
 
@@ -99,6 +100,10 @@ export const en: Translations = {
       "I’m not the same person I was a year ago — and I’m not sure yet who I’m becoming.",
       "I want to talk about real things — the doubts, the dreams, the hard choices. Not just the weather.",
     ],
+    guideTeaserHeading: "Not ready to join a community yet? Start smaller.",
+    guideTeaserBody:
+      "Get the 10x Unstuck guide. Ten days, ten small actions, no pressure to sign up for anything else. It’s free.",
+    guideTeaserCta: "Send me the guide →",
     whatKafeLabel: "WHAT KAFE IS",
     whatKafeHeading: "Not an event. A community.",
     pillars: [
