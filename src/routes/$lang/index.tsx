@@ -121,6 +121,20 @@ function HomePage() {
         </div>
       </section>
 
+      <section className="py-16">
+        <div className="mx-auto max-w-2xl px-6 text-center">
+          <Animate>
+            <div className="bg-white/50 backdrop-blur-sm rounded-3xl p-10 border border-white/30 shadow-sm">
+              <h3 className="font-display text-2xl md:text-3xl text-burgundy">{t.home.guideTeaserHeading}</h3>
+              <p className="mt-4 text-foreground/75 leading-relaxed">{t.home.guideTeaserBody}</p>
+              <Link to={"/$lang/10x-unstuck"} params={{ lang }} className="mt-6 inline-block px-7 py-3 rounded-full bg-gradient-to-r from-terracotta to-terracotta/80 text-terracotta-foreground hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-terracotta/20">
+                {t.home.guideTeaserCta}
+              </Link>
+            </div>
+          </Animate>
+        </div>
+      </section>
+
       <section className="py-28" id="what-kafe-is">
         <div className="mx-auto max-w-5xl px-6">
           <Animate>
