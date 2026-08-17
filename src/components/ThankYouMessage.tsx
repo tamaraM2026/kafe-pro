@@ -7,6 +7,8 @@ interface ThankYouMessageProps {
   body: string;
   downloadUrl?: string;
   downloadLabel?: string;
+  backLabel?: string;
+  homeLang?: string;
 }
 
 export function ThankYouMessage({
@@ -14,8 +16,11 @@ export function ThankYouMessage({
   body,
   downloadUrl,
   downloadLabel,
+  backLabel,
+  homeLang,
 }: ThankYouMessageProps) {
-  const lang = useLang();
+  const paramLang = useLang();
+  const lang = homeLang ?? paramLang;
 
   return (
     <section className="py-28 bg-cream">
@@ -40,7 +45,7 @@ export function ThankYouMessage({
             params={{ lang }}
             className="mt-8 block text-burgundy hover:text-terracotta transition-colors underline underline-offset-4"
           >
-            Back to the homepage
+            {backLabel ?? "Back to the homepage"}
           </Link>
         </Animate>
       </div>

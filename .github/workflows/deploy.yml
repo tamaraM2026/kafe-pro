@@ -125,6 +125,49 @@ jobs:
                    "blog/why-twenty-minutes-a-day-beats-the-overhaul-you-keep-waiting-for"]
           langs = ["en"]
 
+          def render_page(url, d, label):
+              os.makedirs(d, exist_ok=True)
+
+              result = subprocess.run(["curl","-sL",url], capture_output=True, text=True)
+              html = result.stdout
+
+              if not html or "<!DOCTYPE" not in html:
+                  print(f"SKIP: {label} (empty)")
+                  return
+
+              # Remove stylesheet, modulepreload, and preload links (all assets are inlined or local)
+              html = re.sub(r'<link[^>]*rel="stylesheet"[^>]*/?>','', html)
+              html = re.sub(r'<link[^>]*rel="modulepreload"[^>]*/?>','', html)
+              html = re.sub(r'<link[^>]*rel="preload"[^>]*/?>','', html)
+              # Remove module scripts
+              html = re.sub(r'<script[^>]*type="module"[^>]*>.*?</script>','', html, flags=re.DOTALL)
+              html = re.sub(r'<script[^>]*type="module"[^>]*/>','', html)
+              # Remove @vite scripts
+              html = re.sub(r'<script[^>]*@vite[^>]*>.*?</script>','', html, flags=re.DOTALL)
+              html = re.sub(r'<script[^>]*@react-refresh[^>]*>.*?</script>','', html, flags=re.DOTALL)
+              # Remove any remaining script tags (dev-only)
+              html = re.sub(r'<script\b[^>]*>.*?</script>','', html, flags=re.DOTALL)
+
+              # Inject inline CSS + favicon before </head>
+              favicon = f'<link rel="icon" href="{base}/favicon.ico"/>'
+              html = html.replace("</head>", favicon + style_tag + "</head>")
+
+              # Rewrite asset paths for base path
+              html = html.replace('href="/src/', f'href="{base}/src/')
+              html = html.replace('src="/src/', f'src="{base}/src/')
+              html = html.replace('href="/en', f'href="{base}/en')
+              html = html.replace('href="/cs', f'href="{base}/cs')
+              html = html.replace('href="/es', f'href="{base}/es')
+              html = html.replace('href="/#', f'href="{base}/en/#')
+
+              # Fix external URLs that got wrongly prefixed
+              html = html.replace(f'href="{base}/http', 'href="http')
+              html = html.replace(f'src="{base}/http', 'src="http')
+              html = html.replace(f'href="{base}//', 'href="//')
+
+              with open(f"{d}/index.html","w") as f: f.write(html)
+              print(f"OK: {label} ({len(html)} bytes)")
+
           for lang in langs:
               for page in ["/"] + pages:
                   if page == "/":
@@ -133,47 +176,10 @@ jobs:
                   else:
                       url = f"{dev}/{lang}/{page}"
                       d = f"_site/{lang}/{page}"
-                  os.makedirs(d, exist_ok=True)
+                  render_page(url, d, f"{lang}/{page}")
 
-                  result = subprocess.run(["curl","-sL",url], capture_output=True, text=True)
-                  html = result.stdout
-
-                  if not html or "<!DOCTYPE" not in html:
-                      print(f"SKIP: {lang}/{page} (empty)")
-                      continue
-
-                  # Remove stylesheet, modulepreload, and preload links (all assets are inlined or local)
-                  html = re.sub(r'<link[^>]*rel="stylesheet"[^>]*/?>','', html)
-                  html = re.sub(r'<link[^>]*rel="modulepreload"[^>]*/?>','', html)
-                  html = re.sub(r'<link[^>]*rel="preload"[^>]*/?>','', html)
-                  # Remove module scripts
-                  html = re.sub(r'<script[^>]*type="module"[^>]*>.*?</script>','', html, flags=re.DOTALL)
-                  html = re.sub(r'<script[^>]*type="module"[^>]*/>','', html)
-                  # Remove @vite scripts
-                  html = re.sub(r'<script[^>]*@vite[^>]*>.*?</script>','', html, flags=re.DOTALL)
-                  html = re.sub(r'<script[^>]*@react-refresh[^>]*>.*?</script>','', html, flags=re.DOTALL)
-                  # Remove any remaining script tags (dev-only)
-                  html = re.sub(r'<script\b[^>]*>.*?</script>','', html, flags=re.DOTALL)
-
-                  # Inject inline CSS + favicon before </head>
-                  favicon = f'<link rel="icon" href="{base}/favicon.ico"/>'
-                  html = html.replace("</head>", favicon + style_tag + "</head>")
-
-                  # Rewrite asset paths for base path
-                  html = html.replace('href="/src/', f'href="{base}/src/')
-                  html = html.replace('src="/src/', f'src="{base}/src/')
-                  html = html.replace('href="/en', f'href="{base}/en')
-                  html = html.replace('href="/cs', f'href="{base}/cs')
-                  html = html.replace('href="/es', f'href="{base}/es')
-                  html = html.replace('href="/#', f'href="{base}/en/#')
-
-                  # Fix external URLs that got wrongly prefixed
-                  html = html.replace(f'href="{base}/http', 'href="http')
-                  html = html.replace(f'src="{base}/http', 'src="http')
-                  html = html.replace(f'href="{base}//', 'href="//')
-
-                  with open(f"{d}/index.html","w") as f: f.write(html)
-                  print(f"OK: {lang}/{page} ({len(html)} bytes)")
+          # One-off Spanish translation of the guide thank-you page (not under the /$lang/ router)
+          render_page(f"{dev}/es/guide-thank-you", "_site/es/guide-thank-you", "es/guide-thank-you")
           PYEOF
 
           python3 /tmp/build.py
