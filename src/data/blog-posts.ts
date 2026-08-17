@@ -45,6 +45,7 @@ import cover36 from "@/assets/blog/with-a-little-imagination-it-s-amazing-what-y
 import cover37 from "@/assets/blog/your-value-as-a-person-is-not-determined-by-your-success/cover.jpg";
 import cover38 from "@/assets/blog/why-were-doing-kafe-differently-in-season-2/cover.jpg";
 import cover39 from "@/assets/blog/building-without-a-map/cover.png";
+import cover40 from "@/assets/blog/why-twenty-minutes-a-day-beats-the-overhaul-you-keep-waiting-for/cover.jpeg";
 
 export type BlogBlock =
   | { type: "paragraph"; text: string }
@@ -1683,6 +1684,8 @@ export const blogPosts: BlogPost[] = [
     author: "Tamara Medina Sapovalova",
     readTime: "4 min read",
     excerpt: "My free 10x Unstuck guide isn't a weekend of soul-searching. It's twenty minutes a day for ten days. Here's what it actually asks you to do, and why that's the part that works.",
+    cover: cover40,
+    coverAlt: "A cup of coffee and an open journal on a wooden table, with a short handwritten daily checklist and the first items already checked off",
     body: [
       { type: "quote", text: "“If today were the last day of your life, how would you live?” — Steve Jobs" },
       { type: "paragraph", text: "I hear a version of the same plan from almost every woman I coach, and I used to make it myself. Somewhere out there is a free weekend, a quieter month, a stretch after the kids go back to school, and that's when the real work starts. The full audit of the career. The honest look at the relationship. The plan for the business, written properly, start to finish, in one sitting." },
