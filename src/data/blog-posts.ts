@@ -45,6 +45,7 @@ import cover36 from "@/assets/blog/with-a-little-imagination-it-s-amazing-what-y
 import cover37 from "@/assets/blog/your-value-as-a-person-is-not-determined-by-your-success/cover.jpg";
 import cover38 from "@/assets/blog/why-were-doing-kafe-differently-in-season-2/cover.jpg";
 import cover39 from "@/assets/blog/building-without-a-map/cover.png";
+import cover40 from "@/assets/blog/why-twenty-minutes-a-day-beats-the-overhaul-you-keep-waiting-for/cover.jpeg";
 
 export type BlogBlock =
   | { type: "paragraph"; text: string }
@@ -1673,6 +1674,29 @@ export const blogPosts: BlogPost[] = [
       { type: "paragraph", text: "I'm stepping into a new chapter now, building something I never thought would be mine to build. No map for this one either, just the same thing that's carried me through every version before it: take the next visible step, even without seeing the one after it. More on that soon." },
       { type: "paragraph", text: "If you're in the middle of starting over right now (a career, a business, a country, a relationship) I won't pretend it gets less uncertain with practice. It doesn't, really. What changes is your relationship to the uncertainty. You stop needing to see the whole road before you're willing to take the first step. I wrote more about the decision-making in [How to Make the Right Decisions in Times of Uncertainty](blog:how-to-make-decisions-in-times-of-uncertainty). Or, if you'd rather build the change yourself than wait for life to force it on you, check [Design Your Future](blog:design-your-future-why-creating-change-beats-adapting-to-it)." },
       { type: "paragraph", text: "We're picking this exact conversation back up when [Kafe con Propósito relaunches on September 10th](events:building-without-a-map). Once a month, real conversations over really good coffee. If you're building without a map right now, in whatever form that takes for you, there's a seat for you at the table." },
+    ],
+  },
+  {
+    slug: "why-twenty-minutes-a-day-beats-the-overhaul-you-keep-waiting-for",
+    title: "Why Twenty Minutes a Day Beats the Overhaul You Keep Waiting For",
+    date: "2026-08-17",
+    dateLabel: "August 17, 2026",
+    author: "Tamara Medina Sapovalova",
+    readTime: "4 min read",
+    excerpt: "My free 10x Unstuck guide isn't a weekend of soul-searching. It's twenty minutes a day for ten days. Here's what it actually asks you to do, and why that's the part that works.",
+    cover: cover40,
+    coverAlt: "A cup of coffee and an open journal on a wooden table, with a short handwritten daily checklist and the first items already checked off",
+    body: [
+      { type: "quote", text: "“If today were the last day of your life, how would you live?” — Steve Jobs" },
+      { type: "paragraph", text: "I hear a version of the same plan from almost every woman I coach, and I used to make it myself. Somewhere out there is a free weekend, a quieter month, a stretch after the kids go back to school, and that's when the real work starts. The full audit of the career. The honest look at the relationship. The plan for the business, written properly, start to finish, in one sitting." },
+      { type: "paragraph", text: "That weekend never comes. Not because life gets busier than expected, it always does, but because a plan that size needs a version of you with nothing else going on, and that version of you doesn't exist. I've watched clients postpone the exact conversation that would have moved them forward for a year, two years, waiting for a clearing that was never going to open on its own." },
+      { type: "paragraph", text: "So when I sat down to build 10x Unstuck, I didn't build another weekend intensive. I built ten days. Twenty minutes each, one focused exercise, then you build on it tomorrow. Not because a shorter list is easier to sell, but because twenty minutes is a time you actually have, and a plan you actually have time for is the only kind that survives contact with a real week." },
+      { type: "paragraph", text: "The days themselves aren't complicated. Day one isn't a vision board, it's a single honest sentence: what does success mean to you, not the version you think you're supposed to want. Day two asks you to write out what you value in your life and what you value in your work as two separate lists, then notice where they don't match, because that mismatch is usually where the stuck feeling actually lives. By day three you're turning a vague hope into a goal with an actual date on it, which is the same method behind [the Goal Cycle](blog:master-goals-with-the-goal-cycle-aligning-vision-with-impactful-outcomes), and one reader in London told me it stopped her planning like someone driving without ever checking the map." },
+      { type: "paragraph", text: "Some days ask harder questions. Day four has you trace a belief back to where it actually came from, because most of what stops us was never tested, just inherited. Day seven is the one I wrote from my own life: the six months after I first moved to London, when I caught my own reflection in a train window and didn't recognize the tired, faraway look on my own face. Autopilot doesn't arrive all at once. It happens one unremarked day at a time, and you don't notice until you're the person you used to feel sorry for on the underground." },
+      { type: "paragraph", text: "By day nine you're looking at how you actually make decisions under pressure, which is where [how you make the right call under pressure](blog:how-to-make-the-right-decisions-a-guide-to-confident-and-strategic-thinking) comes in, and day one's work on quieting the voice that lists every reason something might fail connects straight back to [what actually builds real confidence](blog:silencing-doubt-to-drive-your-business-forward). None of it is separate. Ten days stacked on top of each other is the whole point." },
+      { type: "paragraph", text: "The guide will not hand you a finished plan by day ten. What it gives you is ten small, specific, slightly uncomfortable answers, written in your own words, on ten different days, including the days it would have been easier to skip it. That is a tiny, real track record of showing up for yourself, and that record is worth more than a plan you never started." },
+      { type: "paragraph", text: "If you've been circling for a while now, waiting for the week that finally has room in it, I'd rather you start today with twenty minutes than keep waiting for a version of your calendar that isn't coming. [The guide is free](https://kafeconproposito.com/en/10x-unstuck/), it's ten days, and you can open it right now. And if you get to day ten and want more than a workbook and your own notebook, our new season opens on September 10th with an evening built around exactly this, starting before you have the plan finished: [Building Without a Map](events:building-without-a-map)." },
+      { type: "paragraph", text: "*Tamara Medina*" },
     ],
   },
 ];
