@@ -13,6 +13,7 @@ import { Route as LangRouteRouteImport } from './routes/$lang/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LangIndexRouteImport } from './routes/$lang/index'
 import { Route as EsGuideThankYouRouteImport } from './routes/es/guide-thank-you'
+import { Route as Es10xUnstuckRouteImport } from './routes/es/10x-unstuck'
 import { Route as LangTheUnveiledExperienceRouteImport } from './routes/$lang/the-unveiled-experience'
 import { Route as LangTermsAndPrivacyRouteImport } from './routes/$lang/terms-and-privacy'
 import { Route as LangSpanishConversationRouteImport } from './routes/$lang/spanish-conversation'
@@ -50,6 +51,11 @@ const LangIndexRoute = LangIndexRouteImport.update({
 const EsGuideThankYouRoute = EsGuideThankYouRouteImport.update({
   id: '/es/guide-thank-you',
   path: '/es/guide-thank-you',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Es10xUnstuckRoute = Es10xUnstuckRouteImport.update({
+  id: '/es/10x-unstuck',
+  path: '/es/10x-unstuck',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LangTheUnveiledExperienceRoute =
@@ -162,6 +168,7 @@ export interface FileRoutesByFullPath {
   '/$lang/spanish-conversation': typeof LangSpanishConversationRoute
   '/$lang/terms-and-privacy': typeof LangTermsAndPrivacyRoute
   '/$lang/the-unveiled-experience': typeof LangTheUnveiledExperienceRoute
+  '/es/10x-unstuck': typeof Es10xUnstuckRoute
   '/es/guide-thank-you': typeof EsGuideThankYouRoute
   '/$lang/': typeof LangIndexRoute
   '/$lang/blog/$slug': typeof LangBlogSlugRoute
@@ -185,6 +192,7 @@ export interface FileRoutesByTo {
   '/$lang/spanish-conversation': typeof LangSpanishConversationRoute
   '/$lang/terms-and-privacy': typeof LangTermsAndPrivacyRoute
   '/$lang/the-unveiled-experience': typeof LangTheUnveiledExperienceRoute
+  '/es/10x-unstuck': typeof Es10xUnstuckRoute
   '/es/guide-thank-you': typeof EsGuideThankYouRoute
   '/$lang': typeof LangIndexRoute
   '/$lang/blog/$slug': typeof LangBlogSlugRoute
@@ -210,6 +218,7 @@ export interface FileRoutesById {
   '/$lang/spanish-conversation': typeof LangSpanishConversationRoute
   '/$lang/terms-and-privacy': typeof LangTermsAndPrivacyRoute
   '/$lang/the-unveiled-experience': typeof LangTheUnveiledExperienceRoute
+  '/es/10x-unstuck': typeof Es10xUnstuckRoute
   '/es/guide-thank-you': typeof EsGuideThankYouRoute
   '/$lang/': typeof LangIndexRoute
   '/$lang/blog/$slug': typeof LangBlogSlugRoute
@@ -236,6 +245,7 @@ export interface FileRouteTypes {
     | '/$lang/spanish-conversation'
     | '/$lang/terms-and-privacy'
     | '/$lang/the-unveiled-experience'
+    | '/es/10x-unstuck'
     | '/es/guide-thank-you'
     | '/$lang/'
     | '/$lang/blog/$slug'
@@ -259,6 +269,7 @@ export interface FileRouteTypes {
     | '/$lang/spanish-conversation'
     | '/$lang/terms-and-privacy'
     | '/$lang/the-unveiled-experience'
+    | '/es/10x-unstuck'
     | '/es/guide-thank-you'
     | '/$lang'
     | '/$lang/blog/$slug'
@@ -283,6 +294,7 @@ export interface FileRouteTypes {
     | '/$lang/spanish-conversation'
     | '/$lang/terms-and-privacy'
     | '/$lang/the-unveiled-experience'
+    | '/es/10x-unstuck'
     | '/es/guide-thank-you'
     | '/$lang/'
     | '/$lang/blog/$slug'
@@ -294,6 +306,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LangRouteRoute: typeof LangRouteRouteWithChildren
+  Es10xUnstuckRoute: typeof Es10xUnstuckRoute
   EsGuideThankYouRoute: typeof EsGuideThankYouRoute
 }
 
@@ -325,6 +338,13 @@ declare module '@tanstack/react-router' {
       path: '/es/guide-thank-you'
       fullPath: '/es/guide-thank-you'
       preLoaderRoute: typeof EsGuideThankYouRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/es/10x-unstuck': {
+      id: '/es/10x-unstuck'
+      path: '/es/10x-unstuck'
+      fullPath: '/es/10x-unstuck'
+      preLoaderRoute: typeof Es10xUnstuckRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/$lang/the-unveiled-experience': {
@@ -507,6 +527,7 @@ const LangRouteRouteWithChildren = LangRouteRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LangRouteRoute: LangRouteRouteWithChildren,
+  Es10xUnstuckRoute: Es10xUnstuckRoute,
   EsGuideThankYouRoute: EsGuideThankYouRoute,
 }
 export const routeTree = rootRouteImport

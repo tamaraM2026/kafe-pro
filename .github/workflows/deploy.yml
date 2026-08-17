@@ -178,7 +178,8 @@ jobs:
                       d = f"_site/{lang}/{page}"
                   render_page(url, d, f"{lang}/{page}")
 
-          # One-off Spanish translation of the guide thank-you page (not under the /$lang/ router)
+          # One-off Spanish translations of the 10x Unstuck funnel (not under the /$lang/ router)
+          render_page(f"{dev}/es/10x-unstuck", "_site/es/10x-unstuck", "es/10x-unstuck")
           render_page(f"{dev}/es/guide-thank-you", "_site/es/guide-thank-you", "es/guide-thank-you")
           PYEOF
 
