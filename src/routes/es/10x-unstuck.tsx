@@ -7,7 +7,7 @@ export const Route = createFileRoute("/es/10x-unstuck")({
   head: () => ({
     meta: [
       {
-        title: "10 Días, 10 Acciones, Desbloqueada 10x — Kafe con Propósito",
+        title: "10 Días, 10 Acciones, 10x Desbloqueada — Kafe con Propósito",
       },
       {
         name: "description",
@@ -16,7 +16,7 @@ export const Route = createFileRoute("/es/10x-unstuck")({
       },
       {
         property: "og:title",
-        content: "10 Días, 10 Acciones, Desbloqueada 10x — Kafe con Propósito",
+        content: "10 Días, 10 Acciones, 10x Desbloqueada — Kafe con Propósito",
       },
       {
         property: "og:description",
@@ -72,7 +72,7 @@ function TenxPageEs() {
               </span>
               <br />
               <span className="bg-gradient-to-r from-terracotta to-burgundy bg-clip-text text-transparent">
-                Desbloqueada 10x.
+                10x Desbloqueada.
               </span>
             </h1>
           </Animate>
