@@ -353,6 +353,7 @@ export const en: Translations = {
         title: "Building Without a Map",
         description: "Every reinvention starts the same way: no map, no guarantee, just the decision to take the next visible step. This season's opening gathering is about exactly that — starting a business, a new career chapter, or a life abroad with no playbook, and trusting yourself to write it as you go. Inspired by our founder Tamara's own story of rebuilding again and again — across countries, careers, and false starts — this isn't a polished panel. It's a room of women who get that uncertainty doesn't go away with experience; your relationship to it just changes.",
         ticket: "490 CZK · early-bird 390 CZK for the first 5 RSVPs",
+        speaker: "Kafe con Propósito founder Tamara shares her own story — Mexico, Los Angeles, Phoenix, San Diego, London, and Central Bohemia, and everything she rebuilt along the way. This edition's guest is our founder herself.",
       },
       {
         slug: "confidence-and-boundaries",

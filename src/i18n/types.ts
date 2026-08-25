@@ -208,6 +208,7 @@ export type Translations = {
       title: string;
       description: string;
       ticket: string;
+      speaker?: string;
     }>;
   };
 
