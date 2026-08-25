@@ -202,7 +202,7 @@ function EventDetail() {
               <div className="bg-white/50 backdrop-blur-sm rounded-3xl p-8 border border-white/30 h-full hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
                 <p className="font-display text-3xl text-terracotta/60">{String(i + 1).padStart(2, "0")}</p>
                 <h3 className="mt-3 font-display text-xl text-burgundy">{item.title}</h3>
-                <p className="mt-3 text-sm text-foreground/75 leading-relaxed">{i === 0 ? t.events.speakerPlaceholder : item.text}</p>
+                <p className="mt-3 text-sm text-foreground/75 leading-relaxed">{i === 0 ? (event.speaker ?? t.events.speakerPlaceholder) : item.text}</p>
               </div>
             </Animate>
           ))}
