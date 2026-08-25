@@ -351,8 +351,8 @@ export const en: Translations = {
         dateLabel: "Thursday, September 10, 2026 · 18:00–20:00",
         dateTag: "Sep 10, 2026",
         title: "Building Without a Map",
-        description: "Season launch — starting a business, a career chapter, or a life abroad with no playbook, and trusting yourself to write it as you go.",
-        ticket: "490 CZK · early-bird 390 CZK for the first 15 RSVPs",
+        description: "Season launch — starting a business, a career chapter, or a life abroad with no playbook, and trusting yourself to write it as you go. Real stories over real coffee, no pitching, no polish — just women who get that uncertainty doesn't go away with experience, only your relationship to it does.",
+        ticket: "490 CZK · early-bird 390 CZK for the first 5 RSVPs",
       },
       {
         slug: "confidence-and-boundaries",
