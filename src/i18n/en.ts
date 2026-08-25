@@ -351,7 +351,7 @@ export const en: Translations = {
         dateLabel: "Thursday, September 10, 2026 · 18:00–20:00",
         dateTag: "Sep 10, 2026",
         title: "Building Without a Map",
-        description: "Season launch — starting a business, a career chapter, or a life abroad with no playbook, and trusting yourself to write it as you go. Real stories over real coffee, no pitching, no polish — just women who get that uncertainty doesn't go away with experience, only your relationship to it does.",
+        description: "Every reinvention starts the same way: no map, no guarantee, just the decision to take the next visible step. This season's opening gathering is about exactly that — starting a business, a new career chapter, or a life abroad with no playbook, and trusting yourself to write it as you go. Inspired by our founder Tamara's own story of rebuilding again and again — across countries, careers, and false starts — this isn't a polished panel. It's a room of women who get that uncertainty doesn't go away with experience; your relationship to it just changes.",
         ticket: "490 CZK · early-bird 390 CZK for the first 5 RSVPs",
       },
       {
