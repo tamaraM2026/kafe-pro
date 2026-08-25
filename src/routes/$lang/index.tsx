@@ -83,7 +83,7 @@ function HomePage() {
             </Animate>
             <Animate delay={300}>
               <div className="mt-10 flex flex-wrap gap-4">
-                <Link to={"/$lang/contact"} params={{ lang }} className="px-7 py-4 rounded-full bg-gradient-to-r from-sage to-sage/80 text-sage-foreground hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-sage/20">
+                <Link to={"/$lang/events"} params={{ lang }} className="px-7 py-4 rounded-full bg-gradient-to-r from-sage to-sage/80 text-sage-foreground hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-sage/20">
                   {t.common.reserve}
                 </Link>
                 <Link to={"/$lang/memberships"} params={{ lang }} className="px-7 py-4 rounded-full bg-gradient-to-r from-terracotta to-terracotta/80 text-terracotta-foreground hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-terracotta/20">
@@ -306,7 +306,7 @@ function HomePage() {
           <Animate delay={100}>
             <p className="mt-6 text-lg text-foreground/75 whitespace-pre-line">{t.home.ctaSubheading}</p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <Link to={"/$lang/contact"} params={{ lang }} className="px-7 py-4 rounded-full bg-gradient-to-r from-sage to-sage/80 text-sage-foreground hover:scale-[1.02] active:scale-[0.98] transition-all">
+              <Link to={"/$lang/events"} params={{ lang }} className="px-7 py-4 rounded-full bg-gradient-to-r from-sage to-sage/80 text-sage-foreground hover:scale-[1.02] active:scale-[0.98] transition-all">
                 {t.common.reserve}
               </Link>
               <Link to={"/$lang/memberships"} params={{ lang }} className="px-7 py-4 rounded-full bg-gradient-to-r from-terracotta to-terracotta/80 text-terracotta-foreground hover:scale-[1.02] active:scale-[0.98] transition-all">
