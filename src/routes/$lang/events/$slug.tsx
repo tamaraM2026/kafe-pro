@@ -4,6 +4,7 @@ import { useTranslations, useLang } from "@/hooks/use-translations";
 import { getTranslations } from "@/i18n";
 import type { Translations } from "@/i18n/types";
 import { WEB3FORMS_ACCESS_KEY } from "@/lib/web3forms";
+import paymentQr from "@/assets/payment/payment-qr.jpg";
 
 type EventItem = Translations["events"]["list"][number];
 
@@ -223,6 +224,17 @@ function EventDetail() {
                   <p className="text-foreground/85 sm:col-span-2">{row.value}</p>
                 </div>
               ))}
+              <div className="grid sm:grid-cols-3 gap-4 p-6 items-center">
+                <p className="text-sm tracking-[0.15em] text-terracotta sm:col-span-1">PAY BY QR</p>
+                <div className="sm:col-span-2 flex flex-col items-start gap-2">
+                  <img
+                    src={paymentQr}
+                    alt="Scan to pay for this event"
+                    className="w-40 h-40 rounded-xl border border-white/40 bg-white p-2"
+                  />
+                  <p className="text-sm text-foreground/60">Scan to pay by QR code</p>
+                </div>
+              </div>
             </div>
           </Animate>
         </div>
