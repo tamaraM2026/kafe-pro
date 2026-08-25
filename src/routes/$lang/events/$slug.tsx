@@ -233,6 +233,7 @@ function EventDetail() {
                     className="w-40 h-40 rounded-xl border border-white/40 bg-white p-2"
                   />
                   <p className="text-sm text-foreground/60">Scan to pay by QR code</p>
+                  <p className="text-sm text-foreground/60">Once you've finalized payment, send your RSVP.</p>
                 </div>
               </div>
             </div>
