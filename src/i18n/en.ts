@@ -142,7 +142,7 @@ export const en: Translations = {
     tiers: [
       {
         name: "The Espresso Shot",
-        price: "450 CZK",
+        price: "490 CZK",
         per: "per session",
         tagline: "Pay as you go",
         desc: "Try a gathering before you commit. The perfect entry point for first-timers.",
@@ -210,7 +210,7 @@ export const en: Translations = {
       },
       {
         q: "How much does it cost?",
-        a: "Regular sessions start at 450 CZK. Memberships (with member discounts, directory access, and more) start at 850 CZK/month.",
+        a: "Regular sessions start at 490 CZK. Memberships (with member discounts, directory access, and more) start at 850 CZK/month.",
       },
       {
         q: "Where do you meet?",
@@ -438,7 +438,7 @@ export const en: Translations = {
       {
         name: "The Espresso Shot",
         tag: "Pay as you go",
-        price: "450 CZK",
+        price: "490 CZK",
         per: "per session",
         desc: "Try a gathering before you commit. The perfect entry point for first-timers.",
         perks: [
