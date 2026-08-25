@@ -252,7 +252,7 @@ function EventDetail() {
           </Animate>
           <Animate delay={200}>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <Link to={"/$lang/events"} params={{ lang }} className="px-7 py-4 rounded-full border border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10 transition-all">
+              <Link to={"/$lang/events"} params={{ lang }} className="px-7 py-4 rounded-full border border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10 transition-all whitespace-nowrap">
                 {t.events.ctaBand.seeOtherDates}
               </Link>
             </div>
