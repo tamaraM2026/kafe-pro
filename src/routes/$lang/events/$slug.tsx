@@ -151,7 +151,7 @@ function EventDetail() {
     { label: "Date", value: event.dateLabel.split(" · ")[0] },
     { label: "Time", value: event.dateLabel.split(" · ")[1] ?? "" },
     { label: "Language", value: "English" },
-    { label: "Where", value: t.events.venuePlaceholder },
+    { label: "Where", value: event.venue ?? t.events.venuePlaceholder },
     { label: "Ticket", value: event.ticket },
     { label: "Dinner", value: "Optional add-on, priced at cost" },
   ];
