@@ -354,6 +354,7 @@ export const en: Translations = {
         description: "Every reinvention starts the same way: no map, no guarantee, just the decision to take the next visible step. This season's opening gathering is about exactly that — starting a business, a new career chapter, or a life abroad with no playbook, and trusting yourself to write it as you go. Inspired by our founder Tamara's own story of rebuilding again and again — across countries, careers, and false starts — this isn't a polished panel. It's a room of women who get that uncertainty doesn't go away with experience; your relationship to it just changes.",
         ticket: "490 CZK · early-bird 390 CZK for the first 5 RSVPs",
         speaker: "Kafe con Propósito founder Tamara shares her own story — Mexico, Los Angeles, Phoenix, San Diego, London, and Central Bohemia, and everything she rebuilt along the way. This edition's guest is our founder herself.",
+        venue: "Amáres Coffee — Pražírna kávy, Poděbrady 1",
       },
       {
         slug: "confidence-and-boundaries",
@@ -362,6 +363,7 @@ export const en: Translations = {
         title: "Confidence & Boundaries",
         description: "Saying no without guilt, negotiating what you’re worth, protecting your time as a professional asset.",
         ticket: "490 CZK",
+        venue: "Amáres Coffee — Pražírna kávy, Poděbrady 1",
       },
       {
         slug: "business-of-reinvention",
@@ -370,6 +372,7 @@ export const en: Translations = {
         title: "The Business of Reinvention",
         description: "Career pivots and rebuilding a professional identity — for women changing paths, countries, or both.",
         ticket: "490 CZK",
+        venue: "Amáres Coffee — Pražírna kávy, Poděbrady 1",
       },
       {
         slug: "ambition-and-rest",
@@ -378,6 +381,7 @@ export const en: Translations = {
         title: "Ambition & Rest",
         description: "Closing the year: redefining ambition as sustainable, and giving ourselves permission to slow down.",
         ticket: "490 CZK",
+        venue: "Amáres Coffee — Pražírna kávy, Poděbrady 1",
       },
       {
         slug: "owning-your-next-chapter",
