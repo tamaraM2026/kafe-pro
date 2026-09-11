@@ -94,7 +94,7 @@ jobs:
 
           style_tag = f"<style>{fonts_css}\n{app_css}</style>"
 
-          pages = ["about","founder","memberships","community","contact",
+          pages = ["about","founder","community","contact",
                    "terms-and-privacy",
                    "contact-thank-you","guide-thank-you","rsvp-thank-you",
                    "business-building-blocks","10x-unstuck","10x-productive","the-unveiled-experience",
