@@ -355,7 +355,7 @@ export const en: Translations = {
         discussionSummary: "Saying no without guilt, negotiating what you're worth, and protecting your time like the professional asset it actually is — with this month's guest, Veronika Kořínková.",
         ticket: "490 CZK",
         speaker: "Veronika Kořínková, a lawyer and founder of Na vaší straně (\"On Your Side\"), working between Prague, Nymburk, and Poděbrady.",
-        venue: "Amáres Coffee, Poděbrady",
+        venue: "Amáres Coffee — Pražírna kávy, Husova 24/11, 290 01 Poděbrady",
       },
       {
         slug: "motherhood-and-ambition",
@@ -364,7 +364,7 @@ export const en: Translations = {
         title: "Motherhood & Ambition",
         description: "On redefining what \"having it all\" actually means, and the real tension between building something of your own and showing up fully for the people who need you.",
         ticket: "490 CZK",
-        venue: "Amáres Coffee — Pražírna kávy, Poděbrady 1",
+        venue: "Amáres Coffee — Pražírna kávy, Husova 24/11, 290 01 Poděbrady",
       },
       {
         slug: "owning-your-next-chapter",
