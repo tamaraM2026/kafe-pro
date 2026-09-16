@@ -207,6 +207,7 @@ export type Translations = {
       dateTag: string;
       title: string;
       description: string;
+      discussionSummary?: string;
       ticket: string;
       speaker?: string;
       venue?: string;

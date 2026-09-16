@@ -143,7 +143,7 @@ function EventDetail() {
   const rhythmItems = [
     t.events.rhythm.oneCup,
     t.events.rhythm.networking,
-    { title: `${t.events.rhythm.discussion.title.startsWith("A discussion") ? "Discussion" : t.events.rhythm.discussion.title}: ${event.title}`, text: event.description },
+    { title: `${t.events.rhythm.discussion.title.startsWith("A discussion") ? "Discussion" : t.events.rhythm.discussion.title}: ${event.title}`, text: event.discussionSummary ?? event.description },
     t.events.rhythm.dinner,
   ];
 
