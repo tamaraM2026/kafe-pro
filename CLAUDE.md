@@ -352,6 +352,21 @@ Add to the `nav` array in `src/components/SiteHeader.tsx`:
 5. Test in browser at `http://localhost:8080`
 6. Commit with message: `fix: description of what was fixed`
 
+### Recipe 6: Add a Spanish Blog Post
+
+The Spanish blog (`/es/blog/`) is separate from the English blog and is the
+only Spanish part of the site besides the 10x Unstuck funnel. Its routes live in
+`src/routes/es/blog/` (outside `$lang/` on purpose), its text in
+`src/i18n/es-blog.ts`, and its posts are Markdown files:
+
+1. Copy `src/content/blog-es/_plantilla/` to `src/content/blog-es/<spanish-slug>/`
+   (lowercase, hyphens, no accents). The folder name is the URL.
+2. Fill in the front matter (`title`, `date`, `description`, optional `cover`,
+   `coverAlt`, `tags`, and 3–4 `preguntas`) and write the body in Markdown.
+3. Put the optional cover image in the same folder.
+4. No other file needs changing: the list page, RSS feed (`/es/feed.xml`),
+   sitemap and GitHub Pages build all pick up new folders automatically.
+
 ---
 
 ## PII & Sensitive Data Protection

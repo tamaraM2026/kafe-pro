@@ -13,6 +13,7 @@ import { Route as LangRouteRouteImport } from './routes/$lang/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LangIndexRouteImport } from './routes/$lang/index'
 import { Route as EsGuideThankYouRouteImport } from './routes/es/guide-thank-you'
+import { Route as EsFeedDotxmlRouteImport } from './routes/es/feed[.]xml'
 import { Route as Es10xUnstuckRouteImport } from './routes/es/10x-unstuck'
 import { Route as LangTheUnveiledExperienceRouteImport } from './routes/$lang/the-unveiled-experience'
 import { Route as LangTermsAndPrivacyRouteImport } from './routes/$lang/terms-and-privacy'
@@ -27,8 +28,10 @@ import { Route as LangBusinessBuildingBlocksRouteImport } from './routes/$lang/b
 import { Route as LangAboutRouteImport } from './routes/$lang/about'
 import { Route as Lang10xUnstuckRouteImport } from './routes/$lang/10x-unstuck'
 import { Route as Lang10xProductiveRouteImport } from './routes/$lang/10x-productive'
+import { Route as EsBlogIndexRouteImport } from './routes/es/blog/index'
 import { Route as LangEventsIndexRouteImport } from './routes/$lang/events/index'
 import { Route as LangBlogIndexRouteImport } from './routes/$lang/blog/index'
+import { Route as EsBlogSlugRouteImport } from './routes/es/blog/$slug'
 import { Route as LangEventsSlugRouteImport } from './routes/$lang/events/$slug'
 import { Route as LangBlogSlugRouteImport } from './routes/$lang/blog/$slug'
 
@@ -50,6 +53,11 @@ const LangIndexRoute = LangIndexRouteImport.update({
 const EsGuideThankYouRoute = EsGuideThankYouRouteImport.update({
   id: '/es/guide-thank-you',
   path: '/es/guide-thank-you',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EsFeedDotxmlRoute = EsFeedDotxmlRouteImport.update({
+  id: '/es/feed.xml',
+  path: '/es/feed.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const Es10xUnstuckRoute = Es10xUnstuckRouteImport.update({
@@ -124,6 +132,11 @@ const Lang10xProductiveRoute = Lang10xProductiveRouteImport.update({
   path: '/10x-productive',
   getParentRoute: () => LangRouteRoute,
 } as any)
+const EsBlogIndexRoute = EsBlogIndexRouteImport.update({
+  id: '/es/blog/',
+  path: '/es/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LangEventsIndexRoute = LangEventsIndexRouteImport.update({
   id: '/events/',
   path: '/events/',
@@ -133,6 +146,11 @@ const LangBlogIndexRoute = LangBlogIndexRouteImport.update({
   id: '/blog/',
   path: '/blog/',
   getParentRoute: () => LangRouteRoute,
+} as any)
+const EsBlogSlugRoute = EsBlogSlugRouteImport.update({
+  id: '/es/blog/$slug',
+  path: '/es/blog/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const LangEventsSlugRoute = LangEventsSlugRouteImport.update({
   id: '/events/$slug',
@@ -162,12 +180,15 @@ export interface FileRoutesByFullPath {
   '/$lang/terms-and-privacy': typeof LangTermsAndPrivacyRoute
   '/$lang/the-unveiled-experience': typeof LangTheUnveiledExperienceRoute
   '/es/10x-unstuck': typeof Es10xUnstuckRoute
+  '/es/feed.xml': typeof EsFeedDotxmlRoute
   '/es/guide-thank-you': typeof EsGuideThankYouRoute
   '/$lang/': typeof LangIndexRoute
   '/$lang/blog/$slug': typeof LangBlogSlugRoute
   '/$lang/events/$slug': typeof LangEventsSlugRoute
+  '/es/blog/$slug': typeof EsBlogSlugRoute
   '/$lang/blog/': typeof LangBlogIndexRoute
   '/$lang/events/': typeof LangEventsIndexRoute
+  '/es/blog/': typeof EsBlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -185,12 +206,15 @@ export interface FileRoutesByTo {
   '/$lang/terms-and-privacy': typeof LangTermsAndPrivacyRoute
   '/$lang/the-unveiled-experience': typeof LangTheUnveiledExperienceRoute
   '/es/10x-unstuck': typeof Es10xUnstuckRoute
+  '/es/feed.xml': typeof EsFeedDotxmlRoute
   '/es/guide-thank-you': typeof EsGuideThankYouRoute
   '/$lang': typeof LangIndexRoute
   '/$lang/blog/$slug': typeof LangBlogSlugRoute
   '/$lang/events/$slug': typeof LangEventsSlugRoute
+  '/es/blog/$slug': typeof EsBlogSlugRoute
   '/$lang/blog': typeof LangBlogIndexRoute
   '/$lang/events': typeof LangEventsIndexRoute
+  '/es/blog': typeof EsBlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -210,12 +234,15 @@ export interface FileRoutesById {
   '/$lang/terms-and-privacy': typeof LangTermsAndPrivacyRoute
   '/$lang/the-unveiled-experience': typeof LangTheUnveiledExperienceRoute
   '/es/10x-unstuck': typeof Es10xUnstuckRoute
+  '/es/feed.xml': typeof EsFeedDotxmlRoute
   '/es/guide-thank-you': typeof EsGuideThankYouRoute
   '/$lang/': typeof LangIndexRoute
   '/$lang/blog/$slug': typeof LangBlogSlugRoute
   '/$lang/events/$slug': typeof LangEventsSlugRoute
+  '/es/blog/$slug': typeof EsBlogSlugRoute
   '/$lang/blog/': typeof LangBlogIndexRoute
   '/$lang/events/': typeof LangEventsIndexRoute
+  '/es/blog/': typeof EsBlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -236,12 +263,15 @@ export interface FileRouteTypes {
     | '/$lang/terms-and-privacy'
     | '/$lang/the-unveiled-experience'
     | '/es/10x-unstuck'
+    | '/es/feed.xml'
     | '/es/guide-thank-you'
     | '/$lang/'
     | '/$lang/blog/$slug'
     | '/$lang/events/$slug'
+    | '/es/blog/$slug'
     | '/$lang/blog/'
     | '/$lang/events/'
+    | '/es/blog/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -259,12 +289,15 @@ export interface FileRouteTypes {
     | '/$lang/terms-and-privacy'
     | '/$lang/the-unveiled-experience'
     | '/es/10x-unstuck'
+    | '/es/feed.xml'
     | '/es/guide-thank-you'
     | '/$lang'
     | '/$lang/blog/$slug'
     | '/$lang/events/$slug'
+    | '/es/blog/$slug'
     | '/$lang/blog'
     | '/$lang/events'
+    | '/es/blog'
   id:
     | '__root__'
     | '/'
@@ -283,19 +316,25 @@ export interface FileRouteTypes {
     | '/$lang/terms-and-privacy'
     | '/$lang/the-unveiled-experience'
     | '/es/10x-unstuck'
+    | '/es/feed.xml'
     | '/es/guide-thank-you'
     | '/$lang/'
     | '/$lang/blog/$slug'
     | '/$lang/events/$slug'
+    | '/es/blog/$slug'
     | '/$lang/blog/'
     | '/$lang/events/'
+    | '/es/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LangRouteRoute: typeof LangRouteRouteWithChildren
   Es10xUnstuckRoute: typeof Es10xUnstuckRoute
+  EsFeedDotxmlRoute: typeof EsFeedDotxmlRoute
   EsGuideThankYouRoute: typeof EsGuideThankYouRoute
+  EsBlogSlugRoute: typeof EsBlogSlugRoute
+  EsBlogIndexRoute: typeof EsBlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -326,6 +365,13 @@ declare module '@tanstack/react-router' {
       path: '/es/guide-thank-you'
       fullPath: '/es/guide-thank-you'
       preLoaderRoute: typeof EsGuideThankYouRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/es/feed.xml': {
+      id: '/es/feed.xml'
+      path: '/es/feed.xml'
+      fullPath: '/es/feed.xml'
+      preLoaderRoute: typeof EsFeedDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/es/10x-unstuck': {
@@ -426,6 +472,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Lang10xProductiveRouteImport
       parentRoute: typeof LangRouteRoute
     }
+    '/es/blog/': {
+      id: '/es/blog/'
+      path: '/es/blog'
+      fullPath: '/es/blog/'
+      preLoaderRoute: typeof EsBlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/$lang/events/': {
       id: '/$lang/events/'
       path: '/events'
@@ -439,6 +492,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/$lang/blog/'
       preLoaderRoute: typeof LangBlogIndexRouteImport
       parentRoute: typeof LangRouteRoute
+    }
+    '/es/blog/$slug': {
+      id: '/es/blog/$slug'
+      path: '/es/blog/$slug'
+      fullPath: '/es/blog/$slug'
+      preLoaderRoute: typeof EsBlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/$lang/events/$slug': {
       id: '/$lang/events/$slug'
@@ -507,7 +567,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LangRouteRoute: LangRouteRouteWithChildren,
   Es10xUnstuckRoute: Es10xUnstuckRoute,
+  EsFeedDotxmlRoute: EsFeedDotxmlRoute,
   EsGuideThankYouRoute: EsGuideThankYouRoute,
+  EsBlogSlugRoute: EsBlogSlugRoute,
+  EsBlogIndexRoute: EsBlogIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
