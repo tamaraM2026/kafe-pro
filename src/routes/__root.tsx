@@ -5,6 +5,7 @@ import {
   useRouter,
   Link,
   HeadContent,
+  useLocation,
   Scripts,
 } from "@tanstack/react-router";
 import appCss from "../styles.css?url";
@@ -65,8 +66,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: React.ReactNode }) {
+  // Only the Spanish blog is in Spanish; every other page stays English.
+  const { pathname } = useLocation();
+  const htmlLang = pathname === "/es/blog" || pathname.startsWith("/es/blog/") ? "es" : "en";
   return (
-    <html lang="en">
+    <html lang={htmlLang}>
       <head><HeadContent /></head>
       <body>{children}<Scripts /></body>
     </html>

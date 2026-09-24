@@ -76,9 +76,18 @@ jobs:
                 cp "$f" "_site/src/assets/$rel"
               done
 
+          # Spanish blog cover images live next to each post in src/content/blog-es/<slug>/
+          find src/content -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" -o -iname "*.gif" \) -print0 \
+            | while IFS= read -r -d '' f; do
+                rel="${f#src/content/}"
+                mkdir -p "_site/src/content/$(dirname "$rel")"
+                cp "$f" "_site/src/content/$rel"
+              done
+
           # 4) Write the Python build script (avoids shell escaping issues)
           cat > /tmp/build.py << 'PYEOF'
-          import subprocess, os, re
+          import subprocess, os, re, glob
+          from xml.sax.saxutils import escape
 
           base = os.environ["BASE_PATH"]
           dev = os.environ["DEV_URL"]
@@ -182,6 +191,35 @@ jobs:
           # One-off Spanish translations of the 10x Unstuck funnel (not under the /$lang/ router)
           render_page(f"{dev}/es/10x-unstuck", "_site/es/10x-unstuck", "es/10x-unstuck")
           render_page(f"{dev}/es/guide-thank-you", "_site/es/guide-thank-you", "es/guide-thank-you")
+
+          # Spanish blog (only the blog is in Spanish). Every folder in
+          # src/content/blog-es/ is a post, except ones starting with "_" (the template).
+          es_slugs = sorted(
+              os.path.basename(os.path.dirname(p))
+              for p in glob.glob("src/content/blog-es/*/post.md")
+              if not os.path.basename(os.path.dirname(p)).startswith("_")
+          )
+          es_pages = ["es/blog"] + [f"es/blog/{slug}" for slug in es_slugs]
+          for page in es_pages:
+              render_page(f"{dev}/{page}", f"_site/{page}", page)
+
+          # Spanish RSS feed
+          feed = subprocess.run(["curl","-sfL",f"{dev}/es/feed.xml"], capture_output=True, text=True).stdout
+          if "<rss" not in feed:
+              raise SystemExit("ERROR: /es/feed.xml did not render")
+          with open("_site/es/feed.xml","w") as f: f.write(feed)
+          print(f"OK: es/feed.xml ({len(feed)} bytes)")
+
+          # Sitemap with every published page (English site + Spanish blog)
+          site = "https://kafeconproposito.com"
+          sitemap_paths = ([f"/{l}/" for l in langs]
+                           + [f"/{l}/{page}/" for l in langs for page in pages]
+                           + [f"/{page}/" for page in ["es/10x-unstuck"] + es_pages])
+          sitemap_paths = [p for p in sitemap_paths if "thank-you" not in p]
+          urls = "\n".join(f"  <url><loc>{escape(site + p)}</loc></url>" for p in sitemap_paths)
+          with open("_site/sitemap.xml","w") as f:
+              f.write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}\n</urlset>\n')
+          print(f"OK: sitemap.xml ({len(sitemap_paths)} URLs)")
           PYEOF
 
           python3 /tmp/build.py

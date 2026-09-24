@@ -9,6 +9,7 @@ export const en: Translations = {
       founder: "Founder",
       events: "Events",
       blog: "Blog",
+      blogEs: "Blog en español",
       memberships: "Memberships",
       community: "Community",
       cesky: "Česky",
