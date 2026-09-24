@@ -8,7 +8,7 @@ export const esBlog = {
   label: "EL BLOG",
   heading: "Historias, reflexiones y conversaciones con propósito",
   intro:
-    "Reflexiones sobre la conexión, las decisiones y construir algo que importa — de Tamara y la comunidad de Kafe con Propósito.",
+    "Reflexiones sobre la conexión, las decisiones y construir algo que importa, de Tamara y la comunidad de Kafe con Propósito.",
   empty: "Muy pronto publicaremos nuestra primera entrada en español.",
   readMoreCta: "Leer más →",
   backToBlog: "← Volver al blog",
