@@ -23,7 +23,7 @@ Esa idea tiene un costo, y lo he visto en mi propia vida y en la de muchas amiga
 
 Yo lo entendí gracias a unos diarios que escribí cuando tenía 18 años. Al leerlos, años después, me hice preguntas que no esperaba: ¿a dónde se fue esta joven llena de pasión por la vida? ¿Qué pasó con todos estos sueños? ¿A dónde se fue ese deseo de aventura?
 
-[AQUÍ VA TU EJEMPLO: ¿qué había en esos diarios que ya no estaba en tu vida? Un sueño, un viaje, una afición, una forma de ser. Una o dos frases concretas.]
+En esas páginas estaban mis viajes, mis pensamientos, mis ideas, mis amores y mis sueños de todo lo que quería para mi vida. Y mucho de eso ya no formaba parte de ella.
 
 Esas preguntas me llevaron de regreso. Pude ver cómo era antes de mi matrimonio y cómo, poco a poco, me fui convirtiendo en otra persona, en alguien que ya no reconocía. Me di cuenta de que durante mi matrimonio perdí una parte muy importante de quien era yo. Nadie me la quitó de golpe. La fui soltando un pedazo a la vez, convencida de que eso era amar.
 
