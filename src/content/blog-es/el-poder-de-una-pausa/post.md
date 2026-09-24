@@ -1,6 +1,6 @@
 ---
 title: "El poder de una pausa: por qué las conversaciones lentas importan"
-date: 2026-09-24
+date: 2026-09-01
 description: "Vivimos con prisa, incluso cuando hablamos. Una reflexión sobre lo que pasa cuando nos sentamos con un café y escuchamos de verdad."
 cover: cover.jpg
 coverAlt: "Mujeres conversando alrededor de una mesa con café"
