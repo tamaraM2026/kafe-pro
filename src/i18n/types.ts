@@ -8,6 +8,7 @@ export type Translations = {
       founder: string;
       events: string;
       blog: string;
+      blogEs: string;
       memberships: string;
       community: string;
       cesky: string;

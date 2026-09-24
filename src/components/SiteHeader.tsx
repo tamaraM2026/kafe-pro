@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
 import logo from "@/assets/logo.png";
-import { getTranslations } from "@/i18n";
+import { getTranslations, isValidLang } from "@/i18n";
 
 const MOBILE_NAV_ID = "mobile-nav-toggle";
 
@@ -9,7 +9,10 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const mobileToggleRef = useRef<HTMLInputElement>(null);
   const location = useLocation();
-  const lang = location.pathname.split("/")[1] || "en";
+  // Pages outside /$lang/ (the Spanish blog, /es/10x-unstuck) keep the
+  // English menu and link to the English pages.
+  const firstSegment = location.pathname.split("/")[1];
+  const lang = isValidLang(firstSegment) ? firstSegment : "en";
   const t = getTranslations(lang);
 
   const nav = [
@@ -18,6 +21,7 @@ export function SiteHeader() {
     { to: "/events", label: t.common.nav.events, anchor: undefined as string | undefined },
     { to: "/community", label: t.common.nav.community, anchor: undefined as string | undefined },
     { to: "/blog", label: t.common.nav.blog, anchor: undefined as string | undefined },
+    { to: "/es/blog", label: t.common.nav.blogEs, anchor: undefined as string | undefined, absolute: true },
     { to: "/contact", label: t.common.nav.contact, anchor: undefined as string | undefined },
   ];
 
@@ -39,7 +43,8 @@ export function SiteHeader() {
     if (mobileToggleRef.current) mobileToggleRef.current.checked = false;
   }, [location.pathname]);
 
-  function langPath(to: string) {
+  function langPath(to: string, absolute?: boolean) {
+    if (absolute) return to;
     return `/${lang}${to === "/" ? "/" : to}`;
   }
 
@@ -74,18 +79,18 @@ export function SiteHeader() {
                 <a
                   key={n.label}
                   href={`/${lang}/${n.anchor}`}
-                  className="relative px-4 py-2 rounded-full text-sm text-foreground/80 hover:text-burgundy transition-colors after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-0.5 after:w-0 after:bg-burgundy after:transition-all after:duration-300 hover:after:w-1/2"
+                  className="relative px-2 xl:px-4 py-2 rounded-full text-sm text-foreground/80 hover:text-burgundy transition-colors after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-0.5 after:w-0 after:bg-burgundy after:transition-all after:duration-300 hover:after:w-1/2"
                 >
                   {n.label}
                 </a>
               ) : (
                 <Link
                   key={n.label}
-                  to={langPath(n.to)}
-                  className="relative px-4 py-2 rounded-full text-sm text-foreground/80 hover:text-burgundy transition-colors after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-0.5 after:w-0 after:bg-burgundy after:transition-all after:duration-300 hover:after:w-1/2"
+                  to={langPath(n.to, n.absolute)}
+                  className="relative px-2 xl:px-4 py-2 rounded-full text-sm text-foreground/80 hover:text-burgundy transition-colors after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-0.5 after:w-0 after:bg-burgundy after:transition-all after:duration-300 hover:after:w-1/2"
                   activeProps={{
                     className:
-                      "relative px-4 py-2 rounded-full text-sm text-burgundy after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-0.5 after:w-1/2 after:bg-burgundy",
+                      "relative px-2 xl:px-4 py-2 rounded-full text-sm text-burgundy after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-0.5 after:w-1/2 after:bg-burgundy",
                   }}
                 >
                   {n.label}
@@ -95,7 +100,7 @@ export function SiteHeader() {
             <div className="relative group">
               <button
                 type="button"
-                className="px-4 py-2 rounded-full text-sm text-foreground/80 hover:text-burgundy transition-colors"
+                className="px-2 xl:px-4 py-2 rounded-full text-sm text-foreground/80 hover:text-burgundy transition-colors"
               >
                 {t.common.programmesLabel} ▾
               </button>
@@ -171,7 +176,7 @@ export function SiteHeader() {
           ) : (
             <Link
               key={n.label}
-              to={langPath(n.to)}
+              to={langPath(n.to, n.absolute)}
               className="px-4 py-3 rounded-xl text-foreground/80 hover:text-burgundy hover:bg-cream/50 transition-colors"
               activeProps={{ className: "px-4 py-3 rounded-xl text-burgundy bg-cream/50" }}
             >
