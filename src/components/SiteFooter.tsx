@@ -1,6 +1,6 @@
 import logo from "@/assets/logo.png";
 import { useLocation } from "@tanstack/react-router";
-import { getTranslations } from "@/i18n";
+import { getTranslations, isValidLang } from "@/i18n";
 
 const socialLinks = [
   {
@@ -38,7 +38,9 @@ const socialLinks = [
 
 export function SiteFooter() {
   const location = useLocation();
-  const lang = location.pathname.split("/")[1] || "en";
+  // Pages outside /$lang/ (the Spanish blog, /es/10x-unstuck) link to the English pages.
+  const firstSegment = location.pathname.split("/")[1];
+  const lang = isValidLang(firstSegment) ? firstSegment : "en";
   const t = getTranslations(lang);
 
   return (
