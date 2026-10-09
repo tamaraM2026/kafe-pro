@@ -26,7 +26,7 @@ function EventsCalendar() {
   const lang = useLang();
   const upcomingEvents = t.events.list.filter((event) => !event.archived);
   const firstEvent = upcomingEvents[0];
-  const rhythmItems = [t.events.rhythm.oneCup, t.events.rhythm.networking, t.events.rhythm.discussion, t.events.rhythm.dinner];
+  const rhythmItems = [t.events.rhythm.oneCup, t.events.rhythm.discussion, t.events.rhythm.dinner];
 
   return (
     <>
@@ -71,7 +71,7 @@ function EventsCalendar() {
             <p className="mt-6 text-lg text-foreground/75 leading-relaxed">{t.events.whatsNew.intro}</p>
           </Animate>
         </div>
-        <div className="mt-14 mx-auto max-w-6xl px-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="mt-14 mx-auto max-w-6xl px-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {rhythmItems.map((item, i) => (
             <Animate key={item.title} delay={(i * 100) as 0 | 100 | 200}>
               <div className="bg-white/50 backdrop-blur-sm rounded-3xl p-8 border border-white/30 h-full hover:-translate-y-1 hover:shadow-lg transition-all duration-300">

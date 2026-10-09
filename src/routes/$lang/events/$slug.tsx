@@ -142,7 +142,6 @@ function EventDetail() {
 
   const rhythmItems = [
     t.events.rhythm.oneCup,
-    t.events.rhythm.networking,
     { title: `${t.events.rhythm.discussion.title.startsWith("A discussion") ? "Discussion" : t.events.rhythm.discussion.title}: ${event.title}`, text: event.discussionSummary ?? event.description },
     t.events.rhythm.dinner,
   ];
@@ -191,7 +190,7 @@ function EventDetail() {
             <h2 className="mt-3 font-display text-4xl md:text-5xl text-burgundy">{t.events.inThisSessionHeading}</h2>
           </Animate>
         </div>
-        <div className="mt-14 mx-auto max-w-6xl px-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="mt-14 mx-auto max-w-6xl px-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {rhythmItems.map((item, i) => (
             <Animate key={item.title} delay={(i * 100) as 0 | 100 | 200}>
               <div className="bg-white/50 backdrop-blur-sm rounded-3xl p-8 border border-white/30 h-full hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
