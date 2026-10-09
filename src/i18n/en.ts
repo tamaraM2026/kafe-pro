@@ -367,6 +367,7 @@ export const en: Translations = {
         description: "On redefining what \"having it all\" actually means, and the real tension between building something of your own and showing up fully for the people who need you.",
         ticket: "490 CZK",
         venue: "Amáres Coffee — Pražírna kávy, Husova 24/11, 290 01 Poděbrady",
+        speaker: "Viktoria Platonova, Wellness Coach and Yoga Teacher, Founder of MaMeetUs. \"I work with women at the intersection of movement, breath, and mind, believing that connection, to others and to ourselves, is the first step back to who we truly are.\" Viktoria shares her story over coffee as this month's One Cup, One Story guest.",
       },
       {
         slug: "owning-your-next-chapter",

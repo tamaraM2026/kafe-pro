@@ -267,7 +267,7 @@ function EventDetail() {
       {/* Next edition */}
       {nextEvent && (
         <section className="py-16">
-          <div className="mx-auto max-w-3xl px-6 flex justify-end">
+          <div className="mx-auto max-w-3xl px-6 flex justify-center">
             <Animate>
               <Link to={"/$lang/events/$slug"} params={{ lang, slug: nextEvent.slug }} className="text-sm text-burgundy hover:text-terracotta transition-colors">
                 {t.events.nextEditionLabel}: {nextEvent.title} →
