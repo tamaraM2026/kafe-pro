@@ -212,6 +212,7 @@ export type Translations = {
       ticket: string;
       speaker?: string;
       venue?: string;
+      archived?: boolean;
     }>;
   };
 
