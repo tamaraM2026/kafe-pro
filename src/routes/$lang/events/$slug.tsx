@@ -180,11 +180,6 @@ function EventDetail() {
           <Animate delay={300}>
             <p className="mt-6 text-xl text-foreground/75 leading-relaxed">{event.description}</p>
           </Animate>
-          <Animate delay={350}>
-            <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <RsvpForm event={event} tone="sage" />
-            </div>
-          </Animate>
         </div>
       </section>
 
@@ -236,6 +231,11 @@ function EventDetail() {
                   <p className="text-sm text-foreground/60">Once you've finalized payment, send your RSVP.</p>
                 </div>
               </div>
+            </div>
+          </Animate>
+          <Animate delay={150}>
+            <div className="mt-10 flex flex-wrap justify-center gap-4">
+              <RsvpForm event={event} tone="sage" />
             </div>
           </Animate>
         </div>
