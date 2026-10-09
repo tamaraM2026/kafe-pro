@@ -24,7 +24,8 @@ export const Route = createFileRoute("/$lang/events/")({
 function EventsCalendar() {
   const t = useTranslations();
   const lang = useLang();
-  const firstEvent = t.events.list[0];
+  const upcomingEvents = t.events.list.filter((event) => !event.archived);
+  const firstEvent = upcomingEvents[0];
   const rhythmItems = [t.events.rhythm.oneCup, t.events.rhythm.networking, t.events.rhythm.discussion, t.events.rhythm.dinner];
 
   return (
@@ -116,9 +117,9 @@ function EventsCalendar() {
             </Animate>
           </div>
           <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {t.events.list.map((event, i) => {
+            {upcomingEvents.map((event, i) => {
               const isLaunch = i === 0;
-              const isClose = i === t.events.list.length - 1;
+              const isClose = i === upcomingEvents.length - 1;
               return (
                 <Animate key={event.slug} delay={((i % 3) * 100) as 0 | 100 | 200}>
                   <Link

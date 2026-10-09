@@ -357,6 +357,7 @@ export const en: Translations = {
         ticket: "490 CZK",
         speaker: "Veronika Kořínková, a lawyer and founder of Na vaší straně (\"On Your Side\"), working between Prague, Nymburk, and Poděbrady.",
         venue: "Amáres Coffee — Pražírna kávy, Husova 24/11, 290 01 Poděbrady",
+        archived: true,
       },
       {
         slug: "motherhood-and-ambition",
