@@ -147,7 +147,7 @@ function TermsAndPrivacy() {
           </P>
           <H3>4.2 Kafe con Propósito Memberships</H3>
           <P>
-            Memberships are offered on a monthly rolling basis unless otherwise stated. The three tiers — Espresso Shot (450
+            Memberships are offered on a monthly rolling basis unless otherwise stated. The three tiers — Espresso Shot (490
             CZK/session), Brew Community (850 CZK/month), and The Roastery (1,950 CZK/month) — are outlined on the Memberships page.
             Monthly memberships begin on the date of purchase. Membership benefits are non-transferable.
           </P>

@@ -24,8 +24,8 @@ const collaboratorLogos = [
   { name: "Podnikatelky SOBĚ", url: "https://www.podnikatelkysobe.cz/", logo: logoPodnikatelky },
   { name: "MaMeetUs", url: "https://www.mameetus.cz/", logo: logoMameetus },
   { name: "Adela Fialová", url: "https://www.adelafialova.com/", logo: logoAdela },
-  { name: "Pražírna Kavárna Poděbrady", url: "https://harringtonverve.com/", logo: logoPrazirna },
-  { name: "Sapovalova Solutions", url: "#", logo: logoSapovalova },
+  { name: "Pražírna Kavárna Poděbrady", url: null, logo: logoPrazirna },
+  { name: "Sapovalova Solutions", url: "https://sapovalovasolutions.com/", logo: logoSapovalova },
 ];
 import founderImg from "@/assets/founder.jpg";
 import valeriaImg from "@/assets/testimonial-valeria.jpg";
@@ -308,18 +308,28 @@ function HomePage() {
           </Animate>
           <Animate delay={100}>
             <div className="mt-12 grid grid-cols-7 items-center gap-6 md:gap-10">
-              {collaboratorLogos.map((c) => (
-                <a
-                  key={c.name}
-                  href={c.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="opacity-60 hover:opacity-100 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center"
-                  title={c.name}
-                >
-                  <img src={c.logo} alt={c.name} className="h-12 md:h-16 w-auto object-contain mix-blend-multiply" />
-                </a>
-              ))}
+              {collaboratorLogos.map((c) =>
+                c.url ? (
+                  <a
+                    key={c.name}
+                    href={c.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="opacity-60 hover:opacity-100 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center"
+                    title={c.name}
+                  >
+                    <img src={c.logo} alt={c.name} className="h-12 md:h-16 w-auto object-contain mix-blend-multiply" />
+                  </a>
+                ) : (
+                  <div
+                    key={c.name}
+                    className="opacity-60 flex items-center justify-center"
+                    title={c.name}
+                  >
+                    <img src={c.logo} alt={c.name} className="h-12 md:h-16 w-auto object-contain mix-blend-multiply" />
+                  </div>
+                )
+              )}
             </div>
           </Animate>
           <Animate delay={200}>
