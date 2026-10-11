@@ -554,7 +554,7 @@ export const en: Translations = {
         name: "Iveta Skřivanová",
         url: "https://ivetaskrivanova.cz/",
       },
-      { name: "Sapovalova Solutions", url: "#" },
+      { name: "Sapovalova Solutions", url: "https://sapovalovasolutions.com/" },
       { name: "Cesta Ženy – Tamara Melissa", url: "https://www.tamaramelissa.cz/" },
     ],
     collaborateCta:
