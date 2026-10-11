@@ -24,7 +24,7 @@ const collaboratorLogos = [
   { name: "Podnikatelky SOBĚ", url: "https://www.podnikatelkysobe.cz/", logo: logoPodnikatelky },
   { name: "MaMeetUs", url: "https://www.mameetus.cz/", logo: logoMameetus },
   { name: "Adela Fialová", url: "https://www.adelafialova.com/", logo: logoAdela },
-  { name: "Pražírna Kavárna Poděbrady", url: null, logo: logoPrazirna },
+  { name: "Pražírna Kavárna Poděbrady", url: "https://www.kavapodebrady.eu/", logo: logoPrazirna },
   { name: "Sapovalova Solutions", url: "https://sapovalovasolutions.com/", logo: logoSapovalova },
 ];
 import founderImg from "@/assets/founder.jpg";
