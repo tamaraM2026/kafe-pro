@@ -20,6 +20,7 @@ jobs:
     env:
       BASE_PATH: ""
       DEV_URL: http://localhost:8080
+      VITE_WEB3FORMS_ACCESS_KEY: ${{ secrets.VITE_WEB3FORMS_ACCESS_KEY }}
     steps:
       - uses: actions/checkout@v4
 

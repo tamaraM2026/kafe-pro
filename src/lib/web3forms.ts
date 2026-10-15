@@ -1,4 +1,4 @@
-export const WEB3FORMS_ACCESS_KEY = "[removed]";
+export const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
 
 export async function submitToWeb3Forms(payload: Record<string, string>): Promise<boolean> {
   try {

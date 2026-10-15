@@ -414,14 +414,7 @@ Before running `git add` and `git commit`, ALWAYS:
 
 ### Patterns to Watch For
 
-```
-# These should NEVER appear in committed code:
-[removed]          # developer emails
-[removed]             # Czech phone numbers  
-[removed]                    # Stripe keys
-[removed]               # API tokens
-any real member's email      # member PII
-```
+Private terms live in ~/.config/git-leak-guard/private-terms.txt. Never copy them into this repo.
 
 ### Safe Placeholder Patterns
 
