@@ -366,7 +366,7 @@ export const en: Translations = {
         title: "Motherhood & Ambition",
         description: "On redefining what \"having it all\" actually means, and the real tension between building something of your own and showing up fully for the people who need you.",
         ticket: "490 CZK",
-        venue: "Amáres Coffee — Pražírna kávy, Husova 24/11, 290 01 Poděbrady",
+        venue: "Královské Lázně — Jiřího náměstí 4, 290 01 Poděbrady",
         speaker: "Viktoria Platonova, Wellness Coach and Yoga Teacher, Founder of MaMeetUs, a community platform connecting mothers through local events like yoga classes, café meetups, and stroller walks, giving women a place to find both practical support and genuine friendship in motherhood. \"I work with women at the intersection of movement, breath, and mind, believing that connection, to others and to ourselves, is the first step back to who we truly are.\" Viktoria shares her story over coffee as this month's One Cup, One Story guest.",
       },
       {
@@ -376,6 +376,7 @@ export const en: Translations = {
         title: "Owning Your Next Chapter",
         description: "New-year vision setting — clarifying goals and the version of success you’re actually building toward.",
         ticket: "490 CZK",
+        venue: "Královské Lázně — Jiřího náměstí 4, 290 01 Poděbrady",
       },
       {
         slug: "love",
@@ -384,6 +385,7 @@ export const en: Translations = {
         title: "Love",
         description: "Self-love as the foundation of leadership, love in partnerships and teams, and bringing heart back into how we lead and work.",
         ticket: "490 CZK",
+        venue: "Královské Lázně — Jiřího náměstí 4, 290 01 Poděbrady",
       },
       {
         slug: "leading-with-purpose",
@@ -392,6 +394,7 @@ export const en: Translations = {
         title: "Leading With Purpose",
         description: "Timed around International Women’s Day — leadership styles, mentorship, and aligning your work with what actually matters to you. On women leading on their own terms, not by anyone else's playbook.",
         ticket: "490 CZK",
+        venue: "Královské Lázně — Jiřího náměstí 4, 290 01 Poděbrady",
       },
       {
         slug: "owning-your-worth",
@@ -400,6 +403,7 @@ export const en: Translations = {
         title: "Owning Your Worth",
         description: "Imposter syndrome, credibility, and putting an actual number on what you know: negotiating your rate, pricing your work, and believing you deserve the ask. From believing you're the expert to being paid like one.",
         ticket: "490 CZK",
+        venue: "Královské Lázně — Jiřího náměstí 4, 290 01 Poděbrady",
       },
       {
         slug: "ai-honestly",
@@ -408,6 +412,7 @@ export const en: Translations = {
         title: "AI, Honestly",
         description: "A candid discussion surfacing the real fears, doubts, and misconceptions about AI — a preview of the next season, and an opener for a follow-on online workshop.",
         ticket: "490 CZK",
+        venue: "Královské Lázně — Jiřího náměstí 4, 290 01 Poděbrady",
       },
     ],
   },
