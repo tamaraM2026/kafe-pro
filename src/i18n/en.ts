@@ -231,7 +231,7 @@ export const en: Translations = {
     profileTitle: "Founder, Kafe con Propósito · Business Coach · Central Bohemia",
     experience: {
       heading: "Where I came from",
-      body: "For over 20 years I worked at the intersection of international business development, partnerships, and professional coaching (Sapovalova Solutions) — bridging Europe and Latin America, helping tech companies scale across borders, and advising founders on strategy, leadership, and growth. I worked with accelerators, spoke at industry events, was shortlisted for the Latam Edge Awards, and sat across from some of the most ambitious leaders I’ve ever met. I learned what rigorous strategy looks like. I also learned what it costs when soul is missing from it.",
+      body: "For over 20 years I worked at the intersection of international business development, partnerships, and professional coaching — bridging Europe and Latin America, helping tech companies scale across borders, and advising founders on strategy, leadership, and growth. I worked with accelerators, spoke at industry events, was shortlisted for the Latam Edge Awards, and sat across from some of the most ambitious leaders I’ve ever met. I learned what clear-headed strategy looks like. I also learned what it costs when soul is missing from it. Today I also work one to one with women deciding their next move, through Sapovalova Solutions.",
       details: [
         { label: "Experience", value: "20+ years international business & partnerships" },
         { label: "Recognition", value: "Speaker & facilitator" },
@@ -247,13 +247,13 @@ export const en: Translations = {
     },
     services: {
       heading: "Beyond the gatherings",
-      intro: "For women who want more than Kafe, I also offer 1:1 business coaching and a structured programme for women turning an idea into a real business. Both are rooted in the same belief: that the best strategies start with honest conversation.",
+      intro: "For women who want more than Kafe, I also work with people one to one, and I run a programme for women turning an idea into a real business. Both start with an honest conversation.",
       items: [
         {
-          tag: "1:1 COACHING",
-          title: "Business Coaching",
-          desc: "Strategy, leadership, and growth support for entrepreneurs and professionals navigating complex decisions.",
-          cta: "Learn more →",
+          tag: "ONE TO ONE",
+          title: "Your next move",
+          desc: "Six one-to-one sessions to decide what comes next, and a 90-day plan to get there. Through my practice, Sapovalova Solutions.",
+          cta: "See how it works →",
         },
         {
           tag: "8-WEEK PROGRAMME",
@@ -267,7 +267,7 @@ export const en: Translations = {
       heading: "Come find me at Kafe con Propósito",
       body: "The best way to understand what I do is to experience it. Bring your real questions, your half-formed ideas, and your coffee order. I’ll be there.",
       ctaPrimary: "Reserve my spot →",
-      ctaSecondary: "Join our next event →",
+      ctaSecondary: "Get the free 10-day guide →",
     },
   },
 

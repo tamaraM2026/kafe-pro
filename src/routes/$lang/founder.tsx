@@ -122,9 +122,15 @@ function Founder() {
                   <p className="text-xs tracking-[0.2em] text-terracotta">{item.tag}</p>
                   <h3 className="mt-3 font-display text-2xl text-burgundy">{item.title}</h3>
                   <p className="mt-4 text-foreground/75 flex-1">{item.desc}</p>
-                  <Link to={"/$lang/contact"} params={{ lang }} className="mt-6 text-sm text-burgundy hover:text-terracotta transition-colors underline underline-offset-4">
-                    {item.cta}
-                  </Link>
+                  {i === 0 ? (
+                    <a href="https://sapovalovasolutions.com/" target="_blank" rel="noopener noreferrer" className="mt-6 text-sm text-burgundy hover:text-terracotta transition-colors underline underline-offset-4">
+                      {item.cta}
+                    </a>
+                  ) : (
+                    <Link to={"/$lang/business-building-blocks"} params={{ lang }} className="mt-6 text-sm text-burgundy hover:text-terracotta transition-colors underline underline-offset-4">
+                      {item.cta}
+                    </Link>
+                  )}
                 </div>
               </Animate>
             ))}
@@ -143,10 +149,10 @@ function Founder() {
           </Animate>
           <Animate delay={200}>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <Link to={"/$lang/contact"} params={{ lang }} className="px-7 py-4 rounded-full bg-gradient-to-r from-sage to-sage/80 text-sage-foreground hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-sage/20">
+              <Link to={"/$lang/events"} params={{ lang }} className="px-7 py-4 rounded-full bg-gradient-to-r from-sage to-sage/80 text-sage-foreground hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-sage/20">
                 {t.founder.closing.ctaPrimary}
               </Link>
-              <Link to={"/$lang/the-unveiled-experience"} params={{ lang }} className="px-7 py-4 rounded-full border border-burgundy text-burgundy hover:bg-burgundy hover:text-primary-foreground transition-all">
+              <Link to={"/$lang/10x-unstuck"} params={{ lang }} className="px-7 py-4 rounded-full border border-burgundy text-burgundy hover:bg-burgundy hover:text-primary-foreground transition-all">
                 {t.founder.closing.ctaSecondary}
               </Link>
             </div>
