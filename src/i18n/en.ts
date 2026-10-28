@@ -262,6 +262,7 @@ export const en: Translations = {
           cta: "Learn more →",
         },
       ],
+      goalCycleCta: "Or try the free Goal Cycle worksheet →",
     },
     closing: {
       heading: "Come find me at Kafe con Propósito",

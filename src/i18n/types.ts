@@ -137,6 +137,7 @@ export type Translations = {
       heading: string;
       intro: string;
       items: Array<{ tag: string; title: string; desc: string; cta: string }>;
+      goalCycleCta: string;
     };
     closing: {
       heading: string;

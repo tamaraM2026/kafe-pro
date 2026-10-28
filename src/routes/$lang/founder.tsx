@@ -123,9 +123,14 @@ function Founder() {
                   <h3 className="mt-3 font-display text-2xl text-burgundy">{item.title}</h3>
                   <p className="mt-4 text-foreground/75 flex-1">{item.desc}</p>
                   {i === 0 ? (
-                    <a href="https://sapovalovasolutions.com/" target="_blank" rel="noopener noreferrer" className="mt-6 text-sm text-burgundy hover:text-terracotta transition-colors underline underline-offset-4">
-                      {item.cta}
-                    </a>
+                    <>
+                      <a href="https://sapovalovasolutions.com/" target="_blank" rel="noopener noreferrer" className="mt-6 text-sm text-burgundy hover:text-terracotta transition-colors underline underline-offset-4">
+                        {item.cta}
+                      </a>
+                      <a href="https://sapovalovasolutions.com/goal-cycle.html" target="_blank" rel="noopener noreferrer" className="mt-2 text-sm text-foreground/60 hover:text-terracotta transition-colors underline underline-offset-4">
+                        {t.founder.services.goalCycleCta}
+                      </a>
+                    </>
                   ) : (
                     <Link to={"/$lang/business-building-blocks"} params={{ lang }} className="mt-6 text-sm text-burgundy hover:text-terracotta transition-colors underline underline-offset-4">
                       {item.cta}
