@@ -149,7 +149,9 @@ function SpanishConversationPage() {
           </Animate>
           <Animate delay={100}>
             <a
-              href="#"
+              href="https://tamaram2026.github.io/spanish-conversation-flyer/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-8 inline-block px-8 py-4 rounded-full bg-background text-burgundy hover:scale-[1.02] active:scale-[0.98] transition-all"
             >
               {t.spanishConversation.ctaButton}

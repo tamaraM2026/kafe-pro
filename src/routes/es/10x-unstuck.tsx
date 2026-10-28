@@ -217,7 +217,7 @@ function TenxPageEs() {
               <input
                 type="hidden"
                 name="subject"
-                value="Kafe: 10x Productive guide signup (ES)"
+                value="Kafe: 10x Unstuck guide signup (ES)"
               />
               <input type="hidden" name="from_name" value="Kafe con Propósito website" />
               <input

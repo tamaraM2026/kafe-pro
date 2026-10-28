@@ -9,6 +9,9 @@ interface ThankYouMessageProps {
   downloadLabel?: string;
   backLabel?: string;
   homeLang?: string;
+  secondaryNote?: string;
+  secondaryCtaLabel?: string;
+  secondaryCtaUrl?: string;
 }
 
 export function ThankYouMessage({
@@ -18,6 +21,9 @@ export function ThankYouMessage({
   downloadLabel,
   backLabel,
   homeLang,
+  secondaryNote,
+  secondaryCtaLabel,
+  secondaryCtaUrl,
 }: ThankYouMessageProps) {
   const paramLang = useLang();
   const lang = homeLang ?? paramLang;
@@ -38,6 +44,17 @@ export function ThankYouMessage({
               className="mt-8 inline-block px-8 py-3 rounded-full bg-gradient-to-r from-terracotta to-terracotta/80 text-primary-foreground font-medium hover:scale-[1.02] active:scale-[0.98] transition-all"
             >
               {downloadLabel ?? "Download the guide now"}
+            </a>
+          )}
+          {secondaryNote && (
+            <p className="mt-8 text-foreground/75">{secondaryNote}</p>
+          )}
+          {secondaryCtaLabel && secondaryCtaUrl && (
+            <a
+              href={secondaryCtaUrl}
+              className="mt-4 inline-block px-8 py-3 rounded-full border border-burgundy text-burgundy hover:bg-burgundy hover:text-primary-foreground transition-all"
+            >
+              {secondaryCtaLabel}
             </a>
           )}
           <Link

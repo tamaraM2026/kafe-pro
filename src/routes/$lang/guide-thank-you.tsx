@@ -18,6 +18,9 @@ function GuideThankYou() {
       body="Check your inbox, the guide is on its way. Or grab it right now:"
       downloadUrl="/10x-unstuck-guide.pdf"
       downloadLabel="Download the guide now"
+      secondaryNote="Want to talk about it with other women? Come to a Kafe evening."
+      secondaryCtaLabel="See the next evening →"
+      secondaryCtaUrl="/en/events"
     />
   );
 }

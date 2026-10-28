@@ -179,7 +179,7 @@ function TenxPage() {
               className="mt-8 flex flex-col gap-3"
             >
               <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
-              <input type="hidden" name="subject" value="Kafe: 10x Productive guide signup" />
+              <input type="hidden" name="subject" value="Kafe: 10x Unstuck guide signup" />
               <input type="hidden" name="from_name" value="Kafe con Propósito website" />
               <input type="hidden" name="redirect" value="https://kafeconproposito.com/en/guide-thank-you" />
               <input
@@ -203,6 +203,15 @@ function TenxPage() {
                 placeholder={t.tenx.emailPlaceholder}
                 className="w-full px-5 py-3 rounded-full bg-white/10 border border-white/20 text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-none focus:ring-2 focus:ring-terracotta/50"
               />
+              <label className="mt-1 flex items-start gap-3 text-left text-sm text-primary-foreground/80">
+                <input
+                  type="checkbox"
+                  name="news_consent"
+                  value="yes"
+                  className="mt-1 h-4 w-4 shrink-0 rounded border border-white/40 bg-white/10"
+                />
+                Also send me news about Kafe evenings and new free resources. I can unsubscribe anytime.
+              </label>
               <button
                 type="submit"
                 className="mt-2 w-full px-8 py-3 rounded-full bg-gradient-to-r from-terracotta to-terracotta/80 text-primary-foreground font-medium hover:scale-[1.02] active:scale-[0.98] transition-all"

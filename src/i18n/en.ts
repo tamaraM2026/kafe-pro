@@ -836,8 +836,7 @@ export const en: Translations = {
     groupsHeading: "Choose the time that fits your lifestyle",
     groupsIntro: "To keep the conversations dynamic and impactful, spaces are strictly limited.",
     groups: [
-      { name: "Morning Session", dayTime: "Mondays at 18:00", location: "Poděbrady (Venue to be confirmed)", status: "Filling Fast" },
-      { name: "Evening Session", dayTime: "Wednesdays at 18:00", location: "Poděbrady (Venue to be confirmed)", status: "Filling Fast" },
+      { name: "Evening Session", dayTime: "Wednesdays at 17:30", location: "Kavárna Královský, Jiřího náměstí 4, Poděbrady", status: "Filling Fast" },
     ],
     topicsLabel: "WHAT WE WILL COVER",
     topicsHeading: "Every session builds your confidence",
