@@ -133,7 +133,8 @@ jobs:
                    "blog/master-goals-with-the-goal-cycle-aligning-vision-with-impactful-outcomes",
                    "blog/why-were-doing-kafe-differently-in-season-2","blog/building-without-a-map",
                    "blog/why-twenty-minutes-a-day-beats-the-overhaul-you-keep-waiting-for",
-                   "blog/the-last-one-on-her-own-list"]
+                   "blog/the-last-one-on-her-own-list",
+                   "blog/why-having-it-all-never-felt-like-a-prize"]
           langs = ["en"]
 
           def render_page(url, d, label):
