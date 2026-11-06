@@ -47,6 +47,7 @@ import cover38 from "@/assets/blog/why-were-doing-kafe-differently-in-season-2/c
 import cover39 from "@/assets/blog/building-without-a-map/cover.png";
 import cover40 from "@/assets/blog/why-twenty-minutes-a-day-beats-the-overhaul-you-keep-waiting-for/cover.jpeg";
 import cover41 from "@/assets/blog/the-last-one-on-her-own-list/cover.jpeg";
+import cover42 from "@/assets/blog/why-having-it-all-never-felt-like-a-prize/cover.jpg";
 
 export type BlogBlock =
   | { type: "paragraph"; text: string }
@@ -1720,6 +1721,32 @@ export const blogPosts: BlogPost[] = [
       { type: "paragraph", text: "There's also a quieter cost to never being on your own list, which is that you stop knowing what you'd actually choose if you were. Ask a woman who's spent ten years running on other people's schedules what she wants for herself and you'll often get silence first, not because the answer isn't in there, but because nobody's asked in a long time, including her. I think that's the real work behind [confidence](blog:conquering-self-doubt-to-succeed-in-business-confidence-building-for-professionals): not becoming louder, but staying familiar enough to yourself that you'd recognize your own answer if someone finally asked." },
       { type: "paragraph", text: "If this sounds like your week, you're not doing anything wrong. You're doing what you were taught was generous. The only thing worth questioning is whether generosity that never includes you is actually sustainable, or just invisible for a while." },
       { type: "paragraph", text: "This is what we're sitting with at Kafe con Propósito on October 8, in a session called [Confidence & Boundaries](events:confidence-and-boundaries). My guest that evening is Veronika Kořínková, a lawyer who spends her working life where boundaries get tested formally, in contracts and employment disputes. But most of the boundaries we lose aren't the ones anyone writes down. They're the ones we quietly stop holding with our own kids, our own partners, ourselves. Come with your coffee, no pitches, no pressure, just a room full of women figuring out how to get back on their own list." },
+      { type: "paragraph", text: "*Tamara Medina*" },
+    ],
+  },
+  {
+    slug: "why-having-it-all-never-felt-like-a-prize",
+    title: "Motherhood and Ambition: Why “Having It All” Never Felt Like a Prize",
+    date: "2026-11-06",
+    dateLabel: "November 6, 2026",
+    author: "Tamara Medina Sapovalova",
+    readTime: "4 min read",
+    excerpt: "We were in the living room, my son and I. He was about three, playing with his cars, and he wanted me to see what he had made: a circle of cars. I was looking right at it, and I was somewhere in the middle of next week.",
+    cover: cover42,
+    coverAlt: "A circle of small toy cars lined up on a wooden living room floor",
+    body: [
+      { type: "quote", text: "“Can you build something of your own and still be there for the people who need you?”" },
+      { type: "paragraph", text: "We were in the living room, my son and I. He was about three, playing with his cars, and he wanted me to see what he had made: a circle of cars. He was showing it to me, and I was looking right at it. But my mind was running through everything I still had to finish: the asks, the deadlines, the things people were waiting on me for. He was right in front of me and I was somewhere in the middle of next week." },
+      { type: "paragraph", text: "I remember the exact moment I noticed it. Nothing dramatic happened. It was a quiet, uncomfortable thought: I am here, and I am not here." },
+      { type: "paragraph", text: "It wasn't the first time. I have spent most of my life thinking about what is coming, and very little of it standing inside what is happening. From the outside that habit looks like ambition. From the inside it feels like never fully arriving anywhere, including the places I wanted most to be." },
+      { type: "paragraph", text: "The phrase “having it all” has always bothered me, and I think I finally know why. It sounds like a prize, something you collect if you plan your week well enough. But nobody who says it is really talking about a prize. They are talking about a Tuesday afternoon when two things you love need you at the same time, and you can only be in one place." },
+      { type: "paragraph", text: "Here is the part that doesn't get said out loud much. For me, the hard part was never the choice itself. It was what came after. When I was working, part of my mind was with my family, counting what I was missing. When I was with my family, part of my mind was with the thing I was building, counting what I wasn't getting done. Neither place got all of me, and then I felt guilty about both. That guilt doesn't care which one you chose." },
+      { type: "paragraph", text: "Being a mum and being ambitious were never two jobs I was doing. They are both me. That is why it hurts when they collide, and why no schedule fully fixes it." },
+      { type: "paragraph", text: "It also changes shape. The version of this I live now is not the one I lived when my son was small. He is grown, and the question is no longer who needs me this afternoon. It is how to stay close across distance while I keep building my own life. I used to think the tension would end at some point. It doesn't end. It just asks a different question every few years." },
+      { type: "paragraph", text: "What I have slowly come to believe is that the guilt is not proof that you are choosing wrong. I wrote years ago that [your value as a person is not determined by your career success](blog:your-value-as-a-person-is-not-determined-by-your-success). I would add the other half now: it isn't determined by how perfectly you mother either. If your worth depends on winning at both, you will lose every single day." },
+      { type: "paragraph", text: "There is also a mask that comes with each role. The calm, patient mum. The sharp, always-available professional. I have worn both, and I wrote about [the masks we wear](blog:masks-we-wear-unveiling-truths) before I fully understood how much energy it takes to keep switching them. Some of the tiredness women feel isn't from doing too much. It's from performing two people at once." },
+      { type: "paragraph", text: "I don't have a clean answer, and I'd be suspicious of anyone who says they do. What has changed for me is the question. I stopped asking “how do I balance it all?” and started asking “what am I willing to be imperfect at, on purpose, this season?” Some seasons the answer is the business. Some seasons it's the dinner table. And I am still practicing the harder thing, which is being where I am while I am there. The guilt still shows up. I just no longer treat it as a verdict." },
+      { type: "paragraph", text: "If you are in the middle of this right now, whether your kids are small, grown, or still a plan for someday, you are welcome at our next evening. On Thursday, November 12, from 18:00 to 20:00 at Královské Lázně in Poděbrady, our [Motherhood & Ambition](events:motherhood-and-ambition) edition opens with Viktoria Platonova, wellness coach, yoga teacher and founder of MaMeetUs, sharing her story over coffee. Then we talk, honestly, about what “having it all” really means. No pitches, no pressure, just a room of women who know exactly what that Tuesday afternoon feels like." },
       { type: "paragraph", text: "*Tamara Medina*" },
     ],
   },
