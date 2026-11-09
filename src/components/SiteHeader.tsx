@@ -23,10 +23,7 @@ export function SiteHeader() {
     { to: "/blog", label: t.common.nav.blog, anchor: undefined as string | undefined },
     { to: "/es/blog", label: t.common.nav.blogEs, anchor: undefined as string | undefined, absolute: true },
     { to: "/contact", label: t.common.nav.contact, anchor: undefined as string | undefined },
-  ];
-
-  const programmes = [
-    { to: "/10x-unstuck", label: t.common.programmesItems.tenx },
+    { to: "/10x-unstuck", label: t.common.nav.freeGuide, anchor: undefined as string | undefined },
   ];
 
   useEffect(() => {
@@ -96,31 +93,6 @@ export function SiteHeader() {
                 </Link>
               )
             ))}
-            <div className="relative group">
-              <button
-                type="button"
-                className="px-2 xl:px-4 py-2 rounded-full text-sm text-foreground/80 hover:text-burgundy transition-colors"
-              >
-                {t.common.programmesLabel} ▾
-              </button>
-              <div className="absolute right-0 top-full pt-2 hidden group-hover:block group-focus-within:block z-50">
-                <div className="min-w-[240px] bg-white/80 backdrop-blur-xl border border-white/30 rounded-2xl shadow-lg p-2">
-                  {programmes.map((p) => (
-                    <Link
-                      key={p.to}
-                      to={langPath(p.to)}
-                      className="block px-4 py-2 rounded-xl text-sm text-foreground/80 hover:text-burgundy hover:bg-white/50 transition-colors"
-                      activeProps={{
-                        className:
-                          "block px-4 py-2 rounded-xl text-sm bg-white/50 text-burgundy",
-                      }}
-                    >
-                      {p.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
           </nav>
 
 
@@ -182,18 +154,6 @@ export function SiteHeader() {
               {n.label}
             </Link>
           )
-        ))}
-        <div className="border-t border-border/30 my-2" />
-        <p className="px-4 text-xs text-muted-foreground tracking-widest">{t.common.programmesLabel.toUpperCase()}</p>
-        {programmes.map((p) => (
-          <Link
-            key={p.to}
-            to={langPath(p.to)}
-            className="px-4 py-3 rounded-xl text-foreground/80 hover:text-burgundy hover:bg-cream/50 transition-colors"
-            activeProps={{ className: "px-4 py-3 rounded-xl text-burgundy bg-cream/50" }}
-          >
-            {p.label}
-          </Link>
         ))}
       </nav>
     </>

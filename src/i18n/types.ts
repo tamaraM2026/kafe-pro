@@ -11,12 +11,7 @@ export type Translations = {
       community: string;
       cesky: string;
       contact: string;
-    };
-    programmesLabel: string;
-    programmesItems: {
-      tenx: string;
-      unveiled: string;
-      spanishConversation: string;
+      freeGuide: string;
     };
     reserve: string;
     footer: {
@@ -116,6 +111,7 @@ export type Translations = {
       body: string;
       ctaPrimary: string;
       ctaSecondary: string;
+      oneToOneNote: string;
     };
   };
 

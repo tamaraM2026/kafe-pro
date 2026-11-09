@@ -13,12 +13,7 @@ export const en: Translations = {
       community: "Community",
       cesky: "Česky",
       contact: "Contact",
-    },
-    programmesLabel: "Programmes",
-    programmesItems: {
-      tenx: "10x Unstuck",
-      unveiled: "The Unveiled Experience",
-      spanishConversation: "Spanish Conversation",
+      freeGuide: "Free Guide",
     },
     reserve: "Reserve my spot →",
     footer: {
@@ -189,6 +184,7 @@ export const en: Translations = {
       body: "The best way to understand what I do is to experience it. Bring your real questions, your half-formed ideas, and your coffee order. I’ll be there.",
       ctaPrimary: "Reserve my spot →",
       ctaSecondary: "Get the free 10-day guide →",
+      oneToOneNote: "Want to work with me one to one? Visit",
     },
   },
 

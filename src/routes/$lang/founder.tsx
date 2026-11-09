@@ -154,6 +154,14 @@ function Founder() {
               </Link>
             </div>
           </Animate>
+          <Animate delay={300}>
+            <p className="mt-10 text-sm text-muted-foreground">
+              {t.founder.closing.oneToOneNote}{" "}
+              <a href="https://sapovalovasolutions.com/" target="_blank" rel="noopener noreferrer" className="text-burgundy hover:text-terracotta underline underline-offset-4 transition-colors">
+                Sapovalova Solutions
+              </a>
+            </p>
+          </Animate>
         </div>
       </section>
     </>
