@@ -118,8 +118,6 @@ function EventsCalendar() {
           </div>
           <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {upcomingEvents.map((event, i) => {
-              const isLaunch = i === 0;
-              const isClose = i === upcomingEvents.length - 1;
               return (
                 <Animate key={event.slug} delay={((i % 3) * 100) as 0 | 100 | 200}>
                   <Link
@@ -129,8 +127,6 @@ function EventsCalendar() {
                   >
                     <p className="text-xs tracking-[0.2em] text-terracotta flex items-center gap-2">
                       {event.dateTag.toUpperCase()}
-                      {isLaunch && <span className="px-2 py-0.5 rounded-full bg-sage/20 text-sage normal-case tracking-normal">{t.events.launchTag}</span>}
-                      {isClose && <span className="px-2 py-0.5 rounded-full bg-sage/20 text-sage normal-case tracking-normal">{t.events.closeTag}</span>}
                     </p>
                     <h3 className="mt-3 font-display text-2xl text-burgundy">{event.title}</h3>
                     <p className="mt-3 text-sm text-foreground/75 leading-relaxed">{event.description}</p>

@@ -145,13 +145,7 @@ function TermsAndPrivacy() {
             Your registration constitutes a binding agreement to the specific event's terms, which will be communicated at point of
             sale.
           </P>
-          <H3>4.2 Kafe con Propósito Memberships</H3>
-          <P>
-            Memberships are offered on a monthly rolling basis unless otherwise stated. The three tiers — Espresso Shot (490
-            CZK/session), Brew Community (850 CZK/month), and The Roastery (1,950 CZK/month) — are outlined on the Memberships page.
-            Monthly memberships begin on the date of purchase. Membership benefits are non-transferable.
-          </P>
-          <H3>4.3 Payment</H3>
+          <H3>4.2 Payment</H3>
           <P>
             Prices are displayed on the website and are inclusive of any applicable taxes. Accepted payment methods are communicated
             at checkout. We reserve the right to update pricing with 30 days' notice to existing members.
@@ -165,12 +159,6 @@ function TermsAndPrivacy() {
             <li>Cancellations less than 7 days before: no refund. A transfer of place to another person may be possible upon written request.</li>
             <li>If Kafe con Propósito cancels an event, a full refund will be issued within 14 business days.</li>
           </Ul>
-          <H3>5.2 Kafe con Propósito Memberships</H3>
-          <Ul>
-            <li>Monthly memberships may be cancelled at any time with effect from the end of the current billing period. No pro-rata refunds are issued for partial months.</li>
-            <li>Espresso Shot (pay-as-you-go) session fees are non-refundable once a spot has been reserved.</li>
-          </Ul>
-
           <H2>6. Filming, Photography & Content</H2>
           <P>
             Kafe con Propósito gatherings and Una Taza, Una Historia events may be filmed and photographed for use in social media,

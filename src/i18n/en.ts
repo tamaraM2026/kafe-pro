@@ -10,20 +10,17 @@ export const en: Translations = {
       events: "Events",
       blog: "Blog",
       blogEs: "Blog en español",
-      memberships: "Memberships",
       community: "Community",
       cesky: "Česky",
       contact: "Contact",
     },
     programmesLabel: "Programmes",
     programmesItems: {
-      bbb: "Business Building Blocks",
       tenx: "10x Unstuck",
       unveiled: "The Unveiled Experience",
       spanishConversation: "Spanish Conversation",
     },
     reserve: "Reserve my spot →",
-    exploreMemberships: "Explore memberships",
     footer: {
       tagline:
         "A women’s circle in Central Bohemia. Real conversations over really good coffee.",
@@ -31,7 +28,7 @@ export const en: Translations = {
       followHeading: "Follow us",
       whereHeading: "Where",
       locationText: "Central Bohemia · Poděbrady · Prague",
-      locationFrequency: "Once a month",
+      locationFrequency: "Next gathering: November 12, 2026",
       getInTouch: "Get in touch →",
       copyright: "Kafe con Propósito · Women’s Circle",
       termsAndPrivacy: "Terms & Privacy",
@@ -39,7 +36,6 @@ export const en: Translations = {
       navFounder: "Founder",
       navEvents: "Events",
       navBlog: "Blog",
-      navMemberships: "Memberships",
       navCommunity: "Community",
       navFreeGuide: "Free Guide",
     },
@@ -55,24 +51,18 @@ export const en: Translations = {
     founderTitle: "Founder — Kafe con Propósito",
     founderDescription:
       "Meet Tamara Medina Sapovalova, founder of Kafe con Propósito.",
-    eventsTitle: "Season Calendar — Kafe con Propósito",
+    eventsTitle: "Upcoming Gathering — Kafe con Propósito",
     eventsDescription:
-      "Kafe con Propósito's 2026–2027 season: one flagship evening a month for professional women, entrepreneurs, and expats in Central Bohemia. See all nine editions and reserve your seat.",
+      "Join Kafe con Propósito's next gathering for professional women, entrepreneurs, and expats in Central Bohemia. See the details and reserve your seat.",
     blogTitle: "Blog — Kafe con Propósito",
     blogDescription:
       "Stories, mindset shifts, and practical guidance for women building businesses and careers without a map.",
-    membershipsTitle: "Memberships — Kafe con Propósito",
-    membershipsDescription:
-      "Three ways to join Kafe con Propósito: pay-as-you-go, monthly community, or premium Roastery.",
     communityTitle: "Community & Partners — Kafe con Propósito",
     communityDescription:
       "Meet the women, mentors, and partner brands shaping the Kafe con Propósito community.",
     contactTitle: "Contact — Kafe con Propósito",
     contactDescription:
       "Reach out to Kafe con Propósito to reserve a seat or ask a question.",
-    bbbTitle: "Business Building Blocks — Kafe con Propósito",
-    bbbDescription:
-      "A 2-month program that takes you from 'I have an idea' to 'I have a real, working business.' Live workshops, practical tools, real momentum.",
     tenxTitle: "10 Days, 10 Actions, 10x Unstuck — Kafe con Propósito",
     tenxDescription:
       "A free 10-day self-coaching guide with daily exercises, reflections, and actions to help you get unstuck.",
@@ -90,8 +80,8 @@ export const en: Translations = {
       "A community for women who are building something that matters.",
     heroBrandName: "Kafe con Propósito",
     heroDescription:
-      " brings professional women, entrepreneurs, and expats together — once a month, in person, over really good coffee. Real conversations. Genuine connection. No pitches, no pressure.",
-    heroSubtext: "Gathering · Central Bohemia · Once a month",
+      " brings professional women, entrepreneurs, and expats together — in person, over really good coffee. Real conversations. Genuine connection. No pitches, no pressure.",
+    heroSubtext: "Gathering · Central Bohemia · November 12, 2026",
     painHeading: "You’re surrounded by people.\nAnd still figuring it out alone.",
     painSubheading:
       "Whether you’ve been here your whole life or arrived last year, growing as a professional woman can feel isolating — especially when the people around you don’t quite get what you’re building.",
@@ -105,70 +95,6 @@ export const en: Translations = {
     guideTeaserBody:
       "Get the 10x Unstuck guide. Ten days, ten small actions, no pressure to sign up for anything else. It’s free.",
     guideTeaserCta: "Send me the guide →",
-    whatKafeLabel: "WHAT KAFE IS",
-    whatKafeHeading: "Not an event. A community.",
-    pillars: [
-      {
-        icon: "☕",
-        title: "Community",
-        text: "A consistent, trusted circle of women who show up — not a one-time event you forget by Monday.",
-      },
-      {
-        icon: "💬",
-        title: "Growth",
-        text: "Every gathering has a theme chosen by members. You leave with real perspective, not just business cards.",
-      },
-      {
-        icon: "🪑",
-        title: "Support",
-        text: "Your own people. Women who remember what you talked about last time, who celebrate your wins.",
-      },
-    ],
-    belongLabel: "IS THIS FOR ME?",
-    belongHeading: "You belong here if any of this sounds familiar.",
-    belongItems: [
-      "You’re building a business or career you care about",
-      "You’re an expat building roots, or a local craving new perspectives",
-      "You’re a mother balancing ambition with everything else",
-      "You’re navigating a transition — personal or professional",
-      "You want an honest conversation, not polite small talk",
-      "You’re curious how other women are figuring things out",
-    ],
-    belongDisclaimer:
-      "We are not a Facebook group that never actually meets · not a room of strangers exchanging cards · not a place where you need a title, a business plan, or a polished story.",
-    tiersLabel: "FIND YOUR SEAT",
-    tiersHeading: "Three ways to be part of it",
-    tiersSubheading:
-      "Start with one gathering, or step into the community. You decide the pace.",
-    tiers: [
-      {
-        name: "The Espresso Shot",
-        price: "490 CZK",
-        per: "per session",
-        tagline: "Pay as you go",
-        desc: "Try a gathering before you commit. The perfect entry point for first-timers.",
-        cta: "See upcoming",
-        featured: false,
-      },
-      {
-        name: "The Brew Community",
-        price: "850 CZK",
-        per: "per month",
-        tagline: "Most popular",
-        desc: "Member discounts and the directory. The most popular way to make Kafe part of your life.",
-        cta: "Join membership",
-        featured: true,
-      },
-      {
-        name: "The Roastery",
-        price: "1,950 CZK",
-        per: "per month",
-        tagline: "Premium",
-        desc: "Everything in Brew, plus a monthly Mastermind, VIP guest pass, and business spotlight.",
-        cta: "Go deeper",
-        featured: false,
-      },
-    ],
     ctaHeading: "Your seat at the table is waiting.",
     ctaSubheading:
       "No pitch. No pressure.\nJust real women, real conversation, and really good coffee.",
@@ -178,7 +104,7 @@ export const en: Translations = {
     label: "WHAT KAFE IS",
     heading: "A women’s circle, not a networking event.",
     intro:
-      "Kafe con Propósito is a consistent, trusted circle of women who show up — once a month, in person, in Central Bohemia. Each gathering is themed, intentional, and built for real conversation, not transactions.",
+      "Kafe con Propósito is a circle of women who show up — in person, in Central Bohemia. Each gathering is themed, intentional, and built for real conversation, not transactions.",
     testimonialsHeading: "What women say",
     testimonialsSubheading: "Real words from real members",
     testimonials: [
@@ -243,7 +169,7 @@ export const en: Translations = {
     turningPoint: {
       heading: "Why Kafe, and why now",
       body: "When I relocated to Central Bohemia, I found myself doing exactly what so many of the women in our community describe — professionally accomplished, genuinely isolated, and looking for a space that felt real. The interesting events were in Prague. The online groups were full of noise. The networking events left me with cards but no real connection.",
-      quote: "So I built what I needed. Once a month, in person, in Central Bohemia. A gathering for women who want honest conversation, genuine support, and a community that shows up consistently — not just once.",
+      quote: "So I built what I needed. In person, in Central Bohemia. A gathering for women who want honest conversation and genuine support.",
     },
     services: {
       heading: "Beyond the gatherings",
@@ -254,12 +180,6 @@ export const en: Translations = {
           title: "Your next move",
           desc: "Six one-to-one sessions to decide what comes next, and a 90-day plan to get there. Through my practice, Sapovalova Solutions.",
           cta: "See how it works →",
-        },
-        {
-          tag: "8-WEEK PROGRAMME",
-          title: "Business Building Blocks",
-          desc: "From idea to real, working business. Live workshops and self-paced sessions built around your life.",
-          cta: "Learn more →",
         },
       ],
       goalCycleCta: "Or try the free Goal Cycle worksheet →",
@@ -274,16 +194,16 @@ export const en: Translations = {
 
   events: {
     hero: {
-      eyebrow: "2026–2027 Season",
-      heading: "One evening a month. One real conversation.",
-      lead: "Kafe con Propósito is now a single monthly flagship evening — a featured woman’s story, real conversation, and a discussion built for professional women, entrepreneurs, and expats in Central Bohemia. No pitches, no pressure. Just women navigating ambition, identity, and everything in between — together.",
-      secondaryCta: "See the season calendar",
-      metaLine: "Second Thursday of every month · 18:00–20:00 · English · October 2026 – May 2027",
+      eyebrow: "Upcoming Gathering",
+      heading: "One evening. One real conversation.",
+      lead: "Kafe con Propósito's next gathering — a featured woman’s story, real conversation, and a discussion built for professional women, entrepreneurs, and expats in Central Bohemia. No pitches, no pressure. Just women navigating ambition, identity, and everything in between — together.",
+      secondaryCta: "See the details",
+      metaLine: "Thursday, November 12, 2026 · 18:00–20:00 · English",
     },
     whatsNew: {
-      eyebrow: "What’s new",
-      heading: "A new format, built for how our community actually shows up",
-      intro: "We’re moving to one flagship evening a month. Same spirit, sharper focus: fewer dates, more depth. Each edition follows the same rhythm:",
+      eyebrow: "What to expect",
+      heading: "A format built for how our community actually shows up",
+      intro: "One flagship evening. Same spirit, sharper focus: fewer dates, more depth. The evening follows this rhythm:",
     },
     rhythm: {
       oneCup: {
@@ -306,23 +226,22 @@ export const en: Translations = {
     detailsEyebrow: "The details",
     detailsHeading: "Everything you need to know",
     seasonDetails: [
-      { label: "When", value: "Second Thursday of the month, 18:00–20:00" },
+      { label: "When", value: "Thursday, November 12, 2026 · 18:00–20:00" },
       { label: "Language", value: "English" },
-      { label: "Where", value: "Rotating venues across Central Bohemia — announced with each edition" },
-      { label: "Season", value: "October 2026 – May 2027 (7 editions)" },
+      { label: "Where", value: "Královské Lázně — Jiřího náměstí 4, 290 01 Poděbrady" },
       { label: "Ticket", value: "490 CZK" },
       { label: "Dinner", value: "Optional add-on, priced at cost" },
     ],
-    calendarEyebrow: "The season",
-    calendarHeading: "The 2026–2027 season",
-    calendarIntro: "Seven evenings, seven themes — chosen for women building careers, businesses, and lives without a template to follow.",
+    calendarEyebrow: "The gathering",
+    calendarHeading: "Motherhood & Ambition",
+    calendarIntro: "One evening, one theme — chosen for women building careers, businesses, and lives without a template to follow.",
     viewDetailsCta: "View details →",
     launchTag: "Launch",
     closeTag: "Season close",
     ctaBand: {
       eyebrow: "Save your seat",
       heading: "Spaces are limited to keep the conversation real.",
-      seasonBody: "Reserve your seat for the next edition, or join us for the season.",
+      seasonBody: "Reserve your seat for this gathering.",
       editionBody: "Reserve your seat for {title}.",
       seeOtherDates: "See other dates",
       emailNote: "RSVP right here on the page, we will confirm the details by email closer to the date.",
@@ -349,18 +268,6 @@ export const en: Translations = {
     nextEditionLabel: "Next edition",
     list: [
       {
-        slug: "confidence-and-boundaries",
-        dateLabel: "Thursday, October 8, 2026 · 18:00–20:00",
-        dateTag: "Oct 8, 2026",
-        title: "Confidence & Boundaries",
-        description: "This month's One Cup, One Story guest is Veronika Kořínková, a lawyer and founder of Na vaší straně (\"On Your Side\"), working between Prague, Nymburk, and Poděbrady. Her days are spent helping people hold their ground, in contracts, in workplace disputes, in negotiations that don't always go the way they should. That work has taught her a lot about where boundaries get tested, and what it actually takes to hold one. She'll share her own story, then we'll open it up for a group workshop conversation on saying no without guilt, holding the boundaries we quietly stop holding with our kids, our partners, and ourselves, and staying familiar enough to yourself that you'd recognize your own answer if someone finally asked. No pitches, no pressure, just a room full of women and really good coffee.",
-        discussionSummary: "A story from Veronika Kořínková, then a group workshop on saying no without guilt and holding the boundaries we quietly let go of.",
-        ticket: "490 CZK",
-        speaker: "Veronika Kořínková, a lawyer and founder of Na vaší straně (\"On Your Side\"), working between Prague, Nymburk, and Poděbrady.",
-        venue: "Amáres Coffee — Pražírna kávy, Husova 24/11, 290 01 Poděbrady",
-        archived: true,
-      },
-      {
         slug: "motherhood-and-ambition",
         dateLabel: "Thursday, November 12, 2026 · 18:00–20:00",
         dateTag: "Nov 12, 2026",
@@ -369,51 +276,6 @@ export const en: Translations = {
         ticket: "490 CZK",
         venue: "Královské Lázně — Jiřího náměstí 4, 290 01 Poděbrady",
         speaker: "Viktoria Platonova, Wellness Coach and Yoga Teacher, Founder of MaMeetUs, a community platform connecting mothers through local events like yoga classes, café meetups, and stroller walks, giving women a place to find both practical support and genuine friendship in motherhood. \"I work with women at the intersection of movement, breath, and mind, believing that connection, to others and to ourselves, is the first step back to who we truly are.\" Viktoria shares her story over coffee as this month's One Cup, One Story guest.",
-      },
-      {
-        slug: "owning-your-next-chapter",
-        dateLabel: "Thursday, January 14, 2027 · 18:00–20:00",
-        dateTag: "Jan 14, 2027",
-        title: "Owning Your Next Chapter",
-        description: "New-year vision setting — clarifying goals and the version of success you’re actually building toward.",
-        ticket: "490 CZK",
-        venue: "Královské Lázně — Jiřího náměstí 4, 290 01 Poděbrady",
-      },
-      {
-        slug: "love",
-        dateLabel: "Thursday, February 11, 2027 · 18:00–20:00",
-        dateTag: "Feb 11, 2027",
-        title: "Love",
-        description: "Self-love as the foundation of leadership, love in partnerships and teams, and bringing heart back into how we lead and work.",
-        ticket: "490 CZK",
-        venue: "Královské Lázně — Jiřího náměstí 4, 290 01 Poděbrady",
-      },
-      {
-        slug: "leading-with-purpose",
-        dateLabel: "Thursday, March 11, 2027 · 18:00–20:00",
-        dateTag: "Mar 11, 2027",
-        title: "Leading With Purpose",
-        description: "Timed around International Women’s Day — leadership styles, mentorship, and aligning your work with what actually matters to you. On women leading on their own terms, not by anyone else's playbook.",
-        ticket: "490 CZK",
-        venue: "Královské Lázně — Jiřího náměstí 4, 290 01 Poděbrady",
-      },
-      {
-        slug: "owning-your-worth",
-        dateLabel: "Thursday, April 8, 2027 · 18:00–20:00",
-        dateTag: "Apr 8, 2027",
-        title: "Owning Your Worth",
-        description: "Imposter syndrome, credibility, and putting an actual number on what you know: negotiating your rate, pricing your work, and believing you deserve the ask. From believing you're the expert to being paid like one.",
-        ticket: "490 CZK",
-        venue: "Královské Lázně — Jiřího náměstí 4, 290 01 Poděbrady",
-      },
-      {
-        slug: "ai-honestly",
-        dateLabel: "Thursday, May 13, 2027 · 18:00–20:00",
-        dateTag: "May 13, 2027",
-        title: "AI, Honestly",
-        description: "A candid discussion surfacing the real fears, doubts, and misconceptions about AI — a preview of the next season, and an opener for a follow-on online workshop.",
-        ticket: "490 CZK",
-        venue: "Královské Lázně — Jiřího náměstí 4, 290 01 Poděbrady",
       },
     ],
   },
@@ -424,57 +286,6 @@ export const en: Translations = {
     intro: "Reflections on connection, decision-making, and building something that matters — from Tamara and the Kafe con Propósito community.",
     readMoreCta: "Read more →",
     backToBlog: "← Back to the blog",
-  },
-
-  memberships: {
-    label: "FIND YOUR SEAT",
-    heading: "Three ways to be part of it",
-    subheading:
-      "Start with one gathering, or step into the community. You decide the pace.",
-    tiers: [
-      {
-        name: "The Espresso Shot",
-        tag: "Pay as you go",
-        price: "490 CZK",
-        per: "per session",
-        desc: "Try a gathering before you commit. The perfect entry point for first-timers.",
-        perks: [
-          "Single-session ticket",
-          "Choose any open gathering",
-          "No commitment",
-        ],
-        featured: false,
-      },
-      {
-        name: "The Brew Community",
-        tag: "Most popular",
-        price: "850 CZK",
-        per: "per month",
-        desc: "Member discounts and the directory.",
-        perks: [
-          "1 gathering/month",
-          "Member directory access",
-          "Discounts on workshops",
-          "WhatsApp circle",
-        ],
-        featured: true,
-      },
-      {
-        name: "The Roastery",
-        tag: "Premium",
-        price: "1,950 CZK",
-        per: "per month",
-        desc: "Everything in Brew, plus deeper experiences and visibility.",
-        perks: [
-          "Everything in Brew",
-          "Monthly Mastermind",
-          "VIP guest pass",
-          "Business spotlight",
-        ],
-        featured: false,
-      },
-    ],
-    chooseCta: "Choose this →",
   },
 
   community: {
@@ -580,63 +391,6 @@ export const en: Translations = {
     errorMsg: "Something went wrong sending that. Please try again or email us directly.",
     successMessage: "Thanks — we’ll be in touch soon.",
     followText: "Or follow us on",
-  },
-
-  bbb: {
-    label: "PROGRAMME",
-    heading: "Business Building Blocks",
-    intro: 'Turn your business idea into reality. A 2-month programme that takes you from "I have an idea" to "I have a real, working business." Live workshops and learn-at-your-own-pace sessions — no fluff, no theory that doesn’t work in real life.',
-    registerCta: "Register your interest →",
-    workshopDetailsCta: "Workshop details",
-    outcomesLabel: "WHAT YOU’LL WALK AWAY WITH",
-    outcomesHeading: "More than a course — a turning point",
-    outcomes: [
-      {
-        title: "Someone who actually gets it",
-        body: "Forget cookie-cutter advice. You’ll develop your own leadership style and create a plan that fits your life, your values, and your goals.",
-      },
-      {
-        title: "Confidence to avoid expensive mistakes",
-        body: "Learn from people who’ve been there. Get the insider knowledge that helps you sidestep the costly errors most new business owners make.",
-      },
-      {
-        title: "A business that can actually grow",
-        body: "Stop building something that only works if you’re doing everything yourself. Create systems and structures that let your business expand without burning you out.",
-      },
-      {
-        title: "People who get what you’re going through",
-        body: "Connect with others on the same journey — people to celebrate wins with, brainstorm solutions with, and lean on when things get tough.",
-      },
-    ],
-    differentLabel: "WHY THIS PROGRAMME IS DIFFERENT",
-    differentHeading: "Built for the way real businesses grow",
-    differentiators: [
-      {
-        title: "You’ll learn what actually matters",
-        body: "From finding the right partners to understanding your finances, from building your business model to becoming the leader your company needs. No critical gaps.",
-      },
-      {
-        title: "It fits into your real life",
-        body: "Each 1.5–2 hour workshop tackles one specific challenge. Not drinking from a fire hose — learning something practical, then using it before the next session.",
-      },
-      {
-        title: "You learn by doing",
-        body: "Spread across 2 months, giving you time to apply what you’re learning. Each week builds on the last, creating real momentum in your business.",
-      },
-    ],
-    curriculumLabel: "HERE’S WHAT WE’LL COVER",
-    curriculumHeading: "Six building blocks",
-    curriculum: [
-      "Getting Your Mind Right — the foundation every successful entrepreneur needs",
-      "Making Decisions That Move You Forward — clear goals, clear action",
-      "Building Something That Lasts — strong foundations from day one",
-      "Understanding Your Market — who needs what you offer, and how to reach them",
-      "Turning Conversations Into Sales — real negotiation skills that feel authentic",
-      "Smart Growth — using connections, technology, and AI tools to scale efficiently",
-    ],
-    finalCtaHeading: "Register your interest today",
-    finalCtaSubheading: "Limited spaces.",
-    finalCtaButton: "Start now →",
   },
 
   tenx: {

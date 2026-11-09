@@ -24,7 +24,6 @@ import { Route as LangFounderRouteImport } from './routes/$lang/founder'
 import { Route as LangContactThankYouRouteImport } from './routes/$lang/contact-thank-you'
 import { Route as LangContactRouteImport } from './routes/$lang/contact'
 import { Route as LangCommunityRouteImport } from './routes/$lang/community'
-import { Route as LangBusinessBuildingBlocksRouteImport } from './routes/$lang/business-building-blocks'
 import { Route as LangAboutRouteImport } from './routes/$lang/about'
 import { Route as Lang10xUnstuckRouteImport } from './routes/$lang/10x-unstuck'
 import { Route as Lang10xProductiveRouteImport } from './routes/$lang/10x-productive'
@@ -111,12 +110,6 @@ const LangCommunityRoute = LangCommunityRouteImport.update({
   path: '/community',
   getParentRoute: () => LangRouteRoute,
 } as any)
-const LangBusinessBuildingBlocksRoute =
-  LangBusinessBuildingBlocksRouteImport.update({
-    id: '/business-building-blocks',
-    path: '/business-building-blocks',
-    getParentRoute: () => LangRouteRoute,
-  } as any)
 const LangAboutRoute = LangAboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -169,7 +162,6 @@ export interface FileRoutesByFullPath {
   '/$lang/10x-productive': typeof Lang10xProductiveRoute
   '/$lang/10x-unstuck': typeof Lang10xUnstuckRoute
   '/$lang/about': typeof LangAboutRoute
-  '/$lang/business-building-blocks': typeof LangBusinessBuildingBlocksRoute
   '/$lang/community': typeof LangCommunityRoute
   '/$lang/contact': typeof LangContactRoute
   '/$lang/contact-thank-you': typeof LangContactThankYouRoute
@@ -195,7 +187,6 @@ export interface FileRoutesByTo {
   '/$lang/10x-productive': typeof Lang10xProductiveRoute
   '/$lang/10x-unstuck': typeof Lang10xUnstuckRoute
   '/$lang/about': typeof LangAboutRoute
-  '/$lang/business-building-blocks': typeof LangBusinessBuildingBlocksRoute
   '/$lang/community': typeof LangCommunityRoute
   '/$lang/contact': typeof LangContactRoute
   '/$lang/contact-thank-you': typeof LangContactThankYouRoute
@@ -223,7 +214,6 @@ export interface FileRoutesById {
   '/$lang/10x-productive': typeof Lang10xProductiveRoute
   '/$lang/10x-unstuck': typeof Lang10xUnstuckRoute
   '/$lang/about': typeof LangAboutRoute
-  '/$lang/business-building-blocks': typeof LangBusinessBuildingBlocksRoute
   '/$lang/community': typeof LangCommunityRoute
   '/$lang/contact': typeof LangContactRoute
   '/$lang/contact-thank-you': typeof LangContactThankYouRoute
@@ -252,7 +242,6 @@ export interface FileRouteTypes {
     | '/$lang/10x-productive'
     | '/$lang/10x-unstuck'
     | '/$lang/about'
-    | '/$lang/business-building-blocks'
     | '/$lang/community'
     | '/$lang/contact'
     | '/$lang/contact-thank-you'
@@ -278,7 +267,6 @@ export interface FileRouteTypes {
     | '/$lang/10x-productive'
     | '/$lang/10x-unstuck'
     | '/$lang/about'
-    | '/$lang/business-building-blocks'
     | '/$lang/community'
     | '/$lang/contact'
     | '/$lang/contact-thank-you'
@@ -305,7 +293,6 @@ export interface FileRouteTypes {
     | '/$lang/10x-productive'
     | '/$lang/10x-unstuck'
     | '/$lang/about'
-    | '/$lang/business-building-blocks'
     | '/$lang/community'
     | '/$lang/contact'
     | '/$lang/contact-thank-you'
@@ -444,13 +431,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LangCommunityRouteImport
       parentRoute: typeof LangRouteRoute
     }
-    '/$lang/business-building-blocks': {
-      id: '/$lang/business-building-blocks'
-      path: '/business-building-blocks'
-      fullPath: '/$lang/business-building-blocks'
-      preLoaderRoute: typeof LangBusinessBuildingBlocksRouteImport
-      parentRoute: typeof LangRouteRoute
-    }
     '/$lang/about': {
       id: '/$lang/about'
       path: '/about'
@@ -521,7 +501,6 @@ interface LangRouteRouteChildren {
   Lang10xProductiveRoute: typeof Lang10xProductiveRoute
   Lang10xUnstuckRoute: typeof Lang10xUnstuckRoute
   LangAboutRoute: typeof LangAboutRoute
-  LangBusinessBuildingBlocksRoute: typeof LangBusinessBuildingBlocksRoute
   LangCommunityRoute: typeof LangCommunityRoute
   LangContactRoute: typeof LangContactRoute
   LangContactThankYouRoute: typeof LangContactThankYouRoute
@@ -542,7 +521,6 @@ const LangRouteRouteChildren: LangRouteRouteChildren = {
   Lang10xProductiveRoute: Lang10xProductiveRoute,
   Lang10xUnstuckRoute: Lang10xUnstuckRoute,
   LangAboutRoute: LangAboutRoute,
-  LangBusinessBuildingBlocksRoute: LangBusinessBuildingBlocksRoute,
   LangCommunityRoute: LangCommunityRoute,
   LangContactRoute: LangContactRoute,
   LangContactThankYouRoute: LangContactThankYouRoute,

@@ -1,6 +1,5 @@
 export type Translations = {
   common: {
-  common: {
     siteName: string;
     nav: {
       home: string;
@@ -9,20 +8,17 @@ export type Translations = {
       events: string;
       blog: string;
       blogEs: string;
-      memberships: string;
       community: string;
       cesky: string;
       contact: string;
     };
     programmesLabel: string;
     programmesItems: {
-      bbb: string;
       tenx: string;
       unveiled: string;
       spanishConversation: string;
     };
     reserve: string;
-    exploreMemberships: string;
     footer: {
       tagline: string;
       exploreHeading: string;
@@ -36,7 +32,6 @@ export type Translations = {
       navFounder: string;
       navEvents: string;
       navBlog: string;
-      navMemberships: string;
       navCommunity: string;
       navFreeGuide: string;
       termsAndPrivacy: string;
@@ -54,14 +49,10 @@ export type Translations = {
     eventsDescription: string;
     blogTitle: string;
     blogDescription: string;
-    membershipsTitle: string;
-    membershipsDescription: string;
     communityTitle: string;
     communityDescription: string;
     contactTitle: string;
     contactDescription: string;
-    bbbTitle: string;
-    bbbDescription: string;
     tenxTitle: string;
     tenxDescription: string;
     unveiledTitle: string;
@@ -82,25 +73,6 @@ export type Translations = {
     guideTeaserHeading: string;
     guideTeaserBody: string;
     guideTeaserCta: string;
-    whatKafeLabel: string;
-    whatKafeHeading: string;
-    pillars: Array<{ icon: string; title: string; text: string }>;
-    belongLabel: string;
-    belongHeading: string;
-    belongItems: string[];
-    belongDisclaimer: string;
-    tiersLabel: string;
-    tiersHeading: string;
-    tiersSubheading: string;
-    tiers: Array<{
-      name: string;
-      price: string;
-      per: string;
-      tagline: string;
-      desc: string;
-      cta: string;
-      featured: boolean;
-    }>;
     ctaHeading: string;
     ctaSubheading: string;
   };
@@ -225,22 +197,6 @@ export type Translations = {
     backToBlog: string;
   };
 
-  memberships: {
-    label: string;
-    heading: string;
-    subheading: string;
-    tiers: Array<{
-      name: string;
-      tag: string;
-      price: string;
-      per: string;
-      desc: string;
-      perks: string[];
-      featured: boolean;
-    }>;
-    chooseCta: string;
-  };
-
   community: {
     label: string;
     heading: string;
@@ -280,26 +236,6 @@ export type Translations = {
     errorMsg: string;
     successMessage: string;
     followText: string;
-  };
-
-  bbb: {
-    label: string;
-    heading: string;
-    intro: string;
-    registerCta: string;
-    workshopDetailsCta: string;
-    outcomesLabel: string;
-    outcomesHeading: string;
-    outcomes: Array<{ title: string; body: string }>;
-    differentLabel: string;
-    differentHeading: string;
-    differentiators: Array<{ title: string; body: string }>;
-    curriculumLabel: string;
-    curriculumHeading: string;
-    curriculum: string[];
-    finalCtaHeading: string;
-    finalCtaSubheading: string;
-    finalCtaButton: string;
   };
 
   tenx: {

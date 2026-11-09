@@ -135,10 +135,8 @@ function EventDetail() {
 
   const index = t.events.list.findIndex((e) => e.slug === slug);
   const event = t.events.list[index];
-  const isLaunch = index === 0;
-  const isClose = index === t.events.list.length - 1;
   const nextEvent = t.events.list[index + 1];
-  const eyebrow = isLaunch ? t.events.seasonLaunchEyebrow : isClose ? t.events.seasonCloseEyebrow : t.events.thisEditionEyebrow;
+  const eyebrow = t.events.thisEditionEyebrow;
 
   const rhythmItems = [
     t.events.rhythm.oneCup,
