@@ -81,13 +81,6 @@ function HomePage() {
             <Animate delay={200}>
               <p className="mt-4 text-sm text-muted-foreground">{t.home.heroSubtext}</p>
             </Animate>
-            <Animate delay={300}>
-              <div className="mt-10 flex flex-wrap gap-4">
-                <Link to={"/$lang/events/$slug"} params={{ lang, slug: "motherhood-and-ambition" }} className="px-7 py-4 rounded-full bg-gradient-to-r from-sage to-sage/80 text-sage-foreground hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-sage/20">
-                  {t.common.reserve}
-                </Link>
-              </div>
-            </Animate>
           </div>
           <Animate delay={200}>
             <div className="relative">
@@ -202,11 +195,6 @@ function HomePage() {
           </Animate>
           <Animate delay={100}>
             <p className="mt-6 text-lg text-foreground/75 whitespace-pre-line">{t.home.ctaSubheading}</p>
-            <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <Link to={"/$lang/events/$slug"} params={{ lang, slug: "motherhood-and-ambition" }} className="px-7 py-4 rounded-full bg-gradient-to-r from-sage to-sage/80 text-sage-foreground hover:scale-[1.02] active:scale-[0.98] transition-all">
-                {t.common.reserve}
-              </Link>
-            </div>
           </Animate>
         </div>
       </section>

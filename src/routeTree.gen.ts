@@ -28,10 +28,8 @@ import { Route as LangAboutRouteImport } from './routes/$lang/about'
 import { Route as Lang10xUnstuckRouteImport } from './routes/$lang/10x-unstuck'
 import { Route as Lang10xProductiveRouteImport } from './routes/$lang/10x-productive'
 import { Route as EsBlogIndexRouteImport } from './routes/es/blog/index'
-import { Route as LangEventsIndexRouteImport } from './routes/$lang/events/index'
 import { Route as LangBlogIndexRouteImport } from './routes/$lang/blog/index'
 import { Route as EsBlogSlugRouteImport } from './routes/es/blog/$slug'
-import { Route as LangEventsSlugRouteImport } from './routes/$lang/events/$slug'
 import { Route as LangBlogSlugRouteImport } from './routes/$lang/blog/$slug'
 
 const LangRouteRoute = LangRouteRouteImport.update({
@@ -130,11 +128,6 @@ const EsBlogIndexRoute = EsBlogIndexRouteImport.update({
   path: '/es/blog/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LangEventsIndexRoute = LangEventsIndexRouteImport.update({
-  id: '/events/',
-  path: '/events/',
-  getParentRoute: () => LangRouteRoute,
-} as any)
 const LangBlogIndexRoute = LangBlogIndexRouteImport.update({
   id: '/blog/',
   path: '/blog/',
@@ -144,11 +137,6 @@ const EsBlogSlugRoute = EsBlogSlugRouteImport.update({
   id: '/es/blog/$slug',
   path: '/es/blog/$slug',
   getParentRoute: () => rootRouteImport,
-} as any)
-const LangEventsSlugRoute = LangEventsSlugRouteImport.update({
-  id: '/events/$slug',
-  path: '/events/$slug',
-  getParentRoute: () => LangRouteRoute,
 } as any)
 const LangBlogSlugRoute = LangBlogSlugRouteImport.update({
   id: '/blog/$slug',
@@ -176,10 +164,8 @@ export interface FileRoutesByFullPath {
   '/es/guide-thank-you': typeof EsGuideThankYouRoute
   '/$lang/': typeof LangIndexRoute
   '/$lang/blog/$slug': typeof LangBlogSlugRoute
-  '/$lang/events/$slug': typeof LangEventsSlugRoute
   '/es/blog/$slug': typeof EsBlogSlugRoute
   '/$lang/blog/': typeof LangBlogIndexRoute
-  '/$lang/events/': typeof LangEventsIndexRoute
   '/es/blog/': typeof EsBlogIndexRoute
 }
 export interface FileRoutesByTo {
@@ -201,10 +187,8 @@ export interface FileRoutesByTo {
   '/es/guide-thank-you': typeof EsGuideThankYouRoute
   '/$lang': typeof LangIndexRoute
   '/$lang/blog/$slug': typeof LangBlogSlugRoute
-  '/$lang/events/$slug': typeof LangEventsSlugRoute
   '/es/blog/$slug': typeof EsBlogSlugRoute
   '/$lang/blog': typeof LangBlogIndexRoute
-  '/$lang/events': typeof LangEventsIndexRoute
   '/es/blog': typeof EsBlogIndexRoute
 }
 export interface FileRoutesById {
@@ -228,10 +212,8 @@ export interface FileRoutesById {
   '/es/guide-thank-you': typeof EsGuideThankYouRoute
   '/$lang/': typeof LangIndexRoute
   '/$lang/blog/$slug': typeof LangBlogSlugRoute
-  '/$lang/events/$slug': typeof LangEventsSlugRoute
   '/es/blog/$slug': typeof EsBlogSlugRoute
   '/$lang/blog/': typeof LangBlogIndexRoute
-  '/$lang/events/': typeof LangEventsIndexRoute
   '/es/blog/': typeof EsBlogIndexRoute
 }
 export interface FileRouteTypes {
@@ -256,10 +238,8 @@ export interface FileRouteTypes {
     | '/es/guide-thank-you'
     | '/$lang/'
     | '/$lang/blog/$slug'
-    | '/$lang/events/$slug'
     | '/es/blog/$slug'
     | '/$lang/blog/'
-    | '/$lang/events/'
     | '/es/blog/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -281,10 +261,8 @@ export interface FileRouteTypes {
     | '/es/guide-thank-you'
     | '/$lang'
     | '/$lang/blog/$slug'
-    | '/$lang/events/$slug'
     | '/es/blog/$slug'
     | '/$lang/blog'
-    | '/$lang/events'
     | '/es/blog'
   id:
     | '__root__'
@@ -307,10 +285,8 @@ export interface FileRouteTypes {
     | '/es/guide-thank-you'
     | '/$lang/'
     | '/$lang/blog/$slug'
-    | '/$lang/events/$slug'
     | '/es/blog/$slug'
     | '/$lang/blog/'
-    | '/$lang/events/'
     | '/es/blog/'
   fileRoutesById: FileRoutesById
 }
@@ -459,13 +435,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EsBlogIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/$lang/events/': {
-      id: '/$lang/events/'
-      path: '/events'
-      fullPath: '/$lang/events/'
-      preLoaderRoute: typeof LangEventsIndexRouteImport
-      parentRoute: typeof LangRouteRoute
-    }
     '/$lang/blog/': {
       id: '/$lang/blog/'
       path: '/blog'
@@ -479,13 +448,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/es/blog/$slug'
       preLoaderRoute: typeof EsBlogSlugRouteImport
       parentRoute: typeof rootRouteImport
-    }
-    '/$lang/events/$slug': {
-      id: '/$lang/events/$slug'
-      path: '/events/$slug'
-      fullPath: '/$lang/events/$slug'
-      preLoaderRoute: typeof LangEventsSlugRouteImport
-      parentRoute: typeof LangRouteRoute
     }
     '/$lang/blog/$slug': {
       id: '/$lang/blog/$slug'
@@ -512,9 +474,7 @@ interface LangRouteRouteChildren {
   LangTheUnveiledExperienceRoute: typeof LangTheUnveiledExperienceRoute
   LangIndexRoute: typeof LangIndexRoute
   LangBlogSlugRoute: typeof LangBlogSlugRoute
-  LangEventsSlugRoute: typeof LangEventsSlugRoute
   LangBlogIndexRoute: typeof LangBlogIndexRoute
-  LangEventsIndexRoute: typeof LangEventsIndexRoute
 }
 
 const LangRouteRouteChildren: LangRouteRouteChildren = {
@@ -532,9 +492,7 @@ const LangRouteRouteChildren: LangRouteRouteChildren = {
   LangTheUnveiledExperienceRoute: LangTheUnveiledExperienceRoute,
   LangIndexRoute: LangIndexRoute,
   LangBlogSlugRoute: LangBlogSlugRoute,
-  LangEventsSlugRoute: LangEventsSlugRoute,
   LangBlogIndexRoute: LangBlogIndexRoute,
-  LangEventsIndexRoute: LangEventsIndexRoute,
 }
 
 const LangRouteRouteWithChildren = LangRouteRoute._addFileChildren(
