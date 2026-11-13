@@ -18,7 +18,6 @@ export function SiteHeader() {
   const nav = [
     { to: "/", label: t.common.nav.home, anchor: undefined as string | undefined },
     { to: "/founder", label: t.common.nav.founder, anchor: undefined as string | undefined },
-    { to: "/events", label: t.common.nav.events, anchor: undefined as string | undefined },
     { to: "/community", label: t.common.nav.community, anchor: undefined as string | undefined },
     { to: "/blog", label: t.common.nav.blog, anchor: undefined as string | undefined },
     { to: "/es/blog", label: t.common.nav.blogEs, anchor: undefined as string | undefined, absolute: true },
