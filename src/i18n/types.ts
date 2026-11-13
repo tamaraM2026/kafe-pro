@@ -62,6 +62,11 @@ export type Translations = {
     heroBrandName: string;
     heroDescription: string;
     heroSubtext: string;
+    pauseNote: string;
+    pauseEmailPlaceholder: string;
+    pauseSubmitButton: string;
+    pauseSuccessMessage: string;
+    pauseErrorMessage: string;
     painHeading: string;
     painSubheading: string;
     quotes: string[];

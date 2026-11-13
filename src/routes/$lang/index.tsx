@@ -33,9 +33,11 @@ import adelaImg from "@/assets/testimonial-adela.jpg";
 import irenaImg from "@/assets/testimonial-irena.jpg";
 
 const testimonialImages = [valeriaImg, adelaImg, irenaImg];
+import { useState } from "react";
 import { Animate } from "@/components/Animate";
 import { useTranslations, useLang } from "@/hooks/use-translations";
 import { getTranslations } from "@/i18n";
+import { submitToWeb3Forms } from "@/lib/web3forms";
 
 export const Route = createFileRoute("/$lang/")({
   head: ({ params }) => {
@@ -58,6 +60,18 @@ export const Route = createFileRoute("/$lang/")({
 function HomePage() {
   const t = useTranslations();
   const lang = useLang();
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  async function handlePauseSignup(e: React.FormEvent) {
+    e.preventDefault();
+    setStatus("loading");
+    const ok = await submitToWeb3Forms({
+      subject: "Kafe: gathering pause notify-me signup",
+      email,
+    });
+    setStatus(ok ? "success" : "error");
+  }
 
   return (
     <>
@@ -80,6 +94,35 @@ function HomePage() {
             </Animate>
             <Animate delay={200}>
               <p className="mt-4 text-sm text-muted-foreground">{t.home.heroSubtext}</p>
+            </Animate>
+            <Animate delay={300}>
+              <div className="mt-10 max-w-md">
+                <p className="text-foreground/80 leading-relaxed">{t.home.pauseNote}</p>
+                {status === "success" ? (
+                  <p className="mt-4 text-sage font-medium">{t.home.pauseSuccessMessage}</p>
+                ) : (
+                  <form onSubmit={handlePauseSignup} className="mt-4 flex flex-wrap gap-3">
+                    <input
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder={t.home.pauseEmailPlaceholder}
+                      className="flex-1 min-w-[200px] px-5 py-3 rounded-full border border-foreground/15 bg-white/60 placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-sage/50"
+                    />
+                    <button
+                      type="submit"
+                      disabled={status === "loading"}
+                      className="px-7 py-3 rounded-full bg-gradient-to-r from-sage to-sage/80 text-sage-foreground hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-sage/20 disabled:opacity-60 disabled:hover:scale-100"
+                    >
+                      {t.home.pauseSubmitButton}
+                    </button>
+                  </form>
+                )}
+                {status === "error" && (
+                  <p className="mt-3 text-sm text-destructive">{t.home.pauseErrorMessage}</p>
+                )}
+              </div>
             </Animate>
           </div>
           <Animate delay={200}>

@@ -76,7 +76,13 @@ export const en: Translations = {
     heroBrandName: "Kafe con Propósito",
     heroDescription:
       " brings professional women, entrepreneurs, and expats together — in person, over really good coffee. Real conversations. Genuine connection. No pitches, no pressure.",
-    heroSubtext: "Gathering · Central Bohemia · November 12, 2026",
+    heroSubtext: "Central Bohemia",
+    pauseNote:
+      "Kafe con Propósito is taking a break from monthly gatherings. Leave your email to hear when we meet again.",
+    pauseEmailPlaceholder: "Your email",
+    pauseSubmitButton: "Notify me",
+    pauseSuccessMessage: "Thank you — we'll let you know when we're back.",
+    pauseErrorMessage: "Something went wrong. Please try again.",
     painHeading: "You’re surrounded by people.\nAnd still figuring it out alone.",
     painSubheading:
       "Whether you’ve been here your whole life or arrived last year, growing as a professional woman can feel isolating — especially when the people around you don’t quite get what you’re building.",
